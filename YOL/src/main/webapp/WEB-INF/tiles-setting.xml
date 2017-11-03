@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<!-- 
+	1. 레이아웃을 구성할 파일 지정(디자인 파일 지정)
+	2. 1번에서 사용할 조각 페이지 파일을 지정
+ -->
+
+<tiles-definitions>
+
+	<definition name="*" template="/WEB-INF/views/layouts/test.jsp">
+		<put-attribute name="main" value="/WEB-INF/views/hello.jsp" />
+	</definition>
+	
+</tiles-definitions>
