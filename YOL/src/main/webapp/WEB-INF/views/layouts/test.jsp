@@ -9,9 +9,7 @@
 <title>최종 프로젝트</title>
 </head>
 <body>
-	<h1>테스트</h1>
-	
-	<tiles:insertAttribute name="main"></tiles:insertAttribute>
-	
+	<h1>완전 공통적인 부분만 넣는 페이지</h1>
+	<tiles:insertAttribute name="main"></tiles:insertAttribute>	
 </body>
 </html>
