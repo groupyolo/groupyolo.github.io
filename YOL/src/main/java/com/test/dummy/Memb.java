@@ -1,4 +1,4 @@
-package dummy;
+package com.test.dummy;
 
 import java.util.ArrayList;
 import java.util.Calendar;
