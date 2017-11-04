@@ -1,5 +1,3 @@
-package dummy;
-
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashSet;
@@ -175,7 +173,7 @@ public class Memb {
 				System.out.printf("insert into statemember(smSeq,mSeq, msSeq, smDate, smDetail) values(smSeq.nextval,%d,default,(select mDate from member where mSeq=%d),null);\r\n",i,i);
 			}
 			for(int i=1;i<=100;i++) {
-				W
+				
 				System.out.printf("insert into statemember(smSeq,mSeq, msSeq, smDate, smDetail) values(smSeq.nextval,%d,2,(select mDate from member where mSeq=%d)+1,null);\r\n",i,i);
 			}
 			
