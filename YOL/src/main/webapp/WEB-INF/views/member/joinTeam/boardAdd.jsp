@@ -38,6 +38,7 @@
 						<td><textarea name="jContent" id="" requried></textarea></td>
 					</tr>
 				</table>
+				<!-- 로그인한사람 --><%-- <input type="hidden" name="mSeq" value="${mSeq}"/> --%>
 			</div>
 			<div class="btns_add">
 				<input type="button" value="취소하기" onclick="history.back();"/>

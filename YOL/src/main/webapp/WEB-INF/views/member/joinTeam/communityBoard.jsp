@@ -20,24 +20,28 @@
 		</form>
 	</div>
 	<table class="tbl">
-		<tr>
-			<th>번호</th>
-			<th>제목</th>
-			<th>기간</th>
-			<th>인원수</th>
-			<th>글쓴이</th>
-			<th>조회수</th>
-			<th>날짜</th>
-		</tr>
-		<tr>
-			<td>1</td>
-			<td>팀원을 구합니다.</td>
-			<td>04/01~04/10</td>
-			<td>0/4</td>
-			<td>희쥬니</td>
-			<td>8</td>
-			<td>2017/03/31</td>
-		</tr>
+		<thead>
+			<tr>
+				<th>번호</th>
+				<th>제목</th>
+				<th>기간</th>
+				<th>인원수</th>
+				<th>글쓴이</th>
+				<th>날짜</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach items="${list}" var="dto">
+			<tr>
+				<td>${dto.reSeq}</td>
+				<td>${dto.jSubject}</td>
+				<td>${dto.jStart}~${dto.jEnd}</td>
+				<td>${jCount}/4</td>
+				<td>${dto.mSeq}</td>
+				<td>${dto.jRegDate}</td>
+			</tr>
+			</c:forEach>
+		</tbody>
 	</table>
 	<div id="bottomPaging"></div>
 	<input type="button" value="글쓰기" onclick="location.href='${pageContext.request.contextPath}/member/joinTeamAdd.action';"/>

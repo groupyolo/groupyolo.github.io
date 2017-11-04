@@ -3,7 +3,10 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
-	
+	<typeAliases>
+		<!-- <typeAlias type="com.yol.web.DTO.VJoinTeamDTO" alias="dto"/> -->
+		<package name="com.yol.web.DTO" />
+	</typeAliases>
 </configuration>
 
 

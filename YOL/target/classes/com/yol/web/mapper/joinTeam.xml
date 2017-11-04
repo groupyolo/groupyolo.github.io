@@ -4,6 +4,10 @@
 
 <!-- 회원>커뮤니티 -->
 <mapper namespace="joinTeam">
+	<select id="list" resultType="dto">
+		SELECT * FROM vJoinTeam
+	</select>
+	
 	<insert id="add" parameterType="dto">
 		INSERT INTO joinBoard VALUES (reSeq.nextval, #{mSeq}, #{jSubject}, #{jContent}, #{jStart}, #{jEnd}, 0, default, default)
 	</insert>
