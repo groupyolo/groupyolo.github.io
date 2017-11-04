@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 회원>커뮤니티 -->
+<mapper namespace="joinTeam">
+	<insert id="add" parameterType="dto">
+		INSERT INTO joinBoard VALUES (reSeq.nextval, #{mSeq}, #{jSubject}, #{jContent}, #{jStart}, #{jEnd}, 0, default, default)
+	</insert>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
