@@ -65,6 +65,7 @@
 	<div id="btns_view">
 		<input type="button" value="BACK" onclick="history.back();"/>
 		<input type="button" value="WRITE" onclick="location.href='${pageContext.request.contextPath}/member/joinTeamAdd.action';"/>
+		<!-- 로그인 확인 후 아이디 맞으면 보여줌  -->
 		<input type="button" value="EDIT" onclick="location.href='${pageContext.request.contextPath}/member/joinTeamEdit.action?reSeq=${tdto.reSeq}';"/>
 		<input type="button" value="DELETE" onclick="location.href='${pageContext.request.contextPath}/member/joinTeamDel.action?reSeq=${tdto.reSeq}';"/>
 	</div>
