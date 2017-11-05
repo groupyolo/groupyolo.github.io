@@ -1,29 +1,5 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 Manifest-Version: 1.0
-Built-By: cryin
-Build-Jdk: 1.8.0_121
+Built-By: diana
+Build-Jdk: 1.8.0_151
 Created-By: Maven Integration for Eclipse
 
-=======
-Manifest-Version: 1.0
-Built-By: kiha
-Build-Jdk: 1.8.0_144
-Created-By: Maven Integration for Eclipse
-
->>>>>>> parent of 906ed87... bootstrap
-=======
-Manifest-Version: 1.0
-Built-By: kiha
-Build-Jdk: 1.8.0_144
-Created-By: Maven Integration for Eclipse
-
->>>>>>> parent of 906ed87... bootstrap
-=======
-Manifest-Version: 1.0
-Built-By: kiha
-Build-Jdk: 1.8.0_144
-Created-By: Maven Integration for Eclipse
-
->>>>>>> parent of 168f850... merge?

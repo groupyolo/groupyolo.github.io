@@ -1,5 +1,4 @@
 <<<<<<< HEAD
-<<<<<<< HEAD
 #msubmenu{
 	float : left;
 	width: 150px;
@@ -8,16 +7,6 @@
 	min-height: 400px;
 		
 }
-=======
-#msubmenu{
-	float : left;
-	width: 150px;
-	border: 10px solid cornflowerblue;
-	padding: 10px;
-	min-height: 400px;
-		
-}
->>>>>>> parent of 906ed87... bootstrap
 =======
 #msubmenu{
 	float : left;
