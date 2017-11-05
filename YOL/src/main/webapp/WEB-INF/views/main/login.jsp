@@ -142,11 +142,13 @@ FB.logout(function(response) {
  
  <button type="button" class="button facebook" id="loginBtn">페이스북 계정</button>
  
-            <div id="access_token">a</div>
-            <div id="user_id">b</div>
-            <div id="name">c</div>
-            <div id="email">d</div>
-            <div id="id">g</div>
+            <div id="access_token"></div>
+            <div id="user_id"></div>
+            <div id="name"></div>
+            <div id="email"></div>
+            <div id="gender"></div>
+            <div id="birthday"></div>
+            <div id="id"></div>
             
 <script>
 function getUserData() {
