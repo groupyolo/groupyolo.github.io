@@ -4,13 +4,21 @@
 
 <!-- 회원>커뮤니티 -->
 <mapper namespace="joinTeam">
-	<select id="list" resultType="dto">
+	<select id="list" resultType="com.yol.web.DTO.VJoinTeamDTO">
 		SELECT * FROM vJoinTeam
 	</select>
 	
-	<insert id="add" parameterType="dto">
+	<insert id="add" parameterType="com.yol.web.DTO.JoinBoardDTO">
 		INSERT INTO joinBoard VALUES (reSeq.nextval, #{mSeq}, #{jSubject}, #{jContent}, #{jStart}, #{jEnd}, 0, default, default)
 	</insert>
+	
+	<select id="view" parameterType="String" resultType="com.yol.web.DTO.VJoinTeamDTO">
+		SELECT * FROM VJoinTeam WHERE reSeq = #{reSeq}
+	</select>
+	
+	<select id="member" parameterType="String" resultType="com.yol.web.DTO.VJoinMemberDTO">
+		SELECT * FROM VJoinMember WHERE reSeq = #{reSeq} ORDER BY jRegDate ASC
+	</select>
 	
 </mapper>
 
