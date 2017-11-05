@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.yol.web.DTO.ApproveDTO;
 import com.yol.web.DTO.JoinBoardDTO;
 import com.yol.web.DTO.VJoinMemberDTO;
 import com.yol.web.DTO.VJoinTeamDTO;
@@ -24,7 +25,7 @@ public class JoinTeamController {
 		
 		List<VJoinTeamDTO> list = sv.list();		
 		req.setAttribute("list", list);
-		
+				
 		return "member/joinTeam/communityBoard";
 	}
 	

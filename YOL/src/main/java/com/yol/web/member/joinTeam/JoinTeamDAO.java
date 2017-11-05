@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.yol.web.DTO.ApproveDTO;
 import com.yol.web.DTO.JoinBoardDTO;
 import com.yol.web.DTO.VJoinMemberDTO;
 import com.yol.web.DTO.VJoinTeamDTO;
@@ -34,6 +35,10 @@ public class JoinTeamDAO {
 
 	public int edit(JoinBoardDTO dto) {
 		return sql.update("joinTeam.edit", dto);
+	}
+
+	public List<ApproveDTO> approveList() {
+		return sql.selectList("joinTeam.approve");
 	}
 	
 }

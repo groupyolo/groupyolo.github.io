@@ -12,10 +12,13 @@ COMMIT;
 SELECT * FROM vjoinTeam;
 select gradeName from VjoinMember reSeq = '1';
 SELECT * FROM VJoinMember WHERE reSeq = '1' ORDER BY jRegDate ASC;
+SELECT decode(ACTIVESTATE, 'n', '마감', 'y', '모집중', 'd', '삭제') as activeState FROM joinBoard ;
+select replace(ACTIVESTATE, 'n', '1') from JOINBOARD ;
+
 
 CREATE OR REPLACE VIEW vjoinTeam
 AS
- SELECT jb.*,m.MNAME, m.MNICKNAME, (SELECT count(*) FROM JOIN WHERE reSeq = jb.RESEQ AND apSeq = '1') as mCount FROM JOINBOARD jb
+ SELECT jb.*,m.MNAME, m.MNICKNAME, (SELECT count(*) FROM JOIN WHERE reSeq = jb.RESEQ AND apSeq = '1') as mCount, decode(jb.ACTIVESTATE, 'n', '마감', 'y', '모집중', 'd', '삭제') as sName FROM JOINBOARD jb
     INNER JOIN MEMBER m
      ON jb.MSEQ = m.MSEQ;
 
