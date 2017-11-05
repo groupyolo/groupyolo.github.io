@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class MemberController {
 
 	@RequestMapping(method = { RequestMethod.GET }, value = "/member/home.action")
-	public String member(HttpServletRequest req) {
+	public String home(HttpServletRequest req) {
 
-		return "member/home";
+		return "member.home";
 	}
 	
 	
