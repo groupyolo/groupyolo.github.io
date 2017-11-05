@@ -166,7 +166,7 @@ public class Memb {
 			
 		}*/
 		
-		public static void state(){
+	/*	public static void state(){
 			
 			//대기 1 활성 2 휴면 3 탈퇴 4			
 			
@@ -180,7 +180,7 @@ public class Memb {
 			}
 			
 			
-		}
+		}*/
 		
 	
 }
