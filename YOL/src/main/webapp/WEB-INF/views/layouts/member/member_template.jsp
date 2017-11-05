@@ -13,10 +13,10 @@
 <tiles:insertAttribute name="asset"></tiles:insertAttribute>
 
 		<!-- header -->
-		<tiles:insertAttribute name="meny"></tiles:insertAttribute>
+		<tiles:insertAttribute name="membermenu"></tiles:insertAttribute>
 		
 		<!-- sidemenu -->
-		<tiles:insertAttribute name="submenu"></tiles:insertAttribute>
+		<tiles:insertAttribute name="membersubmenu"></tiles:insertAttribute>
 		
 		<!-- 주업무 -->
 		
