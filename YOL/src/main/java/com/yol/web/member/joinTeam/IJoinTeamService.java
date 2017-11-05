@@ -8,7 +8,7 @@ import com.yol.web.DTO.VJoinTeamDTO;
 
 public interface IJoinTeamService {
 	
-	void add(JoinBoardDTO dto);
+	int add(JoinBoardDTO dto);
 
 	//list목록
 	List<VJoinTeamDTO> list();
@@ -17,5 +17,7 @@ public interface IJoinTeamService {
 	VJoinTeamDTO getDTO(String reSeq);
 
 	List<VJoinMemberDTO> joinList(String reSeq);
+
+	int edit(JoinBoardDTO dto);
 
 }

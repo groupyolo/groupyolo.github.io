@@ -16,9 +16,8 @@ public class JoinTeamDAO {
 	@Autowired
 	private SqlSessionTemplate sql;
 
-	public void add(JoinBoardDTO dto) {
-		sql.insert("joinTeam.add", dto);
-		
+	public int add(JoinBoardDTO dto) {
+		return sql.insert("joinTeam.add", dto);		
 	}
 
 	public List<VJoinTeamDTO> list() {
@@ -31,6 +30,10 @@ public class JoinTeamDAO {
 
 	public List<VJoinMemberDTO> mlist(String reSeq) {
 		return sql.selectList("joinTeam.member", reSeq);
+	}
+
+	public int edit(JoinBoardDTO dto) {
+		return sql.update("joinTeam.edit", dto);
 	}
 	
 }

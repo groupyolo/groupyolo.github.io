@@ -20,8 +20,8 @@
 				<th>${tdto.jSubject}</th>
 			</tr>
 			<tr>
-				<td><!-- 현재 승인완료 인원 수 체크해서 반영 -->
-					0 / ${tdto.jCount}
+				<td>
+					${tdto.mCount} / ${tdto.jCount}
 				</td>
 				<td>${tdto.jStart} ~ ${tdto.jEnd}</td>
 			</tr>
@@ -52,11 +52,21 @@
 		<form action="${pageContext.request.contextPath}/member/joinMemberAddOk.action" method="get">
 			 <input type="submit"  value="멤버신청"/>
 		</form>
-		<!-- 조건; 신청이 완료된 멤버 && 모집글 마감 전 -->
+		
+		
+		<!-- 조건; 신청이 완료된 멤버 && 미승인시 && 모집글 마감 전 -->
+		
 		<form action="${pageContext.request.contextPath}/member/joinMemberCancleOk.action" method="get">
 			 <input type="submit"  value="멤버취소"/>
 		</form>
+		
 	<!-- 여기까지 ajax -->
+	</div>
+	<div id="btns_view">
+		<input type="button" value="BACK" onclick="history.back();"/>
+		<input type="button" value="WRITE" onclick="location.href='${pageContext.request.contextPath}/member/joinTeamAdd.action';"/>
+		<input type="button" value="EDIT" onclick="location.href='${pageContext.request.contextPath}/member/joinTeamEdit.action?reSeq=${tdto.reSeq}';"/>
+		<input type="button" value="DELETE" onclick="location.href='${pageContext.request.contextPath}/member/joinTeamDel.action?reSeq=${tdto.reSeq}';"/>
 	</div>
 </body>
 </html>

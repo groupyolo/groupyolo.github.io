@@ -18,29 +18,48 @@ public class JoinTeamService implements IJoinTeamService {
 	
 	@Override
 	@Transactional
-	public void add(JoinBoardDTO dto) {
-	//모임게시판 글쓰기
-		dao.add(dto);
-		
+	public int add(JoinBoardDTO dto) {
+		return dao.add(dto);		
 	}
 
 	@Override
 	@Transactional
 	public List<VJoinTeamDTO> list() {
 	// 게시판 리스트불러오기
-		return dao.list();
+		
+		List<VJoinTeamDTO> list = dao.list();
+		
+		for (VJoinTeamDTO dto : list) {			
+			//날짜수정
+			dto.setjStart((dto.getjStart().substring(0, 10)));
+			dto.setjEnd((dto.getjEnd().substring(0, 10)));
+		}
+				
+		return list;
 	}
 
 	@Override
 	public VJoinTeamDTO getDTO(String reSeq) {
 	// 글보기 1개글 불러오기
-		return dao.view(reSeq);
+		
+		VJoinTeamDTO dto = dao.view(reSeq);
+		
+		//날짜수정
+		dto.setjStart((dto.getjStart().substring(0, 10)));
+		dto.setjEnd((dto.getjEnd().substring(0, 10)));
+		
+		return dto;
 	}
 
 	@Override
 	public List<VJoinMemberDTO> joinList(String reSeq) {
 	// 신청자 리스트 불러오기
 		return dao.mlist(reSeq);
+	}
+
+	@Override
+	public int edit(JoinBoardDTO dto) {
+		return dao.edit(dto);
 	}
 
 }

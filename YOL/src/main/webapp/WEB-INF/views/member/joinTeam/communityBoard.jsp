@@ -38,8 +38,8 @@
 				<td>${dto.reSeq}</td>
 				<td><a href="${pageContext.request.contextPath}/member/joinTeamView.action?reSeq=${dto.reSeq}">${dto.jSubject}</a></td>
 				<td>${dto.jStart}~${dto.jEnd}</td>
-				<td>${jCount}/4</td>
-				<td>${dto.mSeq}</td>
+				<td>${dto.mCount}/${dto.jCount}</td>
+				<td>${dto.mNickName}</td>
 				<td>${dto.jRegDate}</td>
 			</tr>
 			</c:forEach>

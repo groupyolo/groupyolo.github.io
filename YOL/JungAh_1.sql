@@ -13,11 +13,9 @@ SELECT * FROM vjoinTeam;
 select gradeName from VjoinMember reSeq = '1';
 SELECT * FROM VJoinMember WHERE reSeq = '1' ORDER BY jRegDate ASC;
 
-DROP VIEW JOINTEAM;
-
 CREATE OR REPLACE VIEW vjoinTeam
 AS
- SELECT jb.*,m.MNAME FROM JOINBOARD jb
+ SELECT jb.*,m.MNAME, m.MNICKNAME, (SELECT count(*) FROM JOIN WHERE reSeq = jb.RESEQ AND apSeq = '1') as mCount FROM JOINBOARD jb
     INNER JOIN MEMBER m
      ON jb.MSEQ = m.MSEQ;
 

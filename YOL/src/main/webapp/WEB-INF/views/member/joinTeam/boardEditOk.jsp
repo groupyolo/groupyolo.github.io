@@ -8,9 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>팀원모집 글쓰기완료</h1>
 	<c:if test="${result==1}">
-		location.href="${pageContext.request.contextPath}/member/communityBoard.action";
+		location.href="/member/joinTeamView.action?reSeq=${dto.reSeq}";
 	</c:if>
 	<c:if test="${result==0}">
 		history.back;

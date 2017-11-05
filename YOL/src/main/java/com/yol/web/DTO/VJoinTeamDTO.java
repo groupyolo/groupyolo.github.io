@@ -14,6 +14,9 @@ public class VJoinTeamDTO {
 	private String jRegDate;
 	private String activeState;
 	private String mName;
+	private String mNickName;
+	private String mCount;
+	
 	public String getReSeq() {
 		return reSeq;
 	}
@@ -73,5 +76,17 @@ public class VJoinTeamDTO {
 	}
 	public void setmName(String mName) {
 		this.mName = mName;
+	}
+	public String getmNickName() {
+		return mNickName;
+	}
+	public void setmNickName(String mNickName) {
+		this.mNickName = mNickName;
+	}
+	public String getmCount() {
+		return mCount;
+	}
+	public void setmCount(String mCount) {
+		this.mCount = mCount;
 	}
 }

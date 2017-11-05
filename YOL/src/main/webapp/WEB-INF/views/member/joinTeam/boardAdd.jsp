@@ -7,8 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
-	
+<body>	
 	<h1>팀원모집 글쓰기</h1>
 	<div id="newRecruit">
 		<form action="${pageContext.request.contextPath}/member/joinTeamAddOk.action" method="post">
@@ -39,7 +38,9 @@
 						<td><textarea name="jContent" id="" requried></textarea></td>
 					</tr>
 				</table>
-				<!-- 로그인한사람 --><%-- <input type="hidden" name="mSeq" value="${mSeq}"/> --%>
+				<!-- 로그인한사람 -->
+				<input type="hidden" name="mSeq" value="${mSeq}"/>
+				
 			</div>
 			<div class="btns_add">
 				<input type="button" value="취소하기" onclick="history.back();"/>
