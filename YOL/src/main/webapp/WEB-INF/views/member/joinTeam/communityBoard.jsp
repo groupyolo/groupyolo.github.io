@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -19,6 +20,7 @@
 			<input type="submit" value="검색" />
 		</form>
 	</div>
+	<div id="listTbl"></div>
 	<table class="tbl">
 		<thead>
 			<tr>
@@ -43,8 +45,11 @@
 			</c:forEach>
 		</tbody>
 	</table>
-	<div id="bottomPaging"></div>
-	<input type="button" value="글쓰기" onclick="location.href='${pageContext.request.contextPath}/member/joinTeamAdd.action';"/>
-	
+	<div id="bottomPaging">
+		페이징
+	</div>
+	<div id="btns_list">
+		<input type="button" value="글쓰기" onclick="location.href='${pageContext.request.contextPath}/member/joinTeamAdd.action';"/>
+	</div>
 </body>
 </html>
