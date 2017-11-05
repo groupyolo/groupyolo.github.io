@@ -9,10 +9,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class MemberController {
 
+	@RequestMapping(method = { RequestMethod.GET }, value = "/main.action")
+	public String main(HttpServletRequest req) {
+
+		return "member";
+	}
+	
+	
 	@RequestMapping(method = { RequestMethod.GET }, value = "/member/home.action")
 	public String home(HttpServletRequest req) {
 
-		return "member.home";
+		return "member/home";
 	}
 	
 	
