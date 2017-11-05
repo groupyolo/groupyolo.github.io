@@ -18,13 +18,11 @@ public class JoinTeamService implements IJoinTeamService {
 	private JoinTeamDAO dao;
 	
 	@Override
-	@Transactional
 	public int add(JoinBoardDTO dto) {
 		return dao.add(dto);		
 	}
 
 	@Override
-	@Transactional
 	public List<VJoinTeamDTO> list() {
 	// 게시판 리스트불러오기
 		
