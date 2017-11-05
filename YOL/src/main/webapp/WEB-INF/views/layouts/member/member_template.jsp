@@ -9,17 +9,21 @@
 <title>멤버들이 보는 화면 구성</title>
 </head>
 <body>
-	
+<!-- assets -->
+<tiles:insertAttribute name="asset"></tiles:insertAttribute>
+
 		<!-- header -->
-		<tiles:insertAttribute name="main"></tiles:insertAttribute>
+		<tiles:insertAttribute name="mheader"></tiles:insertAttribute>
 		
 		<!-- sidemenu -->
-		<tiles:insertAttribute name="main"></tiles:insertAttribute>
+		<tiles:insertAttribute name="sidemenu"></tiles:insertAttribute>
 		
 		<!-- 주업무 -->
 		
 		<!-- footer -->
-		<tiles:insertAttribute name="main"></tiles:insertAttribute>
+		<div id="memberfooter">
+		
+		</div>
 		
 		
 </body>
