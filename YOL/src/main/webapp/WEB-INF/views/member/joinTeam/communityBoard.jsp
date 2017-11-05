@@ -6,6 +6,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script>
+	$(document).ready(function() {
+		
+	}
+</script>
 </head>
 <body>
 	<h1>팀원구하기용</h1>
@@ -14,7 +19,10 @@
 		<form action="" method="get">
 			<select name="" id="">
 				<option value=""></option>
-				<option value=""></option>
+			</select>
+			<select name="" id="">
+				<option value="">제목</option>
+				<option value="">글쓴이</option>
 			</select>
 			<input type="text" />
 			<input type="submit" value="검색" />
@@ -30,6 +38,7 @@
 				<th>인원수</th>
 				<th>글쓴이</th>
 				<th>날짜</th>
+				<th>상태</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -41,6 +50,7 @@
 				<td>${dto.mCount}/${dto.jCount}</td>
 				<td>${dto.mNickName}</td>
 				<td>${dto.jRegDate}</td>
+				<td>${dto.sName}</td>
 			</tr>
 			</c:forEach>
 		</tbody>

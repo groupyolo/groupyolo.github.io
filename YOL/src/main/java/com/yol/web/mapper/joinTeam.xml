@@ -9,7 +9,7 @@
 	</select>
 	
 	<insert id="add" parameterType="com.yol.web.DTO.JoinBoardDTO">
-		INSERT INTO joinBoard VALUES (reSeq.nextval, #{mSeq}, #{jSubject}, #{jContent}, #{jStart}, #{jEnd}, #{jCount}, default, default)
+		INSERT INTO joinBoard VALUES (reSeq.nextval, #{mSeq}, #{jSubject}, #{jContent}, #{jStart}, #{jEnd}, #{jCount}, default, 'y')
 	</insert>
 	
 	<select id="view" parameterType="String" resultType="com.yol.web.DTO.VJoinTeamDTO">
@@ -23,21 +23,6 @@
 	<update id="edit" parameterType="com.yol.web.DTO.JoinBoardDTO">
 		UPDATE joinBoard SET jSubject = #{jSubject}, jContent = #{jContent}, jStart = #{jStart}, jEnd = #{jEnd}, jCount = #{jCount} WHERE reSeq = #{reSeq}
 	</update>
+	
+	
 </mapper>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    
