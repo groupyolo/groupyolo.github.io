@@ -20,7 +20,7 @@
 		
 		
 		<!-- sidemenu -->
-		<tiles:insertAttribute name="membersubmenu"></tiles:insertAttribute>
+
 		
 		<!-- 주업무 -->
 		

@@ -13,7 +13,7 @@
 
 	<definition name="*.*" template="/WEB-INF/views/layouts/all.jsp" >
 		<!-- 방금 선언한 레이아웃 페이지에서 사용할 모듈을 정의(조각 페이지) -->
-		<put-attribute name="asset" value="/WEB-INF/views/inc/commons/asset.jsp"></put-attribute>	
+		<put-attribute name="asset" value="/WEB-INF/views/inc/asset.jsp"></put-attribute>	
 		<put-attribute name="membermenu" value="/WEB-INF/views/inc/{1}/{1}menu.jsp"></put-attribute>
 		<put-attribute name="membersubmenu" value="/WEB-INF/views/inc/{1}/{1}submenu.jsp"></put-attribute>
 		

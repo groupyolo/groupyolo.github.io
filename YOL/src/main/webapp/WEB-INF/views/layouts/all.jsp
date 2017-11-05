@@ -24,11 +24,9 @@
 
 	<div id="main">
 		<tiles:insertAttribute name="membermenu"></tiles:insertAttribute>
-		<tiles:insertAttribute name="membersubmenu"></tiles:insertAttribute>
-		
+
 		<!-- 주업무 조각 페이지 -->
-		<tiles:insertAttribute name="core"></tiles:insertAttribute>
-		
+
 	</div>
 
 </body>

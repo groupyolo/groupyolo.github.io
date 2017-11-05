@@ -19,7 +19,7 @@ public class MemberController {
 	@RequestMapping(method = { RequestMethod.GET }, value = "/member/home.action")
 	public String home(HttpServletRequest req) {
 
-		return "member/home";
+		return "member.home";
 	}
 	
 	
