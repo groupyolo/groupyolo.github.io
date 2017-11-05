@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.yol.web.DTO.JoinBoardDTO;
+import com.yol.web.DTO.VJoinMemberDTO;
 import com.yol.web.DTO.VJoinTeamDTO;
 
 @Repository
@@ -22,6 +23,14 @@ public class JoinTeamDAO {
 
 	public List<VJoinTeamDTO> list() {
 		return sql.selectList("joinTeam.list");
+	}
+
+	public VJoinTeamDTO view(String reSeq) {
+		return sql.selectOne("joinTeam.view", reSeq);
+	}
+
+	public List<VJoinMemberDTO> mlist(String reSeq) {
+		return sql.selectList("joinTeam.member", reSeq);
 	}
 	
 }
