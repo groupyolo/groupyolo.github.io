@@ -32,7 +32,7 @@
 	<div id="viewTbl">
 		<table class="tbl">
 			<tr>
-				<td>${tdto.mName}</td>
+				<td>${tdto.mNickName}</td>
 				<td>${tdto.jRegDate}</td>
 			</tr>
 			<tr>

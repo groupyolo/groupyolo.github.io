@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.yol.web.DTO.ApproveDTO;
 import com.yol.web.DTO.JoinBoardDTO;
+import com.yol.web.DTO.JoinDTO;
 import com.yol.web.DTO.VJoinMemberDTO;
 import com.yol.web.DTO.VJoinTeamDTO;
 
@@ -30,6 +31,7 @@ public class JoinTeamDAO {
 	}
 
 	public List<VJoinMemberDTO> mlist(String reSeq) {
+		System.out.println(reSeq);
 		return sql.selectList("joinTeam.member", reSeq);
 	}
 
@@ -43,6 +45,10 @@ public class JoinTeamDAO {
 
 	public List<VJoinTeamDTO> masterDTO(String mSeq) {
 		return sql.selectList("joinTeam.master", mSeq);
+	}
+
+	public int rejectM(JoinDTO dto) {		
+		return sql.update("joinTeam.reject", dto);
 	}
 	
 }

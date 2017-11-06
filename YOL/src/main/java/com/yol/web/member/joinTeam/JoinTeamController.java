@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.yol.web.DTO.JoinBoardDTO;
+import com.yol.web.DTO.JoinDTO;
 import com.yol.web.DTO.VJoinMemberDTO;
 import com.yol.web.DTO.VJoinTeamDTO;
 
@@ -72,10 +73,31 @@ public class JoinTeamController {
 	@RequestMapping(method= {RequestMethod.GET},value="/member/teamMaster.action")
 	public String masterBoard(HttpServletRequest req, String mSeq) {
 		
-		List<VJoinTeamDTO> mlist = sv.masterDTO(mSeq);
-		req.setAttribute("mlist", mlist);
+		List<VJoinTeamDTO> tlist = sv.masterDTO(mSeq);
+		req.setAttribute("tlist", tlist);
 		
 		return "member/joinTeam/masterBoard";
+	}
+	@RequestMapping(method= {RequestMethod.GET},value="/member/teamMasterMember.action")
+	public String masterBoardMember(HttpServletRequest req, String reSeq) {
+		
+		List<VJoinMemberDTO> mlist = sv.joinList(reSeq);
+		req.setAttribute("mlist", mlist);
+		
+		return "member/joinTeam/masterBoardMember";
+	}
+	@RequestMapping(method= {RequestMethod.GET},value="/member/approveMember.action")
+	public String approveMember(HttpServletRequest req, String jSeq) {
+		
+		return "member/joinTeam/approveMember";
+	}
+	@RequestMapping(method= {RequestMethod.GET},value="/member/rejectMember.action")
+	public String rejectMember(HttpServletRequest req, JoinDTO dto) {
+				
+		int result = sv.rejectM(dto);
+		req.setAttribute("result", result);
+		System.out.println("결과: " + result);
+		return "member/joinTeam/rejectMember";
 	}
 	
 }

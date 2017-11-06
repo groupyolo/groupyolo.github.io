@@ -2,8 +2,8 @@ package com.yol.web.member.joinTeam;
 
 import java.util.List;
 
-import com.yol.web.DTO.ApproveDTO;
 import com.yol.web.DTO.JoinBoardDTO;
+import com.yol.web.DTO.JoinDTO;
 import com.yol.web.DTO.VJoinMemberDTO;
 import com.yol.web.DTO.VJoinTeamDTO;
 
@@ -22,6 +22,8 @@ public interface IJoinTeamService {
 	int edit(JoinBoardDTO dto);
 
 	List<VJoinTeamDTO> masterDTO(String mSeq);
+
+	int rejectM(JoinDTO dto);
 
 
 }
