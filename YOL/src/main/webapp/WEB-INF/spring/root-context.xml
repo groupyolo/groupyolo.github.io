@@ -2,14 +2,23 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
 	
 	<!-- JDBC의 Connection 역할 -->
-	<bean id="source" class="org.apache.commons.dbcp.BasicDataSource">
+	<!-- 학원에서 -->
+	<!-- <bean id="source" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
 		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"></property>
-		<property name="username" value="hr"></property>
+		<property name="username" value="jung"></property>
+		<property name="password" value="java1234"></property>
+	</bean> -->
+	<bean id="source" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
+		<property name="url" value="jdbc:oracle:thin:@219.240.177.137:1521:xe"></property>
+		<property name="username" value="Jung"></property>
 		<property name="password" value="java1234"></property>
 	</bean>
 
@@ -26,7 +35,7 @@
 
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="log4j"></property>
-		<property name="mapperLocations" value="classpath*:com/test/spring/mapper/*.xml"></property>
+		<property name="mapperLocations" value="classpath*:com/yol/web/mapper/*.xml"></property>
 		<property name="configLocation" value="/WEB-INF/mybatis.xml"></property>
 	</bean>
 
@@ -51,4 +60,21 @@
 		<property name="maxUploadSize" value="104857600"></property> <!-- 100MByte -->
 	</bean>	
 		
+	  <!-- 메일보내기 -->
+   <bean id="mailSender" class = "org.springframework.mail.javamail.JavaMailSenderImpl">
+      <property name="host" value="smtp.gmail.com" />
+      <property name="port" value="587" />
+      <property name="username" value="이메일아이디" />
+      <property name="password" value="비밀번호" />
+      
+      <property name="javaMailProperties">
+         <props>
+               <prop key="mail.transport.protocol">smtp</prop>
+               <prop key="mail.smtp.auth">true</prop>
+               <prop key="mail.smtp.starttls.enable">true</prop>
+               <prop key="mail.debug">true</prop>
+         </props>
+      </property>
+    </bean>
+
 </beans>
