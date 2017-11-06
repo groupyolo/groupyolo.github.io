@@ -24,5 +24,12 @@
 		UPDATE joinBoard SET jSubject = #{jSubject}, jContent = #{jContent}, jStart = #{jStart}, jEnd = #{jEnd}, jCount = #{jCount} WHERE reSeq = #{reSeq}
 	</update>
 	
+	<select id="master" parameterType="String" resultType="com.yol.web.DTO.VJoinTeamDTO">
+		SELECT * FROM VJoinTeam WHERE mSeq = #{mSeq} AND activeState = 'y' ORDER BY jRegDate DESC
+	</select>
+	
+	<update id="reject" parameterType="com.yol.web.DTO.JoinDTO">
+		UPDATE Join SET apSeq = 2 WHERE mSeq = #{mSeq} AND reSeq = #{reSeq}
+	</update>
 	
 </mapper>

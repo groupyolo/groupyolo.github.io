@@ -22,6 +22,11 @@ public class MemberController {
 		return "member.home";
 	}
 	
+	@RequestMapping(method = { RequestMethod.GET }, value = "/member/create.action")
+	public String create(HttpServletRequest req) {
+
+		return "member/creation/projectadd";
+	}
 	
 }
 

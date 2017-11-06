@@ -1,4 +1,4 @@
-package com.test.web.main.mail;
+package com.yol.web.main.mail;
 
 import java.io.UnsupportedEncodingException;
 
@@ -6,14 +6,18 @@ import javax.activation.DataSource;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 
+import org.aspectj.lang.annotation.Aspect;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.stereotype.Component;
 
 public class MailHandler {
     
     private JavaMailSender mailSender;
     private MimeMessage message;
     private MimeMessageHelper messageHelper;
+    
+    
     
     public MailHandler(JavaMailSender mailSender) throws MessagingException {
         this.mailSender = mailSender;
