@@ -15,27 +15,28 @@ public class LogController {
 	@Autowired
 	private ILogService service	;
 	
-	  @RequestMapping(value="/emailConfirm.action", method= {RequestMethod.GET})
-	    public String emailConfirm(HttpServletRequest req){
-	        try {
-	         //   service.confirm();
-	            req.setAttribute("check", true);
-	        } catch (Exception e) {
-	            req.setAttribute("check", false);
-	        }
-	        return "emailConfirm";
-	    }
-	  
+ 
 	  @RequestMapping(method= {RequestMethod.GET},value="/main/signAuth.action" )
 	  public String signAuth(HttpServletRequest req, String mEmail) {
+		 //인증 메일 보내기
 		  
 		  return "main/login";
 		  
 	  }
 	  
+	  @RequestMapping(method= {RequestMethod.GET},value="/main/authok.action" )
+	  public String authok(HttpServletRequest req, MemberDTO dto) {
+		  //메일에서 인증하기 
+		  
+		  int result = service.authok(dto);
+		  
+		  return "main/authok";
+		  
+	  }
+	  
 	  @RequestMapping(method= {RequestMethod.GET},value="/main/sign.action" )
 	  public String sign(HttpServletRequest req) {
-		  
+		  //등록
 		  return "main/sign";
 		  
 	  }

@@ -9,27 +9,31 @@ import com.yol.web.DTO.MemberDTO;
 public class LogService implements ILogService{
 	
 	@Autowired
-	private LogDAO logDAO;
+	private LogDAO dao;
 	
 	@Override
 	public MemberDTO logIn(MemberDTO dto) {
 		
-		return logDAO.logIn(dto);
+		return dao.logIn(dto);
 	}
 	
 	@Override
 	public int sign(MemberDTO dto) {
-		int result1 = logDAO.sign(dto);
-		
-		if(result1==1) {
-			int result2 = logDAO.addStateMember();
-		}
-		
-		return 0;
+
+		return dao.sign(dto);
 	}
 	
+	@Override
+	public int addStateMember(String mEmail) {
+
+		return dao.addStateMember(mEmail);
+	}
 	
-	
+	@Override
+	public int authok(MemberDTO dto) {
+		
+		return dao.authok(dto);
+	}
 	
 	
 	

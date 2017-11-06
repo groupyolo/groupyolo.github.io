@@ -9,19 +9,17 @@
 <script src="/js/jquery-1.12.4.js"></script>
 <style>
 </style>
+
 </head>
 <body>
+
+	인증되었습니다. 
 	<script>
-		<c:if test="${result==1 }">
-			location.href="/web/main/signAuth.action?mEmail=${dto.mEmail}";
-		</c:if>	
-		<c:if test="${result==0 }">
-				//history.back();
-				
-				aaaaa
-		</c:if>	
+		setTimeout(function(){
+			location.href="/web/main/login.action";
+			
+		},5000);
 	</script>
-	
 
 </body>
 </html>

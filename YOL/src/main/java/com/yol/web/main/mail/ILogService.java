@@ -8,4 +8,8 @@ public interface ILogService {
 
 	public int sign(MemberDTO dto);
 
+	public int addStateMember(String mEmail);
+
+	public int authok(MemberDTO dto);
+
 }
