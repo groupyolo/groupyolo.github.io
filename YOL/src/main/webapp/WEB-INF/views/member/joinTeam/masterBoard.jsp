@@ -11,7 +11,7 @@
 	$(document).ready(function() {
 		$("#recruitMember").hide();
 		
-		alter(${mlist.size()});
+		alert(${mlist.size()});
 	})
 </script>
 </head>
@@ -27,10 +27,10 @@
 				<th>시작일 ~ 종료일</th>
 				<th>인원수</th>
 			</tr>
-			<c:if test="${mlist[0] == ''}">
+			<c:if test="${mlist.size()} == 0">
 				yes!!!
 			</c:if>
-			<c:if test="${mlist[0] != ''}">
+			<c:if test="${mlist.size()} != 0">
 				<c:forEach items="mlist" var="mdto">
 				${mlist }
 				<tr>
