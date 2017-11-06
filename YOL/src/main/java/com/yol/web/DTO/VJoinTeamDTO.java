@@ -2,7 +2,7 @@ package com.yol.web.DTO;
 
 import org.apache.ibatis.type.Alias;
 
-@Alias("dto")
+@Alias("vJoinTeamDTO")
 public class VJoinTeamDTO {
 	private String reSeq;
 	private String mSeq;

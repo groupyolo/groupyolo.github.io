@@ -4,9 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import com.yol.web.DTO.ApproveDTO;
 import com.yol.web.DTO.JoinBoardDTO;
 import com.yol.web.DTO.VJoinMemberDTO;
 import com.yol.web.DTO.VJoinTeamDTO;
@@ -67,6 +65,11 @@ public class JoinTeamService implements IJoinTeamService {
 	@Override
 	public int edit(JoinBoardDTO dto) {
 		return dao.edit(dto);
+	}
+
+	@Override
+	public List<VJoinTeamDTO> masterDTO(String mSeq) {
+		return dao.masterDTO(mSeq);
 	}
 
 

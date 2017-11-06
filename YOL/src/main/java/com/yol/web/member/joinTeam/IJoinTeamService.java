@@ -21,5 +21,7 @@ public interface IJoinTeamService {
 
 	int edit(JoinBoardDTO dto);
 
+	List<VJoinTeamDTO> masterDTO(String mSeq);
+
 
 }

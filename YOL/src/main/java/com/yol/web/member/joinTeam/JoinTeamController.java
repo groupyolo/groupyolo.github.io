@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.yol.web.DTO.ApproveDTO;
 import com.yol.web.DTO.JoinBoardDTO;
 import com.yol.web.DTO.VJoinMemberDTO;
 import com.yol.web.DTO.VJoinTeamDTO;
@@ -68,5 +67,15 @@ public class JoinTeamController {
 		req.setAttribute("dto", dto);
 		
 		return "member/joinTeam/boardEditOk";
+	}	
+	
+	@RequestMapping(method= {RequestMethod.GET},value="/member/teamMaster.action")
+	public String masterBoard(HttpServletRequest req, String mSeq) {
+		
+		List<VJoinTeamDTO> mlist = sv.masterDTO(mSeq);
+		req.setAttribute("mlist", mlist);
+		
+		return "member/joinTeam/masterBoard";
 	}
+	
 }

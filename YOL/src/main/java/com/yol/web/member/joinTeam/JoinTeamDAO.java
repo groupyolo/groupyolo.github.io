@@ -40,5 +40,9 @@ public class JoinTeamDAO {
 	public List<ApproveDTO> approveList() {
 		return sql.selectList("joinTeam.approve");
 	}
+
+	public List<VJoinTeamDTO> masterDTO(String mSeq) {
+		return sql.selectList("joinTeam.master", mSeq);
+	}
 	
 }
