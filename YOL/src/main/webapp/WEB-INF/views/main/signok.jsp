@@ -11,8 +11,17 @@
 </style>
 </head>
 <body>
+	<script>
+		<c:if test="${result==1 }">
+			location.href="/web/main/signAuth.action?mEmail=${dto.mEmail}";
+		</c:if>	
+		<c:if test="${result==0 }">
+				//history.back();
+				
+				aaaaa
+		</c:if>	
+	</script>
 	
-${dto.mSeq }
-${dto.mName }
+
 </body>
 </html>

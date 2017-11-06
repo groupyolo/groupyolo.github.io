@@ -17,7 +17,16 @@ public class LogService implements ILogService{
 		return logDAO.logIn(dto);
 	}
 	
-	
+	@Override
+	public int sign(MemberDTO dto) {
+		int result1 = logDAO.sign(dto);
+		
+		if(result1==1) {
+			int result2 = logDAO.addStateMember();
+		}
+		
+		return 0;
+	}
 	
 	
 	

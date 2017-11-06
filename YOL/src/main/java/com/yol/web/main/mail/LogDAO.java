@@ -16,5 +16,15 @@ public class LogDAO {
 
 		return sql.selectOne("log.in", dto);
 	}
+
+	public int sign(MemberDTO dto) {
+
+		return sql.insert("log.sign",dto);
+	}
+
+	public int addStateMember() {
+
+		return sql.insert("log.addStateMember");
+	}
 	
 }

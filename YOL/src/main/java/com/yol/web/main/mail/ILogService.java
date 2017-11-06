@@ -6,4 +6,6 @@ public interface ILogService {
 
 	public MemberDTO logIn(MemberDTO dto);
 
+	public int sign(MemberDTO dto);
+
 }
