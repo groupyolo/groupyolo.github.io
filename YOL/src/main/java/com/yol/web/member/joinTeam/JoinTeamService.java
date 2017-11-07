@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.yol.web.DTO.JoinBoardDTO;
 import com.yol.web.DTO.JoinDTO;
+import com.yol.web.DTO.MemberDTO;
 import com.yol.web.DTO.VJoinMemberDTO;
 import com.yol.web.DTO.VJoinTeamDTO;
 
@@ -18,8 +19,28 @@ public class JoinTeamService implements IJoinTeamService {
 	private JoinTeamDAO dao;
 	
 	@Override
+	@Transactional
 	public int add(JoinBoardDTO dto) {
-		return dao.add(dto);		
+		int result;
+
+		try {
+			//1
+			dao.add(dto);
+			//2
+			String reSeq = dao.find(dto.getmSeq());
+			
+			JoinDTO jdto = new JoinDTO();
+				jdto.setReSeq(reSeq);
+				jdto.setmSeq(dto.getmSeq());
+				jdto.setApSeq("1");
+			//3
+			dao.addM(jdto);
+			
+			result = 1;
+		} catch (Exception e) {
+			result = 0;
+		}
+		return result;		
 	}
 
 	@Override
@@ -87,6 +108,24 @@ public class JoinTeamService implements IJoinTeamService {
 	public int rejectM(JoinDTO dto) {
 
 		return dao.rejectM(dto);
+	}
+
+	@Override
+	public MemberDTO searchM(String mEmail) {
+		return dao.searchM(mEmail);
+	}
+
+	@Override
+	public int addM(String mEmail, String reSeq) {
+		
+		MemberDTO dto = dao.searchM(mEmail);
+		JoinDTO jdto = new JoinDTO();
+			jdto.setmSeq(dto.getmSeq());
+			jdto.setReSeq(reSeq);
+			jdto.setApSeq("4");
+		
+		int result = dao.addM(jdto);		
+		return result;
 	}
 
 }

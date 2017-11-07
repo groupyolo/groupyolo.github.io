@@ -13,6 +13,8 @@ public class VJoinTeamDTO {
 	private String mNickName;
 	private String mCount;
 	private String sName;
+	private String pCount;
+	private String prSeq;
 	
 	public String getReSeq() {
 		return reSeq;
@@ -85,5 +87,17 @@ public class VJoinTeamDTO {
 	}
 	public void setsName(String sName) {
 		this.sName = sName;
+	}
+	public String getpCount() {
+		return pCount;
+	}
+	public void setpCount(String pCount) {
+		this.pCount = pCount;
+	}
+	public String getPrSeq() {
+		return prSeq;
+	}
+	public void setPrSeq(String prSeq) {
+		this.prSeq = prSeq;
 	}
 }

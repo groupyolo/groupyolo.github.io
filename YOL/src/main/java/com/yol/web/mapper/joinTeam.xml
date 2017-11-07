@@ -32,4 +32,16 @@
 		UPDATE Join SET apSeq = 2 WHERE mSeq = #{mSeq} AND reSeq = #{reSeq}
 	</update>
 	
+	<select id="searchMember" parameterType="String" resultType="com.yol.web.DTO.MemberDTO">
+		SELECT * FROM Member WHERE mEmail = #{mEmail}
+	</select>
+	
+	<insert id="addMember" parameterType="com.yol.web.DTO.JoinDTO">
+		INSERT INTO JOIN VALUES (jSeq.nextval, #{mSeq}, default, #{apSeq}, #{reSeq})
+	</insert>
+	
+	<select id="find" parameterType="String" resultType="String">
+		SELECT max(reSeq) as reSeq FROM JoinBoard WHERE mSeq = #{mSeq}
+	</select>
+	
 </mapper>

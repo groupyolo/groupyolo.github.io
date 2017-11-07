@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.yol.web.DTO.ApproveDTO;
 import com.yol.web.DTO.JoinBoardDTO;
 import com.yol.web.DTO.JoinDTO;
+import com.yol.web.DTO.MemberDTO;
 import com.yol.web.DTO.VJoinMemberDTO;
 import com.yol.web.DTO.VJoinTeamDTO;
 
@@ -49,6 +50,18 @@ public class JoinTeamDAO {
 
 	public int rejectM(JoinDTO dto) {		
 		return sql.update("joinTeam.reject", dto);
+	}
+
+	public MemberDTO searchM(String mEmail) {
+		return sql.selectOne("joinTeam.searchMember", mEmail);
+	}
+
+	public int addM(JoinDTO jdto) {
+		return sql.insert("joinTeam.addMember", jdto);
+	}
+
+	public String find(String mSeq) {
+		return sql.selectOne("joinTeam.find", mSeq);
 	}
 	
 }

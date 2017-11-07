@@ -4,7 +4,6 @@ public class MemberDTO {
 
 	private String mSeq;
 	private String mgSeq;
-	private String mName;
 	private String mNickName;
 	private String mEmail;
 	private String mPassword;
@@ -24,14 +23,6 @@ public class MemberDTO {
 
 	public void setMgSeq(String mgSeq) {
 		this.mgSeq = mgSeq;
-	}
-
-	public String getmName() {
-		return mName;
-	}
-
-	public void setmName(String mName) {
-		this.mName = mName;
 	}
 
 	public String getmNickName() {
@@ -74,7 +65,6 @@ public class MemberDTO {
 		temp += "\r\n\r\n";
 		temp += String.format("mSeq : %s\r\n", mSeq);
 		temp += String.format("mgSeq : %s\r\n", mgSeq);
-		temp += String.format("mName : %s\r\n", mName);
 		temp += String.format("mNickName", mNickName);
 		temp += String.format("mEmail : %s\r\n", mEmail);
 		temp += String.format("mPassword : %s\r\n", mPassword);
