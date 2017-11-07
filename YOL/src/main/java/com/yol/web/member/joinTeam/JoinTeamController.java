@@ -8,9 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yol.web.DTO.JoinBoardDTO;
 import com.yol.web.DTO.JoinDTO;
+import com.yol.web.DTO.MemberDTO;
 import com.yol.web.DTO.VJoinMemberDTO;
 import com.yol.web.DTO.VJoinTeamDTO;
 
@@ -37,6 +39,7 @@ public class JoinTeamController {
 	public String boardAddOk(HttpServletRequest req, JoinBoardDTO dto) {
 		
 		int result = sv.add(dto);
+		req.setAttribute("result", result);
 		
 		return "member/joinTeam/boardAddOk";
 	}
@@ -92,12 +95,27 @@ public class JoinTeamController {
 		return "member/joinTeam/approveMember";
 	}
 	@RequestMapping(method= {RequestMethod.GET},value="/member/rejectMember.action")
-	public String rejectMember(HttpServletRequest req, JoinDTO dto) {
+	public @ResponseBody Object rejectMember(HttpServletRequest req, JoinDTO dto) {
 				
 		int result = sv.rejectM(dto);
-		req.setAttribute("result", result);
-		System.out.println("결과: " + result);
-		return "member/joinTeam/rejectMember";
+		//req.setAttribute("result", result);
+		//System.out.println("결과: " + result);
+		//return "member/joinTeam@/rejectMember";
+		return result;
+	}
+	
+	@RequestMapping(method= {RequestMethod.GET}, value="/member/searchMember.action")
+	public String searchMember(HttpServletRequest req, String mEmail) {
+		MemberDTO mdto = sv.searchM(mEmail);
+		req.setAttribute("mdto", mdto);
+		
+		return "member/joinTeam/searchMember";
+	}
+	@RequestMapping(method= {RequestMethod.GET},value="/member/addMember.action")
+	public @ResponseBody Object addMember(HttpServletRequest req, String mEmail, String reSeq) {
+				
+		int result = sv.addM(mEmail, reSeq);		
+		return result;
 	}
 	
 }
