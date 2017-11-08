@@ -15,7 +15,23 @@
   function popmodal(){
     $( "#step1" ).dialog({
     	width: 450,height:	520,
-    	modal:true
+    	modal:true,
+    	buttons: [
+    		{ 
+    		//버튼텍스트
+    		text: "Ok",
+    		//클릭이벤트발생시 동작 
+    		click: function() { $( this ).dialog( "close" ); } 
+    		},
+    		{ //버튼텍스트
+    			
+    			text: "Cancel", 
+    			//클릭이벤트발생시 동작 
+    			click: function() { $( this ).dialog( "close" ); } 
+    		} 
+    	
+    	]
+
     });
   };
   </script>

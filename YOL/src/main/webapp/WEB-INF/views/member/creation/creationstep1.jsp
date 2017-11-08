@@ -20,18 +20,22 @@
 <script>
 	
 	$(document).ready(function(){
-		$("#jCount").hide();
+		
+
 	});
 		
 		
 	function m1(){
-		$("#jCount").val("1");
-		
+		$("#pnum").val("1");
+
 		if($(":input:radio[name=ptype]:checked").val()=="share"){
-			$("#jCount").show();	   
+			$("#pnum option:eq(0)").replaceWith("<option value=\"\" disabled='disabled'>인원수를 선택하세요.</option>");
+			$("#pnum").show();
+			
 		}else{
-			$("#jCount").val("1");
-			$("#jCount").hide();
+			$("#pnum option:eq(0)").replaceWith("<option value=\"1\">인원수를 선택하세요.</option>");
+			$("#pnum").val("1");
+			$("#pnum").hide();
 		}
 			
 	}
@@ -57,7 +61,8 @@
 					<td colspan="4">
 						<input type="radio" class="rdo" name="ptype" value="private" checked onclick="m1();"/>개인
 						<input type="radio" class="rdo" name="ptype" value="share" onclick="m1();" />공용
-							<select name="jCount" id="jCount">
+							<select name="jCount" id="pnum" style="display:none;">
+								<option value="1">인원수를 선택하세요.</option>
 								<option value="2">2인용</option>
 								<option value="3">3인용</option>
 								<option value="4">4인용	</option>
@@ -93,6 +98,8 @@
 			<div class="crtbtns">
 				<input type="submit" value="다음단계" title="다음 단계로 이동합니다."/>
 			</div>
+			
+			
 			
 		</form>
 		

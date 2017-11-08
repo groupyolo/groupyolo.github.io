@@ -70,7 +70,16 @@ public class MemberController {
 		return "member/creation/addproject";
 	}
 	
-	
+	@RequestMapping(method = { RequestMethod.GET }, value = "/membermenu.action")
+	public String membermenu(HttpServletRequest req) {
+
+		return "inc/member/membermenu";
+	}
+	@RequestMapping(method = { RequestMethod.GET }, value = "/membersubmenu.action")
+	public String membersubmenu(HttpServletRequest req) {
+
+		return "inc/member/membersubmenu";
+	}
 	
 	
 }
