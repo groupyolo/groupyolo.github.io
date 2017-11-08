@@ -4,7 +4,7 @@
 <%
 
 	session.setAttribute("mSeq", "10");
-
+	
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -49,7 +49,7 @@ function m1(){
 
 	<div id="cprojectstep2">
 		<h4>STEP : 2</h4>
-		<form method="POST" action="">
+		<form method="POST" action="/web/member/creationok.action">
 		<table id="step2tbl">
 			<tr>
 				<th colspan="2">브라우저 타이틀</th>
@@ -74,15 +74,25 @@ function m1(){
 				<th style="width:100px;">공개여부</th>		
 				<td><select name="opSeq" id=""><option value="0">비공개</option><option value="1">공개</option></select></td>
 			</tr>
+			<tr>
+				<th>teSeq</th>
+				<td><select name="teSeq" id=""><option value="1">포트폴리오</option><option value="2">다른템플릿</option></select></td>
+			</tr>
 		</table>
 		<div class="crtbtns">
 		
+			<!-- 작성자 -->
+			<input type="hidden" name="mSeq" value="<%=session.getAttribute("mSeq") %>" />			
 			<!-- 프로젝트 최대참가 인원수 -->
-			<input type="hidden" name="pnum" value="<%=request.getParameter("pnum") %>"/>
+			<input type="hidden" name="jCount" value="<%=request.getParameter("jCount") %>"/>
 			<!-- 프로젝트명 -->
 			<input type="hidden" name="prName" value="<%=request.getParameter("prName") %>"/>
 			<!-- 프로젝트 설명 -->
 			<input type="hidden" name="jContent" value="<%=request.getParameter("jContent") %>"/>
+			<!-- 시작일 -->
+			<input type="hidden" name="jStart" value="<%=request.getParameter("jStart") %>" />
+			<!-- 종료일 -->
+			<input type="hidden" name="jEnd" value="<%=request.getParameter("jEnd") %>" />
 			
 			<input type="button" value="이전단계로" onclick="history.back();" />
 			<input type="submit" value="다음단계로" />		

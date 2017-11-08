@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.yol.web.DTO.VCreationDTO;
+
 @Controller
 public class MemberController {
 
@@ -50,11 +52,26 @@ public class MemberController {
 		return "member/creation/projectadd";
 	}
 	
+	@RequestMapping(method = { RequestMethod.POST }, value = "/member/creationok.action")
+	public String creationok(HttpServletRequest req, VCreationDTO dto) {
+
+		int result = ics.add(dto);
+		
+		req.setAttribute("result", result);
+		
+		return "member/creation/creationok";
+	}	
+	
+	
 	@RequestMapping(method = { RequestMethod.GET }, value = "/member/addproject.action")
 	public String addproject(HttpServletRequest req) {
 		
 		
 		return "member/creation/addproject";
 	}
+	
+	
+	
+	
 }
 

@@ -20,17 +20,18 @@
 <script>
 	
 	$(document).ready(function(){
-		$("#pnum").hide();
+		$("#jCount").hide();
 	});
 		
 		
 	function m1(){
+		$("#jCount").val("1");
 		
 		if($(":input:radio[name=ptype]:checked").val()=="share"){
-			$("#pnum").show();	   
+			$("#jCount").show();	   
 		}else{
-			$("#pnum").val("1");
-			$("#pnum").hide();
+			$("#jCount").val("1");
+			$("#jCount").hide();
 		}
 			
 	}
@@ -56,7 +57,7 @@
 					<td colspan="4">
 						<input type="radio" class="rdo" name="ptype" value="private" checked onclick="m1();"/>개인
 						<input type="radio" class="rdo" name="ptype" value="share" onclick="m1();" />공용
-							<select name="pnum" id="pnum">
+							<select name="jCount" id="jCount">
 								<option value="2">2인용</option>
 								<option value="3">3인용</option>
 								<option value="4">4인용	</option>
@@ -84,7 +85,7 @@
 					<th>시작일</th>
 					<td><input type="date" name="jStart" /></td>
 					<th>종료일</th>
-					<td><input type="date" name="jStart" /></td>
+					<td><input type="date" name="jEnd" /></td>
 				</tr>
 			
 			</table>

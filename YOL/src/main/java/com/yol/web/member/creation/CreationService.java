@@ -14,13 +14,13 @@ public class CreationService implements ICreationService{
 
 	@Override
 	@Transactional
-	public void add(VCreationDTO dto) {
+	public int add(VCreationDTO dto) {
 		
 		dao.insertJoinBoard(dto);
 		dao.insertJoin(dto);
-		dao.insertProject(dto);
+		int result =  dao.insertProject(dto);
 		
-		
+		return result;
 		
 	}
 	

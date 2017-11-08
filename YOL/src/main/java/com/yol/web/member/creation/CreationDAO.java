@@ -13,9 +13,17 @@ public class CreationDAO {
 	@Autowired
 	private SqlSessionTemplate sql;
 	
-	public void insertJoinBoard(VCreationDTO dto) {
+	public int insertJoinBoard(VCreationDTO dto) {
 		// 
-		sql.insert("createproject.insertJoinBoard", dto);
+		System.out.println();
+		System.out.println(dto.getmSeq());
+		System.out.println(dto.getjStart());
+		System.out.println(dto.getjEnd());
+	
+		
+		int result = sql.insert("createproject.insertJoinBoard", dto);
+		
+		return result;
 	}
 
 	public void insertJoin(VCreationDTO dto) {
@@ -23,9 +31,18 @@ public class CreationDAO {
 		sql.insert("createproject.insertJoin", dto);
 	}
 
-	public void insertProject(VCreationDTO dto) {
+	public int insertProject(VCreationDTO dto) {
+		System.out.println(dto.getReSeq());
+		System.out.println(dto.getTeSeq());
+		System.out.println(dto.getOpSeq());
+		System.out.println(dto.getPrName());
+		System.out.println(dto.getPrURL());
+		
+		System.out.println(dto.getSiteName());
 		// 
-		sql.insert("createproject.insertProject", dto);
+		int result = sql.insert("createproject.insertProject", dto);
+		
+		return result;
 	}
 
 	

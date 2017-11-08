@@ -12,6 +12,10 @@ public class VCreationDTO {
 	private String prName;
 	private String prURL;
 	private String siteName;
+	private String jContent;
+	private String jCount;
+	private String jStart;
+	private String jEnd;
 	private String mSeq;
 	private String mgSeq;
 	private String apSeq;
@@ -19,6 +23,30 @@ public class VCreationDTO {
 	private String jointime;
 	
 	
+	public String getjCount() {
+		return jCount;
+	}
+	public void setjCount(String jCount) {
+		this.jCount = jCount;
+	}
+	public String getjStart() {
+		return jStart;
+	}
+	public void setjStart(String jStart) {
+		this.jStart = jStart;
+	}
+	public String getjEnd() {
+		return jEnd;
+	}
+	public void setjEnd(String jEnd) {
+		this.jEnd = jEnd;
+	}
+	public String getjContent() {
+		return jContent;
+	}
+	public void setjContent(String jContent) {
+		this.jContent = jContent;
+	}
 	public String getPrSeq() {
 		return prSeq;
 	}

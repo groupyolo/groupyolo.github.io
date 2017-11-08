@@ -5,7 +5,7 @@ import com.yol.web.DTO.VCreationDTO;
 
 public interface ICreationService {
 
-	void add(VCreationDTO dto);
+	int add(VCreationDTO dto);
 	
 	
 }
