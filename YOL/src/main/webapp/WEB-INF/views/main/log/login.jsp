@@ -24,9 +24,14 @@
 
 <div id="goo" class="g-signin2" data-onsuccess="onSignIn"></div>
 
+<div id="findId">아이디 찾기</div>
+<div onclick="location.href='/web/main/findPassword.action';">비번 찾기</div>
 
 
 <script>
+	
+
+
 	var mEmail;
 	var mName;
 	var profile;
