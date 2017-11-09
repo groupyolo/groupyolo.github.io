@@ -45,8 +45,8 @@ public class LogController {
 	  @RequestMapping(method= {RequestMethod.POST},value="/main/signok.action" )
 	  public String signok(HttpServletRequest req, MemberDTO dto) {
 		  
-		  int result = service.sign(dto);
-		  req.setAttribute("result", result);	
+		  service.sign(dto);
+		 
 		  req.setAttribute("loginDTO", dto);	
 		  
 		  return "main.log.signok";
@@ -125,6 +125,44 @@ public class LogController {
 		  session.setAttribute("loginDTO", dto);
 		  
 		  return "main.log.loginok";
+		  
+	  }
+
+	  @RequestMapping(method= {RequestMethod.GET},value="/main/findPassword.action" )
+	  public String findPassword(HttpServletRequest req) {
+		  			  
+		  return "main.log.findPassword";
+		  
+	  }
+	  
+	  @RequestMapping(method= {RequestMethod.GET},value="/main/findPasswordCheck.action" )
+	  public String findPasswordCheck(HttpServletRequest req,String mEmail) {
+		  
+		  int result = service.findPassword(mEmail);
+		  
+		  req.setAttribute("result", result);
+		  
+		  return "main.log.findPasswordCheck.ajax";
+		  
+	  }
+	  
+	  @RequestMapping(method= {RequestMethod.GET},value="/main/findPasswordok.action" )
+	  public String findPasswordok(HttpServletRequest req,String mEmail) {
+		  
+		  int result = service.findPasswordChange(mEmail);
+		  
+		  req.setAttribute("result", result);
+		  
+		  return "main.log.findPasswordCheck";
+		  
+	  }
+	  
+	  @RequestMapping(method= {RequestMethod.GET},value="/main/findPasswordChange.action" )
+	  public String findPasswordChange(HttpServletRequest req,String mEmail) {
+		  
+		  req.setAttribute("mEmail", mEmail);
+		  
+		  return "main.log.findPasswordChange";
 		  
 	  }
 	  
