@@ -10,10 +10,10 @@
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 <script src="/web/js/jquery-1.12.4.js"></script>
 <script>
-	$(document).ready(function(){
+/* 	$(document).ready(function(){
 		onSignIn();
 	});
-	
+	 */
 	
 /* 	function onSignIn(googleUser) {
 		  var profile = googleUser.getBasicProfile();
@@ -30,6 +30,10 @@
 
 </head>
 <body>
+	<form method="post" action="/web/main/apiLoginok.action" id="apiLogin">
+	<input type="hidden" name="mEmail" id="apiMEmail" >
+	<input type="hidden" name="mgSeq" id="mgSeq" >
+	</form>
 	
 	<form method="post" action="/web/main/loginok.action">
 	
@@ -43,21 +47,66 @@
 	<!-- 구글 로그인 -->
 
 
+<div id="goo" class="g-signin2" data-onsuccess="onSignIn"></div>
 
-<div class="g-signin2" data-onsuccess="onSignIn"></div>
+
 
 <script>
+	var mEmail;
+	var mName;
+	var profile;
+	var num=0;
 
-function onSignIn(googleUser) {
-  var profile = googleUser.getBasicProfile();
- // console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
- // console.log('Name: ' + profile.getName());
- // console.log('Image URL: ' + profile.getImageUrl());
- // console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+ 	$("#goo").click(function(){
+		
+ 		num++;
+ 		
+ 		
+	}); 
+	
+	function onSignIn(googleUser) {
+	 	profile = googleUser.getBasicProfile();
+	 	mEmail = profile.getEmail();
+		mNickName = profile.getName();
+		
+		
+		if(num>0){
+			apiCheck();
+			
+		}
 
-	console.log(profile);
-}
-
+	}
+	
+	function apiCheck(){
+		
+		$.ajax({	
+			type:"post",
+			url:"/web/main/apiLoginCheck.action",
+			dataType:"json",
+			data:"mEmail="+mEmail+"&mNickName="+mNickName+"&mgSeq=2",
+			success:function(result){
+				if(result.result==0){
+					location.href="/web/main/apiSign.action?mEmail="+mEmail+"&mNickName="+mNickName+"&mgSeq=2";
+					// 가입 및 닉네임 페이지로 
+					//이게 아이디가 되면 혹시 같은 이메일이 있으면 겹치게 되는데 이를 연동회원 구분으로 체크
+							
+				}else if(result.result==1){
+					$("#apiMEmail").val(mEmail);
+					$("#mgSeq").val(2);
+					
+					$("#apiLogin").submit();
+					
+				}
+				
+			},
+			error:function(err){
+				alert(err);
+			}
+			
+			
+		});		
+		
+	}
 
 </script>
 	
@@ -70,10 +119,36 @@ function onSignIn(googleUser) {
 function getUserData() {
 
     FB.api('/me', {fields: 'name,email'}, function(response) {
-        console.log(JSON.stringify(response));
-        $("#name").text("이름 : "+response.name);
-        $("#email").text("이메일 : "+response.email);
-        $("#id").text("아이디 : "+response.id);
+       
+       mEmail=response.email;
+       mNickName=response.name;
+       
+    	$.ajax({
+			type:"post",
+			url:"/web/main/apiLoginCheck.action",
+			dataType:"json",
+			data:"mEmail="+mEmail+"&mNickName="+mNickName+"&mgSeq=3",
+			success:function(result){
+				if(result.result==0){
+					location.href="/web/main/apiSign.action?mEmail="+mEmail+"&mNickName="+mNickName+"&mgSeq=3";
+					// 가입 및 닉네임 페이지로 
+					//이게 아이디가 되면 혹시 같은 이메일이 있으면 겹치게 되는데 이를 연동회원 구분으로 체크
+							
+				}else if(result.result==1){
+					$("#apiMEmail").val(mEmail);
+					$("#mgSeq").val(3);
+					$("#apiLogin").submit();
+					
+				}
+				
+			},
+			error:function(err){
+				alert(err);
+			}
+			
+			
+		});
+       
     });
 }
 
@@ -92,13 +167,13 @@ window.fbAsyncInit = function() {
         if (response.status === 'connected') {
             //user is authorized
             //document.getElementById('loginBtn').style.display = 'none';
-            getUserData();
-            document.getElementById('status').innerHTML = 'log in' ;
-            $("#user_id").text("FB UID : "+user_id);
+          //  getUserData();
+         //   document.getElementById('status').innerHTML = 'log in' ;
+         //   $("#user_id").text("FB UID : "+user_id);
         } else {
             //user is not authorized
-            document.getElementById('status').innerHTML = 'Please log ' +
-            'into this app.';
+        //    document.getElementById('status').innerHTML = 'Please log ' +
+         //   'into this app.';
         }
     });
 };
@@ -120,15 +195,11 @@ document.getElementById('loginBtn').addEventListener('click', function() {
     //do the login
     FB.login(function(response) {
         if (response.authResponse) {
-            access_token = response.authResponse.accessToken; //get access token
-            user_id = response.authResponse.userID; //get FB UID
-            console.log('access_token = '+access_token);
-            console.log('user_id = '+user_id);
-            $("#access_token").text("접근 토큰 : "+access_token);
-            $("#user_id").text("FB UID : "+user_id);
-            //user just authorized your app
-            //document.getElementById('loginBtn').style.display = 'none';
-            getUserData();
+          //  access_token = response.authResponse.accessToken; //get access token
+          //  user_id = response.authResponse.userID; //get FB UID
+           // $("#access_token").text("접근 토큰 : "+access_token);
+          //  $("#user_id").text("FB UID : "+user_id);
+           getUserData();
         }
     }, {scope: 'email,public_profile,user_birthday',
         return_scopes: true});

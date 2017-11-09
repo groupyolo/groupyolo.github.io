@@ -35,6 +35,18 @@ public class LogService implements ILogService{
 		return dao.authok(dto);
 	}
 	
+	@Override
+	public int apiLoginCheck(MemberDTO dto) {
+		return dao.apiLoginCheck(dto);
+	}
 	
+	@Override
+	public MemberDTO apiLoginok(MemberDTO dto) {
+		return dao.apiLoginok(dto);
+	}
 	
+	@Override
+	public int apiSign(MemberDTO dto) {
+		return dao.apiSign(dto);
+	}
 }

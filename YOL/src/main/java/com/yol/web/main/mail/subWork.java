@@ -12,6 +12,9 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.yol.web.DTO.MemberDTO;
 
 @Aspect
 @Component
@@ -27,10 +30,21 @@ public class subWork {
 	    @Pointcut("execution(public String com.yol.web.main.mail.LogController.signAuth(..))")
 		public void auth() {}
 
+	    @Pointcut("execution(public String com.yol.web.main.mail.LogController.apiSignok(..))")
+	    public void apiAuth() {}
+
 		
+	    @After("apiAuth()")
+	    @Transactional
+	    public void addapiStateMember(JoinPoint joinPoint) {
+	    	Object[] args = joinPoint.getArgs();
+	    	MemberDTO dto = (MemberDTO)args[1];
+	    	dao.addapiStateMember(dto);
+	    	dao.apiAuthok(dto);
+	    }
+
 	    @Before("auth()")
 	    public void addStateMember(JoinPoint joinPoint) {
-	    	System.out.println("statemember 추가");
 	    	Object[] args = joinPoint.getArgs();
 	    	String mEmail = (String)args[1];
 	    	dao.addStateMember(mEmail);
@@ -43,7 +57,6 @@ public class subWork {
 	    	Object[] args = joinPoint.getArgs();
 			String mEmail = (String)args[1];
 	    	String mSeq = dao.getId(mEmail);
-			
 			
 	    //	String key = new TempKey().getKey(50, false);
 	        MailHandler sendMail = new MailHandler(mailSender);

@@ -12,4 +12,10 @@ public interface ILogService {
 
 	public int authok(MemberDTO dto);
 
+	public int apiLoginCheck(MemberDTO ldto);
+
+	public MemberDTO apiLoginok(MemberDTO ldto);
+
+	public int apiSign(MemberDTO dto);
+
 }

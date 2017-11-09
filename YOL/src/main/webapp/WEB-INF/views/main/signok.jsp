@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title></title>
-<script src="/js/jquery-1.12.4.js"></script>
+<script src="/web/js/jquery-1.12.4.js"></script>
 <style>
 </style>
 </head>

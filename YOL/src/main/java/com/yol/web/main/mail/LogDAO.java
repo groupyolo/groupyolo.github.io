@@ -36,5 +36,27 @@ public class LogDAO {
 		
 		return sql.insert("log.authok",dto);
 	}
+
+	public int apiLoginCheck(MemberDTO ldto) {
+
+		return sql.selectOne("log.apiLoginCheck",ldto);
+	}
+
+	public MemberDTO apiLoginok(MemberDTO dto) {
+		return sql.selectOne("log.apiLoginok",dto);
+	}
+
+	public int apiSign(MemberDTO dto) {
+		return sql.insert("log.apiSign",dto);
+	}
+
+	public void addapiStateMember(MemberDTO dto) {
+		sql.insert("log.addapiStateMember",dto);
+	}
+
+	public void apiAuthok(MemberDTO dto) {
+		
+		sql.insert("log.apiAuthok",dto);
+	}
 	
 }

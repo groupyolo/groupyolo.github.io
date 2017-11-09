@@ -9,17 +9,19 @@
 <script src="/web/js/jquery-1.12.4.js"></script>
 <style>
 </style>
-
 </head>
 <body>
-
-	인증되었습니다. 
 	<script>
-		setTimeout(function(){
+		<c:if test="${result==1 }">
 			location.href="/web/main/login.action";
-			
-		},5000);
+		</c:if>	
+		<c:if test="${result==0 }">
+				//history.back();
+				
+				aaaaa
+		</c:if>	
 	</script>
+	
 
 </body>
 </html>
