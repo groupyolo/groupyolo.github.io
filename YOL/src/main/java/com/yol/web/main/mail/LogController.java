@@ -1,6 +1,7 @@
 package com.yol.web.main.mail;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,19 +30,21 @@ public class LogController {
 	  @RequestMapping(method= {RequestMethod.GET},value="/main/login.action" )
 	  public String login(HttpServletRequest req) {
 		  
-		  return "main/login";
+		  
+		  return "main.login";
 		  
 	  }
 	  
 	  @RequestMapping(method= {RequestMethod.POST},value="/main/loginok.action" )
-	  public String loginok(HttpServletRequest req,MemberDTO dto) {
-		  
+	  public String loginok(HttpServletRequest req,MemberDTO dto,HttpSession session) {
 		  
 		  
 		  MemberDTO ldto = service.logIn(dto);
+		  session.setAttribute("mSeq", ldto.getmSeq());
+		  session.setAttribute("nickName", ldto.getmNickName());
 		  req.setAttribute("ldto",ldto);
 		  
-		  return "main/loginok";
+		  return "main.loginok";
 		  
 	  }
 	  
