@@ -1,22 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
+
 <meta name="google-signin-client_id" content="575739111112-ribfp6siku4gssct7oa4vshdgogrj0ac.apps.googleusercontent.com">
-<title></title>
 <script src="https://apis.google.com/js/platform.js" async defer></script>
-<script src="/web/js/jquery-1.12.4.js"></script>
-<script>
 
-</script>
-<style>
-</style>
-
-</head>
-<body>
 	<form method="post" action="/web/main/apiLoginok.action" id="apiLogin">
 	<input type="hidden" name="mEmail" id="apiMEmail" >
 	<input type="hidden" name="mgSeq" id="mgSeq" >
@@ -60,7 +47,6 @@
 		
 		if(num>0){
 			apiCheck();
-			
 		}
 
 	}
@@ -77,7 +63,6 @@
 					location.href="/web/main/apiSign.action?mEmail="+mEmail+"&mNickName="+mNickName+"&mgSeq=2";
 					// 가입 및 닉네임 페이지로 
 					//이게 아이디가 되면 혹시 같은 이메일이 있으면 겹치게 되는데 이를 연동회원 구분으로 체크
-							
 				}else if(result.result==1){
 					$("#apiMEmail").val(mEmail);
 					$("#mgSeq").val(2);
@@ -193,9 +178,4 @@ document.getElementById('loginBtn').addEventListener('click', function() {
         return_scopes: true});
 }, false);
 </script>	
-	
-	
-
-</body>
-</html>
 

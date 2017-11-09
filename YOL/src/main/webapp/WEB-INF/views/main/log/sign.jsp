@@ -1,17 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title></title>
-<script src="/web/js/jquery-1.12.4.js"></script>
-<style>
-</style>
-</head>
-<body>
-	
+
+		
 	<form method="post" action="/web/main/signok.action">
 	<table id="tbl">
 	
@@ -28,7 +18,7 @@
 	</tr>
 	<tr>
 		<th>
-			닉네임
+			닉네임(2자 이상 7자 이하)
 		</th>
 		<td>
 			<input type="text" id="mNickName" name="mNickName">
@@ -38,7 +28,7 @@
 		
 			
 			<!-- 
-			^[A-Za-z가-힣0-9]{0,12}$
+		
 			 -->
 		</td>
 	</tr>	
@@ -70,7 +60,7 @@
 	
 	
 	</table>
-	<input type="submit" value="가입하기">
+	<input type="submit" value="낫옛" id="send">
 	<input type="button" onclick="history.back();" value="뒤로가기">
 	</form>
 	
@@ -81,45 +71,58 @@
 	var mPasswordCheck=false;
 	var reMPasswordCheck=false;
 	
-	
+	function checkSubmit(){
+		
+		if(mEmailCheck&&mNickNameCheck&&mPasswordCheck&&reMPasswordCheck){
+			
+			$("#send").val("클릭해라라라라라");
+			
+			
+		}else{
+			
+			$("#send").val("낫옜");
+			
+		}
+		
+	}
+
 	$("#mEmail").keyup(function(){
 		
 		
 		var reg = /^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
 		
-		if(reg.test($("#mEmail").val())){
+		if($("#mEmail").val().length==0){
+			$("#mEmailResponse").html("");
+			mEmailCheck=false;
+			
+		}else if(reg.test($("#mEmail").val())){
 			
 			$.ajax({
 				type:"get",
-				url:"",
+				url:"/web/main/mEmailCheck.action",
 				data:"mEmail="+$("#mEmail").val(),
 				dataType:"json",
-				success:function(){
+				success:function(result){
 					
-					console.log("aaa");
-				/* 	if(){
-						
-						mEmailCheck=true;
-					}else if(){
-												
+					if(result.result>0){
+						$("#mEmailResponse").html("<div style='color:red;'>존재하는 이메일입니다.</div>");
 						mEmailCheck=false;
-					} */
+					}else if(result.result==0){
+						$("#mEmailResponse").html("");						
+						mEmailCheck=true;
+						checkSubmit();
+					}
 					
 				},
 				error:function(err){
 					alert(err);
 				}
-					
 				
 			});
 			
 		}else if(!reg.test($("#mEmail").val())){
 			
-			$("#mEmail").html("<div style='color:red;'>이메일을 입력하세요.</div>");
-			mEmailCheck=false;
-			
-		}else if($("#mEmail").val().length==0){
-			$("#mEmail").html("");
+			$("#mEmailResponse").html("<div style='color:red;'>이메일을 입력하세요.</div>");
 			mEmailCheck=false;
 			
 		}
@@ -129,13 +132,57 @@
 	});
 	
 	$("#mNickName").keyup(function(){
+		var reg = /^[A-Za-z가-힣0-9]{0,12}$/;
+		
+		if($("#mNickName").val().length==0){
+			$("#mNickNameResponse").html("");
+			mNickNameCheck=false;
+			
+		}else if(reg.test($("#mNickName").val())){
+			
+			$.ajax({
+				type:"get",
+				url:"/web/main/mNickNameCheck.action",
+				data:"mNickName="+$("#mNickName").val(),
+				dataType:"json",
+				success:function(result){
+					
+					if(result.result>0){
+						$("#mNickNameResponse").html("<div style='color:red;'>존재하는 닉네임입니다.</div>");
+						mNickNameCheck=false;
+					}else if(result.result==0){
+						$("#mNickNameResponse").html("");						
+						mNickNameCheck=true;
+						checkSubmit();
+					}
+					
+				},
+				error:function(err){
+					alert(err);
+				}
+					
+				
+			});
+			
+		}else if(!reg.test($("#mNickName").val())){
+			
+			$("#mNickNameResponse").html("<div style='color:red;'>유효하지 않은 닉네임입니다.</div>");
+			mNickNameCheck=false;
+			
+		}
 		
 	});
 	
 	$("#mPassword").keyup(function(){
 		
 		var reg = /^(?=[^\d_].*?\d)\w(\w|[!@#$%]){7,12}$/;
-		if(!reg.test($("#mPassword").val())){
+		
+		
+		if($("#mPassword").val().length==0){
+			$("#mPasswordResponse").html("")
+			mPasswordCheck=false;
+			
+		}else if(!reg.test($("#mPassword").val())){
 			
 			$("#mPasswordResponse").html("<div style='color:red;'>적절하지 않은 비밀번호입니다.</div>")
 			mPasswordCheck=false;
@@ -144,10 +191,7 @@
 
 			$("#mPasswordResponse").html("");
 			mPasswordCheck=true;
-			
-		}else if($("#mPasswordResponse").val().length==0){
-			$("#mPasswordResponse").html("")
-			mPasswordCheck=false;
+			checkSubmit();
 			
 		}
 		
@@ -156,8 +200,11 @@
 	});
 	
 	$("#reMPassword").keyup(function(){
-		
-		if($(this).val()!=$("#mPassword").val()){
+		if($("#reMPassword").val().length==0){
+			$("#reMPasswordResponse").html("");
+			reMPasswordCheck=false;
+			
+		}else if($(this).val()!=$("#mPassword").val()){
 			$("#reMPasswordResponse").html("<div style='color:red;'>동일하지 않은 비밀번호입니다.</div>")
 			reMPasswordCheck=false;
 			
@@ -165,16 +212,10 @@
 		
 			$("#reMPasswordResponse").html("");
 			reMPasswordCheck=true;
-		}else if($("#reMPasswordResponse").val().length==0){
-			$("#reMPasswordResponse").html("");
-			reMPasswordCheck=false;
-			
+			checkSubmit();
 		}
 
 	});
 	
 	
 	</script>
-
-</body>
-</html>
