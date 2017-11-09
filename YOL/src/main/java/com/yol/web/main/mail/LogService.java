@@ -49,4 +49,15 @@ public class LogService implements ILogService{
 	public int apiSign(MemberDTO dto) {
 		return dao.apiSign(dto);
 	}
+	
+	@Override
+	public int mEmailCheck(String mEmail) {
+		return dao.mEmailCheck(mEmail);
+	}
+	
+	@Override
+	public int mNickNameCheck(String mNickName) {
+		return dao.mNickNameCheck(mNickName);
+	}
+	
 }
