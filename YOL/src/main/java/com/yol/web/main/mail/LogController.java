@@ -100,7 +100,7 @@ public class LogController {
 		  session=req.getSession();
 		  session.setAttribute("loginDTO", dto);
 		  
-		  return "main.loginok";
+		  return "main/loginok";
 		  
 	  }
 	  
