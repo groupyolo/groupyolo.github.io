@@ -34,23 +34,23 @@ public class subWork {
 	    public void apiAuth() {}
 
 		
-	    @After("apiAuth()")
+	   /* @After("apiAuth()")
 	    @Transactional
 	    public void addapiStateMember(JoinPoint joinPoint) {
 	    	Object[] args = joinPoint.getArgs();
 	    	MemberDTO dto = (MemberDTO)args[1];
 	    	dao.addapiStateMember(dto);
 	    	dao.apiAuthok(dto);
-	    }
+	    }*/
 
-	    @Before("auth()")
+	   /* @Before("auth()")
 	    public void addStateMember(JoinPoint joinPoint) {
 	    	Object[] args = joinPoint.getArgs();
 	    	String mEmail = (String)args[1];
-	    	dao.addStateMember(mEmail);
-	    }
+	    	//dao.addStateMember(mEmail);
+	    }*/
 	    
-	    @After("auth()")
+	   /* @After("auth()")
 	    public void sendMail(JoinPoint joinPoint) throws MessagingException, UnsupportedEncodingException {
 	       
 	    	System.out.println("메일 보내기");
@@ -58,7 +58,6 @@ public class subWork {
 			String mEmail = (String)args[1];
 	    	String mSeq = dao.getId(mEmail);
 			
-	    //	String key = new TempKey().getKey(50, false);
 	        MailHandler sendMail = new MailHandler(mailSender);
 	        sendMail.setSubject("[이메일 인증]");
 	        sendMail.setText(new StringBuffer().append("<h1>메일인증</h1>")
@@ -72,7 +71,7 @@ public class subWork {
 	        sendMail.setFrom("finalprojectjung@gmail.com", "기무하");
 	        sendMail.setTo(mEmail);
 	        sendMail.send();
-	    }
+	    }*/
 
 	   	
 }

@@ -71,7 +71,20 @@ public class JoinTeamController {
 		req.setAttribute("dto", dto);
 		
 		return "member.joinTeam.boardEditOk";
-	}	
+	}
+	
+	@RequestMapping(method= {RequestMethod.GET},value="/member/joinMemberAdd.action")
+	public @ResponseBody Object joinMemberAdd (HttpServletRequest req, JoinDTO dto) {
+		
+		int result = sv.joinAdd(dto);		
+		return result;
+	}
+	@RequestMapping(method= {RequestMethod.GET},value="/member/joinMemberCancel.action")
+	public @ResponseBody Object joinMemberCancel (HttpServletRequest req, JoinDTO dto) {
+		
+		int result = sv.joinCancle(dto);		
+		return result;
+	}
 	
 	@RequestMapping(method= {RequestMethod.GET},value="/member/teamMaster.action")
 	public String masterBoard(HttpServletRequest req, String mSeq) {

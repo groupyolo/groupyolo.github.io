@@ -17,22 +17,22 @@
 
 </head>
 <body>
-	<form method="post" action="/web/main/apiLoginok.action" id="apiLogin">
-	<input type="hidden" name="mEmail" id="apiMEmail" >
-	<input type="hidden" name="mgSeq" id="mgSeq" >
-	</form>
+   <form method="post" action="/web/main/apiLoginok.action" id="apiLogin">
+   <input type="hidden" name="mEmail" id="apiMEmail" >
+   <input type="hidden" name="mgSeq" id="mgSeq" >
+   </form>
 
-	
-	<form method="post" action="/web/main/loginok.action">
-	
-	<span>이메일: </span> <input type="email"	name="mEmail" id="mEmail" value= "bibid@naver.com" required>
-	<span>비번: </span> <input type="password" name="mPassword" id="mPassword" value="0000" required>
-	
-	<input type="submit" value="로그인">
-	</form>
-	
+   
+   <form method="post" action="/web/main/loginok.action">
+   
+   <span>이메일: </span> <input type="email"   name="mEmail" id="mEmail" value= "bibid@naver.com" required>
+   <span>비번: </span> <input type="password" name="mPassword" id="mPassword" required>
+   
+   <input type="submit" value="로그인">
+   </form>
+   
 
-	<!-- 구글 로그인 -->
+   <!-- 구글 로그인 -->
 
 
 <div id="goo" class="g-signin2" data-onsuccess="onSignIn"></div>
@@ -40,66 +40,66 @@
 
 
 <script>
-	var mEmail;
-	var mName;
-	var profile;
-	var num=0;
+   var mEmail;
+   var mName;
+   var profile;
+   var num=0;
 
- 	$("#goo").click(function(){
-		
- 		num++;
- 		
- 		
-	}); 
-	
-	function onSignIn(googleUser) {
-	 	profile = googleUser.getBasicProfile();
-	 	mEmail = profile.getEmail();
-		mNickName = profile.getName();
-		
-		
-		if(num>0){
-			apiCheck();
-			
-		}
+    $("#goo").click(function(){
+      
+       num++;
+       
+       
+   }); 
+   
+   function onSignIn(googleUser) {
+       profile = googleUser.getBasicProfile();
+       mEmail = profile.getEmail();
+      mNickName = profile.getName();
+      
+      
+      if(num>0){
+         apiCheck();
+         
+      }
 
-	}
-	
-	function apiCheck(){
-		
-		$.ajax({	
-			type:"post",
-			url:"/web/main/apiLoginCheck.action",
-			dataType:"json",
-			data:"mEmail="+mEmail+"&mNickName="+mNickName+"&mgSeq=2",
-			success:function(result){
-				if(result.result==0){
-					location.href="/web/main/apiSign.action?mEmail="+mEmail+"&mNickName="+mNickName+"&mgSeq=2";
-					// 가입 및 닉네임 페이지로 
-					//이게 아이디가 되면 혹시 같은 이메일이 있으면 겹치게 되는데 이를 연동회원 구분으로 체크
-							
-				}else if(result.result==1){
-					$("#apiMEmail").val(mEmail);
-					$("#mgSeq").val(2);
-					
-					$("#apiLogin").submit();
-					
-				}
-				
-			},
-			error:function(err){
-				alert(err);
-			}
-			
-			
-		});		
-		
-	}
+   }
+   
+   function apiCheck(){
+      
+      $.ajax({   
+         type:"post",
+         url:"/web/main/apiLoginCheck.action",
+         dataType:"json",
+         data:"mEmail="+mEmail+"&mNickName="+mNickName+"&mgSeq=2",
+         success:function(result){
+            if(result.result==0){
+               location.href="/web/main/apiSign.action?mEmail="+mEmail+"&mNickName="+mNickName+"&mgSeq=2";
+               // 가입 및 닉네임 페이지로 
+               //이게 아이디가 되면 혹시 같은 이메일이 있으면 겹치게 되는데 이를 연동회원 구분으로 체크
+                     
+            }else if(result.result==1){
+               $("#apiMEmail").val(mEmail);
+               $("#mgSeq").val(2);
+               
+               $("#apiLogin").submit();
+               
+            }
+            
+         },
+         error:function(err){
+            alert(err);
+         }
+         
+         
+      });      
+      
+   }
 
 </script>
-	
-	<!-- 페이스북 로그인 -->
-	
+   
+   <!-- 페이스북 로그인 -->
+   
 <button type="button" class="button facebook" id="loginBtn">페이스북 계정</button>
  
             
@@ -111,31 +111,31 @@ function getUserData() {
        mEmail=response.email;
        mNickName=response.name;
        
-    	$.ajax({
-			type:"post",
-			url:"/web/main/apiLoginCheck.action",
-			dataType:"json",
-			data:"mEmail="+mEmail+"&mNickName="+mNickName+"&mgSeq=3",
-			success:function(result){
-				if(result.result==0){
-					location.href="/web/main/apiSign.action?mEmail="+mEmail+"&mNickName="+mNickName+"&mgSeq=3";
-					// 가입 및 닉네임 페이지로 
-					//이게 아이디가 되면 혹시 같은 이메일이 있으면 겹치게 되는데 이를 연동회원 구분으로 체크
-							
-				}else if(result.result==1){
-					$("#apiMEmail").val(mEmail);
-					$("#mgSeq").val(3);
-					$("#apiLogin").submit();
-					
-				}
-				
-			},
-			error:function(err){
-				alert(err);
-			}
-			
-			
-		});
+       $.ajax({
+         type:"post",
+         url:"/web/main/apiLoginCheck.action",
+         dataType:"json",
+         data:"mEmail="+mEmail+"&mNickName="+mNickName+"&mgSeq=3",
+         success:function(result){
+            if(result.result==0){
+               location.href="/web/main/apiSign.action?mEmail="+mEmail+"&mNickName="+mNickName+"&mgSeq=3";
+               // 가입 및 닉네임 페이지로 
+               //이게 아이디가 되면 혹시 같은 이메일이 있으면 겹치게 되는데 이를 연동회원 구분으로 체크
+                     
+            }else if(result.result==1){
+               $("#apiMEmail").val(mEmail);
+               $("#mgSeq").val(3);
+               $("#apiLogin").submit();
+               
+            }
+            
+         },
+         error:function(err){
+            alert(err);
+         }
+         
+         
+      });
        
     });
 }
@@ -192,10 +192,9 @@ document.getElementById('loginBtn').addEventListener('click', function() {
     }, {scope: 'email,public_profile,user_birthday',
         return_scopes: true});
 }, false);
-</script>	
-	
-	
+</script>   
+   
+   
 
 </body>
 </html>
-

@@ -39,7 +39,7 @@
 					</tr>
 				</table>
 				<!-- 로그인한사람 -->
-				<input type="hidden" name="mSeq" value="${mSeq}"/>
+				<input type="hidden" name="mSeq" value="${loginDTO.mSeq}"/>
 				
 			</div>
 			<div class="btns_add">

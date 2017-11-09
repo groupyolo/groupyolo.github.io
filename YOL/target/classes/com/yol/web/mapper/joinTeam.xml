@@ -28,8 +28,8 @@
 		SELECT * FROM VJoinTeam WHERE mSeq = #{mSeq} AND activeState = 'y' ORDER BY jRegDate DESC
 	</select>
 	
-	<update id="reject" parameterType="com.yol.web.DTO.JoinDTO">
-		UPDATE Join SET apSeq = 2 WHERE mSeq = #{mSeq} AND reSeq = #{reSeq}
+	<update id="changeMember" parameterType="com.yol.web.DTO.JoinDTO">
+		UPDATE Join SET apSeq = #{apSeq} WHERE mSeq = #{mSeq} AND reSeq = #{reSeq}
 	</update>
 	
 	<select id="searchMember" parameterType="String" resultType="com.yol.web.DTO.MemberDTO">

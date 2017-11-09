@@ -22,9 +22,9 @@ public class LogDAO {
 		return sql.insert("log.sign",dto);
 	}
 
-	public int addStateMember(String mEmail) {
+	public int addStateMember(MemberDTO dto) {
 
-		return sql.insert("log.addStateMember",mEmail);
+		return sql.insert("log.addStateMember",dto);
 	}
 
 	public String getId(String mEmail) {
@@ -57,6 +57,23 @@ public class LogDAO {
 	public void apiAuthok(MemberDTO dto) {
 		
 		sql.insert("log.apiAuthok",dto);
+	}
+
+	public int mEmailCheck(String mEmail) {
+		
+		return sql.selectOne("log.mEmailCheck",mEmail);
+	}
+
+	public int mNickNameCheck(String mNickName) {
+		return sql.selectOne("log.mNickNameCheck",mNickName);
+	}
+
+	public int findPassword(String mEmail) {
+		return sql.selectOne("log.findPassword",mEmail);
+	}
+
+	public int findPasswordChange(String mEmail) {
+		return sql.update("log.findPasswordChange",mEmail);
 	}
 	
 }

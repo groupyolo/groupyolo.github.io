@@ -6,9 +6,9 @@ public interface ILogService {
 
 	public MemberDTO logIn(MemberDTO dto);
 
-	public int sign(MemberDTO dto);
+	public void sign(MemberDTO dto);
 
-	public int addStateMember(String mEmail);
+	//public void addStateMember(MemberDTO dto);
 
 	public int authok(MemberDTO dto);
 
@@ -17,5 +17,13 @@ public interface ILogService {
 	public MemberDTO apiLoginok(MemberDTO ldto);
 
 	public int apiSign(MemberDTO dto);
+
+	public int mEmailCheck(String mEmail);
+
+	public int mNickNameCheck(String mNickName);
+
+	public int findPassword(String mEmail);
+
+	public int findPasswordChange(String mEmail);
 
 }
