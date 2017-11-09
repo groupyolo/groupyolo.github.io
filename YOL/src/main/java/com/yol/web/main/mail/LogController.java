@@ -61,24 +61,11 @@ public class LogController {
 	  }
 	  
 	  @RequestMapping(method= {RequestMethod.POST},value="/main/loginok.action" )
-<<<<<<< HEAD
-	  public String loginok(HttpServletRequest req,MemberDTO dto,HttpSession session) {
-=======
+
 	  public String loginok(HttpServletRequest req,MemberDTO ldto,HttpSession session) {
-		  
->>>>>>> branch 'master' of https://github.com/groupyolo/groupyolo.github.io
-		  
 		  MemberDTO dto = service.logIn(ldto);
-		  
-<<<<<<< HEAD
-		  MemberDTO ldto = service.logIn(dto);
-		  session.setAttribute("mSeq", ldto.getmSeq());
-		  session.setAttribute("nickName", ldto.getmNickName());
-		  req.setAttribute("ldto",ldto);
-=======
-		  session=req.getSession();
+		  /*session=req.getSession();*/
 		  session.setAttribute("dto", dto);
->>>>>>> branch 'master' of https://github.com/groupyolo/groupyolo.github.io
 		  
 		  return "main.loginok";
 		  
