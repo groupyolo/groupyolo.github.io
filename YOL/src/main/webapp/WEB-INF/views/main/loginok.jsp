@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -10,9 +10,10 @@
 <style>
 </style>
 </head>
-<body>
+<body> -->
 	
 ${ldto.mSeq }
 ${ldto.mName }
-</body>
-</html>
+<a href="/web/member/test.action">사이트 목록보기</a> 
+<!-- </body>
+</html> -->
