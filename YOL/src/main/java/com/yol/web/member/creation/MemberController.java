@@ -36,7 +36,7 @@ public class MemberController {
 
 		
 		//	return "member.home";
-		return "member.core_template";
+		return "member.creation.core_template";
 	}
 	
 	// POST로 바꿀 준비
