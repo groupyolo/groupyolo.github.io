@@ -30,5 +30,9 @@ public interface IJoinTeamService {
 
 	int addM(String mEmail, String reSeq);
 
+	int joinAdd(JoinDTO jdto);
+
+	int joinCancle(JoinDTO dto);
+
 
 }
