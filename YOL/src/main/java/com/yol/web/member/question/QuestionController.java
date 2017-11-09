@@ -29,7 +29,7 @@ public class QuestionController {
 		
 		req.setAttribute("list", list);
 		
-		return "question/add";
+		return "member.question.add";
 	}
 	
 	
@@ -37,13 +37,13 @@ public class QuestionController {
 	public String addok(HttpServletRequest req,QuestionDTO dto) {
 
 		System.out.println(req.getParameter("qcategory"));
-		System.out.println(req.getParameter("name"));
+		System.out.println(req.getParameter("nickname"));
 		
 		int result = service.add(dto);
 		
 		req.setAttribute("result", result);
 		
-		return "question/addok";
+		return "member.question.addok";
 	}
 	
 	@RequestMapping(method = { RequestMethod.GET }, value = "/question/list.action")
@@ -54,7 +54,7 @@ public class QuestionController {
 				
 		req.setAttribute("list", list);
 		
-		return "question/list";
+		return "member.question.list";
 	}
 	
 	@RequestMapping(method = { RequestMethod.GET }, value = "/question/view.action")
@@ -68,7 +68,7 @@ public class QuestionController {
 		req.setAttribute("dto", dto);
 		req.setAttribute("clist", clist);
 		
-		return "question/view";
+		return "member.question.view";
 	}
 	
 	@RequestMapping(method = { RequestMethod.GET }, value = "/question/edit.action")
@@ -82,7 +82,7 @@ public class QuestionController {
 		req.setAttribute("dto", dto);
 		req.setAttribute("list", list);
 
-		return "question/edit";
+		return "member.question.edit";
 	}
 	
 	@RequestMapping(method = { RequestMethod.POST }, value = "/question/editok.action")
@@ -96,7 +96,7 @@ public class QuestionController {
 		req.setAttribute("result", result);
 		req.setAttribute("seq", seq);
 		
-		return "question/editok";
+		return "member.question.editok";
 	}
 	
 	@RequestMapping(method = { RequestMethod.GET }, value = "/question/del.action")
@@ -108,7 +108,7 @@ public class QuestionController {
 		
 		req.setAttribute("result", result);
 		
-		return "question/del";
+		return "member.question.del";
 	}
 	
 	@RequestMapping(method = { RequestMethod.GET}, value = "/question/addComment.action")

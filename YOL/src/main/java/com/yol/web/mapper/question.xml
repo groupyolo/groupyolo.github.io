@@ -9,6 +9,9 @@
 	<insert id="add" parameterType="com.yol.web.DTO.QuestionDTO">
 		insert into Question (questionseq, name, qtitle, qcategory, qcontent)
 			values (question_seq.nextval, #{name}, #{qtitle}, #{qcategory}, #{qcontent})
+			
+		insert into question (questionseq, mseq, QCATEGORYSEQ, qtitle, qcontent) 
+			VALUES  (question_seq.nextval, #{mseq}, #{qcategoryseq}, #{qtitle}, #{qcontent});
 	</insert>
 	
 	<select id="list" resultType="com.yol.web.DTO.QuestionDTO">
@@ -32,11 +35,11 @@
 	</delete>
 	
 	<insert id="addComment" parameterType="com.yol.web.DTO.QcommentDTO">
-		insert into qcomment (qcommentseq, questionseq, name, qcomment) values (qcomment_seq.nextval,#{questionseq}, #{name}, #{qcomment})
+		insert into qcomment (qcommentseq, questionseq, mseq, qcomment) values (qcomment_seq.nextval,#{questionseq}, #{mseq}, #{qcomment})
 	</insert>
 	
 	<select id="getComment" resultType="com.yol.web.DTO.QcommentDTO" parameterType="String">
-		select * from qcomment where questionseq = #{seq} order by qcommenttime desc
+		select * from qcommentView where questionseq = #{seq} order by qcommenttime desc
 	</select>
 	
 	<delete id="delComment" parameterType="String">

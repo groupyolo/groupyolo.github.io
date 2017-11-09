@@ -1,11 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title></title>
+  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.12.4.js"></script>
 <style>
 	
@@ -69,20 +64,22 @@
 		var Now = new Date();
 		var NowTime = Now.getFullYear();
 
-		NowTime += '-' + Now.getMonth() + 1 ;
-		NowTime += '-' + Now.getDate();
+		NowTime += '-' + (Now.getMonth()+1);
+		if( Now.getDate() < 10) { NowTime += '-' + 0 + Now.getDate(); }
+		if( Now.getDate() > 9) { NowTime += '-' + Now.getDate(); }
 		NowTime += ' ' + Now.getHours();
 		NowTime += ':' + Now.getMinutes();
-		NowTime += ':' + Now.getSeconds();
+		if( Now.getSeconds() < 10) { NowTime += ':' + 0 + Now.getSeconds(); }
+		if( Now.getSeconds() > 9 ) { NowTime += ':' + Now.getSeconds(); }
 		
 		var questionseq = ${dto.questionseq};
 		var qcomment = $("#qcomment").val();
-		var name = "희준이";
+		var mnickname = ${dto.mnickname};
 		
 		$.ajax({
 			type: "get",
 			url: "${pageContext.request.contextPath}/question/addComment.action",
-			data: "questionseq=" + questionseq + "&qcomment=" + qcomment + "&name=" + name ,
+			data: "questionseq=" + questionseq + "&qcomment=" + qcomment + "&mnickname=" + mnickname ,
 			dataType: "json",
 			success : function(result) {
 				alert(result);
@@ -91,7 +88,7 @@
 					/* 아래에 데이터 생성 추가해줄거 */
 					
 					var tr = "<tr>" +
-					"<td>" + name + "</td>" +
+					"<td>" + mnickname + "</td>" +
 					"<td>" + qcomment + "</td>" +
 					"<td>" + NowTime + 
 					"<span style='float:right;cursor:pointer;' onclick='del(${com.qcommentseq});' title=' 댓글을 삭제합니다.''>[&times;]</span>" + "</td>" +
@@ -110,9 +107,8 @@
 	};
 
 </script>
-</head>
-<body>
-	
+
+	<!-- view 주업무 -->
 	
 		<table id="tblList">
 			<tr>
@@ -129,7 +125,7 @@
 			</tr>
 			<tr>
 				<th>글쓴이</th>
-				<td>${dto.name}</td>
+				<td>${dto.mnickname}</td>
 			</tr>
 			<tr>
 				<th>날짜</th>
@@ -181,7 +177,7 @@
 				<tbody>
 				<c:forEach items="${clist}" var="com">
 				<tr>
-					<td>${com.name}</td>
+					<td>${com.mnickname}</td>
 					<td>${com.qcomment}</td>
 					<td>${com.qcommenttime}
 					<span style="float:right;cursor:pointer;" onclick="del(${com.qcommentseq});" title=" 댓글을 삭제합니다.">[&times;]</span>
@@ -192,6 +188,3 @@
 			</table>
 		</div>		
 
-
-</body>
-</html>
