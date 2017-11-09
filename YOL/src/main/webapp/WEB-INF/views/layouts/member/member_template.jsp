@@ -22,14 +22,9 @@
 		<tiles:insertAttribute name="core"></tiles:insertAttribute>
 		
 		<!-- footer -->
-<<<<<<< HEAD
+
 		<tiles:insertAttribute name="footer"></tiles:insertAttribute>
-=======
-		<div id="memberfooter">
-		
-		</div>
->>>>>>> 70799d9b65894e4d9895613e798aee5d2669a5d6
-		
-		
+
+
 </body>
 </html>
