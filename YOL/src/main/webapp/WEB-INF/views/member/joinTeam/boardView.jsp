@@ -13,17 +13,23 @@
 		$("#btn_cancleMember").hide();
 		$(".teamjj").hide();
 		
-		
 		//모집 마감일때, 멤버 신청 불가능
-		if(${tdto.activeState == 'n'}) {
+		if(${tdto.activeState == 'n'} || (${tdto.mCount} == ${tdto.jCount})) {
 			$("#btn_joinMember").attr("disabled",true);
 		}
 		
 		//로그인한 사람이 신청한사람일 때, 멤버 취소 버튼 보여주기
+		/* if(loginId == ${mdto.mNickName} && (${mdto.apSeq} == '0' || ${mdto.apSeq} == '4')) {
+			$("#btn_cancleMember").show();
+		} */
 		
 		//로그인한 사람이 글 쓴사람이 일 때, 수정/삭제 버튼 보여주기
+		/* if(loginNickName == ${tdto.mNickName}) {
+			$(".teamjj").show();
+		} */
 		
-	})
+		
+	}); 
 </script>
 </head>
 <body>
@@ -52,7 +58,7 @@
 	<div id="applyTbl">
 		<table>
 			<tr>
-				<td>멤버 신청자</td>
+				<td><h3>멤버 신청자</h3></td>
 			</tr>
 			<tr>
 				<th>닉네임</th>
@@ -75,7 +81,7 @@
 		<!-- 조건; 신청이 완료된 멤버 && 미승인시 && 모집글 마감 전 -->
 		
 		<form action="${pageContext.request.contextPath}/member/joinMemberCancleOk.action" method="get">
-			 <input type="submit"  value="멤버취소" id="btn_cancleMember"/>
+			 <input type="button"  value="멤버취소" id="btn_cancleMember" onclick=""/>
 		</form>
 		
 	<!-- 여기까지 ajax -->
