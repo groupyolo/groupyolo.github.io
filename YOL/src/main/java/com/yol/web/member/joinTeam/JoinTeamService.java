@@ -106,7 +106,7 @@ public class JoinTeamService implements IJoinTeamService {
 
 	@Override
 	public int rejectM(JoinDTO dto) {
-
+		dto.setApSeq("2");
 		return dao.rejectM(dto);
 	}
 
@@ -126,6 +126,17 @@ public class JoinTeamService implements IJoinTeamService {
 		
 		int result = dao.addM(jdto);		
 		return result;
+	}
+
+	@Override
+	public int joinAdd(JoinDTO jdto) {
+		return dao.joinAdd(jdto);
+	}
+
+	@Override
+	public int joinCancle(JoinDTO dto) {
+		dto.setApSeq("5");
+		return dao.joinCancel(dto);
 	}
 
 }

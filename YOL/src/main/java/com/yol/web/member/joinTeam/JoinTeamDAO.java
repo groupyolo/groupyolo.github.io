@@ -48,8 +48,8 @@ public class JoinTeamDAO {
 		return sql.selectList("joinTeam.master", mSeq);
 	}
 
-	public int rejectM(JoinDTO dto) {		
-		return sql.update("joinTeam.reject", dto);
+	public int rejectM(JoinDTO dto) {
+		return sql.update("joinTeam.changeMember", dto);
 	}
 
 	public MemberDTO searchM(String mEmail) {
@@ -62,6 +62,14 @@ public class JoinTeamDAO {
 
 	public String find(String mSeq) {
 		return sql.selectOne("joinTeam.find", mSeq);
+	}
+
+	public int joinAdd(JoinDTO jdto) {
+		return sql.insert("joinTeam.addMember",jdto);
+	}
+
+	public int joinCancel(JoinDTO dto) {
+		return sql.update("jointeam.changeMember",dto);
 	}
 	
 }

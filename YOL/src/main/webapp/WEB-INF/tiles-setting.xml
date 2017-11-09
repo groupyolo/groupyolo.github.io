@@ -9,10 +9,9 @@
 
 <tiles-definitions>
 
-	<definition name="*.*.*.ajax" template="/WEB-INF/views/layouts/{1}/ajax.jsp" >
-		<!-- 주업무 -->
+	<!-- ajax -->
+	<definition name="*.*.*.ajax" template="/WEB-INF/views/layouts/ajax.jsp" >
 		<put-attribute name="core" value="/WEB-INF/views/{1}/{2}/{3}.jsp"></put-attribute>
-
 	</definition>
 
 	<definition name="*.*.*" template="/WEB-INF/views/layouts/{1}/{1}_template.jsp" >
@@ -20,6 +19,7 @@
 		<put-attribute name="asset" value="/WEB-INF/views/inc/commons/asset.jsp"></put-attribute>	
 		<put-attribute name="membermenu" value="/WEB-INF/views/inc/{1}/{1}menu.jsp"></put-attribute>
 		<put-attribute name="footer" value="/WEB-INF/views/inc/commons/footer.jsp"></put-attribute>
+
 
 		<!-- 주업무 -->
 		<put-attribute name="core" value="/WEB-INF/views/{1}/{2}/{3}.jsp"></put-attribute>
