@@ -4,27 +4,49 @@
 
 <script src="/web/js/jquery-1.12.4.js"></script>
 <script>
-
-	function del() {
+$(document).ready(function() {
+	$('#btn').click(function() {
+		
+		var data = "pbSeq=${bdto.pbSeq}&mSeq=${loginDTO.mSeq}&pbcomment=" + $('#Pbcomment').val();
+		
+		$.ajax({
+			type: "post",
+			url : "${pageContext.request.contextPath}/member/commentadd.action",
+			data : data,
+			dataType: "json",
+			success : function(result) {
+				if (result == 1) {
+					var tr = "<tr><td> ${loginDTO.mNickName} </td><td>"+ $("#Pbcomment").val() + "</td><td>"+"</td></tr>";
+					$("#tblComment tbody").append(tr);
+					$("#Pbcomment").val("");
+				} else if (result == 0) {
+					alert("추가 실패");
+				}
+			}
+			
+		});
+	});
+	
+	$('#del').click(function() {
 				var result = confirm("정말 삭제하시겠습니까?");
 			if(result) {
-				if(${bdto.mSeq} == <%= session.getAttribute("mSeq")%>) {
-					location.href='/web/member/delok.action?pbSeq="${bdto.pbSeq}"prSeq="${pdto.prSeq }"';
+				if(${bdto.mSeq} == ${loginDTO.mSeq}) {
+					location.href='${pageContext.request.contextPath}/member/delok.action?pbSeq=${bdto.pbSeq}&prSeq=${pdto.prSeq }';
 				} else {
 					alert("권한이 없습니다.");
+				}
 			}
-		}
-	}
+	});
 
-	function edit() {
-		
-				if(${bdto.mSeq} == <%= session.getAttribute("mSeq")%>) {
-					location.href='/web/member/edit.action?pbSeq="${bdto.pbSeq}"prSeq="${pdto.prSeq }"';
-				} else {
+	$('#edit').click(function(){
+			if(${bdto.mSeq} == ${loginDTO.mSeq}) {
+					location.href='${pageContext.request.contextPath}/member/edit.action?pbSeq=${bdto.pbSeq}&prSeq=${pdto.prSeq }';
+			} else {
 					alert("권한이 없습니다.");
 			}
-		
-	}
+		});
+});
+	
 </script>
 
 <%@ include file="/WEB-INF/views/member/siteManage/manage.jsp" %>
@@ -61,17 +83,31 @@
 				<tr>
 					<th>태그허용</th>
 					<td>
-						<c:if test="${bdto.pbtag == y }"> 허용</c:if>
-						<c:if test="${bdto.pbtag == n }"> 비허용</c:if>
+						<c:if test="${bdto.pbtag == 'y' }"> 허용</c:if>
+						<c:if test="${bdto.pbtag == 'n' }"> 비허용</c:if>
 					</td>
 				</tr>
 			</table>	
-			<input type="hidden"  name="mSeq" value= "<%= session.getAttribute("mSeq") %>"/>
+			<input type="hidden"  name="mSeq" value= "${loginDTO.mSeq}"/>
 			<input type="hidden" name="prSeq" value= "${pdto.prSeq }"/>
 			
 		
-		<input type="button" value="글쓰기" onclick="location.href='/web/member/add.action'" />
-		<input type="button" value="수정하기"  onclick="edit();"/>
-		<input type="button" value="삭제하기"  onclick="del()"/>
+		<input type="button" value="글쓰기" onclick="location.href='/${pageContext.request.contextPath}/member/add.action?prSeq=${pdto.prSeq}'" />
+		<input type="button" value="수정하기" id="edit"/>
+		<input type="button" value="삭제하기"  id="del"/>
+		
+		<h3>댓글</h3>
+		
+			<table id="tblComment">
+				<tbody>
+				</tbody>
+			</table>
+			<form id="form1">
+				<div>
+					<textarea name="Pbcomment" id="Pbcomment" cols="30" rows="10"></textarea>
+				</div>
+				<input type="button" value="등록" id="btn"/>
+			</form>
+
 </body>
 </html>

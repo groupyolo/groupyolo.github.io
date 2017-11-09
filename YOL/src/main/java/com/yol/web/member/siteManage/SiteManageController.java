@@ -9,7 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.yol.web.DTO.MemberDTO;
+import com.yol.web.DTO.PbCommentDTO;
 import com.yol.web.DTO.ProjectBoardDTO;
 import com.yol.web.DTO.ProjectDTO;
 import com.yol.web.DTO.ProjectInfoDTO;
@@ -25,12 +28,13 @@ public class SiteManageController {
 	private String test(HttpServletRequest req) {
 		 
 		HttpSession session = req.getSession();
-		String mSeq = (String) session.getAttribute("mSeq");
+		MemberDTO ldto =  (MemberDTO) session.getAttribute("loginDTO");
+		String mSeq = ldto.getmSeq();
 
 		List<ProjectInfoDTO> plist = service.pList(mSeq);
 		req.setAttribute("plist", plist);
 		
-		return "test";
+		return "member.siteManage.test";
 	}
 	
 	@RequestMapping (method= {RequestMethod.GET}, value="/member/manage.action" )
@@ -38,11 +42,10 @@ public class SiteManageController {
 		
 		HttpSession session = req.getSession();
 		
-		System.out.println(prSeq);
 		//프로젝트 정보
 		ProjectDTO pdto = service.pInfo(prSeq);
 	
-		String mSeq = "1"; /*(String) session.getAttribute("mSeq");*/
+		String mSeq = ((MemberDTO) session.getAttribute("loginDTO")).getmSeq();
 		//내가 개설한 사이트 정보 
 		List<ProjectInfoDTO> plist = service.pList(mSeq);
 
@@ -71,7 +74,7 @@ public class SiteManageController {
 		//프로젝트 정보
 		ProjectDTO pdto = service.pInfo(prSeq);
 		
-		String mSeq = (String) session.getAttribute("mSeq");
+		String mSeq = ((MemberDTO) session.getAttribute("loginDTO")).getmSeq();
 		//내가 개설한 사이트 정보 
 		List<ProjectInfoDTO> plist = service.pList(mSeq);
 		
@@ -99,7 +102,7 @@ public class SiteManageController {
 		
 		req.setAttribute("prSeq", bdto.getPrSeq());
 		req.setAttribute("result", result);
-		return "siteManage.boardaddok";
+		return "member.siteManage.boardaddok";
 	}
 	
 	@RequestMapping (method= {RequestMethod.GET}, value="/member/view.action" )
@@ -110,7 +113,7 @@ public class SiteManageController {
 		//프로젝트 정보
 		ProjectDTO pdto = service.pInfo(prSeq);
 		
-		String mSeq = (String) session.getAttribute("mSeq");
+		String mSeq = ((MemberDTO) session.getAttribute("loginDTO")).getmSeq();
 		//내가 개설한 사이트 정보 
 		List<ProjectInfoDTO> plist = service.pList(mSeq);
 		
@@ -127,13 +130,14 @@ public class SiteManageController {
 		req.setAttribute("plist", plist);
 		req.setAttribute("pdto", pdto);
 		
-		System.out.println(bdto.getPbSeq());
+	
 		return "member.siteManage.boardview";
 	}
 	
 	@RequestMapping (method= {RequestMethod.GET}, value="/member/delok.action" )
 	private String delok(HttpServletRequest req, String prSeq, String pbSeq ) {
 
+		System.out.println(pbSeq);
 		
 		// 게시글 삭제하기 
 		int result = service.delok(pbSeq);
@@ -151,7 +155,7 @@ public class SiteManageController {
 		//프로젝트 정보
 		ProjectDTO pdto = service.pInfo(prSeq);
 		
-		String mSeq = (String) session.getAttribute("mSeq");
+		String mSeq = ((MemberDTO) session.getAttribute("loginDTO")).getmSeq();
 		//내가 개설한 사이트 정보 
 		List<ProjectInfoDTO> plist = service.pList(mSeq);
 		
@@ -165,11 +169,12 @@ public class SiteManageController {
 		req.setAttribute("plist", plist);
 		req.setAttribute("pdto", pdto);
 		
+		System.out.println(pbSeq);
 		// 게시판 글 내용 가져오기 
 		ProjectBoardDTO bdto = service.getView(pbSeq);
 		req.setAttribute("bdto", bdto);	
-		
-		return "siteManage.boardedit";
+		System.out.println("rkskdkfjhksd");
+		return "member.siteManage.boardedit";
 	}
 	
 	@RequestMapping (method= {RequestMethod.GET}, value="/member/editok.action" )
@@ -184,6 +189,17 @@ public class SiteManageController {
 		req.setAttribute("pbSeq", pbSeq);
 		
 		return "member.siteManage.boardeditok";
+	}
+	
+	@RequestMapping (method= {RequestMethod.POST}, value="/member/commentadd.action" )
+	private @ResponseBody Object commentadd(HttpServletRequest req, PbCommentDTO cdto) {
+		
+		cdto.setjSeq(service.getJSeq(cdto.getmSeq()));
+		
+		int result = service.commentAdd(cdto);
+		int pbcSeq = service.getpbcSeq();
+		
+		return "member.siteManage.commentadd";
 	}
 	
 }

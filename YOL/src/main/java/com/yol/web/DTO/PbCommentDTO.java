@@ -7,6 +7,16 @@ public class PbCommentDTO {
 	private String jSeq;
 	private String pbcomment;
 	private String pbcRegdate;
+	private String mSeq;
+	
+	
+	public String getmSeq() {
+		return mSeq;
+	}
+
+	public void setmSeq(String mSeq) {
+		this.mSeq = mSeq;
+	}
 
 	public String getPbcSeq() {
 		return pbcSeq;

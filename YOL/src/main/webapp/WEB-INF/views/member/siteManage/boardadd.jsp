@@ -12,7 +12,7 @@
 					<td colspan="2"> 
 						<select name="nsSeq" id="nsSeq">
 							<option value="1">공지</option>
-							<option value="2"  selected>일반</option>
+							<option value="0"  selected>일반</option>
 						</select>
 					</td>
 				</tr>
@@ -35,7 +35,7 @@
 				</tr>
 			</table>	
 			<input type="submit"  value="등록하기"/>
-			<input type="hidden"  name="mSeq" value= "<%= session.getAttribute("mSeq") %>"/>
+			<input type="hidden"  name="mSeq" value= "${loginDTO.mSeq}"/>
 			<input type="hidden" name="prSeq" value= "${pdto.prSeq }"/>
 			
 		</form>
