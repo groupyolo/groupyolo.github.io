@@ -14,15 +14,15 @@
 
 		<!-- header -->
 		<tiles:insertAttribute name="membermenu"></tiles:insertAttribute>
-		
-		<!-- sidemenu -->
-		<tiles:insertAttribute name="membersubmenu"></tiles:insertAttribute>
+
 		
 		<!-- 주업무 -->
+		<tiles:insertAttribute name="mainwork"></tiles:insertAttribute>
+		
 		
 		<!-- footer -->
 		<div id="memberfooter">
-		
+			footer area
 		</div>
 		
 		
