@@ -59,7 +59,17 @@ public class LogController {
 		  return "main.login";
 		  
 	  }
-	
+	  
+	  @RequestMapping(method= {RequestMethod.POST},value="/main/loginok.action" )
+
+	  public String loginok(HttpServletRequest req,MemberDTO ldto,HttpSession session) {
+		  MemberDTO dto = service.logIn(ldto);
+		  /*session=req.getSession();*/
+		  session.setAttribute("dto", dto);
+		  
+		  return "main.loginok";
+		  
+	  }
 	  
 	  @RequestMapping(method= {RequestMethod.POST},value="/main/apiLoginCheck.action" )
 	  public String apiLoginCheck(HttpServletRequest req,MemberDTO dto) {
@@ -98,7 +108,7 @@ public class LogController {
 		  MemberDTO dto = service.apiLoginok(ldto);
 		  
 		  session=req.getSession();
-		  session.setAttribute("loginDTO", dto);
+		  session.setAttribute("dto", dto);
 		  
 		  return "main/loginok";
 		  
