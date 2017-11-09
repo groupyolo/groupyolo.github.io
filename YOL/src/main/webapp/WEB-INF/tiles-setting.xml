@@ -29,11 +29,11 @@
 				
 	</definition>
  -->	
-	<definition name="*" template="/WEB-INF/views/layouts/test.jsp" >
+<!-- 	<definition name="*" template="/WEB-INF/views/layouts/test.jsp" >
 
 		<put-attribute name="main" value="/WEB-INF/views/hello.jsp"></put-attribute>	
 				
-	</definition>
+	</definition> -->
 	
 	<!-- 임시 로그인 -->
 	<definition name= "main.*" template = "/WEB-INF/views/member/siteManage/login.jsp">
