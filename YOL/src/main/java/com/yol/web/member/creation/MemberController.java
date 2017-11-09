@@ -28,9 +28,16 @@ public class MemberController {
 
 		
 		//	return "member.home";
-		return "member/home";
+		return "member.creation.home";
 	}
 	
+	@RequestMapping(method = { RequestMethod.GET }, value = "/member/core_template.action")
+	public String test(HttpServletRequest req) {
+
+		
+		//	return "member.home";
+		return "member.creation.core_template";
+	}
 	
 	// POST로 바꿀 준비
 	

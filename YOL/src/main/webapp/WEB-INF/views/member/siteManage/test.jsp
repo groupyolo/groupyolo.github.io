@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<!-- Tiles전용 태그  -->
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -7,8 +10,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>사이트 관리 들어기가위한 사이트 </h1>
-	
-	 <a href="/web/member/view.action?prseq=1">사이트 관리 들어가기</a> 
+<tiles:insertAttribute name="test"></tiles:insertAttribute>
 </body>
 </html>

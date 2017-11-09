@@ -16,16 +16,15 @@
 		<tiles:insertAttribute name="membermenu"></tiles:insertAttribute>
 		
 		<!-- sidemenu -->
-		<tiles:insertAttribute name="membersubmenu"></tiles:insertAttribute>
+		<%-- <tiles:insertAttribute name="membersubmenu"></tiles:insertAttribute> --%>
 		
 		<!-- 주업무 -->
 		<tiles:insertAttribute name="core"></tiles:insertAttribute>
 		
 		<!-- footer -->
-		<div id="memberfooter">
-		
-		</div>
-		
+
+		<tiles:insertAttribute name="footer"></tiles:insertAttribute>
+
 		
 </body>
 </html>
