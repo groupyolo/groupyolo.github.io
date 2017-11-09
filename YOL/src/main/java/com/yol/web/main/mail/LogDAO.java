@@ -16,5 +16,47 @@ public class LogDAO {
 
 		return sql.selectOne("log.in", dto);
 	}
+
+	public int sign(MemberDTO dto) {
+
+		return sql.insert("log.sign",dto);
+	}
+
+	public int addStateMember(String mEmail) {
+
+		return sql.insert("log.addStateMember",mEmail);
+	}
+
+	public String getId(String mEmail) {
+		
+		return sql.selectOne("log.getId",mEmail);
+	}
+
+	public int authok(MemberDTO dto) {
+		
+		return sql.insert("log.authok",dto);
+	}
+
+	public int apiLoginCheck(MemberDTO ldto) {
+
+		return sql.selectOne("log.apiLoginCheck",ldto);
+	}
+
+	public MemberDTO apiLoginok(MemberDTO dto) {
+		return sql.selectOne("log.apiLoginok",dto);
+	}
+
+	public int apiSign(MemberDTO dto) {
+		return sql.insert("log.apiSign",dto);
+	}
+
+	public void addapiStateMember(MemberDTO dto) {
+		sql.insert("log.addapiStateMember",dto);
+	}
+
+	public void apiAuthok(MemberDTO dto) {
+		
+		sql.insert("log.apiAuthok",dto);
+	}
 	
 }

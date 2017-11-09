@@ -13,7 +13,11 @@
 		<!-- 방금 선언한 레이아웃 페이지에서 사용할 모듈을 정의(조각 페이지) -->
 		<put-attribute name="asset" value="/WEB-INF/views/inc/commons/asset.jsp"></put-attribute>	
 		<put-attribute name="membermenu" value="/WEB-INF/views/inc/{1}/{1}menu.jsp"></put-attribute>
+<<<<<<< HEAD
 		<put-attribute name="footer" value="/WEB-INF/views/inc/commons/footer.jsp"></put-attribute>
+=======
+		<put-attribute name="membersubmenu" value="/WEB-INF/views/inc/{1}/{1}submenu.jsp"></put-attribute>
+>>>>>>> 70799d9b65894e4d9895613e798aee5d2669a5d6
 		
 		<!-- 주업무 -->
 		<put-attribute name="core" value="/WEB-INF/views/{1}/{2}/{3}.jsp"></put-attribute>
@@ -29,11 +33,19 @@
 				
 	</definition>
  -->	
-	<definition name="*" template="/WEB-INF/views/layouts/test.jsp" >
+<!-- 	<definition name="*" template="/WEB-INF/views/layouts/test.jsp" >
 
 		<put-attribute name="main" value="/WEB-INF/views/hello.jsp"></put-attribute>	
 				
+	</definition> -->
+	
+	<!-- 임시 로그인 -->
+	<definition name= "main.*" template = "/WEB-INF/views/member/siteManage/login.jsp">
+		<put-attribute name="core" value="/WEB-INF/views/main/{1}.jsp"></put-attribute>
 	</definition>
 	
-
+	<definition name= "test" template = "/WEB-INF/views/member/siteManage/test.jsp">
+		<put-attribute name="test" value="/WEB-INF/views/member/siteManage/test1.jsp"></put-attribute>
+	</definition>
+	
 </tiles-definitions>
