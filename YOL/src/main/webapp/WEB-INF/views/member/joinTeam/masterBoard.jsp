@@ -13,7 +13,7 @@
 		$("#requestTbl").hide();
 		$("#btnAddMember").attr("disabled",true);
 		//alert(${tlist.size() != 0});
-	})
+	});
 	
 	function showMember(reSeq) {
 		$.ajax({
