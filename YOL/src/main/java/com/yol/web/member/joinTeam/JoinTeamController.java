@@ -87,12 +87,12 @@ public class JoinTeamController {
 		List<VJoinMemberDTO> mlist = sv.joinList(reSeq);
 		req.setAttribute("mlist", mlist);
 		
-		return "member.joinTeam.masterBoardMember";
+		return "member.joinTeam.masterBoardMember.ajax";
 	}
 	@RequestMapping(method= {RequestMethod.GET},value="/member/approveMember.action")
 	public String approveMember(HttpServletRequest req, String jSeq) {
 		
-		return "member.joinTeam.approveMember";
+		return "member.joinTeam.approveMember.ajax";
 	}
 	@RequestMapping(method= {RequestMethod.GET},value="/member/rejectMember.action")
 	public @ResponseBody Object rejectMember(HttpServletRequest req, JoinDTO dto) {
@@ -109,7 +109,7 @@ public class JoinTeamController {
 		MemberDTO mdto = sv.searchM(mEmail);
 		req.setAttribute("mdto", mdto);
 		
-		return "member.joinTeam.searchMember";
+		return "member.joinTeam.searchMember.ajax";
 	}
 	@RequestMapping(method= {RequestMethod.GET},value="/member/addMember.action")
 	public @ResponseBody Object addMember(HttpServletRequest req, String mEmail, String reSeq) {
