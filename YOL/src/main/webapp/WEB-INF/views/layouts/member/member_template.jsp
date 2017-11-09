@@ -21,9 +21,7 @@
 		
 		
 		<!-- footer -->
-		<div id="memberfooter">
-			footer area
-		</div>
+		<tiles:insertAttribute name="footer"></tiles:insertAttribute>
 		
 		
 </body>
