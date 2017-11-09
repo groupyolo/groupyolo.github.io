@@ -65,8 +65,8 @@ public class LogController {
 	  public String loginok(HttpServletRequest req,MemberDTO ldto,HttpSession session) {
 		  MemberDTO dto = service.logIn(ldto);
 		  /*session=req.getSession();*/
-		  session.setAttribute("dto", dto);
-		  
+		  session.setAttribute("loginDTO", dto);
+		
 		  return "main.loginok";
 		  
 	  }
