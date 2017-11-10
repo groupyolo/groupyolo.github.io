@@ -34,7 +34,6 @@ public class MemberController {
 	@RequestMapping(method = { RequestMethod.GET }, value = "/member/core_template.action")
 	public String test(HttpServletRequest req) {
 
-		
 		//	return "member.home";
 		return "member.creation.core_template";
 	}
@@ -44,19 +43,19 @@ public class MemberController {
 	@RequestMapping(method = { RequestMethod.GET }, value = "/member/creationstep1.action")
 	public String creationstep1(HttpServletRequest req) {
 
-		return "member/creation/creationstep1";
+		return "member.creation.creationstep1";
 	}
 	@RequestMapping(method = { RequestMethod.POST }, value = "/member/creationstep2.action")
 	public String creationstep2(HttpServletRequest req) {
 
-		return "member/creation/creationstep2";
+		return "member.creation.creationstep2";
 	}
 		
 	
 	@RequestMapping(method = { RequestMethod.GET }, value = "/member/create.action")
 	public String create(HttpServletRequest req) {
 
-		return "member/creation/projectadd";
+		return "member.creation.projectadd";
 	}
 	
 	@RequestMapping(method = { RequestMethod.POST }, value = "/member/creationok.action")
@@ -66,7 +65,7 @@ public class MemberController {
 		
 		req.setAttribute("result", result);
 		
-		return "member/creation/creationok";
+		return "member.creation.creationok";
 	}	
 	
 	
@@ -74,18 +73,32 @@ public class MemberController {
 	public String addproject(HttpServletRequest req) {
 		
 		
-		return "member/creation/addproject";
+		return "member.creation.addproject";
 	}
-	
+		
 	@RequestMapping(method = { RequestMethod.GET }, value = "/membermenu.action")
 	public String membermenu(HttpServletRequest req) {
 
-		return "inc/member/membermenu";
+		return "inc.member.membermenu";
 	}
 	@RequestMapping(method = { RequestMethod.GET }, value = "/membersubmenu.action")
 	public String membersubmenu(HttpServletRequest req) {
 
-		return "inc/member/membersubmenu";
+		return "inc.member.membersubmenu";
+	}
+	
+	//회원페이지
+	//나의정보
+	@RequestMapping(method = { RequestMethod.GET }, value = "/member/myinfo.action")
+	public String myinfo(HttpServletRequest req) {
+
+		return "member.memberpage.myinfo";
+	}
+
+	@RequestMapping(method = { RequestMethod.GET }, value = "/member/mysites.action")
+	public String mysites(HttpServletRequest req) {
+
+		return "member.memberpage.mysites";
 	}
 	
 	
