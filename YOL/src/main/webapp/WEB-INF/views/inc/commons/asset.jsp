@@ -4,9 +4,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/css/jquery-ui.css">
 <script src="${pageContext.request.contextPath }/js/bootstrap.js"></script>
 <link rel="stylesheet" href="${pageContext.request.contextPath }/css/memberpage.css"/>
-<<<<<<< HEAD
 <link rel="stylesheet" href="${pageContext.request.contextPath }/css/commonpage.css"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-=======
 <link rel="stylesheet" href="${pageContext.request.contextPath }/css/mainpage.css"/>
->>>>>>> branch 'master' of https://github.com/groupyolo/groupyolo.github.io.git
+
