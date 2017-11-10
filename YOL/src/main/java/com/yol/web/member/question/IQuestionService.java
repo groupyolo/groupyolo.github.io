@@ -25,12 +25,14 @@ public interface IQuestionService {
 
 	List<QcommentDTO> getComment(String seq);
 
-	int delComment(String seq);
+	int delComment(HashMap<String, String> map);
 
 	int commentUp(String seq);
 
 	int commentDown(String seq);
 
 	List<QuestionDTO> search(HashMap<String, String> map);
+
+	int qhitsUp(String seq);
 
 }

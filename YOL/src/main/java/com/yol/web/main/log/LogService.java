@@ -1,4 +1,4 @@
-package com.yol.web.main;
+package com.yol.web.main.log;
 
 import javax.mail.MessagingException;
 

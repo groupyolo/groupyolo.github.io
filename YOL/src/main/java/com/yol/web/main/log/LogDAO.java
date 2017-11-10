@@ -1,4 +1,4 @@
-package com.yol.web.main;
+package com.yol.web.main.log;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;

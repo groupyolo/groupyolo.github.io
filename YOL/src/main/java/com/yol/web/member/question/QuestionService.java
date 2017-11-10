@@ -68,9 +68,9 @@ public class QuestionService implements IQuestionService {
 	}
 
 	@Override
-	public int delComment(String seq) {
+	public int delComment(HashMap<String,String> map) {
 		
-		return dao.delComment(seq);
+		return dao.delComment(map);
 	}
 
 	@Override
@@ -89,6 +89,13 @@ public class QuestionService implements IQuestionService {
 	public List<QuestionDTO> search(HashMap<String, String> map) {
 
 		return dao.search(map);
+	}
+
+	@Override
+	public int qhitsUp(String seq) {
+
+		return dao.qhitsUp(seq);
+		
 	}
 
 
