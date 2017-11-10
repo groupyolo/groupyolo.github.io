@@ -21,7 +21,7 @@ public class LogController {
 	  public String signAuth(HttpServletRequest req, String mEmail) {
 		 //인증 메일 보내기
 		  
-		  return "main/login";
+		  return "main.log.login";
 		  
 	  }
 	  
@@ -31,14 +31,14 @@ public class LogController {
 		  
 		  int result = service.authok(dto);
 		  
-		  return "main/authok";
+		  return "main.log.authok";
 		  
 	  }
 	  
 	  @RequestMapping(method= {RequestMethod.GET},value="/main/sign.action" )
 	  public String sign(HttpServletRequest req) {
 		  //등록
-		  return "main/sign";
+		  return "main.log.sign";
 		  
 	  }
 	  
@@ -47,8 +47,9 @@ public class LogController {
 		  
 		  int result = service.sign(dto);
 		  req.setAttribute("result", result);	
+		  req.setAttribute("loginDTO", dto);	
 		  
-		  return "main/signok";
+		  return "main.log.signok";
 		  
 	  }
 
@@ -56,28 +57,43 @@ public class LogController {
 	  public String login(HttpServletRequest req) {
 		  
 		  
-		  return "main.login";
+		  return "main.log.login";
 		  
 	  }
 	  
 	  @RequestMapping(method= {RequestMethod.POST},value="/main/loginok.action" )
-
 	  public String loginok(HttpServletRequest req,MemberDTO ldto,HttpSession session) {
+		 
 		  MemberDTO dto = service.logIn(ldto);
 		  /*session=req.getSession();*/
-		  session.setAttribute("dto", dto);
+		  session.setAttribute("loginDTO", dto);
 		  
-		  return "main.loginok";
+		  return "main.log.loginok";
+		  
+	  }
+
+	  @RequestMapping(method= {RequestMethod.GET},value="/main/mEmailCheck.action" )
+	  public String mEmailCheck(HttpServletRequest req,String mEmail) {
+		  int result = service.mEmailCheck(mEmail);
+		  req.setAttribute("result", result);
+		  return "main.log.mEmailCheck.ajax";
+		  
+	  }
+	  
+	  @RequestMapping(method= {RequestMethod.GET},value="/main/mNickNameCheck.action" )
+	  public String mNickNameCheck(HttpServletRequest req,String mNickName) {
+		  int result = service.mNickNameCheck(mNickName);
+		  
+		  req.setAttribute("result", result);
+		  return "main.log.mNickNameCheck.ajax";
 		  
 	  }
 	  
 	  @RequestMapping(method= {RequestMethod.POST},value="/main/apiLoginCheck.action" )
 	  public String apiLoginCheck(HttpServletRequest req,MemberDTO dto) {
-		 //System.out.println(dto.getMgSeq());
 		  int result = service.apiLoginCheck(dto);
 		  req.setAttribute("result",result);
-		  
-		  return "main/apiLoginCheck";
+		  return "main.log.apiLoginCheck.ajax";
 		  
 	  }
 	  
@@ -86,7 +102,7 @@ public class LogController {
 		  
 		  req.setAttribute("dto",dto);
 		  
-		  return "main/apiSign";
+		  return "main.log.apiSign";
 		  
 	  }
 
@@ -97,20 +113,19 @@ public class LogController {
 		  
 		  req.setAttribute("result",result);
 		  
-		  return "main/apiSignok";
+		  return "main.log.apiSignok";
 		  
 	  }	
 	  
 	  @RequestMapping(method= {RequestMethod.POST},value="/main/apiLoginok.action" )
 	  public String apiLoginok(HttpServletRequest req,MemberDTO ldto,HttpSession session) {
-		 System.out.println("aaa");
-		  System.out.println(ldto.getmEmail());
+		
 		  MemberDTO dto = service.apiLoginok(ldto);
 		  
 		  session=req.getSession();
-		  session.setAttribute("dto", dto);
+		  session.setAttribute("loginDTO", dto);
 		  
-		  return "main/loginok";
+		  return "main.log.loginok";
 		  
 	  }
 	  

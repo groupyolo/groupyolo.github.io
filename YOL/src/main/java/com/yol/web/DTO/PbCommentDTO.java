@@ -7,6 +7,53 @@ public class PbCommentDTO {
 	private String jSeq;
 	private String pbcomment;
 	private String pbcRegdate;
+	private String prSeq;
+	private String mSeq;
+	private String mNickName;
+	private String mEmail;
+	private String grade;
+	
+	
+	
+	public String getPrSeq() {
+		return prSeq;
+	}
+
+	public void setPrSeq(String prSeq) {
+		this.prSeq = prSeq;
+	}
+
+	public String getmNickName() {
+		return mNickName;
+	}
+
+	public void setmNickName(String mNickName) {
+		this.mNickName = mNickName;
+	}
+
+	public String getmEmail() {
+		return mEmail;
+	}
+
+	public void setmEmail(String mEmail) {
+		this.mEmail = mEmail;
+	}
+
+	public String getGrade() {
+		return grade;
+	}
+
+	public void setGrade(String grade) {
+		this.grade = grade;
+	}
+
+	public String getmSeq() {
+		return mSeq;
+	}
+
+	public void setmSeq(String mSeq) {
+		this.mSeq = mSeq;
+	}
 
 	public String getPbcSeq() {
 		return pbcSeq;

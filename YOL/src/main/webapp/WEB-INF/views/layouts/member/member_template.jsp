@@ -22,6 +22,5 @@
 
 		<tiles:insertAttribute name="footer"></tiles:insertAttribute>
 
-
 </body>
 </html>

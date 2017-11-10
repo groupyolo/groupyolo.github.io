@@ -10,26 +10,59 @@
 <script>
 	$(document).ready(function() {
 		
-		$("#btn_cancleMember").hide();
+		//$("#btn_cancleMember").hide();
 		$(".teamjj").hide();
 		
 		//모집 마감일때, 멤버 신청 불가능
-		if(${tdto.activeState == 'n'} || (${tdto.mCount} == ${tdto.jCount})) {
+		if(${tdto.activeState == 'n'} || (${tdto.mCount == tdto.jCount})) {
 			$("#btn_joinMember").attr("disabled",true);
 		}
 		
-		//로그인한 사람이 신청한사람일 때, 멤버 취소 버튼 보여주기
-		/* if(loginId == ${mdto.mNickName} && (${mdto.apSeq} == '0' || ${mdto.apSeq} == '4')) {
-			$("#btn_cancleMember").show();
-		} */
-		
 		//로그인한 사람이 글 쓴사람이 일 때, 수정/삭제 버튼 보여주기
-		/* if(loginNickName == ${tdto.mNickName}) {
+		if(${loginDTO.mNickName == tdto.mNickName}) {
 			$(".teamjj").show();
-		} */
-		
+		}		
 		
 	}); 
+	
+	function memberAdd(mSeq) {
+		$.ajax({
+			type:"get",
+			url:"${pageContext.request.contextPath}/member/joinMemberAdd.action",
+			data:"mSeq="+ mSeq+"&reSeq="+${tdto.reSeq},
+			dataType:"json",
+			success:function(data) {
+				//console.log(data);
+				if(data == "1") {
+					console.log("성공");
+					showMember($("#btnHidden").val());
+				}
+			},
+			error:function() {
+				alert("실패");
+			}
+		})
+	}
+	
+	function memberCancel(mSeq) {
+		$.ajax({
+			type:"get",
+			url:"${pageContext.request.contextPath}/member/joinMemberCancle.action",
+			data:"mSeq="+ mSeq+"&reSeq="+${tdto.reSeq},
+			dataType:"json",
+			success:function(data) {
+				//console.log(data);
+				if(data == "1") {
+					console.log("성공");
+					showMember($("#btnHidden").val());
+				}
+			},
+			error:function() {
+				alert("실패");
+			}
+		})
+	}
+	
 </script>
 </head>
 <body>
@@ -71,18 +104,26 @@
 				<td>${mdto.jRegDate}</td>
 				<td>${mdto.gradeName}</td>
 			</tr>
+			<script>
+				<c:if test="${loginDTO.mNickName == mdto.mNickName}">
+				//로그인한 사람이 신청한사람일 때, 멤버 취소 버튼 보여주기
+				if((${mdto.apSeq} == 0 || ${mdto.apSeq} == 4)) {					
+					$("#btn_cancleMember").show();
+					$("#btn_joinMember").hide();
+				}
+				if {
+					
+				}
+				</c:if>
+			</script>
 			</c:forEach>
 		</table>
-	<!-- ajax로 -->		
-		<form action="${pageContext.request.contextPath}/member/joinMemberAddOk.action" method="get">
-			 <input type="submit"  value="멤버신청" id="btn_joinMember"/>
-		</form>
+	<!-- ajax로 -->	
+		 <input type="button"  value="멤버신청" id="btn_joinMember" onclick="memberAdd(${loginDTO.mSeq});"/>
 		
 		<!-- 조건; 신청이 완료된 멤버 && 미승인시 && 모집글 마감 전 -->
-		
-		<form action="${pageContext.request.contextPath}/member/joinMemberCancleOk.action" method="get">
-			 <input type="button"  value="멤버취소" id="btn_cancleMember" onclick=""/>
-		</form>
+		 <input type="button"  value="멤버취소" id="btn_cancleMember" onclick="memberCancle(${loginDTO.mSeq})"/>
+
 		
 	<!-- 여기까지 ajax -->
 	</div>

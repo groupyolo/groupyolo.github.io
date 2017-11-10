@@ -10,6 +10,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<tiles:insertAttribute name="test"></tiles:insertAttribute>
+	<c:forEach items="${plist}" var="pdto">
+		<div> <a href="/web/member/manage.action?prSeq=${pdto.prSeq }">${pdto.prURL}</a></div>
+	</c:forEach>
+	
 </body>
 </html>

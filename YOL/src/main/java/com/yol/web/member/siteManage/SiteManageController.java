@@ -1,5 +1,6 @@
 package com.yol.web.member.siteManage;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -9,7 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.yol.web.DTO.MemberDTO;
+import com.yol.web.DTO.PbCommentDTO;
 import com.yol.web.DTO.ProjectBoardDTO;
 import com.yol.web.DTO.ProjectDTO;
 import com.yol.web.DTO.ProjectInfoDTO;
@@ -25,24 +29,24 @@ public class SiteManageController {
 	private String test(HttpServletRequest req) {
 		 
 		HttpSession session = req.getSession();
-		String mSeq = (String) session.getAttribute("mSeq");
+		MemberDTO ldto =  (MemberDTO) session.getAttribute("loginDTO");
+		String mSeq = ldto.getmSeq();
 
 		List<ProjectInfoDTO> plist = service.pList(mSeq);
 		req.setAttribute("plist", plist);
 		
-		return "test";
+		return "member.siteManage.test";
 	}
 	
 	@RequestMapping (method= {RequestMethod.GET}, value="/member/manage.action" )
-	private String manage(HttpServletRequest req, String prSeq) {
+	private String manage(HttpServletRequest req, String prSeq, String column, String word) {
 		
 		HttpSession session = req.getSession();
 		
-		System.out.println(prSeq);
 		//프로젝트 정보
 		ProjectDTO pdto = service.pInfo(prSeq);
 	
-		String mSeq = "1"; /*(String) session.getAttribute("mSeq");*/
+		String mSeq = ((MemberDTO) session.getAttribute("loginDTO")).getmSeq();
 		//내가 개설한 사이트 정보 
 		List<ProjectInfoDTO> plist = service.pList(mSeq);
 
@@ -52,14 +56,79 @@ public class SiteManageController {
 			req.setAttribute("jlist", jlist);
 		}
 		
-		// 프로젝트 게시판 리스트 가져오기 
-		List<ProjectBoardDTO> blist = service.bList(prSeq);
+		String isSearch = "n";
 		
-	
+		if (column != null && word != null) isSearch="y";
+		
+		HashMap<String,String> map = new HashMap<String, String>();
+		map.put("column", column);
+		map.put("word", word);
+		map.put("isSearch", isSearch);
+		map.put("prSeq", prSeq);
+		
+		
+		int nowPage = 0;
+		int totalCount = 0;
+		int pageSize = 15;
+		int totalPage = 0;
+		int start = 0;
+		int end = 0;
+		int n = 0;
+		int loop = 0;
+		int blockSize = 10;
+		
+		
+		String page = req.getParameter("page");
+		if (page == null) nowPage = 1;
+		else nowPage = Integer.parseInt(page);
+		
+		start = ((nowPage - 1) * pageSize) + 1;
+		end = start + pageSize - 1;
+		
+		map.put("start", start+"");
+		map.put("end", end+"");
+		// 프로젝트 게시판 리스트 가져오기 
+		List<ProjectBoardDTO> blist = service.bList(map);
+		
+		totalCount = service.getTotalCount(map);
+		
+		totalPage = (int)Math.ceil((double)totalCount / pageSize);
+		
+		String pagebar = " <nav><ul class='pagination'>";
+		loop = 1;
+		
+		n = ((nowPage - 1) / blockSize) * blockSize + 1;
+		//시작 부분 
+		if(n == 1) {
+			pagebar += String.format("<li class='disabled'><a href='#' aria-label='Previous'><span aria-hidden='true'>&laquo;</span></a></li>");
+		} else {
+			pagebar += String.format("<li><a href='/web/member/manage.action?page=%d&prSeq=%s' aria-label='Previous'><span aria-hidden='true'>&laquo;</span></a></li>", n-1, prSeq);
+		}
+		
+		while ( !(loop >blockSize || n > totalPage)) {
+			if (n == nowPage) {
+				pagebar += String.format("<li class='active'><a href='#'>%d</a></li>", n);
+			} else {
+				pagebar += String.format("<li><a href='/web/member/manage.action?page=%d&prSeq=%s'>%d</a></li>", n, n,prSeq);
+			}
+			loop++;
+			n++;
+		}
+		
+		if (n > totalPage) {
+			pagebar += String.format("<li class='disabled'><a href='#' aria-label='Next'><span aria-hidden='true'>&raquo;</span></a></li>");
+		} else {
+			pagebar += String.format("<li><a href='/web/member/manage.action?page=%d&prSeq=%s' aria-label='Next'><span aria-hidden='true'>&raquo;</span></a></li>", n, prSeq);
+		}
+		
+		pagebar += "</ul></nav>";
+		
 		req.setAttribute("count", count);
 		req.setAttribute("plist", plist);
 		req.setAttribute("pdto", pdto);
 		req.setAttribute("blist", blist);
+		req.setAttribute("map", map);
+		req.setAttribute("pagebar", pagebar);
 		return "member.siteManage.list";
 	}
 	
@@ -71,7 +140,7 @@ public class SiteManageController {
 		//프로젝트 정보
 		ProjectDTO pdto = service.pInfo(prSeq);
 		
-		String mSeq = (String) session.getAttribute("mSeq");
+		String mSeq = ((MemberDTO) session.getAttribute("loginDTO")).getmSeq();
 		//내가 개설한 사이트 정보 
 		List<ProjectInfoDTO> plist = service.pList(mSeq);
 		
@@ -99,7 +168,7 @@ public class SiteManageController {
 		
 		req.setAttribute("prSeq", bdto.getPrSeq());
 		req.setAttribute("result", result);
-		return "siteManage.boardaddok";
+		return "member.siteManage.boardaddok";
 	}
 	
 	@RequestMapping (method= {RequestMethod.GET}, value="/member/view.action" )
@@ -110,7 +179,7 @@ public class SiteManageController {
 		//프로젝트 정보
 		ProjectDTO pdto = service.pInfo(prSeq);
 		
-		String mSeq = (String) session.getAttribute("mSeq");
+		String mSeq = ((MemberDTO) session.getAttribute("loginDTO")).getmSeq();
 		//내가 개설한 사이트 정보 
 		List<ProjectInfoDTO> plist = service.pList(mSeq);
 		
@@ -122,18 +191,23 @@ public class SiteManageController {
 		
 		// 게시판 글 내용 가져오기 
 		ProjectBoardDTO bdto = service.getView(pbSeq);
+		
+		//댓글 가져오기 
+		List<PbCommentDTO> pbclist = service.pbcList(pbSeq);
+		
 		req.setAttribute("bdto", bdto);
 		req.setAttribute("count", count);
 		req.setAttribute("plist", plist);
 		req.setAttribute("pdto", pdto);
-		
-		System.out.println(bdto.getPbSeq());
+		req.setAttribute("pbclist", pbclist);
+	
 		return "member.siteManage.boardview";
 	}
 	
 	@RequestMapping (method= {RequestMethod.GET}, value="/member/delok.action" )
 	private String delok(HttpServletRequest req, String prSeq, String pbSeq ) {
 
+		System.out.println(pbSeq);
 		
 		// 게시글 삭제하기 
 		int result = service.delok(pbSeq);
@@ -151,7 +225,7 @@ public class SiteManageController {
 		//프로젝트 정보
 		ProjectDTO pdto = service.pInfo(prSeq);
 		
-		String mSeq = (String) session.getAttribute("mSeq");
+		String mSeq = ((MemberDTO) session.getAttribute("loginDTO")).getmSeq();
 		//내가 개설한 사이트 정보 
 		List<ProjectInfoDTO> plist = service.pList(mSeq);
 		
@@ -165,11 +239,12 @@ public class SiteManageController {
 		req.setAttribute("plist", plist);
 		req.setAttribute("pdto", pdto);
 		
+		System.out.println(pbSeq);
 		// 게시판 글 내용 가져오기 
 		ProjectBoardDTO bdto = service.getView(pbSeq);
 		req.setAttribute("bdto", bdto);	
-		
-		return "siteManage.boardedit";
+		System.out.println("rkskdkfjhksd");
+		return "member.siteManage.boardedit";
 	}
 	
 	@RequestMapping (method= {RequestMethod.GET}, value="/member/editok.action" )
@@ -184,6 +259,27 @@ public class SiteManageController {
 		req.setAttribute("pbSeq", pbSeq);
 		
 		return "member.siteManage.boardeditok";
+	}
+	
+	@RequestMapping (method= {RequestMethod.POST}, value="/member/commentadd.action" )
+	private String commentadd(HttpServletRequest req, PbCommentDTO cdto) {
+		
+		cdto.setjSeq(service.getJSeq(cdto.getmSeq()));
+		
+		int result = service.commentAdd(cdto);
+		int pbcSeq = service.getpbcSeq();
+		PbCommentDTO pbcdto = service.getpbcdto(pbcSeq);
+		
+		req.setAttribute("result", result);
+		req.setAttribute("pbcdto", pbcdto);
+		return "member.siteManage.commentadd.ajax";
+	}
+	
+	@RequestMapping (method= {RequestMethod.GET}, value="/member/commentdel.action" )
+	private @ResponseBody Object commentdel(HttpServletRequest req, String pbcSeq) {
+		
+		int result = service.commentDel(pbcSeq);
+		return result;
 	}
 	
 }
