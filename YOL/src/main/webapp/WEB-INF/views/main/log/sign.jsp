@@ -1,27 +1,35 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-		
+	<style>
+	
+		#tbl{margin-top:100px;}
+		#tbl td:first-child{width:200px;}
+		#tbl td:nth-child(2){width:200px;}
+		#tbl td:nth-child(3){width:300px;}
+	 	#send{ width:600px;}
+	 	 
+	</style>
 	<form method="post" action="${pageContext.request.contextPath }/main/signok.action">
-	<table id="tbl">
+	<table id="tbl" class="table">
 	
 	<tr>
-		<th>
-			메일
-		</th>
 		<td>
-			<input type="email" id="mEmail" name="mEmail" required>
+			메일
+		</td>
+		<td>
+			<input type="email" id="mEmail" name="mEmail" class="form-control" required>
 		</td>
 		<td id="mEmailResponse">
 		
 		</td>
 	</tr>
 	<tr>
-		<th>
-			닉네임(2자 이상 7자 이하)
-		</th>
 		<td>
-			<input type="text" id="mNickName" name="mNickName" required>
+			닉네임
+		</td>
+		<td>
+			<input type="text" id="mNickName" name="mNickName" class="form-control"  required>
 		</td>
 		<td id="mNickNameResponse">
 		<!-- ajax용  -->
@@ -33,11 +41,11 @@
 		</td>
 	</tr>	
 	<tr>
-		<th>
-			비밀번호(8자 이상 12자 이하, 숫자 하나 이상 포함, 숫자로 시작 못함)
-		</th>
 		<td>
-			<input type="password" id="mPassword" name="mPassword" required>
+			비밀번호
+		</td>
+		<td>
+			<input type="password" id="mPassword" name="mPassword"  class="form-control" required>
 		</td>
 		<td id="mPasswordResponse">
 		<!-- ajax용  -->
@@ -46,23 +54,26 @@
 		</td>
 	</tr>	
 	<tr>
-		<th>
-			비밀번호 다시 입력
-		</th>
 		<td>
-			<input type="password" id="reMPassword" name="reMPassword" required>
+			비밀번호 다시 입력
+		</td>
+		<td>
+			<input type="password" id="reMPassword" name="reMPassword" class="form-control"  required>
 		</td>
 		<td id="reMPasswordResponse">
 		<!-- ajax용  -->
 			
 		</td>
 	</tr>	
-	
+	<tr>
+		<td colspan="3">
+			<input type="submit" value="가입하기" id="send" class="btn">
+		</td>
+	</tr>
 	
 	</table>
-	<input type="submit" value="낫옛" id="send">
-	<input type="button" onclick="history.back();" value="뒤로가기">
-	</form>
+	<!-- <input type="button" onclick="history.back();" value="뒤로가기">
+ -->	</form>
 	
 	<script>
 	
@@ -166,7 +177,7 @@
 			
 		}else if(!reg.test($("#mNickName").val())){
 			
-			$("#mNickNameResponse").html("<div style='color:red;'>유효하지 않은 닉네임입니다.</div>");
+			$("#mNickNameResponse").html("<div style='color:red;'>2자 이상 7자 이하</div>");
 			mNickNameCheck=false;
 			
 		}
@@ -184,7 +195,7 @@
 			
 		}else if(!reg.test($("#mPassword").val())){
 			
-			$("#mPasswordResponse").html("<div style='color:red;'>적절하지 않은 비밀번호입니다.</div>")
+			$("#mPasswordResponse").html("<div style='color:red;'>8자 이상 12자 이하, 숫자 하나 이상 포함, 숫자로 시작X</div>")
 			mPasswordCheck=false;
 			
 		}else if(reg.test($("#mPassword").val())){
