@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- MyBatis 사용 시 SQL을 관리하는 파일 -->
+<!-- 매퍼 파일안에 있는 쿼리들은 물리적인 파일에 의해서 관리가 되는 것이 아니라 namespace 속성에 의해서 관리된다. -->
+<mapper namespace="log">
+	<select id="in" parameterType="com.yol.web.DTO.MemberDTO" resultType="com.yol.web.DTO.MemberDTO">
+		select * from Member where mEmail=#{mEmail} and mPassword=#{mPassword} and mgSeq=1
+	</select>
+
+	<select id="getId" parameterType="String" resultType="String">
+		select mSeq from Member where mEmail=#{mEmail}
+	</select>
+	
+	<select id="apiLoginCheck" parameterType="com.yol.web.DTO.MemberDTO" resultType="Integer">
+		select count(*) from Member where mEmail=#{mEmail} and mgSeq=${mgSeq}
+	</select>
+	
+	<select id="mEmailCheck" parameterType="String" resultType="Integer">
+		select count(*) from Member where mEmail=#{mEmail} and mgSeq=1
+	</select>
+	
+	<select id="mNickNameCheck" parameterType="String" resultType="Integer">
+		select count(*) from Member where mNickName=#{mNickName}
+	</select>
+	
+	<select id="findPassword" parameterType="String" resultType="Integer">
+		select count(*) from Member where mEmail=#{mEmail} and mgSeq=1
+	</select>
+
+	<update id="findPasswordChange" parameterType="String" >
+		update Member set password=""
+		select count(*) from Member where mEmail=#{mEmail} and mgSeq=1
+	</update>
+	
+	<select id="apiLoginok" parameterType="com.yol.web.DTO.MemberDTO" resultType="com.yol.web.DTO.MemberDTO">
+		select * from Member where mEmail=#{mEmail} and mgSeq=${mgSeq}
+	</select>
+	
+	<insert id="sign" parameterType="com.yol.web.DTO.MemberDTO">
+		insert into Member(mSeq, mgSeq, mNickName, mEmail, mPassword, mDate) values(mSeq.nextVal, 1, #{mNickName},#{mEmail},#{mPassword},sysdate )
+	</insert>
+	
+	<insert id="apiSign" parameterType="com.yol.web.DTO.MemberDTO">
+		insert into Member(mSeq, mgSeq, mNickName, mEmail, mPassword, mDate) values(mSeq.nextVal, ${mgSeq}, #{mNickName},#{mEmail},'ascdec12312',sysdate )
+	</insert>
+
+	<insert id="addStateMember" parameterType="com.yol.web.DTO.MemberDTO">
+		insert into StateMember(smSeq, mSeq, msSeq, smDate, smDetail) values(smSeq.nextVal, (select mSeq from member where mEmail=#{mEmail} and mgSeq=1),1,sysdate,null )
+	</insert>
+
+	<insert id="addapiStateMember" parameterType="com.yol.web.DTO.MemberDTO">
+		insert into StateMember(smSeq, mSeq, msSeq, smDate, smDetail) values(smSeq.nextVal, (select mSeq from member where mEmail=#{mEmail} and mgSeq=${mgSeq}),1,sysdate,'연동회원' )
+	</insert>
+
+	<insert id="authok" parameterType="com.yol.web.DTO.MemberDTO">
+		insert into StateMember(smSeq, mSeq, msSeq, smDate, smDetail) values(smSeq.nextVal, ${mSeq},2,sysdate,'인증완료' )
+	</insert>
+	
+	<insert id="apiAuthok" parameterType="com.yol.web.DTO.MemberDTO">
+		insert into StateMember(smSeq, mSeq, msSeq, smDate, smDetail) values(smSeq.nextVal, (select mSeq from member where mEmail=#{mEmail} and mgSeq=${mgSeq}),2,sysdate,'연동회원' )
+	</insert>
+	
+	
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    

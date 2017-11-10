@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 회원 사이트 관리 -->
+<mapper namespace="siteManage">
+
+	<select id="pList" parameterType="String" resultType="com.yol.web.DTO.ProjectInfoDTO">
+		select * from vProjectInfo where mseq = #{mSeq}
+	</select>
+
+	<select id="pInfo" parameterType="String" resultType="com.yol.web.DTO.ProjectDTO">
+		select * from project where prseq = #{prSeq}
+	</select>
+
+	<select id="jCount" parameterType="String" resultType="Integer">
+		select Count(*) from vprojectJoin where prseq = #{prSeq} and apSeq = 1
+	</select>
+
+	<select id="jList" parameterType="String" resultType="com.yol.web.DTO.ProjectJoinDTO">
+		select * from vprojectJoin where prseq = #{prSeq} and apseq = 1
+	</select>
+
+	<select id="bList" parameterType="String" resultType="com.yol.web.DTO.ProjectBoardDTO">
+		select * from vprojectBoard where prseq = #{prSeq} order by pbseq
+	</select>
+
+	<select id="getJSeq" parameterType="String" resultType="String">
+		select jSeq from vprojectJoin where mSeq=#{mSeq}
+	</select>
+
+	<insert id="add" parameterType="com.yol.web.DTO.ProjectBoardDTO">
+		insert into projectboard values ( pbseq.nextval, #{jSeq} ,#{pbSubject}, #{pbContent}, sysdate, #{pbtag}, #{prSeq}, #{nsSeq})
+	</insert>
+	
+	<select id="view" parameterType="String" resultType="com.yol.web.DTO.ProjectBoardDTO">
+		select * from vProjectBoard where pbSeq = #{pbSeq}
+	</select>
+
+	<delete id="delok" parameterType="String">
+		delete from projectBoard where pbseq = #{pbSeq}
+	</delete>
+	
+	<update id="edit">
+		update projectBoard set pbsubject=#{pbSubject}, pbContent=#{pbContent}, pbtag=#{pbtag}, nsSeq=#{nsSeq} where pbSeq=#{pbSeq} 
+	</update>
+	
+	<insert id="commentAdd">
+		insert into pbComment values (pbcSeq.nextval, #{pbSeq}, #{jSeq}, #{pbcomment}, sysdate)
+	</insert>
+	
+	<select id="getpbcSeq" resultType="Integer">
+		select max(pbcseq) from pbcomment
+	</select>
+	
+</mapper>

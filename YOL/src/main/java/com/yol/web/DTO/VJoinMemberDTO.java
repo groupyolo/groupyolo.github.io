@@ -6,7 +6,6 @@ public class VJoinMemberDTO {
 	private String jRegDate;
 	private String apSeq;
 	private String reSeq;
-	private String mName;
 	private String mNickName;
 	private String gradeName;
 	
@@ -39,12 +38,6 @@ public class VJoinMemberDTO {
 	}
 	public void setReSeq(String reSeq) {
 		this.reSeq = reSeq;
-	}
-	public String getmName() {
-		return mName;
-	}
-	public void setmName(String mName) {
-		this.mName = mName;
 	}
 	public String getmNickName() {
 		return mNickName;

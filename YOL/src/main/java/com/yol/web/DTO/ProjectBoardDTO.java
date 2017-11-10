@@ -10,7 +10,14 @@ public class ProjectBoardDTO {
 	private String pbtag;
 	private String prSeq;
 	private String nsSeq;
-
+	private String reSeq;
+	private String apSeq;
+	private String gradeName;
+	private String mSeq;
+	private String mNickName;
+	private String mEmali;
+	private String grade;
+	
 	public String getPbSeq() {
 		return pbSeq;
 	}
@@ -73,6 +80,62 @@ public class ProjectBoardDTO {
 
 	public void setNsSeq(String nsSeq) {
 		this.nsSeq = nsSeq;
+	}
+
+	public String getReSeq() {
+		return reSeq;
+	}
+
+	public void setReSeq(String reSeq) {
+		this.reSeq = reSeq;
+	}
+
+	public String getApSeq() {
+		return apSeq;
+	}
+
+	public void setApSeq(String apSeq) {
+		this.apSeq = apSeq;
+	}
+
+	public String getGradeName() {
+		return gradeName;
+	}
+
+	public void setGradeName(String gradeName) {
+		this.gradeName = gradeName;
+	}
+
+	public String getmSeq() {
+		return mSeq;
+	}
+
+	public void setmSeq(String mSeq) {
+		this.mSeq = mSeq;
+	}
+
+	public String getmNickName() {
+		return mNickName;
+	}
+
+	public void setmNickName(String mNickName) {
+		this.mNickName = mNickName;
+	}
+
+	public String getmEmali() {
+		return mEmali;
+	}
+
+	public void setmEmali(String mEmali) {
+		this.mEmali = mEmali;
+	}
+
+	public String getGrade() {
+		return grade;
+	}
+
+	public void setGrade(String grade) {
+		this.grade = grade;
 	}
 
 	// 디버깅용 toString()

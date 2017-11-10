@@ -24,5 +24,24 @@
 		UPDATE joinBoard SET jSubject = #{jSubject}, jContent = #{jContent}, jStart = #{jStart}, jEnd = #{jEnd}, jCount = #{jCount} WHERE reSeq = #{reSeq}
 	</update>
 	
+	<select id="master" parameterType="String" resultType="com.yol.web.DTO.VJoinTeamDTO">
+		SELECT * FROM VJoinTeam WHERE mSeq = #{mSeq} AND activeState = 'y' ORDER BY jRegDate DESC
+	</select>
+	
+	<update id="changeMember" parameterType="com.yol.web.DTO.JoinDTO">
+		UPDATE Join SET apSeq = #{apSeq} WHERE mSeq = #{mSeq} AND reSeq = #{reSeq}
+	</update>
+	
+	<select id="searchMember" parameterType="String" resultType="com.yol.web.DTO.MemberDTO">
+		SELECT * FROM Member WHERE mEmail = #{mEmail}
+	</select>
+	
+	<insert id="addMember" parameterType="com.yol.web.DTO.JoinDTO">
+		INSERT INTO JOIN VALUES (jSeq.nextval, #{mSeq}, default, #{apSeq}, #{reSeq})
+	</insert>
+	
+	<select id="find" parameterType="String" resultType="String">
+		SELECT max(reSeq) as reSeq FROM JoinBoard WHERE mSeq = #{mSeq}
+	</select>
 	
 </mapper>

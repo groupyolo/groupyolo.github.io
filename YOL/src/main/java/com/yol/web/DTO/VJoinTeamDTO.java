@@ -1,8 +1,5 @@
 package com.yol.web.DTO;
 
-import org.apache.ibatis.type.Alias;
-
-@Alias("dto")
 public class VJoinTeamDTO {
 	private String reSeq;
 	private String mSeq;
@@ -13,10 +10,11 @@ public class VJoinTeamDTO {
 	private String jCount;
 	private String jRegDate;
 	private String activeState;
-	private String mName;
 	private String mNickName;
 	private String mCount;
 	private String sName;
+	private String pCount;
+	private String prSeq;
 	
 	public String getReSeq() {
 		return reSeq;
@@ -72,12 +70,6 @@ public class VJoinTeamDTO {
 	public void setActiveState(String activeState) {
 		this.activeState = activeState;
 	}
-	public String getmName() {
-		return mName;
-	}
-	public void setmName(String mName) {
-		this.mName = mName;
-	}
 	public String getmNickName() {
 		return mNickName;
 	}
@@ -95,5 +87,17 @@ public class VJoinTeamDTO {
 	}
 	public void setsName(String sName) {
 		this.sName = sName;
+	}
+	public String getpCount() {
+		return pCount;
+	}
+	public void setpCount(String pCount) {
+		this.pCount = pCount;
+	}
+	public String getPrSeq() {
+		return prSeq;
+	}
+	public void setPrSeq(String prSeq) {
+		this.prSeq = prSeq;
 	}
 }
