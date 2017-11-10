@@ -72,8 +72,8 @@ public class LogDAO {
 		return sql.selectOne("log.findPassword",mEmail);
 	}
 
-	public int findPasswordChange(String mEmail) {
-		return sql.update("log.findPasswordChange",mEmail);
+	public int findPasswordChange(MemberDTO dto) {
+		return sql.update("log.findPasswordChange",dto);
 	}
 	
 }

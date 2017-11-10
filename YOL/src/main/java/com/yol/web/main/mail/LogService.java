@@ -44,8 +44,7 @@ public class LogService implements ILogService{
 				        //.append("<a href='http://211.63.89.36:8080/web/emailConfirm?key=")
 						.append("<a href='http://localhost:8081/web/main/authok.action?mEmail=")
 						.append(mEmail)
-						.append("&mSeq=")
-				        .append(mSeq)
+						.append("&mSignal=54d5c5ddkjckjckadk")
 				        .append("' target='_blank'>이메일 인증 확인</a>")
 				        .toString());
 				sendMail.setFrom("finalprojectjung@gmail.com", "기무하");
@@ -103,7 +102,7 @@ public class LogService implements ILogService{
 	        	sendMail.setSubject("[비밀번호 변경]");
 				sendMail.setText(new StringBuffer().append("<h1>비밀번호 변경</h1>")
 				        //.append("<a href='http://211.63.89.36:8080/web/emailConfirm?key=")
-						.append("<a href='http://localhost:8081/web/main/findPasswordok.action?mEmail=")
+						.append("<a href='http://localhost:8081/web/main/findPasswordChange.action?mEmail=")
 						.append(mEmail)
 				        .append("' target='_blank'>비밀번호 재설정</a>")
 				        .toString());
@@ -119,9 +118,8 @@ public class LogService implements ILogService{
 	}
 	
 	@Override
-	public int findPasswordChange(String mEmail) {
-
-		return dao.findPasswordChange(mEmail);
+	public int findPasswordChange(MemberDTO dto) {
+		return dao.findPasswordChange(dto);
 	}
 	
 	

@@ -1,34 +1,88 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-    
-   <input type="text" name="mEmail" id="mEmail" value=" ${mEmail }" readonly>
-   비밀번호 새로 입력:
-   비밀번호 다시 입력:
+    <form action="${pageContext.request.contextPath }/main/findPasswordok.action" method="post">
+   <table>
+   <tr>
+   	<th>
+   	이메일
+   	</th>
+   	<td>
+	   <input type="text" name="mEmail" id="mEmail" value="${mEmail }" readonly>
+   	</td>
+   	<td>
+   	</td>
+   </tr>
+   <tr>
+   	<th>
+   	비밀번호 입력
+   	</th>
+   	<td>
+	   <input type="password" name="mPassword" id="mPassword" required>
+   	</td>
+   	<td id="mPasswordResponse">
+   	</td>
+   </tr>
    
+   <tr>
+   	<th>
+   	비밀번호 다시 입력
+   	</th>
+   	<td>
+	   <input type="password" name="reMPassword" id="reMPassword" required>
+   	</td>
+   	<td id="reMPasswordResponse">
+   	</td>
+   </tr>
+
+   </table>
+   <input type="submit" value="보내기">
+  </form>
    
    
     
     <script>
-	    $.ajax({	
-			type:"get",
-			url:"/web/main/findPasswordCheck.action",
-			dataType:"json",
-			data:"mEmail="+mEmail+"&mgSeq=1",
-			success:function(result){
-				if(result.result==0){
-					//해당 이메일이 없다. 
-				
-				}else if(result.result==1){
-					//메일이 전송되었으니 확인해주십시오.
-					
-				}
-				
-			},
-			error:function(err){
-				alert(err);
-			}
+	$("#mPassword").keyup(function(){
+		
+		var reg = /^(?=[^\d_].*?\d)\w(\w|[!@#$%]){7,12}$/;
+		
+		
+		if($("#mPassword").val().length==0){
+			$("#mPasswordResponse").html("")
+			mPasswordCheck=false;
 			
+		}else if(!reg.test($("#mPassword").val())){
 			
-		});		
+			$("#mPasswordResponse").html("<div style='color:red;'>적절하지 않은 비밀번호입니다.</div>")
+			mPasswordCheck=false;
+			
+		}else if(reg.test($("#mPassword").val())){
+
+			$("#mPasswordResponse").html("");
+			mPasswordCheck=true;
+			checkSubmit();
+			
+		}
+		
+		
+		
+	});
+	
+	$("#reMPassword").keyup(function(){
+		if($("#reMPassword").val().length==0){
+			$("#reMPasswordResponse").html("");
+			reMPasswordCheck=false;
+			
+		}else if($(this).val()!=$("#mPassword").val()){
+			$("#reMPasswordResponse").html("<div style='color:red;'>동일하지 않은 비밀번호입니다.</div>")
+			reMPasswordCheck=false;
+			
+		}else if($(this).val()==$("#mPassword").val()){
+		
+			$("#reMPasswordResponse").html("");
+			reMPasswordCheck=true;
+			checkSubmit();
+		}
+
+	});
     </script>

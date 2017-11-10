@@ -5,7 +5,7 @@
 	인증되었습니다. 
 	<script>
 		setTimeout(function(){
-			location.href="/web/main/login.action";
+			location.href="${pageContext.request.contextPath }/main/login.action";
 			
 		},5000);
 	</script>

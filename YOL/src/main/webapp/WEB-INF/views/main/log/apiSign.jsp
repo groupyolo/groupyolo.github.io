@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
 	
-	<form method="post" action="/web/main/apiSignok.action">
+	<form method="post" action="${pageContext.request.contextPath }/main/apiSignok.action">
 	<table id="tbl">
 	<tr>
 		<th>
@@ -45,7 +45,7 @@
 			
 			$.ajax({
 				type:"get",
-				url:"/web/main/mNickNameCheck.action",
+				url:"${pageContext.request.contextPath }/main/mNickNameCheck.action",
 				data:"mNickName="+$("#mNickName").val(),
 				dataType:"json",
 				success:function(result){

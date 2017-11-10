@@ -24,6 +24,6 @@ public interface ILogService {
 
 	public int findPassword(String mEmail);
 
-	public int findPasswordChange(String mEmail);
+	public int findPasswordChange(MemberDTO dto);
 
 }

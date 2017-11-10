@@ -3,7 +3,7 @@
 
 	<script>
 		<c:if test="${result==1 }">
-			location.href="/web/main/login.action";
+			location.href="${pageContext.request.contextPath }/main/login.action";
 		</c:if>	
 		<c:if test="${result==0 }">
 				//history.back();
