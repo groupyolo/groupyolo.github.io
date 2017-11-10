@@ -1,4 +1,4 @@
-package com.yol.web.main.mail;
+package com.yol.web.main.log;
 
 import com.yol.web.DTO.MemberDTO;
 

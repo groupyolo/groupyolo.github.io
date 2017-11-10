@@ -1,4 +1,4 @@
-package com.yol.web.main.mail;
+package com.yol.web.main.log;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
