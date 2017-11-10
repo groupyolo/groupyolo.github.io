@@ -4,44 +4,30 @@
     
 		<%@ include file="/WEB-INF/views/member/siteManage/manage.jsp" %>
 		
-		<script>
-			
-		</script>
+
 		<h1>프로젝트 게시판 </h1>
-	
-					<div id="search">
-						<form  id="action="${pageContext.request.contextPath}/member/manage.action?prSeq=${pdto.prSeq}" method="get" class="form-inline">
-							<select name="column" id="column" class="form-control">
-								<option value="">검색어</option>
-								<option value="name">작성자</option>
-								<option value="subject">제목</option>
-								<option value="content">내용</option>
-							</select>
-							<div class="input-group">
-    							<input type="text" name="word" id="word" required class="form-control">
-      						  	<span class="input-group-btn">
-       		 						<button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-      							</span>
-   							</div>							
-						</form>
+
 						
-						
-			<form id="form1" onsubmit="return false;">
-			<select name="priority" id="priority">
-				<option value="A">A</option>
-				<option value="B">B</option>
-				<option value="C" selected>C</option>
+			<div id="search">			
+			<form action="${pageContext.request.contextPath}/member/manage.action" method="get" class="form-inline">
+			<select name="column" id="column"  class="form-control">
+				<option value="">검색어</option>
+				<option value="mNickName">작성자</option>
+				<option value="pbSubject">제목</option>
+				<option value="pbContent">내용</option>
 			</select>
-			<!-- 
-				Form Control required 속성 주의점 
-					- HTML submit을 통해서 전송하면 작동한다.
-					- JavaScript의 submit() 통해서 전송하면 작동안한다.
-						ex) $("#form1).submit();
-			-->
-			<input type="text" name="todo" id="todo" required placeholder="할일을 입력하세요." autofocus autocomplete="off"/>
+				<div class="input-group">
+    				<input type="text" name="word" id="word" required class="form-control">
+    				<input type="hidden" name="prSeq" value="${pdto.prSeq}" />
+      				<span class="input-group-btn">
+       		 			<button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+      				</span>
+   				</div>	
 			</form>
 		</div>
 						
+						
+						<div>
 						<c:if test= "${map.isSearch == 'y' }">
 							<script>
 								$("#column").val("${map.column}");
@@ -69,7 +55,18 @@
 					<td>${bdto.pbregdate }</td>
 				</tr>
 			</c:forEach>
+				<c:if test="${map.isSearch == 'y' && blist.size() == 0}">
+								<tr>
+									<td colspan="6">일치하는 결과가 없습니다.</td>
+								</tr>
+							</c:if>
+							<c:if test="${map.isSearch == 'n' && blist.size() == 0}">
+								<tr>
+									<td colspan="6"> 현재 게시물이 존재하지 않습니다.</td>
+								</tr>
+							</c:if>
 		</table>
 		
 		<input type="button" value="글쓰기" onclick="location.href='${pageContext.request.contextPath}/member/add.action?prSeq=${pdto.prSeq}'" />
 			
+				<div id="pagebar">${pagebar}</div>

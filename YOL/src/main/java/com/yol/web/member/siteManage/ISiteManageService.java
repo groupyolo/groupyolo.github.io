@@ -1,5 +1,6 @@
 package com.yol.web.member.siteManage;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.yol.web.DTO.PbCommentDTO;
@@ -19,7 +20,7 @@ public interface ISiteManageService {
 
 	int jCount(String prseq);
 
-	List<ProjectBoardDTO> bList(String prseq);
+	List<ProjectBoardDTO> bList(HashMap<String, String> map);
 
 	String getJSeq(String getmSeq);
 
@@ -40,6 +41,8 @@ public interface ISiteManageService {
 	PbCommentDTO getpbcdto(int pbcSeq);
 
 	int commentDel(String pbcSeq);
+
+	int getTotalCount(HashMap<String, String> map);
 
 
 }

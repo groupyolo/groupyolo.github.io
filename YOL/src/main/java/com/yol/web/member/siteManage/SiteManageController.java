@@ -1,5 +1,6 @@
 package com.yol.web.member.siteManage;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -38,7 +39,7 @@ public class SiteManageController {
 	}
 	
 	@RequestMapping (method= {RequestMethod.GET}, value="/member/manage.action" )
-	private String manage(HttpServletRequest req, String prSeq) {
+	private String manage(HttpServletRequest req, String prSeq, String column, String word) {
 		
 		HttpSession session = req.getSession();
 		
@@ -55,14 +56,79 @@ public class SiteManageController {
 			req.setAttribute("jlist", jlist);
 		}
 		
-		// 프로젝트 게시판 리스트 가져오기 
-		List<ProjectBoardDTO> blist = service.bList(prSeq);
+		String isSearch = "n";
 		
-	
+		if (column != null && word != null) isSearch="y";
+		
+		HashMap<String,String> map = new HashMap<String, String>();
+		map.put("column", column);
+		map.put("word", word);
+		map.put("isSearch", isSearch);
+		map.put("prSeq", prSeq);
+		
+		
+		int nowPage = 0;
+		int totalCount = 0;
+		int pageSize = 15;
+		int totalPage = 0;
+		int start = 0;
+		int end = 0;
+		int n = 0;
+		int loop = 0;
+		int blockSize = 10;
+		
+		
+		String page = req.getParameter("page");
+		if (page == null) nowPage = 1;
+		else nowPage = Integer.parseInt(page);
+		
+		start = ((nowPage - 1) * pageSize) + 1;
+		end = start + pageSize - 1;
+		
+		map.put("start", start+"");
+		map.put("end", end+"");
+		// 프로젝트 게시판 리스트 가져오기 
+		List<ProjectBoardDTO> blist = service.bList(map);
+		
+		totalCount = service.getTotalCount(map);
+		
+		totalPage = (int)Math.ceil((double)totalCount / pageSize);
+		
+		String pagebar = " <nav><ul class='pagination'>";
+		loop = 1;
+		
+		n = ((nowPage - 1) / blockSize) * blockSize + 1;
+		//시작 부분 
+		if(n == 1) {
+			pagebar += String.format("<li class='disabled'><a href='#' aria-label='Previous'><span aria-hidden='true'>&laquo;</span></a></li>");
+		} else {
+			pagebar += String.format("<li><a href='/web/member/manage.action?page=%d&prSeq=%s' aria-label='Previous'><span aria-hidden='true'>&laquo;</span></a></li>", n-1, prSeq);
+		}
+		
+		while ( !(loop >blockSize || n > totalPage)) {
+			if (n == nowPage) {
+				pagebar += String.format("<li class='active'><a href='#'>%d</a></li>", n);
+			} else {
+				pagebar += String.format("<li><a href='/web/member/manage.action?page=%d&prSeq=%s'>%d</a></li>", n, n,prSeq);
+			}
+			loop++;
+			n++;
+		}
+		
+		if (n > totalPage) {
+			pagebar += String.format("<li class='disabled'><a href='#' aria-label='Next'><span aria-hidden='true'>&raquo;</span></a></li>");
+		} else {
+			pagebar += String.format("<li><a href='/web/member/manage.action?page=%d&prSeq=%s' aria-label='Next'><span aria-hidden='true'>&raquo;</span></a></li>", n, prSeq);
+		}
+		
+		pagebar += "</ul></nav>";
+		
 		req.setAttribute("count", count);
 		req.setAttribute("plist", plist);
 		req.setAttribute("pdto", pdto);
 		req.setAttribute("blist", blist);
+		req.setAttribute("map", map);
+		req.setAttribute("pagebar", pagebar);
 		return "member.siteManage.list";
 	}
 	

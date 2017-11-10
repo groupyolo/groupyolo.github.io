@@ -1,5 +1,6 @@
 package com.yol.web.member.siteManage;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -35,8 +36,10 @@ public class SiteManageDAO {
 		return sql.selectOne("siteManage.jCount", prseq);
 	}
 
-	public List<ProjectBoardDTO> bList(String prseq) {
-		return sql.selectList("siteManage.bList", prseq);
+	public List<ProjectBoardDTO> bList(HashMap<String, String> map) {
+		System.out.println("fkfkfkfkfkfkfkf");
+		System.out.println(map.get("isSearch"));
+		return sql.selectList("siteManage.bList", map);
 	}
 
 	public String getJSeq(String mSeq) {
@@ -77,6 +80,10 @@ public class SiteManageDAO {
 
 	public int commentDel(String pbcSeq) {
 		return sql.delete("siteManage.commentDel", pbcSeq);
+	}
+
+	public int getTotalCount(HashMap<String, String> map) {
+		return sql.selectOne("siteManage.getTotalCount", map);
 	}
 	
 	
