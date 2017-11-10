@@ -4,10 +4,13 @@
     
 		<%@ include file="/WEB-INF/views/member/siteManage/manage.jsp" %>
 		
+		<script>
+			
+		</script>
 		<h1>프로젝트 게시판 </h1>
 	
 					<div id="search">
-						<form action="${pageContext.request.contextPath}/member/manage.action?prSeq=${pdto.prSeq}" method="get" class="form-inline">
+						<form  id="action="${pageContext.request.contextPath}/member/manage.action?prSeq=${pdto.prSeq}" method="get" class="form-inline">
 							<select name="column" id="column" class="form-control">
 								<option value="">검색어</option>
 								<option value="name">작성자</option>
@@ -21,6 +24,23 @@
       							</span>
    							</div>							
 						</form>
+						
+						
+			<form id="form1" onsubmit="return false;">
+			<select name="priority" id="priority">
+				<option value="A">A</option>
+				<option value="B">B</option>
+				<option value="C" selected>C</option>
+			</select>
+			<!-- 
+				Form Control required 속성 주의점 
+					- HTML submit을 통해서 전송하면 작동한다.
+					- JavaScript의 submit() 통해서 전송하면 작동안한다.
+						ex) $("#form1).submit();
+			-->
+			<input type="text" name="todo" id="todo" required placeholder="할일을 입력하세요." autofocus autocomplete="off"/>
+			</form>
+		</div>
 						
 						<c:if test= "${map.isSearch == 'y' }">
 							<script>
