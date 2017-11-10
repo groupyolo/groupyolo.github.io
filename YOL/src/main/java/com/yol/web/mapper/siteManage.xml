@@ -21,8 +21,15 @@
 		select * from vprojectJoin where prseq = #{prSeq} and apseq = 1
 	</select>
 
-	<select id="bList" parameterType="String" resultType="com.yol.web.DTO.ProjectBoardDTO">
-		select * from vprojectBoard where prseq = #{prSeq} order by pbseq
+	<select id="bList" parameterType="map" resultType="com.yol.web.DTO.ProjectBoardDTO">
+	select * from (select a.*, rownum rnum from (select * from vprojectboard where prseq = #{prSeq} 
+			<if test="isSearch eq 'y'.toString()">
+and ${column} like '%' || #{word} || '%' order by pbseq) a) where rnum &gt;= #{start} and rnum &lt;= #{end}
+			</if> 
+			<if test="isSearch eq 'n'.toString()">
+order by pbseq) a) where rnum &gt;= #{start} and rnum &lt;= #{end}
+			</if> 
+	
 	</select>
 
 	<select id="getJSeq" parameterType="String" resultType="String">
@@ -64,4 +71,11 @@
 	<delete id="commentDel" parameterType="String">
 		delete from PbComment where pbcSeq = #{pbcSeq}
 	</delete>
+	
+	<select id="getTotalCount" parameterType="map" resultType="Integer">
+		select count(*) from vprojectBoard where prseq = #{prSeq} 
+			<if test="isSearch eq 'y'.toString()">
+				and ${column} like '%' || #{word} || '%' order by pbseq
+			</if>
+	</select>
 </mapper>

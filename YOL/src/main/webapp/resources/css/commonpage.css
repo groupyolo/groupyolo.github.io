@@ -1,0 +1,47 @@
+#footer {
+
+   width: 100%;
+   height: 250px;
+   border:1px dashed purple;
+   
+}
+
+#footer #Fbox {
+   margin-top: 30px;
+}
+
+#Fbox{
+	border-top: 1px solid lightgrey;	
+	margin-top: 15px;
+}
+
+#tblF {
+   width: 30%;
+   height: 7%;
+   padding-top : 20px;
+   margin-left: 20%;
+   text-align: center;
+   
+}
+
+#tblF a {
+   text-decoration: none;
+   color: black;
+}
+
+#fot {
+   list-style: none;
+   display: inline-block;
+   margin: 0px auto;
+   background-color: lightgrey;
+}
+
+#footer #fot li {
+   display: inline-block;
+   margin: 20px;
+}
+
+#footer #fotBox {
+   width: 100%;
+   text-align:center;
+}
