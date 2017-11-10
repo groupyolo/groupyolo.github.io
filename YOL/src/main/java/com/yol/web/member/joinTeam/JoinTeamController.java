@@ -71,7 +71,20 @@ public class JoinTeamController {
 		req.setAttribute("dto", dto);
 		
 		return "member.joinTeam.boardEditOk";
-	}	
+	}
+	
+	@RequestMapping(method= {RequestMethod.GET},value="/member/joinMemberAdd.action")
+	public @ResponseBody Object joinMemberAdd (HttpServletRequest req, JoinDTO dto) {
+		
+		int result = sv.joinAdd(dto);		
+		return result;
+	}
+	@RequestMapping(method= {RequestMethod.GET},value="/member/joinMemberCancel.action")
+	public @ResponseBody Object joinMemberCancel (HttpServletRequest req, JoinDTO dto) {
+		
+		int result = sv.joinCancle(dto);		
+		return result;
+	}
 	
 	@RequestMapping(method= {RequestMethod.GET},value="/member/teamMaster.action")
 	public String masterBoard(HttpServletRequest req, String mSeq) {
@@ -87,12 +100,12 @@ public class JoinTeamController {
 		List<VJoinMemberDTO> mlist = sv.joinList(reSeq);
 		req.setAttribute("mlist", mlist);
 		
-		return "member.joinTeam.masterBoardMember";
+		return "member.joinTeam.masterBoardMember.ajax";
 	}
 	@RequestMapping(method= {RequestMethod.GET},value="/member/approveMember.action")
 	public String approveMember(HttpServletRequest req, String jSeq) {
 		
-		return "member.joinTeam.approveMember";
+		return "member.joinTeam.approveMember.ajax";
 	}
 	@RequestMapping(method= {RequestMethod.GET},value="/member/rejectMember.action")
 	public @ResponseBody Object rejectMember(HttpServletRequest req, JoinDTO dto) {
@@ -109,7 +122,7 @@ public class JoinTeamController {
 		MemberDTO mdto = sv.searchM(mEmail);
 		req.setAttribute("mdto", mdto);
 		
-		return "member.joinTeam.searchMember";
+		return "member.joinTeam.searchMember.ajax";
 	}
 	@RequestMapping(method= {RequestMethod.GET},value="/member/addMember.action")
 	public @ResponseBody Object addMember(HttpServletRequest req, String mEmail, String reSeq) {

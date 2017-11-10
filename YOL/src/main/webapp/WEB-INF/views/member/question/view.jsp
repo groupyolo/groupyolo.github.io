@@ -32,13 +32,15 @@
 
 	function del(seq) {		
 		
+		var questionseq = ${dto.questionseq};
+		
 		if (confirm("삭제하시겠습니까?")) {
 			
 		
 			$.ajax({
 				type:"get",
 				url:"${pageContext.request.contextPath}/question/delComment.action",
-				data: "seq=" + seq,
+				data: "seq=" + seq + "&questionseq=" + questionseq,
 				dataType: "json",
 				success: function(result) {
 					if(result == 1) {
@@ -46,9 +48,7 @@
 						alert("삭제되었습니다.");
 						
 
-						/* $("td").filter(function() {
-							return $(this).val() == name;
-						}).parent().remove(); */
+						  $('#tr' +seq).remove();  
 					
 					} else {
 						alert("삭제가 불가합니다.");
@@ -74,21 +74,20 @@
 		
 		var questionseq = ${dto.questionseq};
 		var qcomment = $("#qcomment").val();
-		var mnickname = ${dto.mnickname};
+		var mSeq = ${mSeq};
 		
 		$.ajax({
 			type: "get",
 			url: "${pageContext.request.contextPath}/question/addComment.action",
-			data: "questionseq=" + questionseq + "&qcomment=" + qcomment + "&mnickname=" + mnickname ,
+			data: "questionseq=" + questionseq + "&qcomment=" + qcomment + "&mSeq=" + mSeq,
 			dataType: "json",
 			success : function(result) {
-				alert(result);
 				
 				if(result == 1) {
 					/* 아래에 데이터 생성 추가해줄거 */
 					
 					var tr = "<tr>" +
-					"<td>" + mnickname + "</td>" +
+					"<td>" + "${mNickName}" + "</td>" +
 					"<td>" + qcomment + "</td>" +
 					"<td>" + NowTime + 
 					"<span style='float:right;cursor:pointer;' onclick='del(${com.qcommentseq});' title=' 댓글을 삭제합니다.''>[&times;]</span>" + "</td>" +
@@ -98,13 +97,43 @@
 					
 					$("#qcomment").val("");
 				} else {
-					/* 아니됩니다. */
+					alert("댓글 작성 실패")
 				}
 			}
 			
 		});//ajax
 		
 	};
+	
+	
+	
+	function checkEdit() {
+		
+		var name = "${dto.mnickname}";
+		var mname = "${mNickName}";
+		
+		if(name == mname) {
+		
+		location.href='${pageContext.request.contextPath}/question/edit.action?questionseq=${dto.questionseq}';
+		} else {
+			alert("작성자가 아닙니다.");
+		}
+	}//
+	
+	function checkDel() {
+		
+		var name = "${dto.mnickname}";
+		var mname = "${mNickName}";
+		
+		if(name == mname) {
+			
+			location.href='${pageContext.request.contextPath}/question/del.action?questionseq=${dto.questionseq}';
+			
+		} else {
+			alert("작성자가 아닙니다.");
+		}
+		
+	}//
 
 </script>
 
@@ -141,8 +170,8 @@
 			</tr>			
 		</table>
 		<div id="btns">
-			<input type="button"  value="글 수정" onclick="location.href='${pageContext.request.contextPath}/question/edit.action?questionseq=${dto.questionseq}'">
-			<input type="button"  value="글 삭제" onclick="location.href='${pageContext.request.contextPath}/question/del.action?questionseq=${dto.questionseq}'">
+			<input type="button"  value="글 수정" onclick="checkEdit();">
+			<input type="button"  value="글 삭제" onclick="checkDel();">
 			<input type="button"  value="돌아가기" onclick="location.href='${pageContext.request.contextPath}/question/list.action'">
 		</div>
 		
@@ -176,13 +205,14 @@
 			<table id="tblCList">
 				<tbody>
 				<c:forEach items="${clist}" var="com">
-				<tr>
+				<tr id="tr${com.qcommentseq}">
 					<td>${com.mnickname}</td>
 					<td>${com.qcomment}</td>
 					<td>${com.qcommenttime}
 					<span style="float:right;cursor:pointer;" onclick="del(${com.qcommentseq});" title=" 댓글을 삭제합니다.">[&times;]</span>
 					</td>
 				</tr>
+
 				</c:forEach>
 				</tbody>
 			</table>

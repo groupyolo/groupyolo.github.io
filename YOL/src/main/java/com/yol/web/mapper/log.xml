@@ -18,6 +18,14 @@
 		select count(*) from Member where mEmail=#{mEmail} and mgSeq=${mgSeq}
 	</select>
 	
+	<select id="mEmailCheck" parameterType="String" resultType="Integer">
+		select count(*) from Member where mEmail=#{mEmail} and mgSeq=1
+	</select>
+	
+	<select id="mNickNameCheck" parameterType="String" resultType="Integer">
+		select count(*) from Member where mNickName=#{mNickName}
+	</select>
+	
 	<select id="apiLoginok" parameterType="com.yol.web.DTO.MemberDTO" resultType="com.yol.web.DTO.MemberDTO">
 		select * from Member where mEmail=#{mEmail} and mgSeq=${mgSeq}
 	</select>

@@ -171,7 +171,7 @@
 				<option value="0">검색 항목</option>
 				<option value="qcategory">카테고리</option>
 				<option value="qtitle">제목</option>
-				<option value="name">글쓴이</option>
+				<option value="mnickname">글쓴이</option>
 			</select> 
 			<input type="text" id="word" name="word"> 
 			<input type="button" value="검색하기" id="btn" onclick="search();">

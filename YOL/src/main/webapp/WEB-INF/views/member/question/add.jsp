@@ -23,7 +23,7 @@
 			<tr>
 				<th>카테고리</th>
 				<td>
-				<select name="qcategory">
+				<select name="qcategoryseq">
 					<option value="0">선택하세요.</option>
 					<c:forEach items="${list}" var="category">
 						<option value="${category.qcategoryseq}">
@@ -31,10 +31,6 @@
 						</option>
 					</c:forEach>
 				</select>
-			</tr>
-			<tr>
-				<th>이름 :</th> 
-				<td><input type="text" id="mnickname" name="mnickname"></td>
 			</tr>
 			<tr>
 				<th>제목 :</th> 

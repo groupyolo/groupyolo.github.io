@@ -18,4 +18,8 @@ public interface ILogService {
 
 	public int apiSign(MemberDTO dto);
 
+	public int mEmailCheck(String mEmail);
+
+	public int mNickNameCheck(String mNickName);
+
 }

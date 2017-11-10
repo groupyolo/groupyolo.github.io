@@ -58,5 +58,14 @@ public class LogDAO {
 		
 		sql.insert("log.apiAuthok",dto);
 	}
+
+	public int mEmailCheck(String mEmail) {
+		
+		return sql.selectOne("log.mEmailCheck",mEmail);
+	}
+
+	public int mNickNameCheck(String mNickName) {
+		return sql.selectOne("log.mNickNameCheck",mNickName);
+	}
 	
 }

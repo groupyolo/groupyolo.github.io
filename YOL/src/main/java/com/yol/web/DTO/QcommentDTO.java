@@ -5,7 +5,7 @@ public class QcommentDTO {
 	private String qcommentseq;
 	private String questionseq;
 	private String mseq;
-	private String nickname;
+	private String mnickname;
 	private String qcomment;
 	private String qcommenttime;
 	
@@ -16,11 +16,12 @@ public class QcommentDTO {
 	public void setMseq(String mseq) {
 		this.mseq = mseq;
 	}
-	public String getNickname() {
-		return nickname;
+
+	public String getMnickname() {
+		return mnickname;
 	}
-	public void setNickname(String nickname) {
-		this.nickname = nickname;
+	public void setMnickname(String mnickname) {
+		this.mnickname = mnickname;
 	}
 	public String getQcommentseq() {
 		return qcommentseq;

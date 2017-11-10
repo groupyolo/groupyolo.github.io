@@ -1,18 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<meta name="google-signin-client_id" content="575739111112-ribfp6siku4gssct7oa4vshdgogrj0ac.apps.googleusercontent.com">
-<title></title>
 
-<script src="https://apis.google.com/js/platform.js" async defer></script>
-<style>
-</style>
-</head>
-<body>
 <!-- 구글 로그인 -->
 
 <div class="g-signin2" data-onsuccess="onSignIn"></div>
@@ -212,6 +200,3 @@ document.getElementById('loginBtn').addEventListener('click', function() {
 </script>
  <div id="status">
 </div>
-
-</body>
-</html>
