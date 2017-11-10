@@ -1,11 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title></title>
+  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.12.4.js"></script>
 <style>
 	
@@ -37,13 +32,15 @@
 
 	function del(seq) {		
 		
+		var questionseq = ${dto.questionseq};
+		
 		if (confirm("삭제하시겠습니까?")) {
 			
 		
 			$.ajax({
 				type:"get",
 				url:"${pageContext.request.contextPath}/question/delComment.action",
-				data: "seq=" + seq,
+				data: "seq=" + seq + "&questionseq=" + questionseq,
 				dataType: "json",
 				success: function(result) {
 					if(result == 1) {
@@ -51,9 +48,7 @@
 						alert("삭제되었습니다.");
 						
 
-						/* $("td").filter(function() {
-							return $(this).val() == name;
-						}).parent().remove(); */
+						  $('#tr' +seq).remove();  
 					
 					} else {
 						alert("삭제가 불가합니다.");
@@ -69,29 +64,30 @@
 		var Now = new Date();
 		var NowTime = Now.getFullYear();
 
-		NowTime += '-' + Now.getMonth() + 1 ;
-		NowTime += '-' + Now.getDate();
+		NowTime += '-' + (Now.getMonth()+1);
+		if( Now.getDate() < 10) { NowTime += '-' + 0 + Now.getDate(); }
+		if( Now.getDate() > 9) { NowTime += '-' + Now.getDate(); }
 		NowTime += ' ' + Now.getHours();
 		NowTime += ':' + Now.getMinutes();
-		NowTime += ':' + Now.getSeconds();
+		if( Now.getSeconds() < 10) { NowTime += ':' + 0 + Now.getSeconds(); }
+		if( Now.getSeconds() > 9 ) { NowTime += ':' + Now.getSeconds(); }
 		
 		var questionseq = ${dto.questionseq};
 		var qcomment = $("#qcomment").val();
-		var name = "희준이";
+		var mSeq = ${mSeq};
 		
 		$.ajax({
 			type: "get",
 			url: "${pageContext.request.contextPath}/question/addComment.action",
-			data: "questionseq=" + questionseq + "&qcomment=" + qcomment + "&name=" + name ,
+			data: "questionseq=" + questionseq + "&qcomment=" + qcomment + "&mSeq=" + mSeq,
 			dataType: "json",
 			success : function(result) {
-				alert(result);
 				
 				if(result == 1) {
 					/* 아래에 데이터 생성 추가해줄거 */
 					
 					var tr = "<tr>" +
-					"<td>" + name + "</td>" +
+					"<td>" + "${mNickName}" + "</td>" +
 					"<td>" + qcomment + "</td>" +
 					"<td>" + NowTime + 
 					"<span style='float:right;cursor:pointer;' onclick='del(${com.qcommentseq});' title=' 댓글을 삭제합니다.''>[&times;]</span>" + "</td>" +
@@ -101,18 +97,47 @@
 					
 					$("#qcomment").val("");
 				} else {
-					/* 아니됩니다. */
+					alert("댓글 작성 실패")
 				}
 			}
 			
 		});//ajax
 		
 	};
+	
+	
+	
+	function checkEdit() {
+		
+		var name = "${dto.mnickname}";
+		var mname = "${mNickName}";
+		
+		if(name == mname) {
+		
+		location.href='${pageContext.request.contextPath}/question/edit.action?questionseq=${dto.questionseq}';
+		} else {
+			alert("작성자가 아닙니다.");
+		}
+	}//
+	
+	function checkDel() {
+		
+		var name = "${dto.mnickname}";
+		var mname = "${mNickName}";
+		
+		if(name == mname) {
+			
+			location.href='${pageContext.request.contextPath}/question/del.action?questionseq=${dto.questionseq}';
+			
+		} else {
+			alert("작성자가 아닙니다.");
+		}
+		
+	}//
 
 </script>
-</head>
-<body>
-	
+
+	<!-- view 주업무 -->
 	
 		<table id="tblList">
 			<tr>
@@ -129,7 +154,7 @@
 			</tr>
 			<tr>
 				<th>글쓴이</th>
-				<td>${dto.name}</td>
+				<td>${dto.mnickname}</td>
 			</tr>
 			<tr>
 				<th>날짜</th>
@@ -145,8 +170,8 @@
 			</tr>			
 		</table>
 		<div id="btns">
-			<input type="button"  value="글 수정" onclick="location.href='${pageContext.request.contextPath}/question/edit.action?questionseq=${dto.questionseq}'">
-			<input type="button"  value="글 삭제" onclick="location.href='${pageContext.request.contextPath}/question/del.action?questionseq=${dto.questionseq}'">
+			<input type="button"  value="글 수정" onclick="checkEdit();">
+			<input type="button"  value="글 삭제" onclick="checkDel();">
 			<input type="button"  value="돌아가기" onclick="location.href='${pageContext.request.contextPath}/question/list.action'">
 		</div>
 		
@@ -180,18 +205,16 @@
 			<table id="tblCList">
 				<tbody>
 				<c:forEach items="${clist}" var="com">
-				<tr>
-					<td>${com.name}</td>
+				<tr id="tr${com.qcommentseq}">
+					<td>${com.mnickname}</td>
 					<td>${com.qcomment}</td>
 					<td>${com.qcommenttime}
 					<span style="float:right;cursor:pointer;" onclick="del(${com.qcommentseq});" title=" 댓글을 삭제합니다.">[&times;]</span>
 					</td>
 				</tr>
+
 				</c:forEach>
 				</tbody>
 			</table>
 		</div>		
 
-
-</body>
-</html>

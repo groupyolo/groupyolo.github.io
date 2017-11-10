@@ -1,11 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title></title>
+  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.12.4.js"></script>
 <style>
 	
@@ -30,8 +25,8 @@ $(document).ready(function() {
 });
 
 </script>
-</head>
-<body>
+	
+	<!-- edit 주업무 -->
 	
 	<form method="post" action="${pageContext.request.contextPath}/question/editok.action">
 		<table id="editQuestion">
@@ -48,10 +43,6 @@ $(document).ready(function() {
 				</select>
 			</tr>
 			<tr>
-				<th>이름 :</th> 
-				<td><input type="text" id="name" name="name" value="${dto.name}" disabled></td>
-			</tr>
-			<tr>
 				<th>제목 :</th> 
 				<td><input type="text" id="qtitle" name="qtitle" value="${dto.qtitle}"></td>
 			</tr>		
@@ -62,13 +53,10 @@ $(document).ready(function() {
 		</table>
 		
 			<input type="hidden" name="questionseq" value="${dto.questionseq}">
+			<input type="hidden" name="mseq" value="${dto.mseq}">
 			
 		<div id="btns">
 			<input type="button"  value="돌아가기" onclick="location.href='${pageContext.request.contextPath}/question/list.action'">
 			<input type="submit" value="수정하기">
 		</div>
 	</form>
-
-
-</body>
-</html>

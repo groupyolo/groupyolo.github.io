@@ -3,7 +3,8 @@ package com.yol.web.DTO;
 public class QuestionDTO {
 
 	private String questionseq;
-	private String name;
+	private String mseq;
+	private String mnickname;
 	private String qtitle;
 	private String qcategoryseq;
 	private String qcategory;
@@ -14,6 +15,19 @@ public class QuestionDTO {
 	
 	
 	
+	
+	public String getMnickname() {
+		return mnickname;
+	}
+	public void setMnickname(String mnickname) {
+		this.mnickname = mnickname;
+	}
+	public String getMseq() {
+		return mseq;
+	}
+	public void setMseq(String mseq) {
+		this.mseq = mseq;
+	}
 	
 	public String getQcategoryseq() {
 		return qcategoryseq;
@@ -27,12 +41,7 @@ public class QuestionDTO {
 	public void setQuestionseq(String questionseq) {
 		this.questionseq = questionseq;
 	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
+	
 	public String getQtitle() {
 		return qtitle;
 	}
