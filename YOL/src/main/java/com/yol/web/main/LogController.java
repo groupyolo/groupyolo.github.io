@@ -1,4 +1,4 @@
-package com.yol.web.main.log;
+package com.yol.web.main;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -166,9 +166,27 @@ public class LogController {
 		  
 	  }
 
+	  /*log in 파트*/
+	  
+	  
+	  @RequestMapping(method= {RequestMethod.GET},value="/main/faqView.action" )
+	  public String findPasswordChange(HttpServletRequest req) {
+		  
+		  
+		  
+		  return "main.log.faqView";
+		  
+	  }
 	  
 	  
 	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  /*faq파트*/
 	  
 
 }

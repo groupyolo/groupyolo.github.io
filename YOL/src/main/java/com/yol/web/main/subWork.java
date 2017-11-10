@@ -1,4 +1,4 @@
-package com.yol.web.main.log;
+package com.yol.web.main;
 
 import java.io.UnsupportedEncodingException;
 

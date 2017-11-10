@@ -1,4 +1,4 @@
-package com.yol.web.main.log;
+package com.yol.web.main;
 
 import com.yol.web.DTO.MemberDTO;
 
