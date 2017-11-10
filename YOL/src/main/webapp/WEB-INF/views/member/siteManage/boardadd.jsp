@@ -39,5 +39,4 @@
 			<input type="hidden" name="prSeq" value= "${pdto.prSeq }"/>
 			
 		</form>
-		
-		<input type="button" value="글쓰기" onclick="location.href='/web/member/add.action'" />
+		<input type="button" value="돌아가기" onclick="history.back();" />

@@ -80,4 +80,25 @@ public class SiteManageService implements ISiteManageService{
 	public int getpbcSeq() {
 		return dao.getpbcSeq();
 	}
+	
+	@Override
+	public List<PbCommentDTO> pbcList(String pbSeq) {
+		List<PbCommentDTO> pbclist = dao.pbcList(pbSeq);
+		for(PbCommentDTO dto : pbclist) {
+			dto.setPbcRegdate(dto.getPbcRegdate().substring(0, 16));
+		}
+		return pbclist;
+	}
+	
+	@Override
+	public PbCommentDTO getpbcdto(int pbcSeq) {
+		PbCommentDTO dto = dao.getpbcdto(pbcSeq);
+		dto.setPbcRegdate(dto.getPbcRegdate().substring(0, 16));
+		return dto;
+	}
+	
+@Override
+	public int commentDel(String pbcSeq) {
+		return dao.commentDel(pbcSeq);
+	}
 }

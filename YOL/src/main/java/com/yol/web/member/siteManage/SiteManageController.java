@@ -125,11 +125,15 @@ public class SiteManageController {
 		
 		// 게시판 글 내용 가져오기 
 		ProjectBoardDTO bdto = service.getView(pbSeq);
+		
+		//댓글 가져오기 
+		List<PbCommentDTO> pbclist = service.pbcList(pbSeq);
+		
 		req.setAttribute("bdto", bdto);
 		req.setAttribute("count", count);
 		req.setAttribute("plist", plist);
 		req.setAttribute("pdto", pdto);
-		
+		req.setAttribute("pbclist", pbclist);
 	
 		return "member.siteManage.boardview";
 	}
@@ -192,14 +196,24 @@ public class SiteManageController {
 	}
 	
 	@RequestMapping (method= {RequestMethod.POST}, value="/member/commentadd.action" )
-	private @ResponseBody Object commentadd(HttpServletRequest req, PbCommentDTO cdto) {
+	private String commentadd(HttpServletRequest req, PbCommentDTO cdto) {
 		
 		cdto.setjSeq(service.getJSeq(cdto.getmSeq()));
 		
 		int result = service.commentAdd(cdto);
 		int pbcSeq = service.getpbcSeq();
+		PbCommentDTO pbcdto = service.getpbcdto(pbcSeq);
 		
-		return "member.siteManage.commentadd";
+		req.setAttribute("result", result);
+		req.setAttribute("pbcdto", pbcdto);
+		return "member.siteManage.commentadd.ajax";
+	}
+	
+	@RequestMapping (method= {RequestMethod.GET}, value="/member/commentdel.action" )
+	private @ResponseBody Object commentdel(HttpServletRequest req, String pbcSeq) {
+		
+		int result = service.commentDel(pbcSeq);
+		return result;
 	}
 	
 }

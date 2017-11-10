@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<script src="/web/js/jquery-1.12.4.js"></script>
 <script>
 $(document).ready(function() {
 	$('#btn').click(function() {
@@ -14,9 +13,10 @@ $(document).ready(function() {
 			url : "${pageContext.request.contextPath}/member/commentadd.action",
 			data : data,
 			dataType: "json",
-			success : function(result) {
-				if (result == 1) {
-					var tr = "<tr><td> ${loginDTO.mNickName} </td><td>"+ $("#Pbcomment").val() + "</td><td>"+"</td></tr>";
+			success : function(data) {
+				if (data.result == 1) {
+					var tr = "<tr><td>${loginDTO.mNickName}</td><td>"+ $("#Pbcomment").val()+"</td><td>" + data.pbcRegdate +"</td></tr>";
+					
 					$("#tblComment tbody").append(tr);
 					$("#Pbcomment").val("");
 				} else if (result == 0) {
@@ -45,8 +45,27 @@ $(document).ready(function() {
 					alert("권한이 없습니다.");
 			}
 		});
+	
+	
 });
 	
+	function cdel(pbcSeq) {
+		if(confirm("삭제하시겠습니까?")) {
+			
+			$.ajax ({
+				type: "get",
+				url: "${pageContext.request.contextPath}/member/commentdel.action",
+				data: "pbcSeq="+pbcSeq,
+				dataType: "json",
+				success: function(result) {
+					if(result == 1) {
+						$("#trSeq"+pbcSeq).remove();
+					}
+				}
+			})
+		
+		}
+	}
 </script>
 
 <%@ include file="/WEB-INF/views/member/siteManage/manage.jsp" %>
@@ -95,13 +114,31 @@ $(document).ready(function() {
 		<input type="button" value="글쓰기" onclick="location.href='/${pageContext.request.contextPath}/member/add.action?prSeq=${pdto.prSeq}'" />
 		<input type="button" value="수정하기" id="edit"/>
 		<input type="button" value="삭제하기"  id="del"/>
+		<input type="button" value="돌아가기" onclick="history.back();" />
 		
 		<h3>댓글</h3>
 		
+			
 			<table id="tblComment">
 				<tbody>
+					<c:forEach items="${pbclist}" var="pbcdto">
+						<tr id="trSeq${pbcdto.pbcSeq}">
+							<td>${pbcdto.mNickName}</td>
+							<td>${pbcdto.pbcomment}</td>
+							<td>
+								${pbcdto.pbcRegdate}
+								<c:if test="${pbcdto.mSeq == loginDTO.mSeq}">
+									<span class="glyphicon glyphicon-remove" onclick="cdel(${pbcdto.pbcSeq})"></span>
+								</c:if>
+							</td>
+						</tr>
+						<tr>
+						
+						</tr>
+					</c:forEach>
 				</tbody>
 			</table>
+			
 			<form id="form1">
 				<div>
 					<textarea name="Pbcomment" id="Pbcomment" cols="30" rows="10"></textarea>

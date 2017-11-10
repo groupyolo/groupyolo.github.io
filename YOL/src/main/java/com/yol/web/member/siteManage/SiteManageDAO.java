@@ -66,6 +66,18 @@ public class SiteManageDAO {
 	public int getpbcSeq() {
 		return sql.selectOne("siteManage.getpbcSeq");
 	}
+
+	public List<PbCommentDTO> pbcList(String pbSeq) {
+		return sql.selectList("siteManage.pbcList", pbSeq);
+	}
+
+	public PbCommentDTO getpbcdto(int pbcSeq) {
+		return sql.selectOne("siteManage.getpbcdto", pbcSeq);
+	}
+
+	public int commentDel(String pbcSeq) {
+		return sql.delete("siteManage.commentDel", pbcSeq);
+	}
 	
 	
 }

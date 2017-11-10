@@ -35,5 +35,11 @@ public interface ISiteManageService {
 
 	int getpbcSeq();
 
+	List<PbCommentDTO> pbcList(String pbSeq);
+
+	PbCommentDTO getpbcdto(int pbcSeq);
+
+	int commentDel(String pbcSeq);
+
 
 }
