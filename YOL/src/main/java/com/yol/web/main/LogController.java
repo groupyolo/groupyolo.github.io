@@ -1,4 +1,4 @@
-package com.yol.web.main.mail;
+package com.yol.web.main;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -146,14 +146,14 @@ public class LogController {
 		  
 	  }
 	  
-	  @RequestMapping(method= {RequestMethod.GET},value="/main/findPasswordok.action" )
-	  public String findPasswordok(HttpServletRequest req,String mEmail) {
+	  @RequestMapping(method= {RequestMethod.POST},value="/main/findPasswordok.action" )
+	  public String findPasswordok(HttpServletRequest req,MemberDTO dto) {
 		  
-		  int result = service.findPasswordChange(mEmail);
+		  int result = service.findPasswordChange(dto);
 		  
 		  req.setAttribute("result", result);
 		  
-		  return "main.log.findPasswordCheck";
+		  return "main.log.login";
 		  
 	  }
 	  
@@ -165,9 +165,28 @@ public class LogController {
 		  return "main.log.findPasswordChange";
 		  
 	  }
+
+	  /*log in 파트*/
+	  
+	  
+	  @RequestMapping(method= {RequestMethod.GET},value="/main/faqView.action" )
+	  public String findPasswordChange(HttpServletRequest req) {
+		  
+		  
+		  
+		  return "main.log.faqView";
+		  
+	  }
 	  
 	  
 	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  /*faq파트*/
 	  
 
 }

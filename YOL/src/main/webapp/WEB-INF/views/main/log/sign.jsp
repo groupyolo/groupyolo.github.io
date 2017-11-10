@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
 		
-	<form method="post" action="/web/main/signok.action">
+	<form method="post" action="${pageContext.request.contextPath }/main/signok.action">
 	<table id="tbl">
 	
 	<tr>
@@ -10,7 +10,7 @@
 			메일
 		</th>
 		<td>
-			<input type="email" id="mEmail" name="mEmail">
+			<input type="email" id="mEmail" name="mEmail" required>
 		</td>
 		<td id="mEmailResponse">
 		
@@ -21,7 +21,7 @@
 			닉네임(2자 이상 7자 이하)
 		</th>
 		<td>
-			<input type="text" id="mNickName" name="mNickName">
+			<input type="text" id="mNickName" name="mNickName" required>
 		</td>
 		<td id="mNickNameResponse">
 		<!-- ajax용  -->
@@ -37,7 +37,7 @@
 			비밀번호(8자 이상 12자 이하, 숫자 하나 이상 포함, 숫자로 시작 못함)
 		</th>
 		<td>
-			<input type="password" id="mPassword" name="mPassword">
+			<input type="password" id="mPassword" name="mPassword" required>
 		</td>
 		<td id="mPasswordResponse">
 		<!-- ajax용  -->
@@ -50,7 +50,7 @@
 			비밀번호 다시 입력
 		</th>
 		<td>
-			<input type="password" id="reMPassword" name="reMPassword">
+			<input type="password" id="reMPassword" name="reMPassword" required>
 		</td>
 		<td id="reMPasswordResponse">
 		<!-- ajax용  -->

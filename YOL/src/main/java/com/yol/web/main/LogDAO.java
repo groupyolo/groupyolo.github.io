@@ -1,4 +1,4 @@
-package com.yol.web.main.mail;
+package com.yol.web.main;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -72,8 +72,8 @@ public class LogDAO {
 		return sql.selectOne("log.findPassword",mEmail);
 	}
 
-	public int findPasswordChange(String mEmail) {
-		return sql.update("log.findPasswordChange",mEmail);
+	public int findPasswordChange(MemberDTO dto) {
+		return sql.update("log.findPasswordChange",dto);
 	}
 	
 }

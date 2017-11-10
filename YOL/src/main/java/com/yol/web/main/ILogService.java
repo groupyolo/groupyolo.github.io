@@ -1,4 +1,4 @@
-package com.yol.web.main.mail;
+package com.yol.web.main;
 
 import com.yol.web.DTO.MemberDTO;
 
@@ -24,6 +24,6 @@ public interface ILogService {
 
 	public int findPassword(String mEmail);
 
-	public int findPasswordChange(String mEmail);
+	public int findPasswordChange(MemberDTO dto);
 
 }

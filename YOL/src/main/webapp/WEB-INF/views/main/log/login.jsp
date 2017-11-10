@@ -1,36 +1,79 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<style>
 
+	
+	#login{
+		background-color: green;	
+	}
+	#box{
+		margin:100px auto;
+		width:500px;
+	}
+	
+</style>
 <meta name="google-signin-client_id" content="575739111112-ribfp6siku4gssct7oa4vshdgogrj0ac.apps.googleusercontent.com">
 <script src="https://apis.google.com/js/platform.js" async defer></script>
-
-	<form method="post" action="/web/main/apiLoginok.action" id="apiLogin">
+	
+	<form method="post" action="${pageContext.request.contextPath }/main/apiLoginok.actionz" id="apiLogin">
 	<input type="hidden" name="mEmail" id="apiMEmail" >
 	<input type="hidden" name="mgSeq" id="mgSeq" >
 	</form>
-
 	
+	
+	<div id="box">
 	<form method="post" action="/web/main/loginok.action">
-	
-	<span>이메일: </span> <input type="email"	name="mEmail" id="mEmail" value= "bibid@naver.com" required>
-	<span>비번: </span> <input type="password" name="mPassword" id="mPassword" required>
-	
-	<input type="submit" value="로그인">
+	<table id="tbl" class="table">
+	<tr>
+		<td>
+		<div id="loginBtn" style="background-image:url('${pageContext.request.contextPath }/images/facebook-login.png');width:240px;height:40px;background-size: contain;"></div>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<div id="goo" class="g-signin2" data-onsuccess="onSignIn" style="width:240px;"></div>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		또는
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<input type="email"	name="mEmail" id="mEmail" class="form-control" placeholder="이메일을 입력하세요." required>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<input type="password" name="mPassword" id="mPassword" class="form-control" placeholder="비밀번호를 입력하세요" required >
+		</td>
+
+	</tr>
+	<tr>
+		<td>
+			<input type="submit" id="login" value="로그인" class="form-control" >
+		</td>
+	</tr>
+	<tr>
+		<td>
+			아직 회원이 아니세요? <a href="${pageContext.request.contextPath }/main/sign.action">회원가입</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			비밀번호를 잊어버리셨다구요? <a href="${pageContext.request.contextPath }/main/findPassword.action">비밀번호찾기</a>
+		</td>
+	</tr>
+	<tr>
+	</table>
 	</form>
-	
+	</div>
 
 	<!-- 구글 로그인 -->
 
 
-<div id="goo" class="g-signin2" data-onsuccess="onSignIn"></div>
-
-<div id="findId">아이디 찾기</div>
-<div onclick="location.href='/web/main/findPassword.action';">비번 찾기</div>
-
-
 <script>
-	
-
 
 	var mEmail;
 	var mName;
@@ -60,12 +103,12 @@
 		
 		$.ajax({	
 			type:"post",
-			url:"/web/main/apiLoginCheck.action",
+			url:"${pageContext.request.contextPath }/main/apiLoginCheck.action",
 			dataType:"json",
 			data:"mEmail="+mEmail+"&mNickName="+mNickName+"&mgSeq=2",
 			success:function(result){
 				if(result.result==0){
-					location.href="/web/main/apiSign.action?mEmail="+mEmail+"&mNickName="+mNickName+"&mgSeq=2";
+					location.href="${pageContext.request.contextPath }/main/apiSign.action?mEmail="+mEmail+"&mNickName="+mNickName+"&mgSeq=2";
 					// 가입 및 닉네임 페이지로 
 					//이게 아이디가 되면 혹시 같은 이메일이 있으면 겹치게 되는데 이를 연동회원 구분으로 체크
 				}else if(result.result==1){
@@ -90,8 +133,7 @@
 	
 	<!-- 페이스북 로그인 -->
 	
-<button type="button" class="button facebook" id="loginBtn">페이스북 계정</button>
- 
+
             
 <script>
 function getUserData() {
@@ -103,12 +145,12 @@ function getUserData() {
        
     	$.ajax({
 			type:"post",
-			url:"/web/main/apiLoginCheck.action",
+			url:"${pageContext.request.contextPath }/main/apiLoginCheck.action",
 			dataType:"json",
 			data:"mEmail="+mEmail+"&mNickName="+mNickName+"&mgSeq=3",
 			success:function(result){
 				if(result.result==0){
-					location.href="/web/main/apiSign.action?mEmail="+mEmail+"&mNickName="+mNickName+"&mgSeq=3";
+					location.href="${pageContext.request.contextPath }/main/apiSign.action?mEmail="+mEmail+"&mNickName="+mNickName+"&mgSeq=3";
 					// 가입 및 닉네임 페이지로 
 					//이게 아이디가 되면 혹시 같은 이메일이 있으면 겹치게 되는데 이를 연동회원 구분으로 체크
 							
@@ -156,17 +198,7 @@ window.fbAsyncInit = function() {
     });
 };
   
-//load the JavaScript SDK
-(function(d, s, id){
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) {return;}
-    js = d.createElement(s); js.id = id;
-    js.src = "https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.10&appId=2001097453500031";
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
-  
-
-  
+ 
   
 //add event listener to login button
 document.getElementById('loginBtn').addEventListener('click', function() {
