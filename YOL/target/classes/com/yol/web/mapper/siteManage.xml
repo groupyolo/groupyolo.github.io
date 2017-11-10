@@ -36,13 +36,32 @@
 	<select id="view" parameterType="String" resultType="com.yol.web.DTO.ProjectBoardDTO">
 		select * from vProjectBoard where pbSeq = #{pbSeq}
 	</select>
-<!-- 
+
 	<delete id="delok" parameterType="String">
 		delete from projectBoard where pbseq = #{pbSeq}
 	</delete>
 	
 	<update id="edit">
 		update projectBoard set pbsubject=#{pbSubject}, pbContent=#{pbContent}, pbtag=#{pbtag}, nsSeq=#{nsSeq} where pbSeq=#{pbSeq} 
-	</update> -->
+	</update>
 	
+	<insert id="commentAdd">
+		insert into pbComment values (pbcSeq.nextval, #{pbSeq}, #{jSeq}, #{pbcomment}, sysdate)
+	</insert>
+	
+	<select id="getpbcSeq" resultType="Integer">
+		select max(pbcseq) from pbcomment
+	</select>
+	
+	<select id="pbcList" parameterType="String" resultType="com.yol.web.DTO.PbCommentDTO">
+		select * from vpbComment where pbSeq = #{pbSeq}
+	</select>
+	
+	<select id="getpbcdto" parameterType="Integer" resultType="com.yol.web.DTO.PbCommentDTO">
+		select * from vpbComment where pbcSeq=#{pbcSeq}
+	</select>
+	
+	<delete id="commentDel" parameterType="String">
+		delete from PbComment where pbcSeq = #{pbcSeq}
+	</delete>
 </mapper>

@@ -1,4 +1,4 @@
-package com.yol.web.main.mail;
+package com.yol.web.main;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +22,9 @@ public class LogDAO {
 		return sql.insert("log.sign",dto);
 	}
 
-	public int addStateMember(String mEmail) {
+	public int addStateMember(MemberDTO dto) {
 
-		return sql.insert("log.addStateMember",mEmail);
+		return sql.insert("log.addStateMember",dto);
 	}
 
 	public String getId(String mEmail) {
@@ -66,6 +66,14 @@ public class LogDAO {
 
 	public int mNickNameCheck(String mNickName) {
 		return sql.selectOne("log.mNickNameCheck",mNickName);
+	}
+
+	public int findPassword(String mEmail) {
+		return sql.selectOne("log.findPassword",mEmail);
+	}
+
+	public int findPasswordChange(MemberDTO dto) {
+		return sql.update("log.findPasswordChange",dto);
 	}
 	
 }

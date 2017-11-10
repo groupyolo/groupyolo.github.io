@@ -25,10 +25,5 @@
 
 		<tiles:insertAttribute name="footer"></tiles:insertAttribute>
 
-<<<<<<< HEAD
-		
-=======
-
->>>>>>> branch 'master' of https://github.com/groupyolo/groupyolo.github.io.git
 </body>
 </html>

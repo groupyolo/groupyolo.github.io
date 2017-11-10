@@ -4,3 +4,4 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/css/jquery-ui.css">
 <script src="${pageContext.request.contextPath }/js/bootstrap.js"></script>
 <link rel="stylesheet" href="${pageContext.request.contextPath }/css/memberpage.css"/>
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/mainpage.css"/>

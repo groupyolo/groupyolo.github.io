@@ -1,4 +1,4 @@
-package com.yol.web.main.mail;
+package com.yol.web.main;
 
 import java.util.Random;
 

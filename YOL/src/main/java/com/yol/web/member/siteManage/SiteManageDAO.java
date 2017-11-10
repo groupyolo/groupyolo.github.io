@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.yol.web.DTO.PbCommentDTO;
 import com.yol.web.DTO.ProjectBoardDTO;
 import com.yol.web.DTO.ProjectDTO;
 import com.yol.web.DTO.ProjectInfoDTO;
@@ -56,6 +57,26 @@ public class SiteManageDAO {
 
 	public int edit(ProjectBoardDTO dto) {
 		return sql.update("siteManage.edit", dto);
+	}
+
+	public int commentAdd(PbCommentDTO cdto) {
+		return sql.insert("siteManage.commentAdd", cdto);
+	}
+
+	public int getpbcSeq() {
+		return sql.selectOne("siteManage.getpbcSeq");
+	}
+
+	public List<PbCommentDTO> pbcList(String pbSeq) {
+		return sql.selectList("siteManage.pbcList", pbSeq);
+	}
+
+	public PbCommentDTO getpbcdto(int pbcSeq) {
+		return sql.selectOne("siteManage.getpbcdto", pbcSeq);
+	}
+
+	public int commentDel(String pbcSeq) {
+		return sql.delete("siteManage.commentDel", pbcSeq);
 	}
 	
 	
