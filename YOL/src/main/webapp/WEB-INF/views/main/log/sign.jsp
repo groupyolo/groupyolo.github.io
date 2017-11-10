@@ -4,12 +4,14 @@
 	<style>
 	
 		#tbl{margin-top:100px;}
-		#tbl td:first-child{width:200px;}
+		#tbl td:first-child{width:200px;padding-left:100px;}
 		#tbl td:nth-child(2){width:200px;}
 		#tbl td:nth-child(3){width:300px;}
-	 	#send{ width:600px;}
+	 	#send{ width:460px;}
 	 	 
 	</style>
+	약관
+	<!-- 약관 명시 -->
 	<form method="post" action="${pageContext.request.contextPath }/main/signok.action">
 	<table id="tbl" class="table">
 	
@@ -67,7 +69,7 @@
 	</tr>	
 	<tr>
 		<td colspan="3">
-			<input type="submit" value="가입하기" id="send" class="btn">
+			<input type="button" value="가입하기" id="send" class="btn">
 		</td>
 	</tr>
 	
@@ -86,18 +88,22 @@
 		
 		if(mEmailCheck&&mNickNameCheck&&mPasswordCheck&&reMPasswordCheck){
 			
-			$("#send").val("클릭해라라라라라");
+			$("#send").attr("type","submit");
 			
 			
 		}else{
 			
-			$("#send").val("낫옜");
+			$("#send").attr("type","button");
 			
 		}
 		
 	}
-
 	$("#mEmail").keyup(function(){
+		
+	});
+	
+	
+	$("#mEmail").change(function(){
 		
 		
 		var reg = /^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
@@ -142,7 +148,7 @@
 		
 	});
 	
-	$("#mNickName").keyup(function(){
+	$("#mNickName").change(function(){
 		var reg = /^[A-Za-z가-힣0-9]{0,12}$/;
 		
 		if($("#mNickName").val().length==0){
@@ -184,7 +190,7 @@
 		
 	});
 	
-	$("#mPassword").keyup(function(){
+	$("#mPassword").change(function(){
 		
 		var reg = /^(?=[^\d_].*?\d)\w(\w|[!@#$%]){7,12}$/;
 		
@@ -210,7 +216,7 @@
 		
 	});
 	
-	$("#reMPassword").keyup(function(){
+	$("#reMPassword").change(function(){
 		if($("#reMPassword").val().length==0){
 			$("#reMPasswordResponse").html("");
 			reMPasswordCheck=false;

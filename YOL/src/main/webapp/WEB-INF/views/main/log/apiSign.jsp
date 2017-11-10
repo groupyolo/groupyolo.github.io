@@ -34,7 +34,7 @@
 	</form>
 	
 	<script>
-	$("#mNickName").keyup(function(){
+	$("#mNickName").change(function(){
 		var reg = /^[A-Za-z가-힣0-9]{0,12}$/;
 		
 		if($("#mNickName").val().length==0){
@@ -69,7 +69,7 @@
 			
 		}else if(!reg.test($("#mNickName").val())){
 			
-			$("#mNickNameResponse").html("<div style='color:red;'>유효하지 않은 닉네임입니다.</div>");
+			$("#mNickNameResponse").html("<div style='color:red;'>2자 이상 7자 이하</div>");
 			mNickNameCheck=false;
 			
 		}
