@@ -1,5 +1,7 @@
 package com.yol.web.member.creation;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,5 +26,10 @@ public class CreationService implements ICreationService{
 		
 	}
 	
-	
+	@Override
+	public List<VCreationDTO> list(VCreationDTO dto, String mSeq) {
+		
+		List<VCreationDTO> list = dao.list(dto, mSeq);		
+		return list;
+	}
 }

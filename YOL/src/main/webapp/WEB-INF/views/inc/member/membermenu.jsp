@@ -19,8 +19,8 @@
 				<span style="padding-left:5px;">${loginDTO.mNickName}</span>
 				<i class="fa fa-sort-desc" aria-hidden="true"style="vertical-align: top; padding-left:2px;"></i>
 			    <ul id="ultogle">
-			           <li><a href="#">my profile</a></li>
-			           <li><a href="#">my sites</a></li>
+			           <li><a href="${pageContext.request.contextPath }/member/myinfo.action">my profile</a></li>
+			           <li><a href="${pageContext.request.contextPath }/member/mysites.action">my sites</a></li>
 			           <li><a href="#">support</a></li>
 			           <li><a href="#">logout</a></li>
 	         	</ul>

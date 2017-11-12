@@ -287,40 +287,49 @@ display:block;   마우스 커서 올리면 서브메뉴 보이게 하기
 }
 
 
-#sitelist table{
+#sitelist table, #grouplist table{
 	
-	width: 800px;
+	width: 900px;
 	margin:0px auto;
+	text-align: left;
 }
 
 #sitelist table tr th:nth-child(1){
 	width: 20%;
 }
 #sitelist table tr th:nth-child(2){
-	width: 70%;
+	width: 35%;
 }
 #sitelist table tr th:nth-child(3){
+	width: 35%;
+}
+#sitelist table tr th:nth-child(4){
 	width: 10%;
 }
 
-#grouplist table{
-	
-	width: 800px;
-	margin:0px auto;
-}
 
 
 #grouplist table tr th:nth-child(1){
 	width: 20%;
 }
 #grouplist table tr th:nth-child(2){
-	width: 40%;
+	width: 35%;
 }
 #grouplist table tr th:nth-child(3){
-	width: 30%;
+	width: 35%;
 }
-#grouplist table tr th:nth-child(3){
+#grouplist table tr th:nth-child(4){
 	width: 10%;
 }
 
+#btncreate{
+	width:90%;
+	margin:0px auto;
+	text-align: right;
+	
+}
 
+#btncreate a{
+	font-weight:bold;
+	color:white;
+}

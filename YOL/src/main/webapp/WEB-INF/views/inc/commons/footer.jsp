@@ -3,36 +3,44 @@
 	
 	</div>
 	
-	<footer id="footer">
-      <div id="Fbox">
-         <table id="tblF">
-            <tr>
-               <td><h4><a href="#">회사 소개</a></h4></td>
-               <td><h4><a href="#">고객지원</a></h4></td>
-            </tr>
-            <tr>
-               <td></td>
-               <td><h5><a href="#">FAQ</a></h5></td>
-            </tr>
-            <tr>
-               <td></td>
-               <td><h5><a href="#">문의하기</a></h5></td>
-            </tr>
-            <tr>
-               <td></td>
-               <td><h5><a href="#">공지사항</a></h5></td>
-            </tr>
-         </table>
-      </div>
+
    
-   <div id="fotBox">
-      <ul id="fot">
-         <li>Yol.com</li>
-         <li>대표 : 박정아</li>
-         <li>사업자 등록번호 : ?</li>
-         <li>주소 : ?</li>
-         <li>고객 지원 전화번호 : ?</li>
-         <li>운영시간 : ?</li>
-      </ul>
-   </div>      
-   </footer>
+   	<footer id="footer">
+		
+		<div id="footmenu">
+			<div>
+				서비스
+				<ul>
+					<li>템플릿</li>
+					<li>요금제</li>
+				</ul>
+			</div>
+			<div>
+				회사소개
+			</div>
+			<div>고객지원
+				<ul>
+					<li>문의하기</li>
+					<li>서포트센터</li>
+					<li>공지</li>
+					<li>불법사이트 신고</li>
+				</ul>
+			</div>
+			<div>
+				개인정보 취급방침
+			</div>
+		</div>		
+	
+
+		<div class='footer_logo clear'>
+			<div class='company'>
+				<span>YOL.COM</span>
+				<span>409C, 1-Dong, 684, Tongil-ro, Eunpyeong-gu, Seoul, South Korea 03371</span>
+				<span>Registration No. : 000-00-00000</span>
+				<span>Representative : JungAh Park</span>
+				<span>+82-070-0000-0000</span>
+			</div>
+			<address>Copyright©YOL.COM All Rights Reserved.</address>
+		</div>
+	
+	</footer>
