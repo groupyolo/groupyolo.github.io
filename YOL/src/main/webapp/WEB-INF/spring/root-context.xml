@@ -8,18 +8,29 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
 	
 	<!-- JDBC의 Connection 역할 -->
+<<<<<<< HEAD
 	<!-- 학원에서
 	<bean id="source" class="org.apache.commons.dbcp.BasicDataSource">
+=======
+	<!-- 학원에서 -->
+<!-- 	<bean id="source" class="org.apache.commons.dbcp.BasicDataSource">
+>>>>>>> branch 'master' of https://github.com/groupyolo/groupyolo.github.io.git
 
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
 		<property name="url" value="jdbc:oracle:thin:@211.63.89.36:1521:xe"></property>
 		<property name="username" value="jung"></property>
 		<property name="password" value="java1234"></property>
+<<<<<<< HEAD
 	</bean>
 	 -->
 <!-- 선영이네 -->
 
 
+=======
+	</bean> -->
+	
+<!-- 선영이네 -->
+>>>>>>> branch 'master' of https://github.com/groupyolo/groupyolo.github.io.git
 		<bean id="source" class="org.apache.commons.dbcp.BasicDataSource">
 			<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
 			<property name="url" value="jdbc:oracle:thin:@219.240.177.137:1521:xe"></property>

@@ -69,9 +69,13 @@ $(document).ready(function() {
 </script>
 
 <%@ include file="/WEB-INF/views/member/siteManage/manage.jsp" %>
-		<h1>프로젝트 게시판 글 보기</h1>
-		
-			<table>
+
+	<hr />
+		<blockquote>
+		<h1>프로젝트 게시판 </h1>
+		</blockquote>	
+			
+			<table id="tbl1">
 				<tr>
 					<th>번호</th>
 					<td>${bdto.pbSeq }</td>
