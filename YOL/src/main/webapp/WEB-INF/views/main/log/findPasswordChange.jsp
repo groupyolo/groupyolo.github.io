@@ -1,42 +1,60 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<style>
+	#box{ width:700px;margin:0px auto;}
+	#tbl{margin-top:100px;}
+	#tbl tr td{
+		text-align: center;
+		vertical-align: middle;
+	}
+	#tbl td:FIRST-CHILD{width:200px;padding-left:50px;text-align: right;}
+	#tbl td:nth-child(2){width:200px;}
+	#tbl td:nth-child(3){width:300px;}
+	#tbl tr:LAST-CHILD td{text-align: left; padding-left:230px;}
+ 	#send{ width:410px;}
+</style>
     <form action="${pageContext.request.contextPath }/main/findPasswordok.action" method="post">
-   <table>
+   <div id="#box">
+   <table id="tbl" class="table">
    <tr>
-   	<th>
-   	이메일
-   	</th>
    	<td>
-	   <input type="text" name="mEmail" id="mEmail" value="${mEmail }" readonly>
+   	이메일
+   	</td>
+   	<td>
+	   <input type="text" class="form-control" name="mEmail" id="mEmail" value="${mEmail }" readonly>
    	</td>
    	<td>
    	</td>
    </tr>
    <tr>
-   	<th>
-   	비밀번호 입력
-   	</th>
    	<td>
-	   <input type="password" name="mPassword" id="mPassword" required>
+   	비밀번호 입력
+   	</td>
+   	<td>
+	   <input type="password"  class="form-control" name="mPassword" id="mPassword" required>
    	</td>
    	<td id="mPasswordResponse">
    	</td>
    </tr>
    
    <tr>
-   	<th>
-   	비밀번호 다시 입력
-   	</th>
    	<td>
-	   <input type="password" name="reMPassword" id="reMPassword" required>
+   	비밀번호 다시 입력
+   	</td>
+   	<td>
+	   <input type="password"  class="form-control" name="reMPassword" id="reMPassword" required>
    	</td>
    	<td id="reMPasswordResponse">
    	</td>
    </tr>
-
+	<tr>
+	<td colspan="3">
+		<input id="send" type="submit" class="btn" value="비밀번호 변경" style="width:340px;">
+		</td>
+	</tr>
    </table>
-   <input type="submit" value="보내기">
+ 
+  	</div>
   </form>
    
    

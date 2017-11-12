@@ -56,11 +56,73 @@ public class QuestionController {
 	@RequestMapping(method = { RequestMethod.GET }, value = "/question/list.action")
 	public String list(HttpServletRequest req) {
 		
+		// 게시판 글 목록 가져오기
 		
-		List<QuestionDTO> list = service.list();
+		
+		
+		// 페이징
+		int nowPage = 1;
+		int totalCount = 0;
+		int pageSize = 15;
+		int totalPage = 0;
+		int start = 0;
+		int end = 0;
+		int n = 0;
+		int loop = 0;
+		int blockSize = 10;
+		
+		
+		String page = req.getParameter("page");
+		if (page == null) nowPage = 1;
+		else nowPage = Integer.parseInt(page);
+		
+		start = ((nowPage - 1) * pageSize) + 1;
+		end = start + pageSize - 1;
+		
+		HashMap<String,String> map = new HashMap<String, String>();
+		
+		map.put("start", start+"");
+		map.put("end", end+"");
+		
+		List<QuestionDTO> list = service.list(map);
+		
+		totalCount = service.getTotalCount();
+		
+		totalPage = (int)Math.ceil((double)totalCount / pageSize);
+		
+		String pagebar = " <nav><ul class='pagination'>";
+		loop = 1;
+		
+		n = ((nowPage - 1) / blockSize) * blockSize + 1;
+		//시작 부분 
+		if(n == 1) {
+			pagebar += String.format("<li class='disabled'><a href='#' aria-label='Previous'><span aria-hidden='true'>&laquo;</span></a></li>");
+		} else {
+			pagebar += String.format("<li><a href='/web/question/list.action?page=%d' aria-label='Previous'><span aria-hidden='true'>&laquo;</span></a></li>", n-1);
+		}
+		
+		while ( !(loop >blockSize || n > totalPage)) {
+			if (n == nowPage) {
+				pagebar += String.format("<li class='active'><a href='#'>%d</a></li>", n);
+			} else {
+				pagebar += String.format("<li><a href='/web/question/list.action?page=%d'>%d</a></li>", n,n);
+			}
+			loop++;
+			n++;
+		}
+		
+		if (n > totalPage) {
+			pagebar += String.format("<li class='disabled'><a href='#' aria-label='Next'><span aria-hidden='true'>&raquo;</span></a></li>");
+		} else {
+			pagebar += String.format("<li><a href='/web/question/list.action?page=%d' aria-label='Next'><span aria-hidden='true'>&raquo;</span></a></li>", n);
+		}
+		
+		pagebar += "</ul></nav>";
+		
 		
 				
 		req.setAttribute("list", list);
+		req.setAttribute("pagebar", pagebar);
 		
 		return "member.question.list";
 	}
@@ -128,9 +190,14 @@ public class QuestionController {
 	public String del(HttpServletRequest req, String questionseq) {
 
 		String seq = questionseq;
+
+		//게시글 댓글 삭제
+		int result = service.delCom(seq);
 		
-		int result = service.del(seq);
+		//게시글 삭제
+		result = service.del(seq);
 		
+		System.out.println(result);
 		req.setAttribute("result", result);
 		
 		return "member.question.del";

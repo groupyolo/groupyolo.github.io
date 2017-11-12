@@ -32,4 +32,10 @@ public class ChatService implements IChatService {
 		return dao.addChat(map);
 	}
 
+	@Override
+	public int creadUp(String mseq) {
+		
+		return dao.creadUp(mseq);
+	}
+
 }
