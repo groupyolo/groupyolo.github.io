@@ -2,9 +2,19 @@
     pageEncoding="UTF-8"%>
 <style>
 
-	
+	#tbl tr td{
+		text-align: center;
+	}
+	#tbl tr:NTH-CHILD(7) td{
+		text-align: left;
+	}
+	#tbl tr:NTH-CHILD(8) td{
+		text-align: left;
+	}
+
 	#login{
 		background-color: green;	
+		color:white;
 	}
 	#loginBtn{
 		cursor:pointer;
@@ -13,6 +23,14 @@
 	#box{
 		margin:100px auto;
 		width:500px;
+	}
+	
+	a{
+		font-weight:bold;
+		color:navy;
+	}
+	a:hover{
+		color:blue;
 	}
 	
 </style>
@@ -31,12 +49,12 @@
 	<table id="tbl" class="table">
 	<tr>
 		<td>
-		<div id="loginBtn" style="background-image:url('${pageContext.request.contextPath }/images/facebook-login.png');width:240px;height:40px;background-size: contain;"></div>
+		<div id="loginBtn" style="background-image:url('${pageContext.request.contextPath }/images/facebook-login.png');width:480px;height:40px;background-size: contain;box-shadow: 2px 2px 2px gray;"></div>
 		</td>
 	</tr>
 	<tr>
 		<td>
-		<div id="goo" class="g-signin2" data-onsuccess="onSignIn" style="width:240px;"></div>
+		<div id="goo" class="g-signin2" data-onsuccess="onSignIn" style="width:480px; "></div>
 		</td>
 	</tr>
 	<tr>
@@ -74,6 +92,8 @@
 	</table>
 	</form>
 	</div>
+
+
 
 	<!-- 구글 로그인 -->
 
