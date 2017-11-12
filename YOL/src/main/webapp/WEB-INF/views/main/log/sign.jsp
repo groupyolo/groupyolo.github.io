@@ -2,8 +2,13 @@
     pageEncoding="UTF-8"%>
 
 	<style>
-	
+		
+		#box{ width:700px;margin:0px auto;}
 		#tbl{margin-top:100px;}
+		#tbl tr td{
+			text-align: center;
+			vertical-align: middle;
+		}
 		#tbl td:first-child{width:200px;padding-left:50px;text-align: right;}
 		#tbl td:nth-child(2){width:200px;}
 		#tbl td:nth-child(3){width:300px;}
@@ -241,6 +246,7 @@
 	</div>
 	<div id="signForm">
 	<form method="post" action="${pageContext.request.contextPath }/main/signok.action">
+	<div id="box">
 	<table id="tbl" class="table">
 	
 	<tr>
@@ -304,7 +310,10 @@
 	
 	</table>
 	<!-- <input type="button" onclick="history.back();" value="뒤로가기">
- -->	</form>
+ -->
+ 	</div>	
+ </form>
+	
 	</div>
 	<script>
 	

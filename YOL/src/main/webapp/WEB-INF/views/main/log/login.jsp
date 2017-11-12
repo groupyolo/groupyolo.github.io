@@ -4,6 +4,7 @@
 
 	#tbl tr td{
 		text-align: center;
+		vertical-align: middle;
 	}
 	#tbl tr:NTH-CHILD(7) td{
 		text-align: left;
@@ -203,7 +204,7 @@ function getUserData() {
 
 window.fbAsyncInit = function() {
     //SDK loaded, initialize it
- 	console.log("aa");
+ 	//console.log("aa");
     FB.init({
         appId      : '{2001097453500031}',
         cookie     : false,  // enable cookies to allow the server to access
@@ -212,7 +213,7 @@ window.fbAsyncInit = function() {
     });
   
     //check user session and refresh it
- 	console.log("bb");
+ 	//console.log("bb");
     FB.getLoginStatus(function(response) {
         if (response.status === 'connected') {
             
