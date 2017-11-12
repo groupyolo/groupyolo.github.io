@@ -26,9 +26,9 @@ public class QuestionService implements IQuestionService {
 	}
 
 	@Override
-	public List<QuestionDTO> list() {
+	public List<QuestionDTO> list(HashMap<String,String> map) {
 
-		return dao.list();
+		return dao.list(map);
 	}
 
 	@Override
@@ -96,6 +96,18 @@ public class QuestionService implements IQuestionService {
 
 		return dao.qhitsUp(seq);
 		
+	}
+
+	@Override
+	public int delCom(String seq) {
+
+		return dao.delCom(seq);
+	}
+
+	@Override
+	public int getTotalCount() {
+		
+		return dao.getTotalCount();
 	}
 
 

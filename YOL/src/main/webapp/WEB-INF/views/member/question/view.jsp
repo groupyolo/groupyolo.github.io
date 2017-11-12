@@ -4,6 +4,18 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.12.4.js"></script>
 <style>
 	
+	body {
+		
+	}
+	
+	#box {
+		padding-top: 30px;
+	}
+	
+	#box * {
+		margin: 0px auto;
+	}
+	
 	#tblList { border: 1px solid gray; border-collapse:collapse; width:800px;}
 	#tblList th, #tblList td { border: 1px solid gray; padding: 5px; }
 	#tblList td { text-align:center; }
@@ -15,13 +27,12 @@
 	#tblList th:nth-child(5) { width: 180px; }
 	#tblList th:nth-child(6) { width: 60px; }
 	#tblList th { background-color: #eee; }
-	#btns { width:800px; text-align:right; margin-bottom: 30px; }
+	#btns { width:800px; text-align:right; margin-bottom: 30px; margin-top: 20px; }
 	
 	#tblComment, #tblCList { border: 1px solid gray; width: 800px; border-collapse:collapse;}
 	#tblComment td, #tblCList td { border: 1px solid gray; padding: 5px; text-align:center; }
-	#tblComment td:nth-child(1) { width: 100px; }
-	#tblComment td:nth-child(2) { width: 600px; }
-	#tblComment td:nth-child(3) { width: 100px; }
+	#tblComment td:nth-child(1) { width: 700px; }
+	#tblComment td:nth-child(2) { width: 100px; }
 	
 	#tblCList td:nth-child(1) { width: 100px; }
 	#tblCList td:nth-child(2) { width: 600px; }
@@ -138,7 +149,7 @@
 </script>
 
 	<!-- view 주업무 -->
-	
+	<div id="box">
 		<table id="tblList">
 			<tr>
 				<th>번호</th>
@@ -184,9 +195,7 @@
 			<table id="tblComment">
 				<tr>
 					<td>
-					</td>
-					<td>
-						<textarea id="qcomment" name="qcomment"  style="width: 580px; height:100px;"></textarea>
+						<textarea id="qcomment" name="qcomment"  style="width: 680px; height:100px;"></textarea>
 					</td>
 					<td>
 						<input type="button" value="댓글 작성" onclick="addComment();">
@@ -209,12 +218,16 @@
 					<td>${com.mnickname}</td>
 					<td>${com.qcomment}</td>
 					<td>${com.qcommenttime}
-					<span style="float:right;cursor:pointer;" onclick="del(${com.qcommentseq});" title=" 댓글을 삭제합니다.">[&times;]</span>
+					<span style="float:right; cursor:pointer;" onclick="del(${com.qcommentseq});" title=" 댓글을 삭제합니다.">[&times;]</span>
 					</td>
 				</tr>
-
 				</c:forEach>
+				<c:if test="${clist.size() == 0}">
+					<tr>
+						<td colspan="3"> 댓글이 존재하지 않습니다.</td>
+					</tr>
+				</c:if>
 				</tbody>
 			</table>
 		</div>		
-
+	</div>

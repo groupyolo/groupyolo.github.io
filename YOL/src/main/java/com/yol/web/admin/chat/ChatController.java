@@ -35,11 +35,8 @@ public class ChatController {
 	public String view(HttpServletRequest req,String mseq) {
 
 		List<ChatDTO> list = service.view(mseq);
-		
-		for (ChatDTO chatDTO : list) {
-			
-			System.out.println(chatDTO.getCwseq());
-		}
+	
+		int result = service.creadUp(mseq);
 		
 		req.setAttribute("list", list);
 		req.setAttribute("mseq", mseq);
