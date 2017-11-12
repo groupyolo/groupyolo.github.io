@@ -12,7 +12,11 @@
 	}
 	</style>
 	
-	<div>검색하기 </div>
+	<div>
+	검색하기 
+	
+	
+	</div>
 	<div>찾으시는 내용이 없으세요? <a href="${pageContext.request.contextPath }/main/qnaView.action">문의 게시판 가기</a></div>
 	
 	<c:forEach items="${categoryList }" var="cDTO">
