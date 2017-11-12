@@ -10,12 +10,19 @@
 	.table{
 		margin-top:300px;
 	}
+	
+	a{
+		font-weight:bold;
+		color:navy;
+	}
 	</style>
 	
 	<div>
 	검색하기 
-	
-	
+		<!-- 검색어 어떠헥 너었더라?? -->
+		<form method="get" action="${pageContext.request.contextPath }/main/qnaView.action" >
+			<input type="text" name="search" id="search" class="form-control" required><input type="button" class="form-control" value="검색하기">
+		</form>
 	</div>
 	<div>찾으시는 내용이 없으세요? <a href="${pageContext.request.contextPath }/main/qnaView.action">문의 게시판 가기</a></div>
 	

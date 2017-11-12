@@ -1,5 +1,6 @@
 package com.yol.web.main.faq;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -19,7 +20,7 @@ public class FaqDAO {
 		return sql.selectList("faq.getCategory");
 	}
 
-	public List<FAQDTO> getFaq() {
+	public List<FAQDTO> getFaq(HashMap<String, String> map) {
 		return sql.selectList("faq.getFaq");
 	}
 	
