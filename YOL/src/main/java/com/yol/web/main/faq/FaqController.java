@@ -20,7 +20,7 @@ public class FaqController {
 	
  
 	  @RequestMapping(method= {RequestMethod.GET},value="/main/faqView.action" )
-	  public String start(HttpServletRequest req) {
+	  public String faqView(HttpServletRequest req) {
 		  
 		  List<FAQCategoryDTO> categoryList = service.getCategory();
 		  List<FAQDTO> faqList = service.getFAQ();
