@@ -13,4 +13,6 @@ public interface IChatService {
 
 	int addChat(HashMap<String, String> map);
 
+	int creadUp(String mseq);
+
 }

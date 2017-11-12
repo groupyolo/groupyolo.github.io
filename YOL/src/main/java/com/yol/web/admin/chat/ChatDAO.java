@@ -29,5 +29,10 @@ public class ChatDAO {
 
 		return sql.insert("chat.addChat",map);
 	}
+
+	public int creadUp(String mseq) {
+
+		return sql.update("chat.creadUp",mseq);
+	}
 	
 }

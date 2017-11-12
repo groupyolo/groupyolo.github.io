@@ -11,8 +11,10 @@
 			VALUES  (question_seq.nextval, #{mseq}, #{qcategoryseq}, #{qtitle}, #{qcontent})
 	</insert>
 	
-	<select id="list" resultType="com.yol.web.DTO.QuestionDTO">
-		select * from QuestionView order by questionseq desc
+	<select id="list" resultType="com.yol.web.DTO.QuestionDTO" parameterType="java.util.HashMap">
+		select * from (select a.*, rownum rnum from 
+			(select * from questionview order by questionseq desc) a) 
+				where rnum &gt;= #{start} and rnum &lt;= #{end}
 	</select>
 	
 	<select id="category" resultType="com.yol.web.DTO.QcategoryDTO">
@@ -60,6 +62,13 @@
 			where questionseq = #{seq}
 	</update>
 	
+	<delete id="delCom" parameterType="String">
+		delete from qcomment where questionseq = #{seq}
+	</delete>
+
+	<select id="getTotalCount" resultType="Integer">
+		select count(*) from question
+	</select>
 </mapper>
 
 

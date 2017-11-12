@@ -1,21 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.12.4.js"></script>
 <style>
+
+	body {
+		font-size: 10pt;
+	}
 
 	#chatBox {
 		overflow:auto;
 		overflow-x: hidden;
 		margin: 0px auto;
 		width: 700px;
-		height: 800px;
+		height: 600px;
 		border: 1px solid black;
 	}
 
 	#tblList {
 		width: 700px;
-		height: 800px;
+		height: 600px;
 		margin: 30px;
 		padding-top:30px;
 		margin: 0px auto;
@@ -26,7 +30,7 @@
 	
 	
 	#tblList #member { background-color: #eee; border-radius: 50px; margin: 20px; }
-	#tblList #member td:nth-child(1) { width: 80px; text-align:center; }
+	#tblList #member td:nth-child(1) { width: 80px; text-align:center; padding:5px; }
 	#tblList #member td:nth-child(2) { width: 400px; }
 	#tblList #member td:nth-child(3) { width: 200px; margin-left: 30px; float: left; font-size: 10pt; }
 	
@@ -50,6 +54,8 @@
 		width: 90px;
 		height: 35px;
 	}
+	
+	#btns { width:700px; text-align:right; margin-bottom: 30px; margin-top: 20px; }
 
 </style>
 <script>
@@ -119,13 +125,6 @@
 	
 	<div id="chatBox">
 		<table id="tblList">
-			<thead>
-				<tr id="member">
-					<td>닉네임</td>
-					<td>메시지</td>
-					<td>날짜</td>
-				</tr>
-			</thead>
 			<tbody>
 			<c:forEach items="${list}" var="dto">
 		
@@ -134,7 +133,7 @@
 				</c:if>
 				<c:if test="${dto.cwseq == 2 }">
 					<tr id="member">
-						<td>${dto.nickName}</td>
+						<td>${dto.mnickName}</td>
 				</c:if>
 						<td>${dto.ccontent}</td>
 						<td>${dto.cdate}</td>
@@ -149,4 +148,10 @@
 		<input type="text" name="cContent" id="cContent">
 		<input type="button" value="전송" id="btn">
 	</div>
+	
+	<div id="btns">
+		<input type="button" value="돌아가기" onclick="location.href='${pageContext.request.contextPath}/chat/list.action'">
+	</div>
+	
+	
 

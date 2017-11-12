@@ -13,6 +13,7 @@
 	border-collapse: collapse;
 	width: 800px;
 	margin: 0px auto;
+	margin-top: 30px;
 }
 
 #tblList th, #tblList td {
@@ -89,6 +90,13 @@
 	height: 30px;
 }
 
+#pagebar {
+	margin: 0px auto;
+	text-align:center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
 </style>
 
 <script>
@@ -107,7 +115,9 @@
 				
 				$("#tblList tbody").html("");//검색 초기화
 				
-				/* $(data).find("list").each(function (index, dto) { */
+				
+				if($(data).size() > 0) {
+					
 				$(data).each(function(index,list) {
 				
 					var text = "<tr>";
@@ -120,9 +130,17 @@
 					text += "<td>" + list.qhits + "</td>";
 					text += "</tr>";
 					
-					$("#tblList tbody").append(text);	
-	
+					$("#tblList tbody").append(text);
 				});
+					
+				} else {
+					var text = "<tr>";
+					text += "<td colspan='6'>" + "일치하는 내용이 없습니다" +"</td>";
+					text += "</tr>";
+					
+					$("#tblList tbody").append(text);
+				}
+				
 			}
 		});
 		
@@ -134,6 +152,7 @@
 
 	<!-- List 주업무 -->
 
+	
 	<table id="tblList">
 		<thead>
 		<tr>
@@ -158,6 +177,11 @@
 				<td>${dto.qhits}</td>
 			</tr>
 		</c:forEach>
+			<c:if test="${list.size() == 0}">
+				<tr>
+					<td colspan="6"> 현재 게시물이 존재하지 않습니다 </td>
+				</tr>
+			</c:if>
 		</tbody>
 	</table>
 	<div id="btns">
@@ -165,6 +189,7 @@
 			onclick="location.href='${pageContext.request.contextPath}/question/add.action'">
 	</div>
 
+		<div id="pagebar">${pagebar}</div>
 
 		<div id="search">
 			<select id="sel">
@@ -176,4 +201,5 @@
 			<input type="text" id="word" name="word"> 
 			<input type="button" value="검색하기" id="btn" onclick="search();">
 		</div>
+		
 
