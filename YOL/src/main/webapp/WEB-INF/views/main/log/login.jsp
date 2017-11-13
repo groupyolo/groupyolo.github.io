@@ -27,11 +27,12 @@
 	}
 	
 	a{
+		/* text-decoration: none; */
 		font-weight:bold;
-		color:navy;
+		
 	}
 	a:hover{
-		color:blue;
+		color:navy;
 	}
 	
 </style>

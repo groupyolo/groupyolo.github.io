@@ -7,8 +7,21 @@
 	
 
 	
-	<select id="getFaq" parameterMap="map" resultType="">
-		select * from faq where title=#{} or content=#{}
+	<select id="getCategory" resultType="com.yol.web.DTO.FAQCategoryDTO">
+		select * from FAQCategory
+	</select>
+
+	<select id="getFaq" parameterType="map" resultType="com.yol.web.DTO.FAQTotalDTO">
+		select * from faqTotalView 
+		<if test="isSearch eq 'y'.toString()">
+			where title like '%' || #{search} || '%' or fcontent like '%' || #{search} || '%'
+		</if>
+	
+	</select>
+
+	<select id="getFaqMain" resultType="com.yol.web.DTO.FAQTotalDTO">
+		select * from faqTotalView where faqCategoryseq=1
+
 	</select>
 	
  

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.yol.web.DTO.FAQCategoryDTO;
 import com.yol.web.DTO.FAQDTO;
+import com.yol.web.DTO.FAQTotalDTO;
 
 @Controller
 public class FaqController {
@@ -36,13 +37,13 @@ public class FaqController {
 		  map.put("search", search);
 		  
 		  // 그냥 뷰로 만들어서 한번에 하는 걸로 고치기.
-		  //List<FAQCategoryDTO> categoryList = service.getCategory();
-		  List<FAQDTO> faqList = service.getFAQ(map);
+		  List<FAQCategoryDTO> categoryList = service.getCategory();
+		  List<FAQTotalDTO> faqList = service.getFAQ(map);
 		  
 		  
 		  
 		 
-		  //req.setAttribute("categoryList", categoryList);
+		  req.setAttribute("categoryList", categoryList);
 		  req.setAttribute("faqList", faqList);
 		  
 		  return "main.faq.faqView";
