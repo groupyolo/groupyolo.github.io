@@ -4,5 +4,3 @@
 
 ${loginDTO.mSeq }
 ${loginDTO.mEmail }
-
-	<a href="/web/member/test.action">사이트 목록보기</a>
