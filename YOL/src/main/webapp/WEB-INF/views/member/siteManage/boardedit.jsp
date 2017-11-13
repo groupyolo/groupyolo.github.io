@@ -9,7 +9,7 @@
 		<h1>프로젝트 게시판 </h1>
 		</blockquote>
 		
-		<form action="/web/member/editok.action" method="POST">
+		<form action="/web/member/pbeditok.action" method="POST">
 			<table id="tbl2" class="table table-striped">
 				<tr>
 					<th>카테고리</th>

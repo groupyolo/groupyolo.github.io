@@ -10,8 +10,8 @@
 
 				</div>
 				<div><a href="${pageContext.request.contextPath }/member/mysites.action">내사이트</a></div>
-				<div><a href="location.href='${pageContext.request.contextPath }/member/community.action';">커뮤니티</a></div>
-				<div><a href="location.href='${pageContext.request.contextPath }/supports.action';">고객지원</a></div>
+				<div><a href="${pageContext.request.contextPath }/member/community.action">커뮤니티</a></div>
+				<div><a href="${pageContext.request.contextPath }/supports.action">고객지원</a></div>
 			</div>
 			<div class="smallmenu"><i class="fa fa-bell" aria-hidden="true"></i>
 				

@@ -13,12 +13,28 @@
 		width : 185px;
 		height: 150px;
 		/* border: 1px solid green; */
-	}
-	#img  img{
-		width: 180px; 
-		height: 145px;
+		background-image: url("/web/images/simg1.JPG");
 	}
 	
+	#img  #bimg{
+		margin-left:7px;
+		margin-top: 6px;
+		width: 171px; 
+		height: 105px;
+		border: 1px solid black;
+		text-align: center;
+	}
+	
+	#bimg:hover {
+		opacity: 1;
+		transition: all .4s;
+	}
+	#img #bimg span {
+		display: inline-block;
+		/* border: 1px solid black; */
+		width: 45x;
+		margin-top: 40px;
+	}
 	#site {
 		float: left;
 		width: 300px;
@@ -267,3 +283,20 @@
 		clear: both;
 		margin-bottom: 20px;
 	}
+	
+	.col-lg-6 {
+		margin : 30px 0px;
+		height:100px;
+		width:800px;
+		padding-left: 0px;
+	
+	}
+	#Pbcomment {
+		width: 700px;
+		height: 100px;
+		
+	}
+	#btn5 {
+	height: 100px;
+	width: 100px;
+}

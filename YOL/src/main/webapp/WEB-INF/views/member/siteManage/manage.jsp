@@ -9,6 +9,10 @@
 		$('#btn2').click(function() {
 			$("#siteInfo").toggle();
 		})
+		
+/* 		$('#bimg').mouseenter(function() {
+			$('#bimg').css("opacity", "1");
+		}) */
 	});
 	function site(e) {
 		var n =e.value;
@@ -18,7 +22,17 @@
 
 	
 	<div id="mySite">
-		<div id="img"> <img src="${pageContext.request.contextPath}/images/simg1.JPG" alt="" /></div>
+		<div id="img">
+			<div id="bimg">
+				<span>
+					<c:forEach items= "${plist}" var="dto">
+						<c:if test="${dto.prSeq == pdto.prSeq}">
+							${dto.state}
+						</c:if>
+					</c:forEach>	
+				</span>
+			</div>
+	</div>
 		<div id="site">
 			<select onchange="site(this)"  class="form-control">
 				<option value="${pdto.prSeq }">${pdto.siteName}</option>
