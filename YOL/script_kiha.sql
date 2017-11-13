@@ -454,22 +454,46 @@ as select b.*, a.faqcategory from faqCategory a
     inner join faq b
         on a.faqCategorySeq=b.faqCategorySeq;
 
+select * from faqTotalView;
+commit;
+select * from faqCategory;
+select * from faq;
+insert into faq values(2,2,'테스트2','내용2',sysdate,1);
+insert into faq values(3,2,'테스트3','내용3',sysdate,1);
+insert into faq values(4,3,'테스트4','내용4',sysdate,1);
+insert into faq values(5,5,'테스트5','내용5',sysdate,1);
 
+select * from faqTotalView where faqCategoryseq=1;
 
+insert into faq values(6,1,'테스트6','내용6',sysdate,1);
+insert into faq values(7,1,'테스트7','내용7',sysdate,1);
+insert into faq values(8,1,'테스트8','내용8',sysdate,1);
+insert into faq values(9,1,'테스트9','내용9',sysdate,1);
+insert into faq values(10,1,'테스트10','내용10',sysdate,1);
+insert into faq values(11,1,'테스트11','내용11',sysdate,1);
 
+create table incfunction(
+    seq number primary key,
+    BigTitleNum number,
+    bigtitle varchar2(2000),
+    title varchar2(1000),
+    cont varchar2(3000)
+);
 
+create sequence incSeq;
 
+insert into incfunction values(incSeq.nextval,1,'쉽고 확실한 홈페이지','간편한 에디터','코딩 걱정없이 쉽고 간편한 사용자 친화적인 드래그-앤-드롭 방식의 에디터로 내 홈페이지를 완성하세요.');
+insert into incfunction values(incSeq.nextval,1,'쉽고 확실한 홈페이지','원페이지','내 비즈니스 홍보를 위한 한장짜리 원페이지 홈페이지를 손쉽고 멋지게 제작하세요.');
+insert into incfunction values(incSeq.nextval,1,'쉽고 확실한 홈페이지','이미지편집','이미지 편집 기능을 활용해 비즈니스 효과를 극대화하세요.');
+insert into incfunction values(incSeq.nextval,1,'쉽고 확실한 홈페이지','스크린 위치 고정','스크린 스크롤 및 크기 조절시에도 방문자가 사용할 수 있도록 요소의 위치를 고정시켜보세요.');
+insert into incfunction values(incSeq.nextval,1,'쉽고 확실한 홈페이지','소셜미디어 연동','내 홈페이지와 소셜 채널의 연동을 위해 소셜 미디어 아이콘을 추가하세요.');
 
+insert into incfunction values(incSeq.nextval,2,'비지니스를 위한 홈페이지','웹 로그 분석','방문 횟수 및 방문 경로, 페이지뷰 등 내 홈페이지 활동 및 트래픽을 통계로 확인하세요.');
+insert into incfunction values(incSeq.nextval,2,'비지니스를 위한 홈페이지','커뮤니케이션 도구','방문자 및 고객 관리를 위한 YOL! 커뮤니케이션 도구로 직접 소통하세요.');
 
-
-
-
-
-
-
-
-
-
-
-
+insert into incfunction values(incSeq.nextval,3,'YOL! 도움말 센터','24시 고객지원','언제든지 YOL! 도움말 센터를 통해 내 문의사항을 해결하세요.');
+insert into incfunction values(incSeq.nextval,3,'YOL! 도움말 센터','자주 묻는 질문','[자주 묻는 질문] 페이지에서 다양한 질문 및 답변을 확인하세요.');
+insert into incfunction values(incSeq.nextval,3,'YOL! 도움말 센터','1:1 실시간 채팅','실시간으로 관계자에게 궁금한 것을 확인하세요.');
+commit;
+select * from incFunction ;
 

@@ -24,5 +24,10 @@
 
 	</select>
 	
+	<select id="getInc" resultType="com.yol.web.DTO.IncFunctionDTO">
+		select * from incFunction 
+
+	</select>
+	
  
 </mapper>
