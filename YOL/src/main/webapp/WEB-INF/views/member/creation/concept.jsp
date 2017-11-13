@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-
+<%
+%>
 <style>
 
 	.addc{
@@ -11,21 +11,27 @@
 	.addw{
 	
 	}
-	
+
+	#roundborder{
+		width: 202px; height:202px;
+		border-radius: 100%;
+		border:1px solid black;
+	}
+
 	#round{
-		width:200px; height:200px;
-		color: yellow;
+		width: 200px; height:200px;
+		background-color: yellow;
+		border-radius: 100%;
+	}
+	#roundborder:hover{
+		cursor: pointer;
 	}
 	
+	#round:
 
 </style>
-<script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
-
+<script src="//cdn.ckeditor.com/4.7.3/full/ckeditor.js"></script>
 <script>
-
 $(document).ready(function() {    
 
 	var act =0;
@@ -55,23 +61,44 @@ $(document).ready(function() {
 	}
 	
 	
-
+	$("#round").draggable();
+	
+	CKEDITOR.replace( 'editor1' );
+	
 	}); 
+	
+	
 	
 
 </script>
-
 </head>
 <body>
 	
 	<input type="text" var="" />
 	
+	
+	<input type="button" id="findid" value="아이디값찾기" onclick="m0();" />
+	
+	<input type="button" id="addcolor" value="배경추가하기" onclick="m1();" />
+	<input type="button" id="addwidth" value="길이늘리기" onclick="m2();" />	
 
+
+		<div id="roundborder">
+			<div id="round">
+		
+			</div>
+		</div>
+
+	<div>
+		<form action="">
+			<textarea name="editor1" id="editor1" cols="30" rows="10">
+				This si my textarea to be replaced with CKEditor.
+			</textarea>
+			
+			<input type="submit" />
+		</form>
 	
-	<div id="round">
-					
 	</div>
-	
 
 </body>
 </html>

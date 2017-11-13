@@ -15,7 +15,7 @@
 				
 				<c:if test="${list.jCount eq 1}">
 				<tr>
-					<td>${list.prName}, ${list.prSeq}</td>
+					<td>${list.prName}</td>
 					<td><a href="/web/member/manage.action?prSeq=${list.prSeq}">${list.prURL}</a></td>
 					<td>${list.jStart.substring(0,10)}</td>		
 					<td>${list.activeState}</td>
@@ -177,8 +177,9 @@
 				  } );
 				  </script>
 	            
-	            
 	            </div>
+	            <input type="hidden" name="mSeq" value="${loginDTO.mSeq }" />
+	            
 	            <div class="modal-footer">
 	                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 	                <button type="submit" id="action" class="btn btn-primary">Next</button>
@@ -199,6 +200,49 @@
 	        </div> <!-- /.modal-content -->
 	    </div> <!-- /.modal-dialog -->
 	</div> <!-- /.modal -->
+
+	<hr />	
+
+	<div id="otherswork">
+		<p>다른사람들의 프로젝트 둘러보기</p>
+		<div id="worklist">
+		<div class="othersp">
+		
+		</div>
+		<div class="othersp">
+		
+		</div>
+		<div class="othersp rdsp">
+		
+		</div>
+		<div class="othersp">
+		
+		</div>
+		<div class="othersp">
+		
+		</div>
+		<div class="othersp rdsp">
+		
+		</div>
+		<div class="othersp">
+		
+		</div>
+		<div class="othersp">
+		
+		</div>
+		<div class="othersp rdsp">
+		
+		</div>
+		
+		</div>
+	
+		<hr />
+		<div style="padding:30px; width:100%; height: 400; border: 1px dashed blue;">
+			자주 묻는 질문 
+		</div>
+		
+	
+	</div>
 	
 
 </div>

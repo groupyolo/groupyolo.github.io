@@ -1,5 +1,6 @@
 package com.yol.web.member.joinTeam;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.yol.web.DTO.JoinBoardDTO;
@@ -13,7 +14,7 @@ public interface IJoinTeamService {
 	int add(JoinBoardDTO dto);
 
 	//list목록
-	List<VJoinTeamDTO> list();
+	List<VJoinTeamDTO> list(HashMap<String, String> map);
 
 	//view페이지 
 	VJoinTeamDTO getDTO(String reSeq);
@@ -33,6 +34,12 @@ public interface IJoinTeamService {
 	int joinAdd(JoinDTO jdto);
 
 	int joinCancle(JoinDTO dto);
+
+	int approveM(JoinDTO dto);
+
+	int del(String reSeq);
+
+	int getTotalCount(HashMap<String, String> map);
 
 
 }

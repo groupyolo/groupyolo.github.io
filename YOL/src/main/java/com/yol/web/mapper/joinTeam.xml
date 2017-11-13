@@ -4,9 +4,23 @@
 
 <!-- 회원>커뮤니티 -->
 <mapper namespace="joinTeam">
-	<select id="list" resultType="com.yol.web.DTO.VJoinTeamDTO">
-		SELECT * FROM vJoinTeam
+	<select id="list" parameterType="map" resultType="com.yol.web.DTO.VJoinTeamDTO">
+		<!-- SELECT * FROM vJoinTeam WHERE activeState in ('n', 'y') -->
+			SELECT * FROM (SELECT a.*, rownum rnum FROM (SELECT * FROM vJoinTeam WHERE activeState in ('n', 'y')
+		<if test="isSearch eq 'y'.toString()">
+			AND ${column} LIKE '%' || #{word} || '%' ORDER BY jRegDate DESC) a) WHERE rnum &gt;= #{start} AND rnum &lt;= #{end}
+		</if> 
+		<if test="isSearch eq 'n'.toString()">
+			ORDER BY jRegDate DESC) a) WHERE rnum &gt;= #{start} AND rnum &lt;= #{end}
+		</if> 
 	</select>
+	
+	<select id="getTotalCount" parameterType="map" resultType="Integer">
+			SELECT count(*) FROM vJoinTeam WHERE activeState in ('n', 'y')
+		<if test="isSearch eq 'y'.toString()">
+			AND ${column} LIKE '%' || #{word} || '%' ORDER BY jRegDate DESC
+		</if>
+ 	</select>
 	
 	<insert id="add" parameterType="com.yol.web.DTO.JoinBoardDTO">
 		INSERT INTO joinBoard VALUES (reSeq.nextval, #{mSeq}, #{jSubject}, #{jContent}, #{jStart}, #{jEnd}, #{jCount}, default, 'y')
@@ -17,7 +31,7 @@
 	</select>
 	
 	<select id="member" parameterType="String" resultType="com.yol.web.DTO.VJoinMemberDTO">
-		SELECT * FROM VJoinMember WHERE reSeq = #{reSeq} ORDER BY jRegDate ASC
+		SELECT * FROM VJoinMember WHERE reSeq = #{reSeq} AND apSeq in (0, 1) ORDER BY jRegDate ASC
 	</select>
 	
 	<update id="edit" parameterType="com.yol.web.DTO.JoinBoardDTO">
@@ -43,5 +57,9 @@
 	<select id="find" parameterType="String" resultType="String">
 		SELECT max(reSeq) as reSeq FROM JoinBoard WHERE mSeq = #{mSeq}
 	</select>
+	
+	<update id="del" parameterType="String">
+		UPDATE JoinBoard SET activeState = 'd' WHERE reSeq = #{reSeq}
+	</update>
 	
 </mapper>
