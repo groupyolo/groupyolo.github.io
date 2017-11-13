@@ -2,36 +2,60 @@
     pageEncoding="UTF-8"%>
 <style>
 
-	
+	#tbl tr td{
+		text-align: center;
+		vertical-align: middle;
+	}
+	#tbl tr:NTH-CHILD(7) td{
+		text-align: left;
+	}
+	#tbl tr:NTH-CHILD(8) td{
+		text-align: left;
+	}
+
 	#login{
 		background-color: green;	
+		color:white;
 	}
+	#loginBtn{
+		cursor:pointer;
+	}
+	
 	#box{
 		margin:100px auto;
 		width:500px;
+	}
+	
+	a{
+		font-weight:bold;
+		color:navy;
+	}
+	a:hover{
+		color:blue;
 	}
 	
 </style>
 <meta name="google-signin-client_id" content="575739111112-ribfp6siku4gssct7oa4vshdgogrj0ac.apps.googleusercontent.com">
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 	
-	<form method="post" action="${pageContext.request.contextPath }/main/apiLoginok.actionz" id="apiLogin">
+	<form method="post" action="${pageContext.request.contextPath }/main/apiLoginok.action" id="apiLogin">
 	<input type="hidden" name="mEmail" id="apiMEmail" >
 	<input type="hidden" name="mgSeq" id="mgSeq" >
 	</form>
 	
+	<!-- 비번 잘못 입력시 다시 페이지 불러오고, 아이디는 유지시키고 어디에다 비번 ㅊ틀렷다고 보여주기 -->
 	
 	<div id="box">
 	<form method="post" action="/web/main/loginok.action">
 	<table id="tbl" class="table">
 	<tr>
 		<td>
-		<div id="loginBtn" style="background-image:url('${pageContext.request.contextPath }/images/facebook-login.png');width:240px;height:40px;background-size: contain;"></div>
+		<div id="loginBtn" style="background-image:url('${pageContext.request.contextPath }/images/facebook-login.png');width:480px;height:40px;background-size: contain;box-shadow: 2px 2px 2px gray;"></div>
 		</td>
 	</tr>
 	<tr>
 		<td>
-		<div id="goo" class="g-signin2" data-onsuccess="onSignIn" style="width:240px;"></div>
+		<div id="goo" class="g-signin2" data-onsuccess="onSignIn" style="width:480px; "></div>
 		</td>
 	</tr>
 	<tr>
@@ -70,6 +94,8 @@
 	</form>
 	</div>
 
+
+
 	<!-- 구글 로그인 -->
 
 
@@ -96,7 +122,7 @@
 		if(num>0){
 			apiCheck();
 		}
-
+		
 	}
 	
 	function apiCheck(){
@@ -107,6 +133,7 @@
 			dataType:"json",
 			data:"mEmail="+mEmail+"&mNickName="+mNickName+"&mgSeq=2",
 			success:function(result){
+				console.log(result.result);
 				if(result.result==0){
 					location.href="${pageContext.request.contextPath }/main/apiSign.action?mEmail="+mEmail+"&mNickName="+mNickName+"&mgSeq=2";
 					// 가입 및 닉네임 페이지로 
@@ -133,9 +160,12 @@
 	
 	<!-- 페이스북 로그인 -->
 	
-
+<!-- <div id="fb-root"></div> -->
             
 <script>
+
+
+
 function getUserData() {
 
     FB.api('/me', {fields: 'name,email'}, function(response) {
@@ -174,41 +204,39 @@ function getUserData() {
 
 window.fbAsyncInit = function() {
     //SDK loaded, initialize it
+ 	//console.log("aa");
     FB.init({
         appId      : '{2001097453500031}',
-        cookie     : true,  // enable cookies to allow the server to access
-                // the session
-        xfbml      : true,  // parse social plugins on this page
+        cookie     : false,  // enable cookies to allow the server to access
+        xfbml      : true ,  // parse social plugins on this page
         version    : 'v2.8' // use graph api version 2.8
     });
   
     //check user session and refresh it
+ 	//console.log("bb");
     FB.getLoginStatus(function(response) {
         if (response.status === 'connected') {
-            //user is authorized
-            //document.getElementById('loginBtn').style.display = 'none';
-          //  getUserData();
-         //   document.getElementById('status').innerHTML = 'log in' ;
-         //   $("#user_id").text("FB UID : "+user_id);
+            
         } else {
-            //user is not authorized
-        //    document.getElementById('status').innerHTML = 'Please log ' +
-         //   'into this app.';
+         
         }
     });
 };
   
- 
+(function(d, s, id){
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.10&appId=2001097453500031";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
   
 //add event listener to login button
 document.getElementById('loginBtn').addEventListener('click', function() {
     //do the login
     FB.login(function(response) {
         if (response.authResponse) {
-          //  access_token = response.authResponse.accessToken; //get access token
-          //  user_id = response.authResponse.userID; //get FB UID
-           // $("#access_token").text("접근 토큰 : "+access_token);
-          //  $("#user_id").text("FB UID : "+user_id);
+        	
            getUserData();
         }
     }, {scope: 'email,public_profile,user_birthday',

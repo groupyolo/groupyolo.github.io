@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri= "http://java.sun.com/jsp/jstl/core" %>
-    
+
 		<%@ include file="/WEB-INF/views/member/siteManage/manage.jsp" %>
 		
 
+<hr />
+		<blockquote>
 		<h1>프로젝트 게시판 </h1>
-
+		</blockquote>
 						
 			<div id="search">			
 			<form action="${pageContext.request.contextPath}/member/manage.action" method="get" class="form-inline">
@@ -25,19 +27,18 @@
    				</div>	
 			</form>
 		</div>
-						
-						
-						<div>
-						<c:if test= "${map.isSearch == 'y' }">
-							<script>
-								$("#column").val("${map.column}");
-								$("#word").val("${map.word}");
-							</script>
-						</c:if>
-					</div>
+		
+		<div>
+			<c:if test= "${map.isSearch == 'y' }">
+				<script>
+					$("#column").val("${map.column}");
+					$("#word").val("${map.word}");
+				</script>
+			</c:if>
+		</div>
 	
 	
-		<table>
+		<table id="tbl1" class="table table-striped">
 			<tr>
 				<th>번호</th>
 				<th>제목</th>
@@ -56,17 +57,17 @@
 				</tr>
 			</c:forEach>
 				<c:if test="${map.isSearch == 'y' && blist.size() == 0}">
-								<tr>
-									<td colspan="6">일치하는 결과가 없습니다.</td>
-								</tr>
-							</c:if>
-							<c:if test="${map.isSearch == 'n' && blist.size() == 0}">
-								<tr>
-									<td colspan="6"> 현재 게시물이 존재하지 않습니다.</td>
-								</tr>
-							</c:if>
+					<tr>
+						<td colspan="6">일치하는 결과가 없습니다.</td>
+					</tr>
+				</c:if>
+				<c:if test="${map.isSearch == 'n' && blist.size() == 0}">
+					<tr>
+						<td colspan="6"> 현재 게시물이 존재하지 않습니다.</td>
+					</tr>
+				</c:if>
 		</table>
 		
-		<input type="button" value="글쓰기" onclick="location.href='${pageContext.request.contextPath}/member/add.action?prSeq=${pdto.prSeq}'" />
+		<input id="btn4"  class="btn btn-primary" type="button" value="글쓰기" onclick="location.href='${pageContext.request.contextPath}/member/add.action?prSeq=${pdto.prSeq}'" />
 			
-				<div id="pagebar">${pagebar}</div>
+		<div id="pagebar">${pagebar}</div>

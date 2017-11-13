@@ -1,5 +1,6 @@
 package com.yol.web.main.faq;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +23,8 @@ public class FaqService implements IFaqService{
 		
 	
 	@Override
-	public List<FAQDTO> getFAQ() {
-		return dao.getFaq();
+	public List<FAQDTO> getFAQ(HashMap<String, String> map) {
+		return dao.getFaq(map);
 	}
 	
 			

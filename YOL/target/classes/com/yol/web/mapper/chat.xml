@@ -7,7 +7,9 @@
 <mapper namespace="chat">
 
 		<select id="list" resultType="com.yol.web.DTO.ChatDTO">
-			select * from chatview order by cdate desc
+			select * from chatview 
+				where cwseq = 2 
+					order by cdate desc
 		</select>
 		
 		<select id="view" resultType="com.yol.web.DTO.ChatDTO" parameterType="String">
@@ -18,6 +20,11 @@
 			insert into chat (cseq, mseq, cwseq, ccontent) 
 				VALUES (chat_seq.nextval, #{mseq}, 1, #{ccontent})
 		</insert>
+	
+		<update id="creadUp" parameterType="String">
+			update chat set cread = 1
+				where mseq = #{mseq}
+		</update>
 	
 </mapper>
 

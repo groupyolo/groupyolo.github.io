@@ -5,13 +5,11 @@
 <!-- 회원>커뮤니티 -->
 <mapper namespace="faq">
 	
-	<select id="getCategory" resultType="com.yol.web.DTO.FAQCategoryDTO">
-		select * from faqCategory
+<!-- 
+	
+	<select id="getFaq" parameterMap="map" resultType="">
+		select * from faq where title=#{} or content=#{}
 	</select>
 	
-	<select id="getFaq" resultType="com.yol.web.DTO.FAQDTO">
-		select * from faq
-	</select>
-	
- 
+  -->
 </mapper>

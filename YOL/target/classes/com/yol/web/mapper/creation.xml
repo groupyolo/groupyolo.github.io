@@ -15,6 +15,8 @@
 	<insert id="insertProject" parameterType="com.yol.web.DTO.VCreationDTO">
 		INSERT INTO Project values(prSeq.nextval, reSeq.currval, #{teSeq}, #{opSeq}, #{prName}, #{prURL}, default, default, default, #{prName}||sysdate||'.jsp', #{siteName} )
 	</insert>
-	
+	<select id="getList" parameterType="String" resultType="com.yol.web.DTO.VCreationDTO">
+		SELECT * FROM vcreatinfo where mSeq=#{mSeq}
+	</select>
  
 </mapper>
