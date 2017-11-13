@@ -8,7 +8,9 @@
 <head>
 <meta charset="UTF-8">
 <title>멤버들이 보는 화면 구성</title>
+<style>
 
+</style>
 </head>
 <body>
 		<!-- assets -->
@@ -17,9 +19,10 @@
 		<!-- header -->
 		<tiles:insertAttribute name="membermenu"></tiles:insertAttribute>
 		
+		<div id="core">
 		<!-- 주업무 -->
 		<tiles:insertAttribute name="core"></tiles:insertAttribute>
-		
+		</div>
 		<!-- footer -->
 
 		<tiles:insertAttribute name="footer"></tiles:insertAttribute>

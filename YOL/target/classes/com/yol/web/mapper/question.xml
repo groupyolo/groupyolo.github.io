@@ -6,13 +6,15 @@
 <!-- 매퍼 파일안에 있는 쿼리들은 물리적인 파일에 의해서 관리가 되는 것이 아니라 namespace 속성에 의해서 관리된다. -->
 <mapper namespace="question">
 	
-	<insert id="add" parameterType="com.yol.web.DTO.QuestionDTO">
-		insert into Question (questionseq, name, qtitle, qcategory, qcontent)
-			values (question_seq.nextval, #{name}, #{qtitle}, #{qcategory}, #{qcontent})
+	<insert id="add" parameterType="com.yol.web.DTO.QuestionDTO">		
+		insert into question (questionseq, mseq, qcategoryseq, qtitle, qcontent) 
+			VALUES  (question_seq.nextval, #{mseq}, #{qcategoryseq}, #{qtitle}, #{qcontent})
 	</insert>
 	
-	<select id="list" resultType="com.yol.web.DTO.QuestionDTO">
-		select * from QuestionView order by questionseq desc
+	<select id="list" resultType="com.yol.web.DTO.QuestionDTO" parameterType="java.util.HashMap">
+		select * from (select a.*, rownum rnum from 
+			(select * from questionview order by questionseq desc) a) 
+				where rnum &gt;= #{start} and rnum &lt;= #{end}
 	</select>
 	
 	<select id="category" resultType="com.yol.web.DTO.QcategoryDTO">
@@ -32,15 +34,15 @@
 	</delete>
 	
 	<insert id="addComment" parameterType="com.yol.web.DTO.QcommentDTO">
-		insert into qcomment (qcommentseq, questionseq, name, qcomment) values (qcomment_seq.nextval,#{questionseq}, #{name}, #{qcomment})
+		insert into qcomment (qcommentseq, questionseq, mseq, qcomment) values (qcomment_seq.nextval, #{questionseq}, #{mseq}, #{qcomment})
 	</insert>
 	
 	<select id="getComment" resultType="com.yol.web.DTO.QcommentDTO" parameterType="String">
-		select * from qcomment where questionseq = #{seq} order by qcommenttime desc
+		select * from qcommentView where questionseq = #{seq} order by qcommenttime desc
 	</select>
 	
-	<delete id="delComment" parameterType="String">
-		delete qComment where qcommentseq = #{seq}
+	<delete id="delComment" parameterType="java.util.HashMap">
+		delete qComment where qcommentseq = #{seq} and mseq = #{mseq}
 	</delete>
 	
 	<update id="commentUp" parameterType="String">
@@ -55,6 +57,18 @@
 		select * from questionView where ${category} like '%' || #{word} || '%' order by questionseq desc
 	</select>
 	
+	<update id="qhitsUp" parameterType="String">
+		update question set qhits = qhits + 1 
+			where questionseq = #{seq}
+	</update>
+	
+	<delete id="delCom" parameterType="String">
+		delete from qcomment where questionseq = #{seq}
+	</delete>
+
+	<select id="getTotalCount" resultType="Integer">
+		select count(*) from question
+	</select>
 </mapper>
 
 

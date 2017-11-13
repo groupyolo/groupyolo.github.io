@@ -56,7 +56,7 @@ public class FAQDTO {
 	public void setOpenseq(String openseq) {
 		this.openseq = openseq;
 	}
-
+	
 	// 디버깅용 toString()
 	@Override
 	public String toString() {

@@ -1,0 +1,269 @@
+@charset "UTF-8";
+
+	#mySite {
+		width: 100%;
+		height: 150px; 
+		/* border: 1px solid red;	 */
+		float: left;
+		margin-top:70px;
+	}
+	
+	#img {
+		float: left;
+		width : 185px;
+		height: 150px;
+		/* border: 1px solid green; */
+	}
+	#img  img{
+		width: 180px; 
+		height: 145px;
+	}
+	
+	#site {
+		float: left;
+		width: 300px;
+		height: 100px;
+		/* border: 1px solid orange; */
+		margin-left: 30px;
+	}
+	
+	#site select {
+		display: inline-block;
+		width: 300px;
+		height: 43px;
+		margin-bottom: 10px;
+	}
+	
+	.info {
+		font-size: 12px;
+	}
+	#btn1 { 
+		/* border: 1px solid black; */
+		float: left;
+		width: 345px;
+		height: 45px;
+		margin-left: 136px;	
+	}
+	#btn2, #btn3 {
+		text-align: right;
+		cursor: pointer;
+		margin-bottom: 20px;
+	}
+	
+	#btn2 span, #btn2 i {
+		font-size: 16px;
+	}
+
+	#btn3 span, #btn3 i {
+		font-size: 13px;
+		color: #ee445f;
+	}	
+	#siteEdit, #upgrade {
+		display: inline-block;
+		width: 162px;
+		height: 43px;
+		cursor: pointer;
+		text-align: center;
+		padding-top:10px;
+	}
+	#siteEdit {
+		margin-right: 15px;
+		color: #4789e7;
+		font-size: 12px;
+		padding-top: 11px;
+		border: 1px solid blue;
+	}
+	
+	#siteEdit a {
+		color: #4789e7;
+	}
+	
+	#siteEdit i , #upgrade i{
+		margin-right: 5px;
+	}
+	#siteEdit:hover  {
+		color: #fff;
+		background-color: #4789e7;
+	}
+
+	#upgrade {
+		background-color: #2d343e;
+		color: #fff;
+		padding-top: 11px;
+		border: 1px soild #2d343e;
+	}
+	
+	#siteInfo {
+		display: none; 
+		width: 100%;
+		height: 250px;
+	}
+	#detail {
+		width: 100%;
+		height: 220px;
+		border: 1px solid #eee;
+		background-color: white;
+		float: left;
+	}
+
+	#detail ul, #projectInfo ul {
+		list-style-type: none;
+		padding-left:0px;
+		/* width: 450px; */
+	}
+	
+	#detail ul li, #projectInfo ul li {
+		margin-bottom: 7px;
+	}
+	
+	#detail ul label, #projectInfo ul label {
+	/* 	border:1px solid black; */
+		width: 150px;
+		color: #2d343e;
+		font-size: 12px;
+	}
+	
+	#detail ul span, #projectInfo ul span {
+		/* border:1px solid black; */
+		color: #6a727e;
+		font-size: 12px;
+	}
+	
+	#detail #fee ul span a {
+		margin-left:50px;
+	}
+	#info {
+	/* 	border: 1px solid red; */
+		height: 220px;	
+		width: 490px;
+		float: left;
+		padding-left: 50px;
+		padding-top: 15px;
+	}
+	
+	#fee {
+	/* 	border: 1px solid orange; */
+		height: 220px;
+		width: 490px;
+		float: left;
+		padding-top: 15px;
+	}
+	.title {
+		color: #4789e7;
+		font-size: 16px;
+    	font-weight: normal;
+    	letter-spacing: -.03em;
+    	margin-bottom: 15px;
+	}
+	
+	#projectInfo {
+		width: 100%;
+		height: 180px;
+		border: 1px solid #eee;
+		background-color: white;
+		margin-bottom: 40px;
+		
+	}
+	
+	#projectInfo #projectName {
+		/* border: 1px solid black; */
+		width: 490px;
+		height: 180px;
+		padding-left: 50px;
+		padding-top: 15px;
+		float: left;
+	}
+	
+	#projectInfo #projectPart {
+		/* border: 1px solid black; */
+		width: 490px;
+		height: 180px;
+		padding-top: 15px;
+		float: left;
+	}
+	#projectInfo:after{
+		display: block;
+		content: " ";
+		clear: both;
+	}
+	
+	#projectInfo h6 {
+		color: #4789e7;
+		font-size: 16px;
+	}
+	.site-cts   {
+		width: 100%;
+		height: 55px;
+		background-color: #4789e7;
+		border: 1px solid #4789e7;
+		text-align: center;
+	
+	}
+	
+	.site-cts .cts-box  {
+		font-size: 15px;
+		color: #fff;
+		display:block;
+		padding: 15px;
+	}
+	
+	.site-cts .cts-box:hover  {
+		color: #fff;
+		text-decoration: none;
+		background-color:#5894e9;
+	}
+	
+	#inbox {
+		width: 480px;
+		border:1px solid black;
+		heigth: 650px;
+	}
+	
+	hr {
+		margin-bottom: 30px;
+	}
+	
+	blockquote { margin-left: 50px;}
+	#search {
+		margin-left: 547px;
+	}
+	#tbl1 {
+		 width: 800px;
+		 margin-left: 50px;
+		 margin-top: 10px;
+		 text-align: center;
+	}
+	
+	#tbl1 th:nth-child(1) { width: 70px; }
+	#tbl1 th:nth-child(2) { width: 350px; }
+	#tbl1 th:nth-child(3) { width: 150px; }
+	#tbl1 th:nth-child(4) { width: 70px; }
+	#tbl1 th:nth-child(5) { width: 160px; }
+	#tbl1 th, #tbl1 td {
+		  text-align: center;
+	}	
+	
+	#btn4 {
+		margin-left: 790px;
+	}
+
+	#pagebar  { margin-left: 430px;}
+	
+	#tbl2 {
+		 width: 800px;
+		 margin-left: 50px;
+		 margin-top: 10px;
+		 height: 80px;
+	}
+	
+	#tbl2 th {
+		width: 150px;
+		text-align: right;
+	}
+	
+	#tbl2 td:nth-child(1) { width: 80xp;}
+	#tbl2 td:nth-child(2) { width: 150xp;}
+	#tbl2 td:nth-child(3) { width: 500xp; height: 400px;}
+	#tbl2 td:nth-child(4) { width: 80xp;}
+	
+	#btns1 {  margin-left: 680px;}

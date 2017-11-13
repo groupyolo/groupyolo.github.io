@@ -17,6 +17,7 @@
 	<c:if test="${result==1}">
 		<script>alert("작업완료");
 		$(top.document.getElementById("step1")).dialog("close");
+		location.href="${pageContext.request.contextPath }/member/mysites.action";
 		</script>
 	</c:if>
 	<c:if test="${result==0}">

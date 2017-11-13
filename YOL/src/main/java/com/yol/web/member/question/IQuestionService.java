@@ -11,8 +11,6 @@ public interface IQuestionService {
 
 	int add(QuestionDTO dto);
 
-	List<QuestionDTO> list();
-
 	List<QcategoryDTO> getCategory();
 
 	QuestionDTO getView(String seq);
@@ -25,12 +23,20 @@ public interface IQuestionService {
 
 	List<QcommentDTO> getComment(String seq);
 
-	int delComment(String seq);
+	int delComment(HashMap<String, String> map);
 
 	int commentUp(String seq);
 
 	int commentDown(String seq);
 
 	List<QuestionDTO> search(HashMap<String, String> map);
+
+	int qhitsUp(String seq);
+
+	int delCom(String seq);
+
+	int getTotalCount();
+
+	List<QuestionDTO> list(HashMap<String, String> map);
 
 }

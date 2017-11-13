@@ -2,15 +2,15 @@ package com.yol.web.DTO;
 
 public class FAQCategoryDTO {
 
-	private String FAQCategorySeq;
+	private String FAQCategoryseq;
 	private String FAQcategory;
 
-	public String getFAQCategorySeq() {
-		return FAQCategorySeq;
+	public String getFAQCategoryseq() {
+		return FAQCategoryseq;
 	}
 
-	public void setFAQCategorySeq(String fAQCategorySeq) {
-		FAQCategorySeq = fAQCategorySeq;
+	public void setFAQCategoryseq(String fAQCategoryseq) {
+		FAQCategoryseq = fAQCategoryseq;
 	}
 
 	public String getFAQcategory() {
@@ -26,7 +26,7 @@ public class FAQCategoryDTO {
 	public String toString() {
 		String temp = "";
 		temp += "\r\n\r\n";
-		temp += String.format("FAQCategorySeq : %s\r\n", FAQCategorySeq);
+		temp += String.format("FAQCategorySeq : %s\r\n", FAQCategoryseq);
 		temp += String.format("FAQcategory : %s\r\n", FAQcategory);
 		temp += "\r\n\r\n";
 		return temp;
