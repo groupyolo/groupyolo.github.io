@@ -75,7 +75,7 @@ $(document).ready(function() {
 		<h1>프로젝트 게시판 </h1>
 		</blockquote>	
 			
-			<table id="tbl1">
+			<table id="tbl3" class="table table-striped">
 				<tr>
 					<th>번호</th>
 					<td>${bdto.pbSeq }</td>
@@ -84,7 +84,7 @@ $(document).ready(function() {
 					<th>카테고리</th>
 					<td> 
 						<c:if test="${bdto.nsSeq == 1 }"> 공지</c:if>
-						<c:if test="${bdto.nsSeq == 2 }"> 일반</c:if>
+						<c:if test="${bdto.nsSeq == 0 }"> 일반</c:if>
 					</td>
 				</tr>
 				<tr>
@@ -114,16 +114,19 @@ $(document).ready(function() {
 			<input type="hidden"  name="mSeq" value= "${loginDTO.mSeq}"/>
 			<input type="hidden" name="prSeq" value= "${pdto.prSeq }"/>
 			
+		<div id="btns3">
+			<input type="button" value="글쓰기" class="btn btn-primary" onclick="location.href='/${pageContext.request.contextPath}/member/add.action?prSeq=${pdto.prSeq}'" />
+			<input type="button" value="수정하기"  class="btn btn-default" id="edit"/>
+			<input type="button" value="삭제하기"  class="btn btn-primary" id="del"/>
+			<input type="button" value="돌아가기"   class="btn btn-default" onclick="history.back();" />
+		</div>
 		
-		<input type="button" value="글쓰기" onclick="location.href='/${pageContext.request.contextPath}/member/add.action?prSeq=${pdto.prSeq}'" />
-		<input type="button" value="수정하기" id="edit"/>
-		<input type="button" value="삭제하기"  id="del"/>
-		<input type="button" value="돌아가기" onclick="history.back();" />
 		
-		<h3>댓글</h3>
+		<hr />
 		
+	
 			
-			<table id="tblComment">
+			<table id="tblComment" class="table">
 				<tbody>
 					<c:forEach items="${pbclist}" var="pbcdto">
 						<tr id="trSeq${pbcdto.pbcSeq}">
@@ -143,12 +146,25 @@ $(document).ready(function() {
 				</tbody>
 			</table>
 			
-			<form id="form1">
+			<!-- <form id="form1">
 				<div>
 					<textarea name="Pbcomment" id="Pbcomment" cols="30" rows="10"></textarea>
 				</div>
 				<input type="button" value="등록" id="btn"/>
+			</form> -->
+			
+			<form id="form1">
+				<div  class="col-lg-6">
+    				<div class="input-group">
+      					<textarea  name = "comment" id="comment"class="form-control" placeholder="내용을 입력하세요."></textarea>
+      					<span class="input-group-btn">
+        					<button id="btn"class="btn btn-default" type="submit">등록!</button>
+      					</span>
+    				</div>
+  				</div>
 			</form>
+
+
 
 </body>
 </html>

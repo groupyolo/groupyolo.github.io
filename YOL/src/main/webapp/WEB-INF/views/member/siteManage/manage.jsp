@@ -24,7 +24,11 @@
 				<option value="${pdto.prSeq }">${pdto.siteName}</option>
 				<c:forEach items= "${plist}" var="dto">
 						<c:if test="${dto.siteName != pdto.siteName}">
-							<option value="${dto.prSeq}" >${dto.siteName}</option>
+							<option value="${dto.prSeq}" >
+								${dto.siteName}
+						<!-- 		<div><input type="button" value ="선택"/></div>
+								<div><input type="button" value ="보기"/></div> -->
+							</option>
 						</c:if>
 				</c:forEach>
 			</select>

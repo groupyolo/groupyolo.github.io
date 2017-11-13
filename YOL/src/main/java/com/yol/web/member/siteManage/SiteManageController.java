@@ -109,7 +109,7 @@ public class SiteManageController {
 			if (n == nowPage) {
 				pagebar += String.format("<li class='active'><a href='#'>%d</a></li>", n);
 			} else {
-				pagebar += String.format("<li><a href='/web/member/manage.action?page=%d&prSeq=%s'>%d</a></li>", n, n,prSeq);
+				pagebar += String.format("<li><a href='/web/member/manage.action?page=%d&prSeq=%s'>%d</a></li>", n, prSeq, n);
 			}
 			loop++;
 			n++;
