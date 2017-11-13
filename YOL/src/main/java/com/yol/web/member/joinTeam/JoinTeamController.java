@@ -1,5 +1,6 @@
 package com.yol.web.member.joinTeam;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -23,12 +24,79 @@ public class JoinTeamController {
 	private IJoinTeamService sv;
 	
 	@RequestMapping(method= {RequestMethod.GET},value="/member/communityBoard.action")
-	public String joinBoard(HttpServletRequest req) {
+	public String joinBoard(HttpServletRequest req, String column, String word) {
 		
-		List<VJoinTeamDTO> list = sv.list();		
-		req.setAttribute("list", list);
+		String isSearch = "n";
+		 		
+ 		if (column != null && word != null) isSearch="y";
+ 		
+ 		HashMap<String,String> map = new HashMap<String, String>();
+ 		map.put("column", column);
+ 		map.put("word", word);
+ 		map.put("isSearch", isSearch);		
+ 		
+ 		int nowPage = 0;
+ 		int totalCount = 0;
+ 		int pageSize = 15;
+ 		int totalPage = 0;
+ 		int start = 0;
+ 		int end = 0;
+ 		int n = 0;
+ 		int loop = 0;
+ 		int blockSize = 10;
+ 		
+ 		
+ 		String page = req.getParameter("page");
+ 		if (page == null) nowPage = 1;
+ 		else nowPage = Integer.parseInt(page);
+ 		
+ 		start = ((nowPage - 1) * pageSize) + 1;
+ 		end = start + pageSize - 1;
+ 		
+ 		map.put("start", start+"");
+ 		map.put("end", end+"");
+		
+		
+		List<VJoinTeamDTO> list = sv.list(map);		
 				
-		return "member.joinTeam.communityBoard";
+		totalCount = sv.getTotalCount(map);
+		
+		totalPage = (int)Math.ceil((double)totalCount / pageSize);
+		 
+		 String pagebar = " <nav><ul class='pagination'>";
+		 loop = 1;
+		 
+		 n = ((nowPage - 1) / blockSize) * blockSize + 1;
+		 //시작 부분 
+		 if(n == 1) {
+		 	pagebar += String.format("<li class='disabled'><a href='#' aria-label='Previous'><span aria-hidden='true'>&laquo;</span></a></li>");
+		 } else {
+		 	pagebar += String.format("<li><a href='/web/member/communityBoard.action?page=%d' aria-label='Previous'><span aria-hidden='true'>&laquo;</span></a></li>", n-1);
+		 }
+		 
+		 while ( !(loop >blockSize || n > totalPage)) {
+		 	if (n == nowPage) {
+		 		pagebar += String.format("<li class='active'><a href='#'>%d</a></li>", n);
+		 	} else {
+		 		pagebar += String.format("<li><a href='/web/member/communityBoard.action?page=%d'>%d</a></li>", n, n);
+		 	}
+		 	loop++;
+		 	n++;
+		 }
+		 
+		 if (n > totalPage) {
+		 	pagebar += String.format("<li class='disabled'><a href='#' aria-label='Next'><span aria-hidden='true'>&raquo;</span></a></li>");
+		 } else {
+		 	pagebar += String.format("<li><a href='/web/member/communityBoard.action?page=%d' aria-label='Next'><span aria-hidden='true'>&raquo;</span></a></li>", n);
+		 }		 
+		 pagebar += "</ul></nav>";
+		
+		 req.setAttribute("list", list);
+		 req.setAttribute("map", map);
+		 req.setAttribute("pagebar", pagebar);
+		 
+		 
+		 return "member.joinTeam.communityBoard";
 	}
 	
 	@RequestMapping(method= {RequestMethod.GET},value="/member/joinTeamAdd.action")
@@ -72,16 +140,22 @@ public class JoinTeamController {
 		
 		return "member.joinTeam.boardEditOk";
 	}
-	
+	@RequestMapping(method= {RequestMethod.GET},value="/member/joinTeamDel.action")
+	public String boardDel(HttpServletRequest req, String reSeq) {
+		int result = sv.del(reSeq);
+		req.setAttribute("result", result);
+		return "member.joinTeam.boardDelOk";
+	}
 	@RequestMapping(method= {RequestMethod.GET},value="/member/joinMemberAdd.action")
 	public @ResponseBody Object joinMemberAdd (HttpServletRequest req, JoinDTO dto) {
 		
 		int result = sv.joinAdd(dto);		
 		return result;
 	}
-	@RequestMapping(method= {RequestMethod.GET},value="/member/joinMemberCancel.action")
-	public @ResponseBody Object joinMemberCancel (HttpServletRequest req, JoinDTO dto) {
-		
+	@RequestMapping(method= {RequestMethod.GET},value="/member/joinMemberCancle.action")
+	public @ResponseBody Object joinMemberCancle (HttpServletRequest req, JoinDTO dto) {
+		System.out.println("mSeq" + dto.getmSeq());
+		System.out.println("apSeq" + dto.getApSeq());
 		int result = sv.joinCancle(dto);		
 		return result;
 	}
@@ -103,9 +177,12 @@ public class JoinTeamController {
 		return "member.joinTeam.masterBoardMember.ajax";
 	}
 	@RequestMapping(method= {RequestMethod.GET},value="/member/approveMember.action")
-	public String approveMember(HttpServletRequest req, String jSeq) {
-		
-		return "member.joinTeam.approveMember.ajax";
+	public @ResponseBody Object approveMember(HttpServletRequest req, JoinDTO dto) {
+		System.out.println(dto.getmSeq());
+		System.out.println(dto.getReSeq());
+		int result = sv.approveM(dto);
+		//return "member.joinTeam.approveMember.ajax";
+		return result;
 	}
 	@RequestMapping(method= {RequestMethod.GET},value="/member/rejectMember.action")
 	public @ResponseBody Object rejectMember(HttpServletRequest req, JoinDTO dto) {

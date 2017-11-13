@@ -24,10 +24,10 @@
 	<select id="bList" parameterType="map" resultType="com.yol.web.DTO.ProjectBoardDTO">
 	select * from (select a.*, rownum rnum from (select * from vprojectboard where prseq = #{prSeq} 
 			<if test="isSearch eq 'y'.toString()">
-and ${column} like '%' || #{word} || '%' order by pbseq) a) where rnum &gt;= #{start} and rnum &lt;= #{end}
+and ${column} like '%' || #{word} || '%' order by pbseq desc) a) where rnum &gt;= #{start} and rnum &lt;= #{end}
 			</if> 
 			<if test="isSearch eq 'n'.toString()">
-order by pbseq) a) where rnum &gt;= #{start} and rnum &lt;= #{end}
+order by pbseq desc) a) where rnum &gt;= #{start} and rnum &lt;= #{end}
 			</if> 
 	
 	</select>
