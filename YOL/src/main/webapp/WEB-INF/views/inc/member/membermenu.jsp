@@ -10,8 +10,8 @@
 
 				</div>
 				<div><a href="${pageContext.request.contextPath }/member/mysites.action">내사이트</a></div>
-				<div><a href="location.href='${pageContext.request.contextPath }/member/community.action';">커뮤니티</a></div>
-				<div><a href="location.href='${pageContext.request.contextPath }/supports.action';">고객지원</a></div>
+				<div><a href="${pageContext.request.contextPath }/member/community.action">커뮤니티</a></div>
+				<div><a href="${pageContext.request.contextPath }/supports.action">고객지원</a></div>
 			</div>
 			<div class="smallmenu"><i class="fa fa-bell" aria-hidden="true"></i>
 				
@@ -19,8 +19,8 @@
 				<span style="padding-left:5px;">${loginDTO.mNickName}</span>
 				<i class="fa fa-sort-desc" aria-hidden="true"style="vertical-align: top; padding-left:2px;"></i>
 			    <ul id="ultogle">
-			           <li><a href="#">my profile</a></li>
-			           <li><a href="#">my sites</a></li>
+			           <li><a href="${pageContext.request.contextPath }/member/myinfo.action">my profile</a></li>
+			           <li><a href="${pageContext.request.contextPath }/member/mysites.action">my sites</a></li>
 			           <li><a href="#">support</a></li>
 			           <li><a href="#">logout</a></li>
 	         	</ul>

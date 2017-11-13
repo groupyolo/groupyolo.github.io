@@ -4,7 +4,7 @@
 
 				<c:if test= "${result == 1}">
 						<script>
-							location.href = "/web/member/view.action?pbSeq=${pbSeq}&prSeq=${prSeq}"
+							location.href = "/web/member/pbview.action?pbSeq=${pbSeq}&prSeq=${prSeq}"
 						</script>
 					</c:if>
 			

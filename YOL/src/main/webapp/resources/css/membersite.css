@@ -13,12 +13,28 @@
 		width : 185px;
 		height: 150px;
 		/* border: 1px solid green; */
-	}
-	#img  img{
-		width: 180px; 
-		height: 145px;
+		background-image: url("/web/images/simg1.JPG");
 	}
 	
+	#img  #bimg{
+		margin-left:7px;
+		margin-top: 6px;
+		width: 171px; 
+		height: 105px;
+		border: 1px solid black;
+		text-align: center;
+	}
+	
+	#bimg:hover {
+		opacity: 1;
+		transition: all .4s;
+	}
+	#img #bimg span {
+		display: inline-block;
+		/* border: 1px solid black; */
+		width: 45x;
+		margin-top: 40px;
+	}
 	#site {
 		float: left;
 		width: 300px;
@@ -227,9 +243,9 @@
 	#search {
 		margin-left: 547px;
 	}
-	#tbl1 {
-		 width: 800px;
-		 margin-left: 50px;
+	#tbl1, #tbl2, #tbl3 {
+		 width: 100%;
+		 /* margin-left: 50px; */
 		 margin-top: 10px;
 		 text-align: center;
 	}
@@ -242,19 +258,12 @@
 	#tbl1 th, #tbl1 td {
 		  text-align: center;
 	}	
-	
+/* 	
 	#btn4 {
 		margin-left: 790px;
 	}
-
-	#pagebar  { margin-left: 430px;}
-	
-	#tbl2 {
-		 width: 800px;
-		 margin-left: 50px;
-		 margin-top: 10px;
-		 height: 80px;
-	}
+ */
+	#pagebar  { margin-left: 350px;}
 	
 	#tbl2 th {
 		width: 150px;
@@ -266,4 +275,28 @@
 	#tbl2 td:nth-child(3) { width: 500xp; height: 400px;}
 	#tbl2 td:nth-child(4) { width: 80xp;}
 	
-	#btns1 {  margin-left: 680px;}
+	#btns1, #btn4, #btns3 {  float:right;}
+	
+	#btns3:after {
+		display:block;
+		content: " ";
+		clear: both;
+		margin-bottom: 20px;
+	}
+	
+	.col-lg-6 {
+		margin : 30px 0px;
+		height:100px;
+		width:800px;
+		padding-left: 0px;
+	
+	}
+	#Pbcomment {
+		width: 700px;
+		height: 100px;
+		
+	}
+	#btn5 {
+	height: 100px;
+	width: 100px;
+}

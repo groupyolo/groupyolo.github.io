@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.yol.web.DTO.FAQCategoryDTO;
 import com.yol.web.DTO.FAQDTO;
+import com.yol.web.DTO.FAQTotalDTO;
 
 @Service
 public class FaqService implements IFaqService{
@@ -23,7 +24,8 @@ public class FaqService implements IFaqService{
 		
 	
 	@Override
-	public List<FAQDTO> getFAQ(HashMap<String, String> map) {
+	public List<FAQTotalDTO> getFAQ(HashMap<String, String> map) {
+		
 		return dao.getFaq(map);
 	}
 	

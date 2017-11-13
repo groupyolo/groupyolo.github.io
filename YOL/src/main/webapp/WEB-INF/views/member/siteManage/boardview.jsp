@@ -4,18 +4,18 @@
 
 <script>
 $(document).ready(function() {
-	$('#btn').click(function() {
+	$('#btn5').click(function() {
 		
 		var data = "pbSeq=${bdto.pbSeq}&mSeq=${loginDTO.mSeq}&pbcomment=" + $('#Pbcomment').val();
 		
 		$.ajax({
 			type: "post",
-			url : "${pageContext.request.contextPath}/member/commentadd.action",
+			url : "${pageContext.request.contextPath}/member/pbcommentadd.action",
 			data : data,
 			dataType: "json",
 			success : function(data) {
 				if (data.result == 1) {
-					var tr = "<tr><td>${loginDTO.mNickName}</td><td>"+ $("#Pbcomment").val()+"</td><td>" + data.pbcRegdate +"</td></tr>";
+					var tr = "<tr><td>${loginDTO.mNickName}</td><td>"+ $("#Pbcomment").val()+"</td><td>" + data.pbcRegdate 	+"<c:if test='${pbcdto.mSeq == loginDTO.mSeq}'><span class='glyphicon glyphicon-remove' onclick='cdel(${pbcdto.pbcSeq})'></span></c:if>"+"</td></tr>";
 					
 					$("#tblComment tbody").append(tr);
 					$("#Pbcomment").val("");
@@ -31,7 +31,7 @@ $(document).ready(function() {
 				var result = confirm("정말 삭제하시겠습니까?");
 			if(result) {
 				if(${bdto.mSeq} == ${loginDTO.mSeq}) {
-					location.href='${pageContext.request.contextPath}/member/delok.action?pbSeq=${bdto.pbSeq}&prSeq=${pdto.prSeq }';
+					location.href='${pageContext.request.contextPath}/member/pbdelok.action?pbSeq=${bdto.pbSeq}&prSeq=${pdto.prSeq }';
 				} else {
 					alert("권한이 없습니다.");
 				}
@@ -40,7 +40,7 @@ $(document).ready(function() {
 
 	$('#edit').click(function(){
 			if(${bdto.mSeq} == ${loginDTO.mSeq}) {
-					location.href='${pageContext.request.contextPath}/member/edit.action?pbSeq=${bdto.pbSeq}&prSeq=${pdto.prSeq }';
+					location.href='${pageContext.request.contextPath}/member/pbedit.action?pbSeq=${bdto.pbSeq}&prSeq=${pdto.prSeq }';
 			} else {
 					alert("권한이 없습니다.");
 			}
@@ -54,7 +54,7 @@ $(document).ready(function() {
 			
 			$.ajax ({
 				type: "get",
-				url: "${pageContext.request.contextPath}/member/commentdel.action",
+				url: "${pageContext.request.contextPath}/member/pbcommentdel.action",
 				data: "pbcSeq="+pbcSeq,
 				dataType: "json",
 				success: function(result) {
@@ -75,7 +75,7 @@ $(document).ready(function() {
 		<h1>프로젝트 게시판 </h1>
 		</blockquote>	
 			
-			<table id="tbl1">
+			<table id="tbl3" class="table table-striped">
 				<tr>
 					<th>번호</th>
 					<td>${bdto.pbSeq }</td>
@@ -84,7 +84,7 @@ $(document).ready(function() {
 					<th>카테고리</th>
 					<td> 
 						<c:if test="${bdto.nsSeq == 1 }"> 공지</c:if>
-						<c:if test="${bdto.nsSeq == 2 }"> 일반</c:if>
+						<c:if test="${bdto.nsSeq == 0 }"> 일반</c:if>
 					</td>
 				</tr>
 				<tr>
@@ -114,16 +114,19 @@ $(document).ready(function() {
 			<input type="hidden"  name="mSeq" value= "${loginDTO.mSeq}"/>
 			<input type="hidden" name="prSeq" value= "${pdto.prSeq }"/>
 			
+		<div id="btns3">
+			<input type="button" value="글쓰기" class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath}/member/pbadd.action?prSeq=${pdto.prSeq}'" />
+			<input type="button" value="수정하기"  class="btn btn-default" id="edit"/>
+			<input type="button" value="삭제하기"  class="btn btn-primary" id="del"/>
+			<input type="button" value="돌아가기"   class="btn btn-default" onclick="history.back();" />
+		</div>
 		
-		<input type="button" value="글쓰기" onclick="location.href='/${pageContext.request.contextPath}/member/add.action?prSeq=${pdto.prSeq}'" />
-		<input type="button" value="수정하기" id="edit"/>
-		<input type="button" value="삭제하기"  id="del"/>
-		<input type="button" value="돌아가기" onclick="history.back();" />
 		
-		<h3>댓글</h3>
+		<hr />
 		
+	
 			
-			<table id="tblComment">
+			<table id="tblComment" class="table">
 				<tbody>
 					<c:forEach items="${pbclist}" var="pbcdto">
 						<tr id="trSeq${pbcdto.pbcSeq}">
@@ -142,13 +145,20 @@ $(document).ready(function() {
 					</c:forEach>
 				</tbody>
 			</table>
+
 			
-			<form id="form1">
-				<div>
-					<textarea name="Pbcomment" id="Pbcomment" cols="30" rows="10"></textarea>
-				</div>
-				<input type="button" value="등록" id="btn"/>
-			</form>
+				<div  class="col-lg-6">
+		 	<form id="form1" class="form-inline">
+    				<div class="input-group">
+      					<textarea  name = "Pbcomment" id="Pbcomment"class="form-control" placeholder="내용을 입력하세요."></textarea>
+      					<span class="input-group-btn">
+        					<button id="btn5"class="btn btn-default" type="button">등록!</button>
+      					</span>
+    				</div>
+			</form> 
+  				</div>
+
+
 
 </body>
 </html>

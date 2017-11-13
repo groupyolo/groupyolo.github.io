@@ -28,7 +28,7 @@
 	 	}
 	 	
 	 	#approveContent{
-	 		width:800px;
+	 		width:1000px;
 			height:500px;
 			border:1px solid gray; 	
 			overflow: scroll;
