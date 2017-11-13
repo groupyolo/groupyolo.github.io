@@ -6,4 +6,9 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/css/memberpage.css"/>
 <link rel="stylesheet" href="${pageContext.request.contextPath }/css/commonpage.css"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<<<<<<< HEAD
 <link rel="stylesheet" href="${pageContext.request.contextPath }/css/mainpage.css"/>
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/community.css"/>
+=======
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/mainpage.css"/>
+>>>>>>> branch 'master' of https://github.com/groupyolo/groupyolo.github.io.git

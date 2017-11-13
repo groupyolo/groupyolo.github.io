@@ -117,5 +117,12 @@ public class MemberController {
 		return "member.creation.concept";
 	}
 	
+	@RequestMapping(method = { RequestMethod.GET }, value = "/member/community.action")
+	public String boardlist(HttpServletRequest req) {
+
+		return "member.community.boardlist";
+	}
+
+
 }
 

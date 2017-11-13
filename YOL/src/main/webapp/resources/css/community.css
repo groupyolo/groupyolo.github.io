@@ -1,0 +1,18 @@
+#boardfree{
+	width: 100%;
+	min-height: 500px;
+	border: 1px dashed green;
+	
+}
+
+#boardqna{
+	width: 100%;
+	min-height: 500px;
+	border: 1px dashed blue;
+}
+
+#boardrecruit{
+	width: 100%;
+	min-height: 500px;
+	border: 1px dashed red;
+}
