@@ -1,5 +1,6 @@
 package com.yol.web.member.joinTeam;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -23,8 +24,8 @@ public class JoinTeamDAO {
 		return sql.insert("joinTeam.add", dto);		
 	}
 
-	public List<VJoinTeamDTO> list() {
-		return sql.selectList("joinTeam.list");
+	public List<VJoinTeamDTO> list(HashMap<String, String> map) {
+		return sql.selectList("joinTeam.list", map);
 	}
 
 	public VJoinTeamDTO view(String reSeq) {
@@ -65,11 +66,23 @@ public class JoinTeamDAO {
 	}
 
 	public int joinAdd(JoinDTO jdto) {
-		return sql.insert("joinTeam.addMember",jdto);
+		return sql.insert("joinTeam.addMember", jdto);
 	}
 
 	public int joinCancel(JoinDTO dto) {
-		return sql.update("jointeam.changeMember",dto);
+		return sql.update("joinTeam.changeMember", dto);
+	}
+
+	public int approveM(JoinDTO dto) {
+		return sql.update("joinTeam.changeMember", dto);
+	}
+
+	public int del(String reSeq) {
+		return sql.update("joinTeam.del", reSeq);
+	}
+
+	public int getTotalCount(HashMap<String, String> map) {
+		return sql.selectOne("joinTeam.getTotalCount", map);
 	}
 	
 }

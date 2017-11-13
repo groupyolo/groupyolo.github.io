@@ -12,7 +12,7 @@
 	
 	<form method="post" action="/web/main/loginok.action">
 	
-	<span>이메일: </span> <input type="email"	name="mEmail" id="mEmail" value= "bibid@naver.com" required>
+	<span>이메일: </span> <input type="email"	name="mEmail" id="mEmail" required>
 	<span>비번: </span> <input type="password" name="mPassword" id="mPassword" required>
 	
 	<input type="submit" value="로그인">

@@ -1,5 +1,9 @@
 package com.yol.web.member.joinTeam;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,18 +48,54 @@ public class JoinTeamService implements IJoinTeamService {
 	}
 
 	@Override
-	public List<VJoinTeamDTO> list() {
+	public List<VJoinTeamDTO> list(HashMap<String, String> map) {
 	// 게시판 리스트불러오기
 		
-		List<VJoinTeamDTO> list = dao.list();
+		List<VJoinTeamDTO> list = dao.list(map);
 		
 		for (VJoinTeamDTO dto : list) {			
 			//날짜수정
 			dto.setjStart((dto.getjStart().substring(0, 10)));
 			dto.setjEnd((dto.getjEnd().substring(0, 10)));
+			
+			//올린시간 수정
+			long changeTime = timeCheck(dto.getjRegDate().substring(0,20));
+			if (changeTime < 60) {
+				dto.setjRegDate(String.valueOf(changeTime%60)+"분전");
+			} else if (changeTime < 60*24) {
+				dto.setjRegDate(String.valueOf((changeTime/60)%60)+"시간전");				
+			} else {
+				dto.setjRegDate(String.valueOf((changeTime/60/24)%24)+"일전");				
+			}
+			//상태수정
+			dto.setsName(dto.getsName().equals("모집중")?"<span class='label label-warning'>모집중</span>":dto.getsName().equals("마감")?"<span class='label label-default'>마감</span>":"삭제");
+			
 		}
 				
 		return list;
+	}
+
+	private long timeCheck(String getjRegDate) {
+				
+		try {
+
+			Date today = new Date();
+			long todayTime = today.getTime();
+			
+			SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			Date regDate = transFormat.parse(getjRegDate);
+			long regDateTime = regDate.getTime();
+			
+			long changeTime = ((todayTime - regDateTime)/60000);
+			System.out.println(changeTime);
+			
+			return changeTime;
+			
+		} catch (ParseException e) {
+			e.printStackTrace();
+			return 0;
+		}		
+		
 	}
 
 	@Override
@@ -105,6 +145,11 @@ public class JoinTeamService implements IJoinTeamService {
 	}
 
 	@Override
+	public int approveM(JoinDTO dto) {
+		dto.setApSeq("1");
+		return dao.approveM(dto);
+	}
+	@Override
 	public int rejectM(JoinDTO dto) {
 		dto.setApSeq("2");
 		return dao.rejectM(dto);
@@ -130,6 +175,7 @@ public class JoinTeamService implements IJoinTeamService {
 
 	@Override
 	public int joinAdd(JoinDTO jdto) {
+		jdto.setApSeq("0");
 		return dao.joinAdd(jdto);
 	}
 
@@ -138,5 +184,16 @@ public class JoinTeamService implements IJoinTeamService {
 		dto.setApSeq("5");
 		return dao.joinCancel(dto);
 	}
+
+	@Override
+	public int del(String reSeq) {
+		return dao.del(reSeq);
+	}
+
+	@Override
+	public int getTotalCount(HashMap<String, String> map) {		
+		return dao.getTotalCount(map);
+	}
+
 
 }
