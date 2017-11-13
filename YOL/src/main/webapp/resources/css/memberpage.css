@@ -132,7 +132,8 @@ display:block;   마우스 커서 올리면 서브메뉴 보이게 하기
 
 
 #core{
-	width: 1000px; height: 100%;
+	width: 1000px;
+	min-height: 1200px;
 	margin:0px auto;
 	border: 1px dashed grey;
 }
@@ -281,14 +282,13 @@ display:block;   마우스 커서 올리면 서브메뉴 보이게 하기
 
 }
 
-#sitelist, #grouplist{
+#sitelist, #grouplist, #otherswork{
 	padding: 30px;
 	
 }
 
 
 #sitelist table, #grouplist table{
-	
 	width: 900px;
 	margin:0px auto;
 	text-align: left;
@@ -333,3 +333,37 @@ display:block;   마우스 커서 올리면 서브메뉴 보이게 하기
 	font-weight:bold;
 	color:white;
 }
+
+
+#otherswork{
+	width:100%;
+	
+}
+#worklist{
+	width:720px;
+	margin:0px auto;
+	margin-top: 40px;
+}
+
+.othersp{
+	width:200px;
+	height: 200px;
+	display:inline-block;
+	border: 1px dashed red;
+	margin-right:30px;
+	margin-bottom:20px;
+	border-radius: 10px;
+	background-color: lightgrey;
+	
+}
+
+.rdsp{
+	border:1px soild black;
+	margin-right:0px;	
+}
+
+.othersp:hover{
+	cursor: pointer;
+	
+}
+
