@@ -111,6 +111,11 @@ public class MemberController {
 		return "member.memberpage.mysites";
 	}
 	
+	@RequestMapping(method = { RequestMethod.GET }, value = "/member/concept.action")
+	public String concept(HttpServletRequest req) {
+
+		return "member.creation.concept";
+	}
 	
 }
 

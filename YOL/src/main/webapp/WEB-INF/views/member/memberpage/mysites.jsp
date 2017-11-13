@@ -15,7 +15,7 @@
 				
 				<c:if test="${list.jCount eq 1}">
 				<tr>
-					<td>${list.prName}, ${list.prSeq}</td>
+					<td>${list.prName}</td>
 					<td><a href="/web/member/manage.action?prSeq=${list.prSeq}">${list.prURL}</a></td>
 					<td>${list.jStart.substring(0,10)}</td>		
 					<td>${list.activeState}</td>
@@ -177,8 +177,9 @@
 				  } );
 				  </script>
 	            
-	            
 	            </div>
+	            <input type="hidden" name="mSeq" value="${loginDTO.mSeq }" />
+	            
 	            <div class="modal-footer">
 	                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 	                <button type="submit" id="action" class="btn btn-primary">Next</button>
