@@ -9,10 +9,14 @@
 </head>
 <body>
 	<c:if test="${result==1}">
-		location.href="/member/joinTeamView.action?reSeq=${dto.reSeq}";
+	<script>
+		location.href="${pageContext.request.contextPath}/member/joinTeamView.action?reSeq=${dto.reSeq}";
+	</script>
 	</c:if>
 	<c:if test="${result==0}">
+	<script>
 		history.back;
+	</script>
 	</c:if>
 </body>
 </html>

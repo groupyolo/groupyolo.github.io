@@ -29,13 +29,28 @@
 		$.ajax({
 			type:"get",
 			url:"${pageContext.request.contextPath}/member/joinMemberAdd.action",
-			data:"mSeq="+ mSeq+"&reSeq="+${tdto.reSeq},
+			data:"mSeq="+mSeq+"&reSeq=${tdto.reSeq}",
 			dataType:"json",
 			success:function(data) {
 				//console.log(data);
 				if(data == "1") {
 					console.log("성공");
-					showMember($("#btnHidden").val());
+					
+					var date = new Date(); 
+					var year = date.getFullYear(); 
+					var month = new String(date.getMonth()+1); 
+					var day = new String(date.getDate()); 
+
+					// 한자리수일 경우 0을 채워준다. 
+					if(month.length == 1){ 
+					  month = "0" + month; 
+					} 
+					if(day.length == 1){ 
+					  day = "0" + day; 
+					} 
+					var regDate = year + "-" + month + "-" + day;
+					var tr = "<tr><td>${loginDTO.mNickName}</td><td>"+regDate+"</td><td>미승인</td></tr>";
+					$("#applyTbl tbody").append(tr);
 				}
 			},
 			error:function() {
@@ -44,17 +59,17 @@
 		})
 	}
 	
-	function memberCancel(mSeq) {
+	function memberCancle(mSeq) {
 		$.ajax({
 			type:"get",
 			url:"${pageContext.request.contextPath}/member/joinMemberCancle.action",
-			data:"mSeq="+ mSeq+"&reSeq="+${tdto.reSeq},
+			data:"mSeq="+mSeq+"&reSeq=${tdto.reSeq}",
 			dataType:"json",
 			success:function(data) {
 				//console.log(data);
 				if(data == "1") {
 					console.log("성공");
-					showMember($("#btnHidden").val());
+					
 				}
 			},
 			error:function() {
@@ -89,17 +104,18 @@
 		</table>
 	</div>
 	<div id="applyTbl">
+		<h3>멤버 신청자</h3>
 		<table>
-			<tr>
-				<td><h3>멤버 신청자</h3></td>
-			</tr>
+			<thead>
 			<tr>
 				<th>닉네임</th>
 				<th>신청시간</th>
 				<th>상태</th>				
 			</tr>
+			</thead>
+			<tbody>
 			<c:forEach items="${mlist}" var="mdto">
-			<tr>
+			<tr id="tr_jSeq${mdto.jSeq}">
 				<td>${mdto.mNickName}</td>
 				<td>${mdto.jRegDate}</td>
 				<td>${mdto.gradeName}</td>
@@ -107,22 +123,19 @@
 			<script>
 				<c:if test="${loginDTO.mNickName == mdto.mNickName}">
 				//로그인한 사람이 신청한사람일 때, 멤버 취소 버튼 보여주기
-				if((${mdto.apSeq} == 0 || ${mdto.apSeq} == 4)) {					
-					$("#btn_cancleMember").show();
-					$("#btn_joinMember").hide();
-				}
-				if {
-					
-				}
+					if(${mdto.apSeq == 0} || ${mdto.apSeq == 4}) {					
+						$("#btn_cancleMember").show();
+						$("#btn_joinMember").hide();
+					}
 				</c:if>
 			</script>
 			</c:forEach>
+			</tbody>
 		</table>
 	<!-- ajax로 -->	
 		 <input type="button"  value="멤버신청" id="btn_joinMember" onclick="memberAdd(${loginDTO.mSeq});"/>
-		
 		<!-- 조건; 신청이 완료된 멤버 && 미승인시 && 모집글 마감 전 -->
-		 <input type="button"  value="멤버취소" id="btn_cancleMember" onclick="memberCancle(${loginDTO.mSeq})"/>
+		 <input type="button"  value="멤버취소" id="btn_cancleMember" onclick="memberCancle(${loginDTO.mSeq});"/>
 
 		
 	<!-- 여기까지 ajax -->

@@ -1,4 +1,4 @@
-package com.yol.web.main.faq;
+package com.yol.web.main.front;
 
 import java.util.HashMap;
 import java.util.List;
@@ -11,25 +11,17 @@ import com.yol.web.DTO.FAQDTO;
 import com.yol.web.DTO.FAQTotalDTO;
 
 @Service
-public class FaqService implements IFaqService{
+public class FrontService implements IFrontService{
 	
 	@Autowired
-	private FaqDAO dao;
+	private FrontDAO dao;
 	
-		
+
 	@Override
-	public List<FAQCategoryDTO> getCategory() {
-		return dao.getCategory();
-	}	
-		
-	
-	@Override
-	public List<FAQTotalDTO> getFAQ(HashMap<String, String> map) {
-		
-		return dao.getFaq(map);
+	public List<FAQTotalDTO> getFaqMain() {
+
+		return dao.getFaqMain();
 	}
-	
-			
 
 	
 	
