@@ -122,7 +122,10 @@ public class LogService implements ILogService{
 		return dao.findPasswordChange(dto);
 	}
 	
-	
+	@Override
+	public int editProfile(MemberDTO dto) {
+		return dao.editProfile(dto);
+	}
 	
 	
 	

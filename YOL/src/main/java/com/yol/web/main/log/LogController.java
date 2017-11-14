@@ -70,7 +70,23 @@ public class LogController {
 		  return "main.log.loginok";
 		  
 	  }
-
+	  
+	  @RequestMapping(method= {RequestMethod.GET},value="/member/editprofile.action" )
+	  public String editProfile(HttpServletRequest req) {
+		  
+		  
+		  return "member.memberpage.editprofile";
+		  
+	  }
+	  
+	  @RequestMapping(method= {RequestMethod.POST},value="/member/editprofileok.action" )
+	  public String editProfileok(HttpServletRequest req,MemberDTO dto) {
+		 int result = service.editProfile(dto);
+		 req.setAttribute("result", result);
+		 return "member.memberpage.editprofileok";
+		  
+	  }
+	  
 	  @RequestMapping(method= {RequestMethod.GET},value="/main/memailcheck.action" )
 	  public String mEmailCheck(HttpServletRequest req,String mEmail) {
 		  int result = service.mEmailCheck(mEmail);
@@ -165,5 +181,9 @@ public class LogController {
 		  return "main.log.findpasswordchange";
 		  
 	  }
+	  
+	  
+	  
+	  
 }
 	

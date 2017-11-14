@@ -83,5 +83,9 @@ public class LogDAO {
 		sql.insert("log.addLogin",map);
 		
 	}
+
+	public int editProfile(MemberDTO dto) {
+		return sql.update("log.editProfile",dto);
+	}
 	
 }
