@@ -1,13 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
- <script>
-	$(document).ready(function(){
-		 function logout(){
-				session.clear();
-				location.href="${pageContext.request.contextPath }/main/frontview.action";
-	 	 }	
-	});
- </script>
 
 	<div id="menutop" >
 		<div id="topbar">
@@ -30,7 +22,7 @@
 			           <li><a href="${pageContext.request.contextPath }/member/myinfo.action">my profile</a></li>
 			           <li><a href="${pageContext.request.contextPath }/member/mysites.action">my sites</a></li>
 			           <li><a href="#">support</a></li>
-			           <li onclick="logout();">logout</a></li>
+			           <li>logout</li>
 	         	</ul>
 	         	</div>
 				<script>

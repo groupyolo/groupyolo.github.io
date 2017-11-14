@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-
-
 <div id="myinfo">
 	
 	
@@ -10,7 +8,7 @@
 		<div class="vcard">
 			<span>${loginDTO.mNickName }</span>
 		</div>
-		<input type="button" value="Edit profile" / onclick="location.href='${pageContext.request.contextPath }/main/editProfile.action';">
+		<input type="button" value="Edit profile">
 		<div id="jdate">
 			<span>가입일 : ${loginDTO.mDate.substring(0,10)}</span>		
 		</div>
