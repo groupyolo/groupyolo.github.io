@@ -104,7 +104,7 @@ public class MemberController {
 	//나의정보
 	@RequestMapping(method = { RequestMethod.GET }, value = "/member/myinfo.action")
 	public String myinfo(HttpServletRequest req, HttpSession session) {
-				
+
 		return "member.memberpage.myinfo";
 	}
 

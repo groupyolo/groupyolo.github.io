@@ -13,7 +13,7 @@
 				<div onclick="location.href='/web/main/frontview.action';">기능소개</div>
 				<div onclick="location.href='/web/main/login.action';">둘러보기</div>
 				<div onclick="location.href='/web/main/login.action';">Template</div>
-				<div onclick="location.href='/web/main/faqView.action';">고객지원</div>
+				<div onclick="location.href='/web/main/faqview.action';">고객지원</div>
 			</div>
 			<div class="smallmenu" onclick="location.href='/web/main/login.action';"><span class="ui-icon-lightbulb ui-icon-arrowthick-1-n"></span><span>로그인</span></div>
 		</div> 
