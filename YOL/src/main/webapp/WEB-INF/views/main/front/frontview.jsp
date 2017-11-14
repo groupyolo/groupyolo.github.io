@@ -297,7 +297,7 @@
 			
 		<div style="margin-top: 50px; text-align:center;">
 			<p>
-				<a href="${pageContext.request.contextPath }/main/faqView.action"  style="color: gray;"><input type="button" value="자세히 보기" class="btn btn-info"></a>
+				<a href="${pageContext.request.contextPath }/main/faqview.action"  style="color: gray;"><input type="button" value="자세히 보기" class="btn btn-info"></a>
 			</p>
 			
 		</div>
