@@ -8,6 +8,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<h1>댓글 글쓰기완료</h1>
+	<c:if test="${result==1}">
+		location.href="${pageContext.request.contextPath}/admin/inquiryBoard.action";
+	</c:if>
+	<c:if test="${result==0}">
+		history.back;
+	</c:if>
 </body>
 </html>

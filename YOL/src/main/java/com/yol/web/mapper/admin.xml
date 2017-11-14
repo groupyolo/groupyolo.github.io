@@ -40,10 +40,19 @@
 		update inquiry set title = #{title}, icontent = #{icontent} where inquiryseq = #{inquiryseq}
 	</select>
 	
-	<select id="iblist" resultType="com.yol.web.DTO.InquiryboardDTO">
-		select * from INQUIRYBOARD
+	<select id="iblist" resultType="com.yol.web.DTO.InquiryboardDTO" parameterType="com.yol.web.DTO.InquiryDTO">
+		select * from INQUIRYBOARD where inquiryseq = #{inquiryseq}
 	</select>
 	
+	<select id="readd" parameterType="com.yol.web.DTO.InquiryboardDTO">
+		insert into INQUIRYBOARD values (5, #{content}, 'o', #{inquiryseq})
+	</select>
+	
+	<select id="redel" parameterType="String" resultType="Integer">
+		delete from INQUIRYBOARD where inquiryboardseq = #{inquiryboardseq}
+	</select>
+	
+
 </mapper>
 
 

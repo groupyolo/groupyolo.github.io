@@ -29,7 +29,19 @@ public interface IAdminService {
 
 	int iedit(InquiryDTO dto);
 
-	List<InquiryboardDTO> iblist();
+	List<InquiryboardDTO> iblist(String inquiryseq);
+
+	int readd(InquiryboardDTO dto);
+
+	int readd1(String inquiryseq);
+
+	int redel(String inquiryboardseq);
+
+
+
+
+
+
 
 	
 

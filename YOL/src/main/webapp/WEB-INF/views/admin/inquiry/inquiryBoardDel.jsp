@@ -6,10 +6,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.12.4.js"></script>
-
 </head>
 <body>
-
+	<h1>댓글 삭제완료</h1>
+	<c:if test="${result==1}">
+		location.href="${pageContext.request.contextPath}/admin/inquiry.action";
+	</c:if>
+	<c:if test="${result==0}">
+		history.back;
+	</c:if>
 </body>
 </html>

@@ -30,8 +30,6 @@
 	
 	$(document).ready(function() {
 		
-	
-		
 	});
 </script>
 		
@@ -66,19 +64,43 @@
 		</tr>
 		
 	</table>
+
+	<c:forEach items="${iblist}" var="ibdto">
+	<input type="hidden" name="inquiryseq" value="${ivdto.inquiryseq}">
+	<input type="hidden" name="inquiryboardseq" value="${ibdto.inquiryboardseq}">
+	<table>
+		<tr>
+			<th>내용ㅋㅋㅋ</th>
+			<td>	
+			${ibdto.content}
+			</td>
+			<td>
+			
+			</td>
+			<td>
+			<a type="button" name="redel" onclick="location.href='${pageContext.request.contextPath}/admin/inquiryBoardDel.action?inquiryboardseq=${ibdto.inquiryboardseq}';">삭제</a>
+			</td>
+		</tr>	
+	</table>
+	</c:forEach>
+	
+		</c:forEach>
+		
+	
+	<div>
+		<form action="${pageContext.request.contextPath}/admin/inquiryBoardOk.action" method="post">
+		<a>내용</a>
+		<input type="text" name="content" style="width:200px; height:200px;">
+		<input type="hidden" name="inquiryseq" value="${ivdto.inquiryseq}">
+		<input type="submit" value="등록">
+		</form>
+	</div>
+		
 		<input type="button" value="뒤로가기" onclick="history.back();">
 		<input type="button" value="글삭제" onclick="location.href='${pageContext.request.contextPath}/admin/inquiryDel.action?inquiryseq=${ivdto.inquiryseq}';">
 		<input type="button" id="iedit" name="iedit" value="수정하기" onclick="location.href='${pageContext.request.contextPath}/admin/inquiryEdit.action?inquiryseq=${ivdto.inquiryseq}';" >
-		</c:forEach>
 		
-		
-	<table id="inquiryreply">
-		<tr>
-		<td>내용</td>
-		<td>후리밥</td>
-		<input type="button" value="등록">
-		</tr>
-	</table>
+
 	
 </body>
 </html>

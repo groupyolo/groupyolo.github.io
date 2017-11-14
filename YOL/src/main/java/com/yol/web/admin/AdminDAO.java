@@ -67,10 +67,31 @@ public class AdminDAO {
 		return sql.update("admin.iedit", dto);
 	}
 
-	public List<InquiryboardDTO> iblist() {
+	public List<InquiryboardDTO> iblist(String inquiryseq) {
 		
-		return sql.selectList("admin.iblist");
+		return sql.selectList("admin.iblist", inquiryseq);
 	}
+
+	public int readd(InquiryboardDTO dto) {
+		
+		return sql.insert("admin.readd", dto);
+	}
+
+	public int readd(String inquiryseq) {
+		
+		return sql.insert("admin.readd", inquiryseq);
+	}
+
+	public int redel(String inquiryboardseq) {
+		
+		return sql.delete("admin.redel", inquiryboardseq);
+	}
+
+
+
+
+
+
 
 	
 }
