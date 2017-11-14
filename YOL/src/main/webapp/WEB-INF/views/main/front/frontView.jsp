@@ -6,12 +6,15 @@
 <style>
 #startbtn {
 	padding: 20px 60px;
-	color: black;
+	color: gray;
 	background-color: white;
 	border-radius:10px;
+	font-size: 1.2em;
+	font-weight: bolder;
+	
 }
 .content1 {
-	background-color: #eee;
+	background-color: white;
 	width: 100%;
 	margin: 0px auto;
 	padding-top: 50px;
@@ -50,15 +53,24 @@
 	overflow: hidden;
 	z-index: 1;
 }
-
-
 .content2 {
-	/* background-color: white; */
-	width: 1000px;
+	background-color: #f7f7f7;
+	width: 100%;
 	margin: 0px auto;
-	padding-top: 10px;
+	padding-top: 50px;
+	text-align: center;
+	z-index: 2;
+}
+
+.content3 {
+	background-color: white;
+	padding-top: 50px;
 	z-index: 2;
 	font-size: 2em;
+}
+.faqbox{
+	width: 1000px;
+	margin: 0px auto;
 }
 
 .filter {
@@ -69,7 +81,7 @@
 	opacity: 0.6;
 }
 .faqTitle{
-		cursor:pointer;
+	cursor:pointer;
 }	
 .table .faqContent td{
 	padding-left:30px;
@@ -83,7 +95,54 @@
 .table .faqTitle td:hover{
 	color:red;
 }
-	
+.func{
+	margin:50px auto;
+	border: 1px solid red;
+	width:1600px;
+	/* min-height:700px; */
+	overflow: auto;
+}	
+
+.func .func-boxes, .func .func-title{
+	float:left;
+} 
+.func .func-boxes:after{
+	content: "";
+	clear: both;
+}
+
+.func-boxes{
+	width:900px;
+	border:1px solid yellow;
+}
+
+
+.func-boxes .func-box{
+	float:left;
+}
+.func-title{
+	font-size: 2em;
+	font-weight: bolder;
+	border:1px solid black;
+	width:400px;
+	height:400px;
+	margin-right:200px;
+}
+
+.func-box{
+	width:300px;
+	height:200px;
+	border:1px solid blue;
+	margin:40px;
+}
+.func-box-title{
+	font-size: 1.2em;
+	font-weight: bold;
+	margin:10px;
+}
+.func-box-content{
+	margin:10px;
+}
 </style>
 
 <script>
@@ -186,8 +245,16 @@
 				frameborder="0" gesture="media" allowfullscreen id="video"></iframe>
 		</div>
 	</div>
-
 	<div class="content2">
+		<!-- 단락하나 -->
+		<div>
+			<h1>YOL! 기능소개</h1>
+			<p>YOL!의 최신기능을 확인하세요.</p>
+		</div>
+		
+	</div>
+	
+	<div class="content3">
 		<div class="faqbox">
 		
 		<table id="tbl" class="table">
@@ -207,7 +274,7 @@
 			
 		<div style="margin-top: 50px; text-align:center;">
 			<p>
-				<a href="${pageContext.request.contextPath }/main/faqView.action"  style="color: #aaa;"><h3>더보기 ></h3></a>
+				<a href="${pageContext.request.contextPath }/main/faqView.action"  style="color: gray;"><h3>자세히 보기 ></h3></a>
 			</p>
 			
 		</div>
@@ -236,6 +303,50 @@
 		}
 		
 	});
+	
+	
+	$(".content2").append("<div class='func1 func'></div><div class='func2 func'></div><div class='func3 func'></div>");
+	var n=[0,0,0]
+	
+	<c:forEach items="${incList}" var="dto" varStatus="sta">
+		
+		var temp = "";
+		//console.log(n[0]);
+		if(n[${dto.bigTitleNum}-1]==0){
+			
+			temp+='<div class="func-title">'+"${dto.bigTitle}";
+			temp+='</div>';
+			temp+='<div class="func-boxes">';
+			temp+='<div class="func-box">';
+			temp+='<div class="func-box-title">'+"${dto.title}";
+			temp+='</div>';
+			temp+='<div class="func-box-content">'+"${dto.cont}";
+			temp+='</div>';
+			temp+='</div>';
+			temp+='</div>';
+			
+			$(".func"+"${dto.bigTitleNum}").append(temp);
+			n[${dto.bigTitleNum}-1]+=1;
+			
+		}else{
+			temp+='<div class="func-box">';
+			temp+='<div class="func-box-title">'+"${dto.title}";
+			temp+='</div>';
+			temp+='<div class="func-box-content">'+"${dto.cont}";
+			temp+='</div>';
+			temp+='</div>';
+			
+			$(".func"+"${dto.bigTitleNum}"+" .func-boxes").append(temp);
+			n[${dto.bigTitleNum}-1]+=1;
+		}
+		
+			
+		
+	
+
+	
+	</c:forEach>	
+	
 	
 	</script>
 	

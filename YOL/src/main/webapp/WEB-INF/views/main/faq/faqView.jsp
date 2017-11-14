@@ -123,9 +123,9 @@
 		
 		<thead>
 			<tr>
-				<td class="faqSubject">
+				<th class="faqSubject">
 					${cDTO.FAQcategory}
-				</td>
+				</th>
 			</tr>
 		</thead>
 	

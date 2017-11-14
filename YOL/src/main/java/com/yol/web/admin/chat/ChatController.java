@@ -35,7 +35,15 @@ public class ChatController {
 	public String view(HttpServletRequest req,String mseq) {
 
 		List<ChatDTO> list = service.view(mseq);
-	
+		
+		
+		
+		for(ChatDTO dto : list) {
+			
+			dto.setCdate(dto.getCdate().substring(0,19));
+			
+		}
+		
 		int result = service.creadUp(mseq);
 		
 		req.setAttribute("list", list);

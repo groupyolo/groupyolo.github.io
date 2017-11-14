@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.yol.web.DTO.FAQCategoryDTO;
 import com.yol.web.DTO.FAQDTO;
 import com.yol.web.DTO.FAQTotalDTO;
+import com.yol.web.DTO.IncFunctionDTO;
 
 @Service
 public class FrontService implements IFrontService{
@@ -24,6 +25,10 @@ public class FrontService implements IFrontService{
 	}
 
 	
-	
+	@Override
+	public List<IncFunctionDTO> getInc() {
+
+		return dao.getInc();
+	}
 	
 }

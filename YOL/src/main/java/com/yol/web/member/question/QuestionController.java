@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.yol.web.DTO.ChatDTO;
 import com.yol.web.DTO.MemberDTO;
 import com.yol.web.DTO.QcategoryDTO;
 import com.yol.web.DTO.QcommentDTO;
@@ -84,8 +85,16 @@ public class QuestionController {
 		map.put("start", start+"");
 		map.put("end", end+"");
 		
+		//글 목록 가져오기
 		List<QuestionDTO> list = service.list(map);
 		
+		for(QuestionDTO dto : list) {
+			
+			dto.setQtime(dto.getQtime().substring(0,19));
+			
+		}
+		
+		//페이징을 위한 총 게시물 수 가져오기
 		totalCount = service.getTotalCount();
 		
 		totalPage = (int)Math.ceil((double)totalCount / pageSize);
@@ -141,8 +150,17 @@ public class QuestionController {
 		// 글 상세내용 가져오기
 		QuestionDTO dto = service.getView(seq);
 		
+		dto.setQtime(dto.getQtime().substring(0,19));
+			
+		
 		//댓글 목록 가져오기
 		List<QcommentDTO> clist = service.getComment(seq);
+		
+		for(QcommentDTO cdto : clist) {
+			
+			cdto.setQcommenttime(cdto.getQcommenttime().substring(0,19));
+			
+		}
 		
 		// 조회수 증가
 		service.qhitsUp(seq);
