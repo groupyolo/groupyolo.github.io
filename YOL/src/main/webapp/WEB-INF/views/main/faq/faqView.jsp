@@ -134,7 +134,7 @@
 		
 			<c:forEach items="${faqList }" var="dto">
 			<c:if test="${dto.FAQCategoryseq==cDTO.FAQCategoryseq && dto.openseq==1 }">
-			<tr class="faqTitle">
+			<tr class="faqTitle" check="true">
 				<td>
 					Q. ${dto.title }			
 				</td>
@@ -155,16 +155,16 @@
 	
 		
 	<script>
-	var check=true;
+	
 	$(".faqContent").hide();
 	
 	$(".faqTitle").click(function(){
-		if(check){
+		if($(this).attr("check")=="true"){
 			$(this).next().show();
-			check=!check;
+			$(this).attr("check","false");
 		}else{
 			$(this).next().hide();
-			check=!check;
+			$(this).attr("check","true");
 		}
 		
 	});

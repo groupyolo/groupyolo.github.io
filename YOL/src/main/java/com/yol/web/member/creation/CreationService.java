@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.yol.web.DTO.MemberDTO;
 import com.yol.web.DTO.VCreationDTO;
 
 @Service
@@ -32,4 +33,11 @@ public class CreationService implements ICreationService{
 		List<VCreationDTO> list = dao.list(dto, mSeq);		
 		return list;
 	}
+	
+	@Override
+	public int editProfile(MemberDTO dto) {
+		return 0;
+	}
+	
+	
 }

@@ -10,7 +10,7 @@
 		<div class="vcard">
 			<span>${loginDTO.mNickName }</span>
 		</div>
-		<input type="button" value="Edit profile" />
+		<input type="button" value="Edit profile" / onclick="location.href='${pageContext.request.contextPath }/main/editProfile.action';">
 		<div id="jdate">
 			<span>가입일 : ${loginDTO.mDate.substring(0,10)}</span>		
 		</div>

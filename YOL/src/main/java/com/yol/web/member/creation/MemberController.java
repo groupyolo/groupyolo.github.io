@@ -94,7 +94,7 @@ public class MemberController {
 	//회원페이지
 	//나의정보
 	@RequestMapping(method = { RequestMethod.GET }, value = "/member/myinfo.action")
-	public String myinfo(HttpServletRequest req) {
+	public String myinfo(HttpServletRequest req,HttpSession session) {
 
 		return "member.memberpage.myinfo";
 	}
@@ -122,6 +122,25 @@ public class MemberController {
 
 		return "member.community.boardlist";
 	}
+
+	@RequestMapping(method = { RequestMethod.GET }, value = "/member/editProfile.action")
+	public String editProfile(HttpServletRequest req) {
+		
+		return "member.memberpage.editProfile";
+	}
+	
+	@RequestMapping(method = { RequestMethod.POST }, value = "/member/editProfileok.action")
+	public String editProfileok(HttpServletRequest req,HttpSession session) {
+		
+		MemberDTO dto = (MemberDTO)session.getAttribute("loginDTO");
+		int result = ics.editProfile(dto);
+		req.setAttribute("result", result);
+		
+		return "member.memberpage.editProfileok";
+	}
+	
+	
+	
 
 
 }
