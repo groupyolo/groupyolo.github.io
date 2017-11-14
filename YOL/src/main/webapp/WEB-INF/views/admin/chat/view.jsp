@@ -1,14 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.12.4.js"></script>
 <style>
 
 	body {
 		font-size: 10pt;
 	}
 
+	#top {
+		height: 50px;
+		margin: 0px auto;
+	}
+
 	#chatBox {
+		padding-top: 100px;
 		overflow:auto;
 		overflow-x: hidden;
 		margin: 0px auto;
@@ -23,7 +28,6 @@
 		margin: 30px;
 		padding-top:30px;
 		margin: 0px auto;
-	
 	}
 	
 	#tblList tr  { padding: 10px; display: inline-block; }
@@ -35,7 +39,7 @@
 	#tblList #member td:nth-child(3) { width: 200px; margin-left: 30px; float: left; font-size: 10pt; }
 	
 	#tblList #admin { float: right; background-color: yellow; border-radius: 50px; margin: 20px; }
-	#tblList #admin td:nth-child(1) { width: 400px; }
+	#tblList #admin td:nth-child(1) { width: 400px; padding-left: 20px; padding-top: 10px; }
 	#tblList #admin td:nth-child(2) { width: 200px; float: right; font-size: 10pt;}
 	
 	#com {
@@ -55,8 +59,14 @@
 		height: 35px;
 	}
 	
-	#btns { width:700px; text-align:right; margin-bottom: 30px; margin-top: 20px; }
-
+	#btns { 
+		width:700px; 
+		text-align:right; 
+		padding-bottom: 30px; 
+		padding-top: 20px; 
+		margin: 0px auto;
+	}
+	
 </style>
 <script>
 
@@ -122,6 +132,9 @@
 </script>
 	
 	<!-- Chat View 주업무  -->
+	<div id="top">
+	
+	</div>
 	
 	<div id="chatBox">
 		<table id="tblList">
@@ -133,7 +146,7 @@
 				</c:if>
 				<c:if test="${dto.cwseq == 2 }">
 					<tr id="member">
-						<td>${dto.mnickName}</td>
+						<td>${dto.mnickname}</td>
 				</c:if>
 						<td>${dto.ccontent}</td>
 						<td>${dto.cdate}</td>

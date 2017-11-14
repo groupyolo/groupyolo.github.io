@@ -6,6 +6,8 @@ ${loginDTO.mSeq }
 ${loginDTO.mEmail }
 
  <!--  <a href="/web/member/test.action">사이트 목록보기</a> --> 
-  	<script>
+   	<script>
 		location.href="${pageContext.request.contextPath }/member/myinfo.action";
-	</script>  
+	</script>   
+	
+	
