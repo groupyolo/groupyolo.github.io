@@ -1,11 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
+
 <style>
 	#noticeboard {
 	border: 1px solid blue;
@@ -23,8 +19,7 @@
 	
 	
 </style>
-</head>
-<body>	
+
 오징?어튀김
 
 	<h1 align="center">공지사항 게시판</h1>
@@ -41,6 +36,7 @@
 			</thead>
 			
 			<tdoby>
+
 			<c:forEach items="${list}" var="dto">
 			<tr>
 				<td>${dto.noticeboardseq}</td>
@@ -57,5 +53,3 @@
 		</div>
 	</div>
 	
-</body>
-</html>

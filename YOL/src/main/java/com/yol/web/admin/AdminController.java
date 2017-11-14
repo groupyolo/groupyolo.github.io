@@ -26,7 +26,7 @@ public class AdminController {
 		
 		req.setAttribute("list", list);
 		
-		return "admin/noticeBoard";
+		return "admin.noticeboard.noticeBoard";
 	}//noticeBoard
 	
 	@RequestMapping(method={RequestMethod.GET}, value="/admin/noticeBoardView.action")
@@ -36,13 +36,13 @@ public class AdminController {
 		
 		req.setAttribute("vlist", vlist);
 		
-		return "admin/noticeBoardView";
+		return "admin.noticeboard.noticeBoardView";
 	}//noticeBoardView
 	
 	@RequestMapping(method={RequestMethod.GET}, value="/admin/noticeBoardadd.action")
 	public String noticeBoardadd(HttpServletRequest req) {
 		
-		return "admin/noticeBoardadd";
+		return "admin.noticeboard.noticeBoardadd";
 		
 	}//noticeBoardViewadd
 	
@@ -51,7 +51,7 @@ public class AdminController {
 		
 		int result = service.add(dto);
 		
-		return "admin/noticeBoardaddOk";
+		return "admin.noticeboard.noticeBoardaddOk";
 	}//noticeBoardViewaddOk
 	
 	@RequestMapping(method={RequestMethod.GET}, value="/admin/noticeBoardDel.action")
@@ -61,7 +61,7 @@ public class AdminController {
 		
 		req.setAttribute("result", result);
 		
-		return "admin/noticeBoardDel";
+		return "admin.noticeboard.noticeBoardDel";
 		
 	}//noticeBoardViewDel
 	
@@ -72,7 +72,7 @@ public class AdminController {
 		
 		req.setAttribute("ilist", ilist);
 		
-		return "admin/inquiry";
+		return "admin.inquiry.inquiry";
 	}//notice
 	
 	@RequestMapping(method={RequestMethod.GET}, value="/admin/inquiryView.action")
@@ -82,13 +82,13 @@ public class AdminController {
 		
 		req.setAttribute("ivlist", ivlist);
 		
-		return "admin/inquiryView";
+		return "admin.inquiry.inquiryView";
 	}//noticeBoardView
 	
 	@RequestMapping(method={RequestMethod.GET}, value="/admin/inquiryadd.action")
 	public String inquiryadd(HttpServletRequest req) {
 		
-		return "admin/inquiryadd";
+		return "admin.inquiry.inquiryadd";
 		
 	}//noticeBoardViewadd
 	
@@ -97,7 +97,7 @@ public class AdminController {
 		
 		int result = service.iadd(dto);
 		
-		return "admin/inquiryaddOk";
+		return "admin.inquiry.inquiryaddOk";
 	}//inquiryaddOk
 	
 	@RequestMapping(method={RequestMethod.GET}, value="/admin/inquiryDel.action")
@@ -107,7 +107,7 @@ public class AdminController {
 		
 		req.setAttribute("result", result);
 		
-		return "admin/inquiryDel";
+		return "admin.inquiry.inquiryDel";
 		
 	}//noticeBoardViewDel
 	
@@ -119,7 +119,7 @@ public class AdminController {
 		
 		req.setAttribute("ivlist", ivlist);
 				
-		return "admin/inquiryEdit";
+		return "admin.inquiry.inquiryEdit";
 		
 	}//noticeBoardViewDel
 	
@@ -128,7 +128,7 @@ public class AdminController {
 		
 		int result = service.iedit(dto);
 		
-		return "admin/inquiryEditOk";
+		return "admin.inquiry.inquiryEditOk";
 	}//inquiryaddOk
 	
 	@RequestMapping(method={RequestMethod.GET}, value="/admin/inquiryBoard.action")
@@ -142,13 +142,15 @@ public class AdminController {
 		
 		req.setAttribute("iblist", iblist);
 		
-		return "admin/inquiryView";
+		return "admin.inquiry.inquiryView";
 	}//noticeBoardView
 	
 	@RequestMapping(method={RequestMethod.GET}, value="/admin/reply.action")
 	public String reply(HttpServletRequest req) {
 		
-		return "adim/reply";
+		
+		
+		return "adim.inquiry.inquiryView";
 	}
 
 	

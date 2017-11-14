@@ -39,7 +39,7 @@
 </head>
 <body>
 
-	<h1>공지사항 게시판</h1>
+	<h1>문의 게시판</h1>
 	
 	
 	<c:forEach items="${ivlist}" var="ivdto">
@@ -72,10 +72,11 @@
 		</c:forEach>
 		
 		
-	<table id="inquiryBoard">
+	<table id="inquiryreply">
 		<tr>
 		<td>내용</td>
 		<td>후리밥</td>
+		<input type="button" value="등록">
 		</tr>
 	</table>
 	
