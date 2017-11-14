@@ -53,14 +53,17 @@
 	</div>
 	
 	<div id="btncreate">
-	<a data-toggle="modal" class="btn btn-danger" href="layer.html" data-target="#myModal">추가하기</a>
+	<a data-toggle="modal" class="btn btn-danger"  data-target="#myModal">추가하기</a>
  	</div>
  	
 	<!-- Modal -->
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	    <div class="modal-dialog">
 	        <div class="modal-content">
+	        	
+	        	
          		<form method="POST" action="/web/member/creationok.action">
+	        	
 	            <div class="modal-body">
 	            
 	            <div id="tabs">

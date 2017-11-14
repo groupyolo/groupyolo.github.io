@@ -62,6 +62,15 @@ public class MemberController {
 		return "member.creation.projectadd";
 	}
 	
+	@RequestMapping(method = { RequestMethod.GET }, value = "/member/createpok.action")
+	public String createp(HttpServletRequest req, VCreationDTO dto) {
+
+		int result = ics.creation(dto);
+		req.setAttribute("result", result);
+		
+		return "member.creation.creatpok";
+	}
+	
 	@RequestMapping(method = { RequestMethod.POST }, value = "/member/creationok.action")
 	public String creationok(HttpServletRequest req, VCreationDTO dto) {
 
@@ -123,6 +132,7 @@ public class MemberController {
 		return "member.community.boardlist";
 	}
 
+	
 
 }
 

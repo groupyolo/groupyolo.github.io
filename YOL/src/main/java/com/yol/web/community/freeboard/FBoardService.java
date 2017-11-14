@@ -25,6 +25,7 @@ public class FBoardService implements IFBoardService{
 	@Override
 	public List<VFBoardDTO> list(VFBoardDTO dto) {
 		List<VFBoardDTO> list=dao.list(dto);
+		
 		return list;
 	}
 	
