@@ -60,10 +60,16 @@
 		$.ajax({
 			type:"get",
 			url:"${pageContext.request.contextPath}/member/approveMember.action",
-			data:"mSeq="+mSeq,
+			data:"mSeq="+mSeq+"&reSeq="+reSeq,
 			dataType:"json",
 			success:function(data) {
-				
+				console.log(data);
+				var mCount = "#mCount" + reSeq;
+				if(data == 1) {
+				var temp = parseInt($(mCount).text()) + 1;
+					$(mCount).text(temp);					
+					showMember(reSeq);
+				}
 			},
 			error:function() {
 				alert("실패");
@@ -71,7 +77,7 @@
 		})
 	}
 	
-	function reject(mSeq, reSeq) {
+	function reject(mSeq, reSeq) { //완료
 		$.ajax({
 			type:"get",
 			url:"${pageContext.request.contextPath}/member/rejectMember.action",
@@ -80,9 +86,9 @@
 			success:function(data) {
 				//리젝 시키고
 				//성공하면 결과 변경	
-				console.log(data);
-				if(data.result == "1") {
-					console.log("성공");
+				//console.log(data);
+				if(data == 1) {
+					//console.log("성공");
 					showMember(reSeq);
 				}
 			},
@@ -171,15 +177,14 @@
 					<td>${tdto.reSeq}</td>
 					<td>${tdto.jSubject}</td>
 					<td>${tdto.jStart}~${tdto.jEnd}</td>
-					<td><span id="mCount">${tdto.mCount}</span>/<span id="jCount">${tdto.jCount}</span></td>
+					<td><span id="mCount${tdto.reSeq}">${tdto.mCount}</span>/<span id="jCount">${tdto.jCount}</span></td>
 					<td><input type="button" id="btnProject" value="생성" onclick="modal(${tdto.prSeq});"/></td>
 					<c:if test="${tdto.pCount==1}">
 					<script>
 						$("#btnProject").val("이동");
-						$("#btnProject").attr("onclick","location.href='${pageContext.request.contextPath}/member/view.action?prSeq=${tdto.prSeq}';");
+						$("#btnProject").attr("onclick","location.href='${pageContext.request.contextPath}/member/manage.action?prSeq=${tdto.prSeq}';");
 					</script>
-					</c:if>
-					
+					</c:if>					
 				</tr>
 				</c:forEach>
 			</c:if>

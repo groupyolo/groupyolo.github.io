@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- MyBatis 사용 시 SQL을 관리하는 파일 -->
+<!-- 매퍼 파일안에 있는 쿼리들은 물리적인 파일에 의해서 관리가 되는 것이 아니라 namespace 속성에 의해서 관리된다. -->
+<mapper namespace="chat">
+
+		<select id="list" resultType="com.yol.web.DTO.ChatDTO">
+			select * from chatview 
+				where cwseq = 2 
+					order by cdate desc
+		</select>
+		
+		<select id="view" resultType="com.yol.web.DTO.ChatDTO" parameterType="String">
+			select * from chatView where mseq = #{mseq} order by cdate
+		</select>
+	
+		<insert id="addChat" parameterType="java.util.HashMap">
+			insert into chat (cseq, mseq, cwseq, ccontent) 
+				VALUES (chat_seq.nextval, #{mseq}, 1, #{ccontent})
+		</insert>
+	
+		<update id="creadUp" parameterType="String">
+			update chat set cread = 1
+				where mseq = #{mseq}
+		</update>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    

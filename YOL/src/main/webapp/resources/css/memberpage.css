@@ -1,36 +1,59 @@
+@import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
+
+html, body { 
+	width:100%; 
+	height:100%; 
+	margin:0 auto;
+	font-family: "Nanum Gothic", sans-serif;
+       -webkit-font-smoothing: antialiased;
+       -moz-osx-font-smoothing: grayscale;
+       
+}
+
+
 html{
+
 	width:100%;height:100%;
 	min-width:1070px;
 }
+
+
+
 body{
 	width:100%;height:100%;
 	margin:0px;
-	
+	background-color : #FBFBFB;
 }
 
+ a:link {color: #626262; text-decoration: none;}
+ a:visited {color: #626262; text-decoration: none;}
+ a:hover {text-decoration: none;}
+
+
 #menutop{
-	width:100%; height:60px;
-	background-color: #3C4451;
+	width:100%; height:50px;
+	background-color: white;
 	display:inline-block;
+	border:1px soild lightgrey;
 }	
 
 #topbar{
-	width:80%; height:60px;
+	width:1200px; height:50px;
 	margin: 0px auto;
 	/* background-color: black; */
 }
 
 .logo{
-	
-	margin-right: 5%;
+
 	display:inline-block;
-	width:80px;
-	font-size: 2em;
+	width:50px;
+	font-size: 1.5em;
 	color: white;
 	
 }
 #topbar {
-	
+	width:60%;
+	margin: 0px auto;
 }		
 .topmenutext{
 	width: 70%;
@@ -39,24 +62,78 @@ body{
 }
 .topmenutext div{
 	display:inline-block;
-	color: white;
+	color: #626262;
 	font-weight: bold;
-	font-size: 1.2em;
+	font-size: 1em;
 	margin-right: 8%; 
 	
 }
-.topmenutext:hover{
+
+.topmenutext a{
+	color:#626262;\	
+}
+
+.topmenutext a:hover{
+	text-decoration:none;
 	cursor: pointer;
+	color:black;
+	text-shadow: 0.1px 0.1px FloralWhite;
 }
 
 .smallmenu{
+	margin-top: 15px;
+	float: right;
 	display:inline-block;
-	color: white;
+	color: #626262;
+}
+
+.smallmenu i:hover{
+	cursor: pointer;
+
+}
+
+.smallmenu span:hover{
+	cursor: pointer;
+	
+}
+
+.smallmenu ul{
+background: white;
+display:none;  /* 평상시에는 서브메뉴가 안보이게 하기 */
+height:auto;
+list-style:none;
+padding:0px;
+margin:0px;
+border:1px solid lightgrey;
+position:absolute;
+width:100px;
+z-index:200;
+
+}
+
+.smallmenu ul li{
+	color: #626262;
+	padding: 5px;
+	font-size: 1em;
+	
+}
+
+.smallmenu ul li:hover{
+	color:black;
+	background-color: #FBFBFB;
 }
 
 
+/* .smallmenu div:hover ul {
+display:block;   마우스 커서 올리면 서브메뉴 보이게 하기
+}
+ */
+
+
+
 #core{
-	width: 1000px; height: 100%;
+	width: 1000px;
+	min-height: 1200px;
 	margin:0px auto;
 	border: 1px dashed grey;
 }
@@ -67,9 +144,10 @@ body{
 	border: 10px solid cornflowerblue;
 	padding: 10px;
 	min-height: 400px;
-		
 }
 
+
+/* creation */
 
 #cprojectstep2{
 	width:400px; height:400px;
@@ -143,3 +221,149 @@ body{
 	width:98%; height:25px;
 	
 }
+
+
+/* mypage */
+
+#myinfo{
+	width: 100%; 
+	height: 100%;
+	margin: 0px auto;	
+	border: 1px dashed red;
+	padding: 20px;
+	
+}
+
+#profile{
+	display: inline-block;
+	width:25%;
+}
+
+#profilepic{
+	border-radius: 7px;
+	width: 200px; height:200px;
+	margin-bottom: 20px;
+}
+
+.vcard{
+	width: 150px;
+	margin-bottom: 10px;
+}
+
+.vcard span{
+	font-size: 1.4em;
+	color: #999;
+}
+
+#prodetails{
+	float:right;
+	display: inline-block;
+	width:75%;	
+	border: 1px dashed blue;
+}
+
+#jdate{
+	margin-top: 15px;
+	width: 150px; height: 50px;
+	border-top: 1px solid lightgrey;
+	border-bottom: 1px solid lightgrey;
+}
+
+#jdate span{
+	display: inline-block;
+    vertical-align: middle;
+}
+
+#prodetails div{
+	width:100%;
+	height:200px;
+	border: 1px dashed grey;
+	margin-bottom:10px;
+
+}
+
+#sitelist, #grouplist, #otherswork{
+	padding: 30px;
+	
+}
+
+
+#sitelist table, #grouplist table{
+	width: 900px;
+	margin:0px auto;
+	text-align: left;
+}
+
+#sitelist table tr th:nth-child(1){
+	width: 20%;
+}
+#sitelist table tr th:nth-child(2){
+	width: 35%;
+}
+#sitelist table tr th:nth-child(3){
+	width: 35%;
+}
+#sitelist table tr th:nth-child(4){
+	width: 10%;
+}
+
+
+
+#grouplist table tr th:nth-child(1){
+	width: 20%;
+}
+#grouplist table tr th:nth-child(2){
+	width: 35%;
+}
+#grouplist table tr th:nth-child(3){
+	width: 35%;
+}
+#grouplist table tr th:nth-child(4){
+	width: 10%;
+}
+
+#btncreate{
+	width:90%;
+	margin:0px auto;
+	text-align: right;
+	
+}
+
+#btncreate a{
+	font-weight:bold;
+	color:white;
+}
+
+
+#otherswork{
+	width:100%;
+	
+}
+#worklist{
+	width:720px;
+	margin:0px auto;
+	margin-top: 40px;
+}
+
+.othersp{
+	width:200px;
+	height: 200px;
+	display:inline-block;
+	border: 1px dashed red;
+	margin-right:30px;
+	margin-bottom:20px;
+	border-radius: 10px;
+	background-color: lightgrey;
+	
+}
+
+.rdsp{
+	border:1px soild black;
+	margin-right:0px;	
+}
+
+.othersp:hover{
+	cursor: pointer;
+	
+}
+

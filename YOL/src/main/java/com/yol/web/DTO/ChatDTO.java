@@ -1,75 +1,74 @@
 package com.yol.web.DTO;
 
 public class ChatDTO {
-
-	private String cSeq;
-	private String mSeq;
-	private String cwSeq;
-	private String cContent;
-	private String cDate;
-	private String cRead;
-
-	public String getcSeq() {
-		return cSeq;
+	
+	private String cseq;
+	private String mseq;
+	private String mnickName;
+	private String cwseq;
+	private String cwwriter;
+	private String ccontent;
+	private String cdate;
+	private String cread;
+	
+	
+	
+	public String getCseq() {
+		return cseq;
 	}
-
-	public void setcSeq(String cSeq) {
-		this.cSeq = cSeq;
+	public void setCseq(String cseq) {
+		this.cseq = cseq;
 	}
-
-	public String getmSeq() {
-		return mSeq;
+	public String getMnickName() {
+		return mnickName;
 	}
-
-	public void setmSeq(String mSeq) {
-		this.mSeq = mSeq;
+	public void setMnickName(String mnickName) {
+		this.mnickName = mnickName;
 	}
-
-	public String getCwSeq() {
-		return cwSeq;
+	public String getCwwriter() {
+		return cwwriter;
 	}
-
-	public void setCwSeq(String cwSeq) {
-		this.cwSeq = cwSeq;
+	public void setCwwriter(String cwwriter) {
+		this.cwwriter = cwwriter;
 	}
-
-	public String getcContent() {
-		return cContent;
+	public String getSeq() {
+		return cseq;
 	}
-
-	public void setcContent(String cContent) {
-		this.cContent = cContent;
+	public void setSeq(String cseq) {
+		this.cseq = cseq;
 	}
-
-	public String getcDate() {
-		return cDate;
+	public String getMseq() {
+		return mseq;
 	}
-
-	public void setcDate(String cDate) {
-		this.cDate = cDate;
+	public void setMseq(String mseq) {
+		this.mseq = mseq;
 	}
-
-	public String getcRead() {
-		return cRead;
+	public String getCwseq() {
+		return cwseq;
 	}
-
-	public void setcRead(String cRead) {
-		this.cRead = cRead;
+	public void setCwseq(String cwseq) {
+		this.cwseq = cwseq;
 	}
-
-	// 디버깅용 toString()
-	@Override
-	public String toString() {
-		String temp = "";
-		temp += "\r\n\r\n";
-		temp += String.format("cSeq : %s\r\n", cSeq);
-		temp += String.format("mSeq : %s\r\n", mSeq);
-		temp += String.format("cwSeq : %s\r\n", cwSeq);
-		temp += String.format("cContent : %s\r\n", cContent);
-		temp += String.format("cDate : %s\r\n", cDate);
-		temp += String.format("cRead : %s\r\n", cRead);
-		temp += "\r\n\r\n";
-		return temp;
+	public String getCcontent() {
+		return ccontent;
 	}
-
+	public void setCcontent(String ccontent) {
+		this.ccontent = ccontent;
+	}
+	public String getCdate() {
+		return cdate;
+	}
+	public void setCdate(String cdate) {
+		this.cdate = cdate;
+	}
+	public String getCread() {
+		return cread;
+	}
+	public void setCread(String cread) {
+		this.cread = cread;
+	}
+	
+	
+	
+	
 }

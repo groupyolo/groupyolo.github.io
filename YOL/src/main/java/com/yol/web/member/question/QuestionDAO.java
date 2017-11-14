@@ -22,9 +22,9 @@ public class QuestionDAO {
 		return sql.insert("question.add",dto);
 	}
 
-	public List<QuestionDTO> list() {
+	public List<QuestionDTO> list(HashMap<String,String> map) {
 
-		return sql.selectList("question.list");
+		return sql.selectList("question.list",map);
 	}
 
 	public List<QcategoryDTO> getCategory() {
@@ -57,9 +57,9 @@ public class QuestionDAO {
 		return sql.selectList("question.getComment",seq);
 	}
 
-	public int delComment(String seq) {
+	public int delComment(HashMap<String,String> map) {
 
-		return sql.delete("question.delComment",seq);
+		return sql.delete("question.delComment",map);
 	}
 
 	public int commentUp(String seq) {
@@ -75,6 +75,21 @@ public class QuestionDAO {
 	public List<QuestionDTO> search(HashMap<String, String> map) {
 
 		return sql.selectList("question.search",map);
+	}
+
+	public int qhitsUp(String seq) {
+
+		return sql.update("question.qhitsUp",seq);
+	}
+
+	public int delCom(String seq) {
+
+		return sql.delete("question.delCom",seq);
+	}
+
+	public int getTotalCount() {
+
+		return sql.selectOne("question.getTotalCount");
 	}
 
 	
