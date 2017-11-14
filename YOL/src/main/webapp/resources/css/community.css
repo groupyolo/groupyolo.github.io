@@ -16,3 +16,25 @@
 	min-height: 500px;
 	border: 1px dashed red;
 }
+
+#tblfreeboard tr th{
+	text-align: center;	
+}
+#tblfreeboard tr td{
+	text-align: center;	
+}
+#tblfreeboard tr td:nth-child(2){
+	text-align: left;
+}
+#tblfreeboard tr th:nth-child(1){
+	width: 50px;	
+}
+#tblfreeboard tr th:nth-child(2){
+	width: 300px;	
+}
+#tblfreeboard tr th:nth-child(3){
+	width: 100px;	
+}
+#tblfreeboard tr th:nth-child(4){
+	width: 100px;	
+}

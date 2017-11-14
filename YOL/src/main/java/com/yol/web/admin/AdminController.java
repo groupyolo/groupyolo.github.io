@@ -36,6 +36,8 @@ public class AdminController {
 		
 		req.setAttribute("vlist", vlist);
 		
+		
+		
 		return "admin.noticeboard.noticeBoardView";
 	}//noticeBoardView
 	
@@ -56,7 +58,7 @@ public class AdminController {
 	
 	@RequestMapping(method={RequestMethod.GET}, value="/admin/noticeBoardDel.action")
 	public String noticeBoardDel(HttpServletRequest req, String noticeboardseq) {
-		System.out.println(noticeboardseq);
+
 		int result = service.del(noticeboardseq);
 		
 		req.setAttribute("result", result);
@@ -76,11 +78,15 @@ public class AdminController {
 	}//notice
 	
 	@RequestMapping(method={RequestMethod.GET}, value="/admin/inquiryView.action")
-	public String inquiryView(HttpServletRequest req,String inquiryseq) {
+	public String inquiryView(HttpServletRequest req,String inquiryseq, String hits) {
 
 		List<InquiryDTO> ivlist = service.ivlist(inquiryseq);
 		
 		req.setAttribute("ivlist", ivlist);
+		
+		List<InquiryboardDTO> iblist = service.iblist(inquiryseq);
+		
+		req.setAttribute("iblist", iblist);
 		
 		return "admin.inquiry.inquiryView";
 	}//noticeBoardView
@@ -131,31 +137,36 @@ public class AdminController {
 		return "admin.inquiry.inquiryEditOk";
 	}//inquiryaddOk
 	
-	@RequestMapping(method={RequestMethod.GET}, value="/admin/inquiryBoard.action")
-	public String inquiryBoard(HttpServletRequest req,String inquiryseq) {
-
-		List<InquiryDTO> ivlist = service.ivlist(inquiryseq);
+	@RequestMapping(method={RequestMethod.GET}, value="/admin/inquiryBoardadd.action")
+	public String inquiryBoard(HttpServletRequest req) {
 		
-		req.setAttribute("ivlist", ivlist);
-		
-		List<InquiryboardDTO> iblist = service.iblist();
-		
-		req.setAttribute("iblist", iblist);
-		
+				
 		return "admin.inquiry.inquiryView";
-	}//noticeBoardView
+		
+	}//inquiryBoardadd
 	
-	@RequestMapping(method={RequestMethod.GET}, value="/admin/reply.action")
-	public String reply(HttpServletRequest req) {
+	@RequestMapping(method={RequestMethod.POST}, value="/admin/inquiryBoardOk.action")
+	public String inquiryBoardOk(HttpServletRequest req,InquiryboardDTO dto,String inquiryseq) {
 		
-		
-		
-		return "adim.inquiry.inquiryView";
-	}
+		int result = service.readd(dto);
 
+		int result1 = service.readd1(inquiryseq);
+		
+		return "admin.inquiry.inquiryBoardOk";
+	}//inquiryBoardOk
 	
+	@RequestMapping(method={RequestMethod.GET}, value="/admin/inquiryBoardDel.action")
+	public String inquiryBoardDel(HttpServletRequest req, String inquiryboardseq) {
+		
+		int result = service.redel(inquiryboardseq);
+		
+		req.setAttribute("result", result);
+		
+		return "admin.inquiry.inquiryBoardDel";
+		
+	}//noticeBoardViewDel
 	
-	
+
 	
 }//public
 

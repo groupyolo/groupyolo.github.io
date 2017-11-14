@@ -12,8 +12,12 @@
 		padding-top: 30px;
 	}
 	
-	#box * {
+	 #box * {
 		margin: 0px auto;
+	} 
+	
+	#cbox {
+		margin-left: 100px;
 	}
 	
 	#tblList { border: 1px solid gray; border-collapse:collapse; width:800px;}
@@ -37,6 +41,18 @@
 	#tblCList td:nth-child(1) { width: 100px; }
 	#tblCList td:nth-child(2) { width: 600px; }
 	#tblCList td:nth-child(3) { width: 100px; }
+	
+	#all {
+		background-color: cornflowerblue;
+		color: white;
+	}
+
+	blockquote footer {
+		color: white;
+	}
+	#topBox {		
+		padding: 40px;
+	}
 	
 </style>
 <script>
@@ -148,7 +164,19 @@
 
 </script>
 
+
 	<!-- view 주업무 -->
+	
+	<div id="all">
+		<div id="topBox">
+			<blockquote>
+			<h2>질문 게시판</h2>
+			<footer>서로 소통하고 질문하는 커뮤니티 공간입니다.</footer>
+			
+			</blockquote>
+		</div>
+	</div>
+	
 	<div id="box">
 		<table id="tblList">
 			<tr>
@@ -186,12 +214,13 @@
 			<input type="button"  value="돌아가기" onclick="location.href='${pageContext.request.contextPath}/question/list.action'">
 		</div>
 		
-		<h4 style="font-variant: small-caps;">Comments Write</h4>
-		<hr style="margin: 10px 0px;">
+	</div>
 			
 			
 		<!-- 댓글 쓰기 -->	
 		<div id="cbox" >
+		<h4 style="font-variant: small-caps;">Comments Write</h4>
+		<hr style="margin: 10px 0px;">
 			<table id="tblComment">
 				<tr>
 					<td>
@@ -208,9 +237,9 @@
 		
 		<!-- 읽기 -->
 			
+		<div id="cbox">
 		<h4 style="font-variant: small-caps;">Comments</h4>
 		<hr style="margin: 10px 0px;">
-		<div id="cbox">
 			<table id="tblCList">
 				<tbody>
 				<c:forEach items="${clist}" var="com">
@@ -230,4 +259,3 @@
 				</tbody>
 			</table>
 		</div>		
-	</div>
