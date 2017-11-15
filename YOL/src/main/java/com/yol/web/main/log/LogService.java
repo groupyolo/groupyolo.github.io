@@ -102,7 +102,7 @@ public class LogService implements ILogService{
 	        	sendMail.setSubject("[비밀번호 변경]");
 				sendMail.setText(new StringBuffer().append("<h1>비밀번호 변경</h1>")
 				        //.append("<a href='http://211.63.89.36:8080/web/emailConfirm?key=")
-						.append("<a href='http://localhost:8081/web/main/findPasswordChange.action?mEmail=")
+						.append("<a href='http://localhost:8081/web/main/findpasswordchange.action?mEmail=")
 						.append(mEmail)
 				        .append("' target='_blank'>비밀번호 재설정</a>")
 				        .toString());
@@ -123,8 +123,12 @@ public class LogService implements ILogService{
 	}
 	
 	@Override
-	public int editProfile(MemberDTO dto) {
-		return dao.editProfile(dto);
+	public MemberDTO editProfile(MemberDTO ldto) {
+		MemberDTO dto=null;
+		if (dao.editProfile(ldto)==1) {
+			dto = dao.getNewSession(ldto);
+		}
+		return dto;
 	}
 	
 	

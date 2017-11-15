@@ -26,6 +26,6 @@ public interface ILogService {
 
 	public int findPasswordChange(MemberDTO dto);
 
-	public int editProfile(MemberDTO dto);
+	public MemberDTO editProfile(MemberDTO dto);
 
 }

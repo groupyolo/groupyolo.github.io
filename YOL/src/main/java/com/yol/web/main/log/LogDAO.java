@@ -87,5 +87,9 @@ public class LogDAO {
 	public int editProfile(MemberDTO dto) {
 		return sql.update("log.editProfile",dto);
 	}
+
+	public MemberDTO getNewSession(MemberDTO ldto) {
+		return sql.selectOne("log.getNewSession", ldto);
+	}
 	
 }

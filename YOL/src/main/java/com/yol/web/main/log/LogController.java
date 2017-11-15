@@ -80,10 +80,14 @@ public class LogController {
 	  }
 	  
 	  @RequestMapping(method= {RequestMethod.POST},value="/member/editprofileok.action" )
-	  public String editProfileok(HttpServletRequest req,MemberDTO dto) {
-		 int result = service.editProfile(dto);
-		 req.setAttribute("result", result);
-		 return "member.memberpage.editprofileok";
+	  public String editProfileok(HttpServletRequest req,MemberDTO ldto,HttpSession session) {
+		 ldto.setmEmail(((MemberDTO)session.getAttribute("loginDTO")).getmEmail());
+		 ldto.setMgSeq(((MemberDTO)session.getAttribute("loginDTO")).getMgSeq());
+		 MemberDTO dto= service.editProfile(ldto);
+		
+		 session.setAttribute("loginDTO", dto);
+		 
+		 return "member.memberpage.myinfo";
 		  
 	  }
 	  
