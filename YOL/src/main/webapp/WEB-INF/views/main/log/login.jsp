@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <style>
 
 	#tbl tr td{
@@ -38,6 +39,12 @@
 </style>
 <meta name="google-signin-client_id" content="575739111112-ribfp6siku4gssct7oa4vshdgogrj0ac.apps.googleusercontent.com">
 <script src="https://apis.google.com/js/platform.js" async defer></script>
+	
+	<c:if test="${clear=='yes' }">
+	<div style="margin:30px auto; color:red; font-size:1.2em; width:800px; text-align:center;">
+		아이디가 없거나, 비밀번호가 틀리거나, 또는 인증되지 않은 이메일입니다. 
+	</div>
+	</c:if>
 	
 	<form method="post" action="${pageContext.request.contextPath }/main/apiloginok.action" id="apiLogin">
 	<input type="hidden" name="mEmail" id="apiMEmail" >

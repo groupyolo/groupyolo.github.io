@@ -504,9 +504,13 @@ ALTER TABLE lstate  drop column lCheckIP;
 select * from login;
 commit;
 
+select * from statemember;
 
-
-
+select mseq,max(smdate) from statemember
+    where msseq=2 
+    group by mseq 
+        
+        order by mseq asc;
 
 
 
