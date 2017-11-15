@@ -9,6 +9,10 @@
 		select * from Member where mEmail=#{mEmail} and mPassword=#{mPassword} and mgSeq=1
 	</select>
 
+	<select id="getNewSession" parameterType="com.yol.web.DTO.MemberDTO" resultType="com.yol.web.DTO.MemberDTO">
+		select * from Member where mEmail=#{mEmail} and mgSeq=#{mgSeq}
+	</select>
+
 	<select id="getId" parameterType="String" resultType="String">
 		select mSeq from Member where mEmail=#{mEmail}
 	</select>
@@ -47,7 +51,7 @@
 	</insert>
 
 	<insert id="editProfile" parameterType="com.yol.web.DTO.MemberDTO">
-		update set mNickName=#{mNickName}, mPassword=#{mPassword} where mgSeq=#mgSeq and mEmail=#{mEmail}
+		update Member set mNickName=#{mNickName}, mPassword=#{mPassword} where mgSeq=#{mgSeq} and mEmail=#{mEmail}
 	</insert>
 
 	<insert id="addStateMember" parameterType="com.yol.web.DTO.MemberDTO">
