@@ -98,8 +98,8 @@
 }
 
 #all {
-		background-color: cornflowerblue;
-		color: white;
+	background-color: cornflowerblue;
+	color: white;
 	}
 
 blockquote footer {
@@ -111,8 +111,8 @@ blockquote footer {
 }
 
 #box {
-		margin: 0px auto;
-		margin-top: 50px;
+	margin: 0px auto;
+	margin-top: 50px;
 }
 
 </style>

@@ -6,8 +6,16 @@
 <!-- 매퍼 파일안에 있는 쿼리들은 물리적인 파일에 의해서 관리가 되는 것이 아니라 namespace 속성에 의해서 관리된다. -->
 <mapper namespace="inquiry">
 
-	<select id="list" resultType="com.yol.web.DTO.InquiryDTO">
-		select * from inquiry order by inquiryseq desc
+	<select id="list" resultType="com.yol.web.DTO.InquiryDTO" parameterType="java.util.HashMap">
+		
+		select * from (select a.*, rownum rnum from 
+			(select * from inquiry order by inquiryseq desc) a) 
+				where rnum &gt;= #{start} and rnum &lt;= #{end}
+		
+	</select>
+	
+	<select id="getTotalCount" resultType="Integer">
+		select count(*) from inquiry
 	</select>
 	
 </mapper>
