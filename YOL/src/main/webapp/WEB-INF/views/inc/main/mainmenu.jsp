@@ -7,7 +7,7 @@
 	
 	<div id="menutop" >
 		<div id="topbar">
-			<div class="logo"><span style="color:red">Y</span><span>o</span><span style="letter-spacing:-2px; color:yellow">L!</span></div>
+			<div class="logo"><a href=""><img src="${pageContext.request.contextPath }/css/images/logoorange.png" alt=""  style="width:32px; height:32px;" /></a></div>
 			<div class="topmenutext">
 				<div onclick="location.href='/web/main/login.action';">회사소개</div>
 				<div onclick="location.href='/web/main/frontview.action';">기능소개</div>

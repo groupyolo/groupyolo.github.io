@@ -10,6 +10,9 @@ public interface IFBoardService {
 
 	List<VFBoardDTO> list(VFBoardDTO dto);
 
-	VFBoardDTO view(String fbSeq);	
+	VFBoardDTO view(String fbSeq);
+
+	List<VFBoardDTO> listshort(VFBoardDTO dto);
+	
 	
 }
