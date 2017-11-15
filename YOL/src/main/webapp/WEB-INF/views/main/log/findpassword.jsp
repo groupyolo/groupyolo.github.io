@@ -1,11 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<style>
+	#tbl{
+		width:800px;
+		margin:30px auto;
+	}
+	#status{
+		padding:10px;
+	}
+	
+</style>
+    <div style="text-align:center;">
+    <h2>비밀번호 찾기</h2>
+    </div>
+    <table id="tbl" >
+    <tr>
+    	<td>
+		    <input type="text" name="mEmail" id="mEmail" class="form-control" placeholder="이메일을 입력하시오.">
+    	</td>
+       	<td>
+		  	<input type="button" value="비번찾기" id="find"  class="btn btn-info">
+    	</td>
+    </tr>
+    <tr>
+    	<td colspan="2">
+		    <div id="status"></div>
+    	</td>
+    </tr>
     
-    <input type="text" name="mEmail" id="mEmail">
-  	<input type="button" value="비번찾기" id="find">
-    
-    <div id="status"></div>
+    </table>
     <script>
     	$("#find").click(function(){
 		    $.ajax({	

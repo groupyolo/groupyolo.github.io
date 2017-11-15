@@ -54,8 +54,9 @@ public class LogController {
 	  }
 
 	  @RequestMapping(method= {RequestMethod.GET},value="/main/login.action" )
-	  public String login(HttpServletRequest req) {
+	  public String login(HttpServletRequest req, String clear) {
 		  
+		  req.setAttribute("clear", clear);
 		  
 		  return "main.log.login";
 		  
@@ -70,7 +71,27 @@ public class LogController {
 		  return "main.log.loginok";
 		  
 	  }
-
+	  
+	  @RequestMapping(method= {RequestMethod.GET},value="/member/editprofile.action" )
+	  public String editProfile(HttpServletRequest req) {
+		  
+		  
+		  return "member.memberpage.editprofile";
+		  
+	  }
+	  
+	  @RequestMapping(method= {RequestMethod.POST},value="/member/editprofileok.action" )
+	  public String editProfileok(HttpServletRequest req,MemberDTO ldto,HttpSession session) {
+		 ldto.setmEmail(((MemberDTO)session.getAttribute("loginDTO")).getmEmail());
+		 ldto.setMgSeq(((MemberDTO)session.getAttribute("loginDTO")).getMgSeq());
+		 MemberDTO dto= service.editProfile(ldto);
+		
+		 session.setAttribute("loginDTO", dto);
+		 
+		 return "member.memberpage.myinfo";
+		  
+	  }
+	  
 	  @RequestMapping(method= {RequestMethod.GET},value="/main/memailcheck.action" )
 	  public String mEmailCheck(HttpServletRequest req,String mEmail) {
 		  int result = service.mEmailCheck(mEmail);
@@ -165,5 +186,16 @@ public class LogController {
 		  return "main.log.findpasswordchange";
 		  
 	  }
+
+	  @RequestMapping(method= {RequestMethod.GET},value="/main/test.action" )
+	  public String test(HttpServletRequest req) {
+		  
+		  return "main.log.test";
+		  
+	  }
+	  
+	  
+	  
+	  
 }
 	

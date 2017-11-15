@@ -37,7 +37,6 @@ body {
 }
 
 #tblList th:nth-child(2) {
-	color: black;
 	width: 450px;
 }
 

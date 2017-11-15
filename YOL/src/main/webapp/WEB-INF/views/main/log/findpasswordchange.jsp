@@ -13,7 +13,7 @@
 	#tbl tr:LAST-CHILD td{text-align: left; padding-left:230px;}
  	#send{ width:410px;}
 </style>
-    <form action="${pageContext.request.contextPath }/main/findPasswordok.action" method="post">
+    <form action="${pageContext.request.contextPath }/main/findpasswordok.action" method="post">
    <div id="#box">
    <table id="tbl" class="table">
    <tr>
@@ -60,7 +60,7 @@
    
     
     <script>
-	$("#mPassword").keyup(function(){
+	$("#mPassword").change(function(){
 		
 		var reg = /^(?=[^\d_].*?\d)\w(\w|[!@#$%]){7,12}$/;
 		
@@ -71,7 +71,7 @@
 			
 		}else if(!reg.test($("#mPassword").val())){
 			
-			$("#mPasswordResponse").html("<div style='color:red;'>적절하지 않은 비밀번호입니다.</div>")
+			$("#mPasswordResponse").html("<div style='color:red;'>8자 이상 12자 이하, 숫자 하나 이상 포함, 숫자로 시작X</div>")
 			mPasswordCheck=false;
 			
 		}else if(reg.test($("#mPassword").val())){
@@ -86,7 +86,7 @@
 		
 	});
 	
-	$("#reMPassword").keyup(function(){
+	$("#reMPassword").change(function(){
 		if($("#reMPassword").val().length==0){
 			$("#reMPasswordResponse").html("");
 			reMPasswordCheck=false;

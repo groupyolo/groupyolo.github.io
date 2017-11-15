@@ -15,4 +15,6 @@ public interface IChatService {
 
 	int creadUp(String mseq);
 
+	List<ChatDTO> chatView(String seq);
+
 }

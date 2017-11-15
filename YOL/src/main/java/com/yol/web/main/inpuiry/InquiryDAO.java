@@ -1,5 +1,6 @@
 package com.yol.web.main.inpuiry;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -14,9 +15,14 @@ public class InquiryDAO {
 	@Autowired
 	private SqlSessionTemplate sql;
 
-	public List<InquiryDTO> list() {
+	public List<InquiryDTO> list(HashMap<String, String> map) {
 
-		return sql.selectList("inquiry.list");
+		return sql.selectList("inquiry.list",map);
+	}
+
+	public int getTotalCount() {
+
+		return sql.selectOne("inquiry.getTotalCount");
 	}
 	
 }

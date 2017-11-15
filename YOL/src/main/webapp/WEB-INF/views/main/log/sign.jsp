@@ -336,10 +336,6 @@
 		}
 		
 	}
-	$("#mEmail").keyup(function(){
-		
-	});
-	
 	
 	$("#mEmail").change(function(){
 		
