@@ -10,12 +10,12 @@
 
 	#top {
 		width: 100%;
-		height: 500px;
+		height: 700px;
 	}
 
 	#topContent {
 		margin: 0px auto;
-		margin-top: 130px;
+		margin-top: 270px;
 		text-align: center;
 	}
 	

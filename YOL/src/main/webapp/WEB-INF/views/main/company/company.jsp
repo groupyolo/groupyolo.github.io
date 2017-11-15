@@ -11,12 +11,12 @@
 
 	#top {
 		width: 100%;
-		height: 500px;
+		height: 700px;
 	}
 
 	#topContent {
 		margin: 0px auto;
-		margin-top: 130px;
+		margin-top: 270px;
 		text-align: center;
 	}
 	
@@ -69,17 +69,20 @@
 	
 	.content #title {
 		margin-top: 100px;
-		margin-left: 200px;
+		margin-left: 250px;
+		font-size: 40pt;	
 		width: 350px;
 		float: left;
 		text-align: center;
 	}
 	
 	.content #sub {
-		width: 400px;
+		width: 600px;
 		margin-left: 220px;
 		margin-top: 80px;
 		display: inline-block;
+		float: right;
+		margin-right: 300px;
 	}
 	.content p {
 		display: inline-block;
@@ -87,16 +90,17 @@
 	
 	.content #sub2 {
 		margin-top: 100px;
-		margin-left: 200px;
-		width: 400px;
+		margin-left: 220px;
+		width: 600px;
 		display: inline-block;
 	}
 	
 	.content #title2 {
-		width: 300px;
-		margin-right: 250px;
+		width: 350px;
+		margin-right: 300px;
 		margin-top: 140px;
 		float: right;
+		text-align: center;
 	}
 
 	.slider{
@@ -120,7 +124,7 @@
 	}
 	
 	.content #title strong, .content #title2 strong {
-		font-size: 32pt;
+		font-size: 50pt;
 		color: cornflowerblue;
 	}
 	
@@ -219,15 +223,13 @@
 		<div class="overflow" id="overflow">
 			<div class="content">
 				<div id="title">
-					<h1>
 						직접 만드는 <br>
 						홈페이지는 <br>
 						<strong>' 무조건 '</strong> <br>
 						다릅니다 <br>
-					</h1>
 				</div>
 				<div id="sub">
-					<h4>
+					<h3>
 						<p>Yol(은)는 간편함과 기술력을 바탕으로 누구나 무료로 전문적이고 멋진
 						홈페이지를 제작할 수 있는 방법을 제시합니다. 창의성과 코딩의 한계를
 						뛰어넘어 자유롭게 스스로를 표현하고 온라인 비즈니스를 운영하세요.</p>
@@ -237,7 +239,7 @@
 						YoL.com 만의 독특한 온라인 생태계를 조성합니다. 개발사, 웹디자이너 등
 						다양한 YoL 생태계 구성원들 역시 YoL과의 파트너십을 통해
 						앱 및 서비스시장에 진출해 있습니다.</p>
-					</h4>
+					</h3>
 				</div>
 			</div>
 		</div>
@@ -252,20 +254,21 @@
 		<div class="overflow" id="overflow2">
 			<div class="content">
 				<div id="sub2">
-					<h4>
+					<h3>
 					<p>어린이부터 전문 웹디자이너까지, 홈페이지 제작 아이디어만 있다면준비 끝입니다.<br>
 					드로그-앤-드롭 방식의 간편한 HTML5 에디터로 언제든지 자기만의 개성 및 브랜드를 표현하세요.</p>
 					<p>YoL 디자이너팀이 제작한 최고 수준의 홈페이지 템플릿을 
 					비롯, 최상급 호스팅, 다양한 YoL 서비스 등 완벽한 홈페이지 구축을 위한 모든 것을 대부분 					무료로 제공합니다.
 					보다 앞서가는 서비스를 위해 일부 프리미엄 서비스는 유료로 제공되지만,
 					YoL의 궁극적인 목표는 모든 회원분들의 만족입니다. 홈페이지 제작, 이보다 쉬울 수 없습니다!</p>
-					</h4>
+					</h3>
 				</div>
 				<div id="title2">
 					<h1>
 						회원이 만족하는<br>
 						홈페이지를 위해<br>
-						<strong>' 노력 합니다 ! ' </strong>
+						<strong>' 노력 ' </strong> <br> 
+						합니다 ! 
 					</h1>
 				</div>
 			</div>
@@ -280,7 +283,8 @@
 			<div class="content">
 				<div id="title">
 					<h1>
-						<strong>' 세계가 주목하는 '</strong><br>
+						세계가 <br>
+						<strong>' 주목하는 '</strong><br>
 						글로벌 벤처기업<br>
 						홈페이지는<br>
 						<span style="color:red;">Y</span>
@@ -290,7 +294,7 @@
 					</h1>
 				</div>
 				<div id="sub">
-					<h4>
+					<h3>
 						<p>홈페이지 무료 제작의 원대한 꿈은<br>
 						 <strong>이건기, 김기하, 박정아, 김선영, 공남혁, 김희준</strong><br>
 						 여섯 사람의 비전과 노력으로 실현됐습니다.<p>
@@ -302,7 +306,7 @@
 						선회하고 연구와 실패를 거듭하게 됩니다. 그렇게 2017년, 코딩 및
 						디자인 경험 없이 누구나 직접 제작할 수 있는 홈페이지 제작 도구
 						YoL이 탄생했습니다!</p>
-					</h4>
+					</h3>
 				</div>
 			</div>
 		</div>
