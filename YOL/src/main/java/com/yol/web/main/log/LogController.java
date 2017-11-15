@@ -54,8 +54,9 @@ public class LogController {
 	  }
 
 	  @RequestMapping(method= {RequestMethod.GET},value="/main/login.action" )
-	  public String login(HttpServletRequest req) {
+	  public String login(HttpServletRequest req, String clear) {
 		  
+		  req.setAttribute("clear", clear);
 		  
 		  return "main.log.login";
 		  
@@ -183,6 +184,13 @@ public class LogController {
 		  req.setAttribute("mEmail", mEmail);
 		  
 		  return "main.log.findpasswordchange";
+		  
+	  }
+
+	  @RequestMapping(method= {RequestMethod.GET},value="/main/test.action" )
+	  public String test(HttpServletRequest req) {
+		  
+		  return "main.log.test";
 		  
 	  }
 	  

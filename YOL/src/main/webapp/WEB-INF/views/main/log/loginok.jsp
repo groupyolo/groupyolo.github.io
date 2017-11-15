@@ -9,7 +9,7 @@
 	</c:if>
 	<c:if test="${loginDTO==null}">
   	<script>
-		history.back();
+  	location.href="${pageContext.request.contextPath }/main/login.action?clear=yes";
   	</script>  
 	</c:if>
 	

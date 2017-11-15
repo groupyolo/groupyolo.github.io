@@ -74,9 +74,14 @@ public class LogService implements ILogService{
 		return dao.apiLoginok(dto);
 	}
 	
+	@Transactional
 	@Override
 	public int apiSign(MemberDTO dto) {
-		return dao.apiSign(dto);
+		
+		int result = dao.apiSign(dto);
+		dao.addapiStateMember(dto);
+		dao.apiAuthok(dto);
+		return result;
 	}
 	
 	@Override
