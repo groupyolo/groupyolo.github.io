@@ -1,9 +1,12 @@
 package com.yol.web.main.log;
 
+import java.util.HashMap;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.yol.web.DTO.LoginDTO;
 import com.yol.web.DTO.MemberDTO;
 
 @Repository
@@ -74,6 +77,15 @@ public class LogDAO {
 
 	public int findPasswordChange(MemberDTO dto) {
 		return sql.update("log.findPasswordChange",dto);
+	}
+
+	public void addLogin(HashMap<String, String> map) {
+		sql.insert("log.addLogin",map);
+		
+	}
+
+	public int editProfile(MemberDTO dto) {
+		return sql.update("log.editProfile",dto);
 	}
 	
 }

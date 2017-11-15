@@ -39,7 +39,7 @@
 <meta name="google-signin-client_id" content="575739111112-ribfp6siku4gssct7oa4vshdgogrj0ac.apps.googleusercontent.com">
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 	
-	<form method="post" action="${pageContext.request.contextPath }/main/apiLoginok.action" id="apiLogin">
+	<form method="post" action="${pageContext.request.contextPath }/main/apiloginok.action" id="apiLogin">
 	<input type="hidden" name="mEmail" id="apiMEmail" >
 	<input type="hidden" name="mgSeq" id="mgSeq" >
 	</form>
@@ -87,7 +87,7 @@
 	</tr>
 	<tr>
 		<td>
-			비밀번호를 잊어버리셨다구요? <a href="${pageContext.request.contextPath }/main/findPassword.action">비밀번호찾기</a>
+			비밀번호를 잊어버리셨다구요? <a href="${pageContext.request.contextPath }/main/findpassword.action">비밀번호찾기</a>
 		</td>
 	</tr>
 	<tr>
@@ -130,13 +130,13 @@
 		
 		$.ajax({	
 			type:"post",
-			url:"${pageContext.request.contextPath }/main/apiLoginCheck.action",
+			url:"${pageContext.request.contextPath }/main/apilogincheck.action",
 			dataType:"json",
 			data:"mEmail="+mEmail+"&mNickName="+mNickName+"&mgSeq=2",
 			success:function(result){
 				console.log(result.result);
 				if(result.result==0){
-					location.href="${pageContext.request.contextPath }/main/apiSign.action?mEmail="+mEmail+"&mNickName="+mNickName+"&mgSeq=2";
+					location.href="${pageContext.request.contextPath }/main/apisign.action?mEmail="+mEmail+"&mNickName="+mNickName+"&mgSeq=2";
 					// 가입 및 닉네임 페이지로 
 					//이게 아이디가 되면 혹시 같은 이메일이 있으면 겹치게 되는데 이를 연동회원 구분으로 체크
 				}else if(result.result==1){
@@ -176,12 +176,12 @@ function getUserData() {
        
     	$.ajax({
 			type:"post",
-			url:"${pageContext.request.contextPath }/main/apiLoginCheck.action",
+			url:"${pageContext.request.contextPath }/main/apilogincheck.action",
 			dataType:"json",
 			data:"mEmail="+mEmail+"&mNickName="+mNickName+"&mgSeq=3",
 			success:function(result){
 				if(result.result==0){
-					location.href="${pageContext.request.contextPath }/main/apiSign.action?mEmail="+mEmail+"&mNickName="+mNickName+"&mgSeq=3";
+					location.href="${pageContext.request.contextPath }/main/apisign.action?mEmail="+mEmail+"&mNickName="+mNickName+"&mgSeq=3";
 					// 가입 및 닉네임 페이지로 
 					//이게 아이디가 되면 혹시 같은 이메일이 있으면 겹치게 되는데 이를 연동회원 구분으로 체크
 							

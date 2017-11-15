@@ -13,7 +13,7 @@
 	#tbl tr:LAST-CHILD td{text-align: left; padding-left:230px;}
  	#send{ width:410px;}
 </style>
-	<form method="post" action="${pageContext.request.contextPath }/main/apiSignok.action">
+	<form method="post" action="${pageContext.request.contextPath }/main/apisignok.action">
 	<div id="box">
 	<table id="tbl" class="table">
 	<tr>
@@ -77,7 +77,7 @@
 			
 			$.ajax({
 				type:"get",
-				url:"${pageContext.request.contextPath }/main/mNickNameCheck.action",
+				url:"${pageContext.request.contextPath }/main/mnicknamecheck.action",
 				data:"mNickName="+$("#mNickName").val(),
 				dataType:"json",
 				success:function(result){

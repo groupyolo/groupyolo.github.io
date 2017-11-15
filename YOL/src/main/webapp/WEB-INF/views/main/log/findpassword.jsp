@@ -10,7 +10,7 @@
     	$("#find").click(function(){
 		    $.ajax({	
 				type:"get",
-				url:"${pageContext.request.contextPath }/main/findPasswordCheck.action",
+				url:"${pageContext.request.contextPath }/main/findpasswordcheck.action",
 				dataType:"json",
 				data:"mEmail="+$("#mEmail").val()+"&mgSeq=1",
 				success:function(result){

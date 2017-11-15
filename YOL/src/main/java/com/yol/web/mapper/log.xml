@@ -46,6 +46,10 @@
 		insert into Member(mSeq, mgSeq, mNickName, mEmail, mPassword, mDate) values(mSeq.nextVal, ${mgSeq}, #{mNickName},#{mEmail},'ascdec12312',sysdate )
 	</insert>
 
+	<insert id="editProfile" parameterType="com.yol.web.DTO.MemberDTO">
+		update set mNickName=#{mNickName}, mPassword=#{mPassword} where mgSeq=#mgSeq and mEmail=#{mEmail}
+	</insert>
+
 	<insert id="addStateMember" parameterType="com.yol.web.DTO.MemberDTO">
 		insert into StateMember(smSeq, mSeq, msSeq, smDate, smDetail) values(smSeq.nextVal, (select mSeq from member where mEmail=#{mEmail} and mgSeq=1),1,sysdate,null )
 	</insert>
@@ -60,6 +64,10 @@
 	
 	<insert id="apiAuthok" parameterType="com.yol.web.DTO.MemberDTO">
 		insert into StateMember(smSeq, mSeq, msSeq, smDate, smDetail) values(smSeq.nextVal, (select mSeq from member where mEmail=#{mEmail} and mgSeq=${mgSeq}),2,sysdate,'연동회원' )
+	</insert>
+	
+	<insert id="addLogin" parameterType="map">
+		insert into Login(lSeq, mSeq, lsSeq, lDate, lCheckIP) values(lSeq.nextVal, #{mSeq}, 1,sysdate,#{lCheckIP})
 	</insert>
 	
 	

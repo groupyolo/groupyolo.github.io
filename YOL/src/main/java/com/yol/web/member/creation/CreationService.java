@@ -32,4 +32,10 @@ public class CreationService implements ICreationService{
 		List<VCreationDTO> list = dao.list(dto, mSeq);		
 		return list;
 	}
+	
+	public int creation(VCreationDTO dto) {
+	
+		int result = dao.insertProject(dto);
+		return result;
+	}
 }

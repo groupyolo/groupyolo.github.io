@@ -17,8 +17,8 @@ public class LogController {
 	private ILogService service	;
 	
  
-	  @RequestMapping(method= {RequestMethod.GET},value="/main/signAuth.action" )
-	  public String signAuth(HttpServletRequest req, String mEmail) {
+	  @RequestMapping(method= {RequestMethod.GET},value="/main/signauth.action" )
+	  public String signauth(HttpServletRequest req, String mEmail) {
 		 //인증 메일 보내기
 		  
 		  return "main.log.login";
@@ -70,53 +70,69 @@ public class LogController {
 		  return "main.log.loginok";
 		  
 	  }
-
-	  @RequestMapping(method= {RequestMethod.GET},value="/main/mEmailCheck.action" )
-	  public String mEmailCheck(HttpServletRequest req,String mEmail) {
-		  int result = service.mEmailCheck(mEmail);
-		  req.setAttribute("result", result);
-		  return "main.log.mEmailCheck.ajax";
+	  
+	  @RequestMapping(method= {RequestMethod.GET},value="/member/editprofile.action" )
+	  public String editProfile(HttpServletRequest req) {
+		  
+		  
+		  return "member.memberpage.editprofile";
 		  
 	  }
 	  
-	  @RequestMapping(method= {RequestMethod.GET},value="/main/mNickNameCheck.action" )
+	  @RequestMapping(method= {RequestMethod.POST},value="/member/editprofileok.action" )
+	  public String editProfileok(HttpServletRequest req,MemberDTO dto) {
+		 int result = service.editProfile(dto);
+		 req.setAttribute("result", result);
+		 return "member.memberpage.editprofileok";
+		  
+	  }
+	  
+	  @RequestMapping(method= {RequestMethod.GET},value="/main/memailcheck.action" )
+	  public String mEmailCheck(HttpServletRequest req,String mEmail) {
+		  int result = service.mEmailCheck(mEmail);
+		  req.setAttribute("result", result);
+		  return "main.log.memailcheck.ajax";
+		  
+	  }
+	  
+	  @RequestMapping(method= {RequestMethod.GET},value="/main/mnicknamecheck.action" )
 	  public String mNickNameCheck(HttpServletRequest req,String mNickName) {
 		  int result = service.mNickNameCheck(mNickName);
 		  
 		  req.setAttribute("result", result);
-		  return "main.log.mNickNameCheck.ajax";
+		  return "main.log.mnicknamecheck.ajax";
 		  
 	  }
 	  
-	  @RequestMapping(method= {RequestMethod.POST},value="/main/apiLoginCheck.action" )
+	  @RequestMapping(method= {RequestMethod.POST},value="/main/apilogincheck.action" )
 	  public String apiLoginCheck(HttpServletRequest req,MemberDTO dto) {
 		  int result = service.apiLoginCheck(dto);
 		  req.setAttribute("result",result);
-		  return "main.log.apiLoginCheck.ajax";
+		  return "main.log.apilogincheck.ajax";
 		  
 	  }
 	  
-	  @RequestMapping(method= {RequestMethod.GET},value="/main/apiSign.action" )
+	  @RequestMapping(method= {RequestMethod.GET},value="/main/apisign.action" )
 	  public String apiSign(HttpServletRequest req,MemberDTO dto) {
 		  
 		  req.setAttribute("dto",dto);
 		  
-		  return "main.log.apiSign";
+		  return "main.log.apisign";
 		  
 	  }
 
-	  @RequestMapping(method= {RequestMethod.POST},value="/main/apiSignok.action" )
+	  @RequestMapping(method= {RequestMethod.POST},value="/main/apisignok.action" )
 	  public String apiSignok(HttpServletRequest req,MemberDTO dto) {
 		 
 		  int result = service.apiSign(dto);
 		  
 		  req.setAttribute("result",result);
 		  
-		  return "main.log.apiSignok";
+		  return "main.log.apisignok";
 		  
 	  }	
 	  
-	  @RequestMapping(method= {RequestMethod.POST},value="/main/apiLoginok.action" )
+	  @RequestMapping(method= {RequestMethod.POST},value="/main/apiloginok.action" )
 	  public String apiLoginok(HttpServletRequest req,MemberDTO ldto,HttpSession session) {
 		
 		  MemberDTO dto = service.apiLoginok(ldto);
@@ -128,25 +144,25 @@ public class LogController {
 		  
 	  }
 
-	  @RequestMapping(method= {RequestMethod.GET},value="/main/findPassword.action" )
+	  @RequestMapping(method= {RequestMethod.GET},value="/main/findpassword.action" )
 	  public String findPassword(HttpServletRequest req) {
 		  			  
-		  return "main.log.findPassword";
+		  return "main.log.findpassword";
 		  
 	  }
 	  
-	  @RequestMapping(method= {RequestMethod.GET},value="/main/findPasswordCheck.action" )
+	  @RequestMapping(method= {RequestMethod.GET},value="/main/findpasswordcheck.action" )
 	  public String findPasswordCheck(HttpServletRequest req,String mEmail) {
 		  
 		  int result = service.findPassword(mEmail);
 		  
 		  req.setAttribute("result", result);
 		  
-		  return "main.log.findPasswordCheck.ajax";
+		  return "main.log.findpasswordcheck.ajax";
 		  
 	  }
 	  
-	  @RequestMapping(method= {RequestMethod.POST},value="/main/findPasswordok.action" )
+	  @RequestMapping(method= {RequestMethod.POST},value="/main/findpasswordok.action" )
 	  public String findPasswordok(HttpServletRequest req,MemberDTO dto) {
 		  
 		  int result = service.findPasswordChange(dto);
@@ -157,13 +173,17 @@ public class LogController {
 		  
 	  }
 	  
-	  @RequestMapping(method= {RequestMethod.GET},value="/main/findPasswordChange.action" )
+	  @RequestMapping(method= {RequestMethod.GET},value="/main/findpasswordchange.action" )
 	  public String findPasswordChange(HttpServletRequest req,String mEmail) {
 		  
 		  req.setAttribute("mEmail", mEmail);
 		  
-		  return "main.log.findPasswordChange";
+		  return "main.log.findpasswordchange";
 		  
 	  }
+	  
+	  
+	  
+	  
 }
 	

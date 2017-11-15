@@ -21,8 +21,8 @@ public class FrontController {
 	private IFrontService service;
 	
  
-	  @RequestMapping(method= {RequestMethod.GET},value="/main/frontView.action" )
-	  public String frontView(HttpServletRequest req) {
+	  @RequestMapping(method= {RequestMethod.GET},value="/main/frontview.action" )
+	  public String frontview(HttpServletRequest req) {
 		  
 		  List<FAQTotalDTO> faqList = service.getFaqMain();
 		  List<IncFunctionDTO> incList = service.getInc(); 
@@ -30,7 +30,7 @@ public class FrontController {
 		  req.setAttribute("faqList", faqList);
 		  req.setAttribute("incList", incList);
 		  
-		  return "main.front.frontView";
+		  return "main.front.frontview";
 		  
 	  }
 
