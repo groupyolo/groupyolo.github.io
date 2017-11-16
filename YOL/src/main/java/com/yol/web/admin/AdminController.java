@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.yol.web.DTO.FAQDTO;
 import com.yol.web.DTO.InquiryDTO;
 import com.yol.web.DTO.InquiryboardDTO;
 import com.yol.web.DTO.NoticeboardDTO;
@@ -35,8 +36,6 @@ public class AdminController {
 		List<NoticeboardDTO> vlist = service.vlist(noticeboardseq);
 		
 		req.setAttribute("vlist", vlist);
-		
-		
 		
 		return "admin.noticeboard.noticeBoardView";
 	}//noticeBoardView
@@ -166,7 +165,52 @@ public class AdminController {
 		
 	}//noticeBoardViewDel
 	
+	@RequestMapping(method={RequestMethod.GET}, value="/admin/faq.action")
+	public String faqView(HttpServletRequest req) {
 
+		List<FAQDTO> faqlist = service.faqlist();
+		
+		req.setAttribute("faqlist", faqlist);
+		
+		return "admin.faq.faq";
+	}//faq
+
+	@RequestMapping(method={RequestMethod.GET}, value="/admin/faqView.action")
+	public String faqView(HttpServletRequest req,String FAQseq) {
+
+		List<FAQDTO> fvlist = service.fvlist(FAQseq);
+		
+		req.setAttribute("fvlist", fvlist);
+	
+		return "admin.faq.faqView";
+	}//noticeBoardView
+	
+	@RequestMapping(method={RequestMethod.GET}, value="/admin/faqadd.action")
+	public String faqadd(HttpServletRequest req) {
+		
+		return "admin.faq.faqadd";
+		
+	}//faqadd
+	
+	@RequestMapping(method={RequestMethod.POST}, value="/admin/faqaddOk.action")
+	public String faqaddOk(HttpServletRequest req, FAQDTO dto) {
+		
+		int result = service.faqadd(dto);
+		
+		return "admin.faq.faqaddOk";
+	}//faqaddOk
+	
+	@RequestMapping(method={RequestMethod.GET}, value="/admin/faqDel.action")
+	public String faqDel(HttpServletRequest req, String FAQseq) {
+
+		int result = service.faqDel(FAQseq);
+		
+		req.setAttribute("result", result);
+		
+		return "admin.faq.faqDel";
+		
+	}//faqDel
+	
 	
 }//public
 

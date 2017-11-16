@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.yol.web.DTO.FAQDTO;
 import com.yol.web.DTO.InquiryDTO;
 import com.yol.web.DTO.InquiryboardDTO;
 import com.yol.web.DTO.NoticeCategoryDTO;
@@ -85,6 +86,26 @@ public class AdminDAO {
 	public int redel(String inquiryboardseq) {
 		
 		return sql.delete("admin.redel", inquiryboardseq);
+	}
+
+	public List<FAQDTO> faqlist() {
+		
+		return sql.selectList("admin.faq");
+	}
+
+	public List<FAQDTO> fvlist(String FAQseq) {
+		
+		return sql.selectList("admin.fvlist", FAQseq);
+	}
+
+	public int faqadd(FAQDTO dto) {
+		
+		return sql.insert("admin.faqadd", dto);
+	}
+
+	public int faqDel(String FAQseq) {
+		
+		return sql.delete("admin.faqdel", FAQseq);
 	}
 
 
