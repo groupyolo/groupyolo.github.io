@@ -503,15 +503,18 @@ ALTER TABLE lstate  drop column lCheckIP;
 
 select * from login;
 commit;
-
+select * from member;
 select * from statemember;
+delete from member where mseq=241;
 
-select mseq,max(smdate) from statemember
-    where msseq=2 
-    group by mseq 
-        
-        order by mseq asc;
-
+create or replace view stateView
+    as select m.*, s.smseq,s.smdate, s.msseq,s.smdetail from member m
+    inner join statemember s
+    on m.mseq=s.mseq
+    where smseq in (select max(smseq) from statemember group by mseq )
+    order by m.mseq asc;
+    
+select * from stateView;
 
 
 
