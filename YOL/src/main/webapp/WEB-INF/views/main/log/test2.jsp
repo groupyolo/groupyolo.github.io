@@ -3,11 +3,8 @@
     
  <style>
  	.check{
- 		width:calc(100% + 30px);
- 		height:calc(100% + 30px);
  		
  		background-color:green;
- 		border:5px solid black;
  	}
  	.move{
  		/* position:absolute; */
@@ -19,22 +16,30 @@
  		z-index: 3;
  		cursor: pointer;
  		display:none;
- 		
+ 		/* transform:translateY(-15px); */
  	}
  	
  	.default:hover{
  		cursor:pointer;
  	}
-
- 	.point{
- 		left:200px;
- 		top:200px;
- 		position: absolute;
- 		width:100px;
- 		height:100px;
- 		z-index:1;
  	
+ 	.default{
+ 		
+ 		width:calc(100% - 10px);
+ 		height:calc(100% - 10px);
  		background-color: blue;
+ 		z-index:2;
+ 		margin:5px;	
+ 		
+ 	}
+ 	.point{
+ 		/* margin:20px auto; */
+ 		position: absolute;
+ 		width:300px;
+ 		height:300px;
+ 		z-index:1;
+ 		cursor:crosshair;
+ 		padding:1px;
  		
  		
  	}
@@ -51,10 +56,11 @@
  	}
  </style>
  
- 	<div class="test" ondrop="drop_handler(event);" ondragover="dragover_handler(event);" >
+ 	<div class="test" ondrop="drop_handler(event);" ondragover="dragover_handler(event);">
 	   
-	    <div class="point" draggable="true" ondragstart="dragstart_handler(event);" selectCheck="false">
-	    
+	    <div class="point" draggable="true" ondragstart="dragstart_handler(event);">
+	    <div class="default" selectCheck="false">
+	    </div>
 	    </div>
     </div>
     <div class="test" ondrop="drop_handler(event);" ondragover="dragover_handler(event);">
@@ -70,15 +76,15 @@
 	var sizeX=0;
 	var sizeY=0;
  	var downCount=0;
- 	$(".point").mousedown(function(){
+ 	$(".default").mouseup(function(){
  		
  		if($(this).attr("selectCheck")=="false"){
- 			$(this).addClass("check");
+ 			$(this).parent().addClass("check");
  			$(".move").show();
  			$(this).attr("selectCheck","true");
  		}else{
  			
- 			$(this).removeClass("check");
+ 			$(this).parent().removeClass("check");
  			$(".move").hide();
  			$(this).attr("selectCheck","false");
 	 			
@@ -86,7 +92,7 @@
  		moveCheck=!moveCheck;
  	}); 
  	
- /* 	$(".point").mousedown(function(){
+ 	$(".point").mousedown(function(){
  		if(event.button==0 && $(this).hasClass("check")){
  			sizeX=$(this).css("width");
  			sizeY=$(this).css("height");
@@ -128,7 +134,7 @@
  		}
  		
  		
- 	}); */
+ 	});
  	
  	function dragstart_handler(ev) {
  		 ev.preventDefault();
