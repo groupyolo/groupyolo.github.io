@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.yol.web.DTO.FAQTotalDTO;
+import com.yol.web.DTO.IncFunctionDTO;
 
 
 @Repository
@@ -19,6 +20,10 @@ public class FrontDAO {
 	public List<FAQTotalDTO> getFaqMain() {
 		
 		return sql.selectList("faq.getFaqMain");
+	}
+
+	public List<IncFunctionDTO> getInc() {
+		return sql.selectList("faq.getInc");
 	}
 
 

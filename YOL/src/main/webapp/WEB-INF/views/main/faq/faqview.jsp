@@ -94,7 +94,7 @@
 	<div id="searchImage">
 
 		<!-- 검색어 어떠헥 너었더라?? -->
-		<form method="get" action="${pageContext.request.contextPath }/main/faqView.action" >
+		<form method="get" action="${pageContext.request.contextPath }/main/faqview.action" >
 			<table id="searchBox">
 			<tr>
 			<td><input type="text" placeholder="궁금하신 질문을 검색해보세요." name="search" id="search" class="form-control" required></td>
@@ -103,7 +103,7 @@
 			</table>
 			
 		</form>
-		<div id ="find" style="padding:30px;">찾으시는 내용이 없으세요?  <a href="${pageContext.request.contextPath }/main/qnaView.action">문의 게시판 가기</a></div>
+		<div id ="find" style="padding:30px;">찾으시는 내용이 없으세요?  <a href="${pageContext.request.contextPath }/main/qnaview.action">문의 게시판 가기</a></div>
 	</div>
 	<div id="box">
 	<ul id="sub">
@@ -123,9 +123,9 @@
 		
 		<thead>
 			<tr>
-				<td class="faqSubject">
+				<th class="faqSubject">
 					${cDTO.FAQcategory}
-				</td>
+				</th>
 			</tr>
 		</thead>
 	
@@ -134,7 +134,7 @@
 		
 			<c:forEach items="${faqList }" var="dto">
 			<c:if test="${dto.FAQCategoryseq==cDTO.FAQCategoryseq && dto.openseq==1 }">
-			<tr class="faqTitle">
+			<tr class="faqTitle" check="true">
 				<td>
 					Q. ${dto.title }			
 				</td>
@@ -155,16 +155,16 @@
 	
 		
 	<script>
-	var check=true;
+	
 	$(".faqContent").hide();
 	
 	$(".faqTitle").click(function(){
-		if(check){
+		if($(this).attr("check")=="true"){
 			$(this).next().show();
-			check=!check;
+			$(this).attr("check","false");
 		}else{
 			$(this).next().hide();
-			check=!check;
+			$(this).attr("check","true");
 		}
 		
 	});

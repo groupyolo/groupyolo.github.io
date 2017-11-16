@@ -79,10 +79,31 @@ public class AdminService implements IAdminService {
 	}//inquiryedit
 	
 	@Override
-	public List<InquiryboardDTO> iblist() {
+	public List<InquiryboardDTO> iblist(String inquiryseq) {
 		
-		return dao.iblist();
+		return dao.iblist(inquiryseq);
 	}
+	
+	@Override
+	public int readd(InquiryboardDTO dto) {
+		
+		return dao.readd(dto);
+	}
+	
+	@Override
+	public int readd1(String inquiryseq) {
+		
+		return dao.readd(inquiryseq);
+	}
+	
+	@Override
+	public int redel(String inquiryboardseq) {
+		
+		return dao.redel(inquiryboardseq);
+	}
+	
+
+	
 	
 }//AmdinService
 

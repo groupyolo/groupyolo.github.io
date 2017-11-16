@@ -6,12 +6,15 @@
 <style>
 #startbtn {
 	padding: 20px 60px;
-	color: black;
+	color: gray;
 	background-color: white;
 	border-radius:10px;
+	font-size: 1.2em;
+	font-weight: bolder;
+	
 }
 .content1 {
-	background-color: #eee;
+	background-color: white;
 	width: 100%;
 	margin: 0px auto;
 	padding-top: 50px;
@@ -50,15 +53,30 @@
 	overflow: hidden;
 	z-index: 1;
 }
-
-
 .content2 {
-	/* background-color: white; */
-	width: 1000px;
+	background-color: #fbfbfb;
+	width: 100%;
 	margin: 0px auto;
-	padding-top: 10px;
+	padding-top: 50px;
+	text-align: center;
+	z-index: 2;
+}
+
+.content3 {
+	background-color: white;
+	padding-top: 50px;
 	z-index: 2;
 	font-size: 2em;
+	text-align: center;
+	padding-bottom:50px;
+}
+.content3 p{
+	font-size: 15px;
+}
+
+.faqbox{
+	width: 1000px;
+	margin: 0px auto;
 }
 
 .filter {
@@ -69,7 +87,7 @@
 	opacity: 0.6;
 }
 .faqTitle{
-		cursor:pointer;
+	cursor:pointer;
 }	
 .table .faqContent td{
 	padding-left:30px;
@@ -77,13 +95,73 @@
 }	
 
 .table{
-	margin-top:20px;
+	margin-top:100px;
+	text-align: left;
 }
 
 .table .faqTitle td:hover{
-	color:red;
+	color:navy;
 }
+.func{
+	margin:20px auto;
 	
+	border-bottom: 1px solid #b7b4b4;
+	width:1200px;
+	/* min-height:700px; */
+	overflow: auto;
+	vertical-align: middle;
+}	
+
+.func .func-boxes, .func .func-title{
+	float:left;
+} 
+.func .func-boxes:after{
+	content: "";
+	clear: both;
+}
+
+.func-boxes{
+	width:700px;
+	/* border:1px solid yellow; */
+	margin-top:50px;
+	margin-bottom:100px;
+}
+
+
+.func-boxes .func-box{
+	float:left;
+}
+.func-title{
+	font-size: 1.9em;
+	font-weight: bolder;
+	/* border:1px solid black; */
+	width:300px;
+	/* height:100px; */
+	/* margin-left:120px; */
+	margin-right:80px;
+	margin-top:80px;
+	
+}
+
+.func-box{
+	width:300px;
+	height:200px;
+	/* border:1px solid blue; */
+	margin-left:40px;
+	margin-top:20px;
+}
+.func-box-title{
+	font-size: 1.5em;
+	font-weight: bold;
+	margin-bottom:20px;
+	text-align: left;
+	cursor:pointer;
+}
+.func-box-content{
+	font-size: 1.2em;
+	/* margin:10px; */
+	text-align: left;
+}
 </style>
 
 <script>
@@ -186,8 +264,20 @@
 				frameborder="0" gesture="media" allowfullscreen id="video"></iframe>
 		</div>
 	</div>
-
 	<div class="content2">
+		<!-- 단락하나 -->
+		<div>
+			<h1>YOL! 기능소개</h1>
+			<p>YOL!의 최신기능을 확인하세요.</p>
+		</div>
+		
+	</div>
+	
+	<div class="content3">
+		<div>
+			<h1>무엇이 궁금하세요?</h1>
+			<p>신속, 정확한 답변으로 당신의 궁금증을 해결하세요!</p>
+		</div>
 		<div class="faqbox">
 		
 		<table id="tbl" class="table">
@@ -207,7 +297,7 @@
 			
 		<div style="margin-top: 50px; text-align:center;">
 			<p>
-				<a href="${pageContext.request.contextPath }/main/faqView.action"  style="color: #aaa;"><h3>더보기 ></h3></a>
+				<a href="${pageContext.request.contextPath }/main/faqview.action"  style="color: gray;"><input type="button" value="자세히 보기" class="btn btn-info"></a>
 			</p>
 			
 		</div>
@@ -215,16 +305,20 @@
 	</div><!-- content2 -->
 	
 	<script>
-	var check=true;
 	$(".faqContent").hide();
+	var check="";
 	
 	$(".faqTitle").click(function(){
-		if(check){
+		if(check!=this){
+			$(".faqContent").hide();
+			$(".faqTitle").css("color","black");
 			$(this).next().show();
-			check=!check;
+			$(this).css("color","navy");
+			check=this;
+			
 		}else{
 			$(this).next().hide();
-			check=!check;
+			$(".faqTitle").css("color","black");
 		}
 		
 	});
@@ -235,6 +329,53 @@
 			$(item).remove();
 		}
 		
+	});
+	
+	
+	$(".content2").append("<div class='func1 func'></div><div class='func2 func'></div><div class='func3 func'></div>");
+	var n=[0,0,0]
+	
+	<c:forEach items="${incList}" var="dto" varStatus="sta">
+		
+		var temp = "";
+		//console.log(n[0]);
+		if(n[${dto.bigTitleNum}-1]==0){
+			
+			temp+='<div class="func-title">'+"${dto.bigTitle}";
+			temp+='</div>';
+			temp+='<div class="func-boxes">';
+			temp+='<div class="func-box">';
+			temp+='<div class="func-box-title">'+"${dto.title}";
+			temp+='</div>';
+			temp+='<div class="func-box-content">'+"${dto.cont}";
+			temp+='</div>';
+			temp+='</div>';
+			temp+='</div>';
+			
+			$(".func"+"${dto.bigTitleNum}").append(temp);
+			n[${dto.bigTitleNum}-1]+=1;
+			
+		}else{
+			temp+='<div class="func-box">';
+			temp+='<div class="func-box-title">'+"${dto.title}";
+			temp+='</div>';
+			temp+='<div class="func-box-content">'+"${dto.cont}";
+			temp+='</div>';
+			temp+='</div>';
+			
+			$(".func"+"${dto.bigTitleNum}"+" .func-boxes").append(temp);
+			n[${dto.bigTitleNum}-1]+=1;
+		}
+		
+			
+		
+	
+
+	
+	</c:forEach>	
+	
+	$(".func-box-title").click(function(){
+		location.href="${pageContext.request.contextPath }/main/login.action";
 	});
 	
 	</script>

@@ -19,9 +19,25 @@
 	border: 1px solid red;
 	}
 </style>
+
+<script>
+	
+	
+	$(document).ready(function() {
+
+ 		$("a1").click( function (){
+ 			
+ 			console.log("키키키");
+ 			
+ 		});
+		 
+		
+	});
+</script>
+
 </head>
 <body>	
-this is 문의 ship
+화이팅베이베
 
 	<h1>문의 게시판</h1>
 	
@@ -39,8 +55,8 @@ this is 문의 ship
 			<c:forEach items="${ilist}" var="idto">
 			<tr>
 				<td>${idto.inquiryseq}</td>
-				<td><a href="${pageContext.request.contextPath}/admin/inquiryView.action?inquiryseq=${idto.inquiryseq}">${idto.title}</a></td>
-				<td>${idto.enrolltime.substring(0,10)}</td>
+				<td><a id="a1" href="${pageContext.request.contextPath}/admin/inquiryView.action?inquiryseq=${idto.inquiryseq}">${idto.title}</a></td>
+				<td>${idto.enrolltime.substring(0,19)}</td>
 				<td>0</td>
 			</tr>
 			</c:forEach>

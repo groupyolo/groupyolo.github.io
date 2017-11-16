@@ -15,4 +15,9 @@ public class MainController {
 		return "main.company.company";
 	}
 	
+	@RequestMapping(method = { RequestMethod.GET }, value = "/main/company2.action")
+	public String company2(HttpServletRequest req) {
+
+		return "main.company.company2";
+	}
 }

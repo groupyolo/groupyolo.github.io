@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.yol.web.DTO.FAQTotalDTO;
+import com.yol.web.DTO.IncFunctionDTO;
 
 
 @Controller
@@ -20,14 +21,16 @@ public class FrontController {
 	private IFrontService service;
 	
  
-	  @RequestMapping(method= {RequestMethod.GET},value="/main/frontView.action" )
-	  public String frontView(HttpServletRequest req) {
+	  @RequestMapping(method= {RequestMethod.GET},value="/main/frontview.action" )
+	  public String frontview(HttpServletRequest req) {
 		  
 		  List<FAQTotalDTO> faqList = service.getFaqMain();
-		 
-		  req.setAttribute("faqList", faqList);
+		  List<IncFunctionDTO> incList = service.getInc(); 
 		  
-		  return "main.front.frontView";
+		  req.setAttribute("faqList", faqList);
+		  req.setAttribute("incList", incList);
+		  
+		  return "main.front.frontview";
 		  
 	  }
 

@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yol.web.DTO.ChatDTO;
+import com.yol.web.DTO.MemberDTO;
+import com.yol.web.DTO.QuestionDTO;
 
 @Controller
 public class ChatController {
@@ -35,7 +38,15 @@ public class ChatController {
 	public String view(HttpServletRequest req,String mseq) {
 
 		List<ChatDTO> list = service.view(mseq);
-	
+		
+		
+		
+		for(ChatDTO dto : list) {
+			
+			dto.setCdate(dto.getCdate().substring(0,19));
+			
+		}
+		
 		int result = service.creadUp(mseq);
 		
 		req.setAttribute("list", list);
@@ -60,15 +71,26 @@ public class ChatController {
 		return result;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	@RequestMapping(method = { RequestMethod.GET }, value = "/chat/chatView.action")
+	public @ResponseBody Object chatView(HttpServletRequest req) {
+
+		HttpSession session = req.getSession();
+		MemberDTO loginDTO = (MemberDTO) session.getAttribute("loginDTO");
+		
+		String seq = loginDTO.getmSeq();
+		
+		List<ChatDTO> list = service.chatView(seq);
+		
+		for (ChatDTO dto : list) {
+			dto.setCdate(dto.getCdate().substring(0,19));
+		}
+
+		return list;
+	}
 	
 	
 }
+	
+	
+	
+	
