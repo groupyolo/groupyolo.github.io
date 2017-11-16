@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.yol.web.DTO.MemberDTO;
 import com.yol.web.DTO.VCreationDTO;
+import com.yol.web.DTO.VFBoardDTO;
+import com.yol.web.community.freeboard.IFBoardService;
 
 @Controller
 public class MemberController {
@@ -19,6 +21,8 @@ public class MemberController {
 	@Autowired
 	private ICreationService ics;
 	
+	@Autowired
+	private IFBoardService ifb;
 	
 	@RequestMapping(method = { RequestMethod.GET }, value = "/main.action")
 	public String main(HttpServletRequest req) {
@@ -62,6 +66,15 @@ public class MemberController {
 		return "member.creation.projectadd";
 	}
 	
+	@RequestMapping(method = { RequestMethod.GET }, value = "/member/createpok.action")
+	public String createp(HttpServletRequest req, VCreationDTO dto) {
+
+		int result = ics.creation(dto);
+		req.setAttribute("result", result);
+		
+		return "member.creation.creatpok";
+	}
+	
 	@RequestMapping(method = { RequestMethod.POST }, value = "/member/creationok.action")
 	public String creationok(HttpServletRequest req, VCreationDTO dto) {
 
@@ -94,7 +107,7 @@ public class MemberController {
 	//회원페이지
 	//나의정보
 	@RequestMapping(method = { RequestMethod.GET }, value = "/member/myinfo.action")
-	public String myinfo(HttpServletRequest req) {
+	public String myinfo(HttpServletRequest req, HttpSession session) {
 
 		return "member.memberpage.myinfo";
 	}
@@ -117,5 +130,16 @@ public class MemberController {
 		return "member.creation.concept";
 	}
 	
+	@RequestMapping(method = { RequestMethod.GET }, value = "/member/community.action")
+	public String boardlist(HttpServletRequest req, VFBoardDTO dto) {
+
+		List<VFBoardDTO> list = ifb.listshort(dto);
+		req.setAttribute("fblistshort", list);
+		
+		return "member.community.boardlist";
+	}
+
+	
+
 }
 

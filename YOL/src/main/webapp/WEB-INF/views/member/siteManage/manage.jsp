@@ -9,6 +9,10 @@
 		$('#btn2').click(function() {
 			$("#siteInfo").toggle();
 		})
+		
+/* 		$('#bimg').mouseenter(function() {
+			$('#bimg').css("opacity", "1");
+		}) */
 	});
 	function site(e) {
 		var n =e.value;
@@ -18,13 +22,27 @@
 
 	
 	<div id="mySite">
-		<div id="img"> <img src="${pageContext.request.contextPath}/images/simg1.JPG" alt="" /></div>
+		<div id="img">
+			<div id="bimg">
+				<span>
+					<c:forEach items= "${plist}" var="dto">
+						<c:if test="${dto.prSeq == pdto.prSeq}">
+							${dto.state}
+						</c:if>
+					</c:forEach>	
+				</span>
+			</div>
+	</div>
 		<div id="site">
 			<select onchange="site(this)"  class="form-control">
 				<option value="${pdto.prSeq }">${pdto.siteName}</option>
 				<c:forEach items= "${plist}" var="dto">
 						<c:if test="${dto.siteName != pdto.siteName}">
-							<option value="${dto.prSeq}" >${dto.siteName}</option>
+							<option value="${dto.prSeq}" >
+								${dto.siteName}
+						<!-- 		<div><input type="button" value ="선택"/></div>
+								<div><input type="button" value ="보기"/></div> -->
+							</option>
 						</c:if>
 				</c:forEach>
 			</select>
@@ -129,42 +147,54 @@
 	</div>
 		
 	
-<div role="tabpanel" id=inbox>
-	  <!-- Nav tabs -->
-	  <ul class="nav nav-tabs" role="tablist">
-	    <li role="presentation" class="active">
-	    	<a href="#all" aria-controls="all" role="tab" data-toggle="tab">
-	    		<div class="count not-mobile all">0</div>
-				<div class="type">전체</div>
-			</a>
-		</li>
-	    <li role="presentation">
-	    	<a href="#comments" aria-controls="comments" role="tab" data-toggle="tab">
-	    		<div class="count not-mobile comments">0</div>
-				<div class="type">댓글</div>	
-	    	</a>
-	    </li>
-	   	<li role="presentation">
-	   		<a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">
-	   			<div class="count not-mobile messages">0</div>
-				<div class="type">컨택트</div>
-	   		</a>
-	   	</li>
-	    <li role="presentation">
-	    	<a href="#board" aria-controls="board" role="tab" data-toggle="tab">
-	    		<div class="count not-mobile board">0</div>
-				<div class="type">게시판</div>
-	    	</a>
-	    </li>
-	  </ul>
 	
-	  <!-- Tab panes -->
-	  <div class="tab-content">
-	    <div role="tabpanel" class="tab-pane active" id="home">새로운 소식이 없습니다.</div>
-	    <div role="tabpanel" class="tab-pane" id="profile">댓글이 없습니다.</div>
-	    <div role="tabpanel" class="tab-pane" id="messages">메시지가 없습니다.</div>
-	    <div role="tabpanel" class="tab-pane" id="settings">게시물이 없습니다.</div>
-	  </div>
+	<div id="analysisInfo">
+		<div id="aInfo">
+			<div id="in">
+				<div>사이트 방문자 통계</div>
+			</div>
+			<div id="use">
+ 				<div>사용 용량</div> 
+			</div>
+		</div>	
+	
+	<div role="tabpanel" id=inbox>
+		  <!-- Nav tabs -->
+		  <ul class="nav nav-tabs" role="tablist">
+		    <li role="presentation" class="active">
+		    	<a href="#all" aria-controls="all" role="tab" data-toggle="tab">
+		    		<div class="count not-mobile all">0</div>
+					<div class="type">전체</div>
+				</a>
+			</li>
+		    <li role="presentation">
+		    	<a href="#comments" aria-controls="comments" role="tab" data-toggle="tab">
+		    		<div class="count not-mobile comments">0</div>
+					<div class="type">댓글</div>	
+		    	</a>
+		    </li>
+		   	<li role="presentation">
+		   		<a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">
+		   			<div class="count not-mobile messages">0</div>
+					<div class="type">컨택트</div>
+		   		</a>
+		   	</li>
+		    <li role="presentation">
+		    	<a href="#board" aria-controls="board" role="tab" data-toggle="tab">
+		    		<div class="count not-mobile board">0</div>
+					<div class="type">게시판</div>
+		    	</a>
+		    </li>
+		  </ul>
+		
+		  <!-- Tab panes -->
+		  <div class="tab-content">
+		    <div role="tabpanel" class="tab-pane active" id="all"><span>새로운 소식이 없습니다.</span></div>
+		    <div role="tabpanel" class="tab-pane" id="comments"><span>댓글이 없습니다.</span></div>
+		    <div role="tabpanel" class="tab-pane" id="messages"><span>메시지가 없습니다.</span></div>
+		    <div role="tabpanel" class="tab-pane" id="board"><span>게시물이 없습니다.</span></div>
+		  </div>
+	</div>
 </div>
 	
 		

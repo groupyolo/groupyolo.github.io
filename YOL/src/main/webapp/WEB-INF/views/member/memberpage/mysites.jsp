@@ -13,7 +13,7 @@
 			</tr>
 			<c:forEach items="${vCreationList }" var="list">
 				
-				<c:if test="${list.jCount eq 1}">
+				<c:if test="${list.jCount == 1}">
 				<tr>
 					<td>${list.prName}</td>
 					<td><a href="/web/member/manage.action?prSeq=${list.prSeq}">${list.prURL}</a></td>
@@ -38,7 +38,7 @@
 			
 			<c:forEach items="${vCreationList }" var="list">
 				
-				<c:if test="${list.jCount gt 1}">
+				<c:if test="${list.jCount > 1}">
 				<tr>
 					<td>${list.prName}</td>
 					<td>${list.prURL}</td>
@@ -53,14 +53,17 @@
 	</div>
 	
 	<div id="btncreate">
-	<a data-toggle="modal" class="btn btn-danger" href="layer.html" data-target="#myModal">추가하기</a>
+	<a data-toggle="modal" class="btn btn-danger"  data-target="#myModal">추가하기</a>
  	</div>
  	
 	<!-- Modal -->
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	    <div class="modal-dialog">
 	        <div class="modal-content">
+	        	
+	        	
          		<form method="POST" action="/web/member/creationok.action">
+	        	
 	            <div class="modal-body">
 	            
 	            <div id="tabs">

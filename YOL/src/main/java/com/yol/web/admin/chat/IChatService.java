@@ -15,4 +15,8 @@ public interface IChatService {
 
 	int creadUp(String mseq);
 
+	List<ChatDTO> chatView(String seq);
+
+	int MaddChat(HashMap<String, String> map);
+
 }

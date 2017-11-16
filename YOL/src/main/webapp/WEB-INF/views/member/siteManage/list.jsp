@@ -50,7 +50,7 @@
 			<c:forEach items="${blist}" var="bdto">
 				<tr>
 					<td>${bdto.pbSeq }</td>
-					<td><a href="${pageContext.request.contextPath}/member/view.action?pbSeq=${bdto.pbSeq}&prSeq=${pdto.prSeq}">${bdto.pbSubject }</a></td>
+					<td><a href="${pageContext.request.contextPath}/member/pbview.action?pbSeq=${bdto.pbSeq}&prSeq=${pdto.prSeq}">${bdto.pbSubject }</a></td>
 					<td>${bdto.mNickName }</td>
 					<td>0</td>
 					<td>${bdto.pbregdate }</td>
@@ -68,6 +68,8 @@
 				</c:if>
 		</table>
 		
-		<input id="btn4"  class="btn btn-primary" type="button" value="글쓰기" onclick="location.href='${pageContext.request.contextPath}/member/add.action?prSeq=${pdto.prSeq}'" />
+		<div id="btn4">
+		<input  class="btn btn-primary" type="button" value="글쓰기" onclick="location.href='${pageContext.request.contextPath}/member/pbadd.action?prSeq=${pdto.prSeq}'" />
+		</div>
 			
 		<div id="pagebar">${pagebar}</div>

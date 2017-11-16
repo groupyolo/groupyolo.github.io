@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.yol.web.DTO.FAQCategoryDTO;
 import com.yol.web.DTO.FAQDTO;
+import com.yol.web.DTO.FAQTotalDTO;
 
 @Repository
 public class FaqDAO {
@@ -20,10 +21,10 @@ public class FaqDAO {
 		return sql.selectList("faq.getCategory");
 	}
 
-	public List<FAQDTO> getFaq(HashMap<String, String> map) {
-		return sql.selectList("faq.getFaq");
+	public List<FAQTotalDTO> getFaq(HashMap<String, String> map) {
+		return sql.selectList("faq.getFaq",map);
 	}
-	
+
 
 	
 }
