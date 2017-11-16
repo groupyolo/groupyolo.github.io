@@ -153,16 +153,49 @@
 			
 			function send() {
 				
-				var chatText = $("#chatText").val();
+				var Now = new Date();
+				var NowTime = Now.getFullYear();
+
+					NowTime += '-' + (Now.getMonth()+1);
+					if( Now.getDate() < 10) { NowTime += '-' + 0 + Now.getDate(); }
+					if( Now.getDate() > 9) { NowTime += '-' + Now.getDate(); }
+					NowTime += ' ' + Now.getHours();
+					NowTime += ':' + Now.getMinutes();
+					if( Now.getSeconds() < 10) { NowTime += ':' + 0 + Now.getSeconds(); }
+					if( Now.getSeconds() > 9 ) { NowTime += ':' + Now.getSeconds(); }
+				
+				var ccontent = $("#chatText").val();
 				var mseq = ${loginDTO.mSeq};
+				
+				console.log(ccontent);
+				console.log(mseq);
 				
 				$.ajax({
 					type: "get",
 					url: "${pageContext.request.contextPath}/chat/MaddChat.action",
-					data: "chatText=" + chatText + "&mseq=" + mseq,
+					data: "ccontent=" + ccontent + "&mseq=" + mseq,
 					dataType: "json",
 					success: function(data) {
-					
+						if(data == 1) {
+							
+							var text = "<tr id='member'>";
+	
+								text += "<td>" + ccontent + "</td>";
+								text += "<td>" + NowTime + "</td>";
+								
+								text += "</tr>";
+								
+								$("#tblList tbody").append(text);
+								$("#chatText").val("");
+								
+								$("#chatMiddle").scrollTop($(document).height());
+							
+						} else {
+							
+							alert("현재 관리자와의 채팅을 이용할 수 없습니다.")
+							
+						}
+						
 						
 					}
 				});
@@ -170,17 +203,13 @@
 			};
 			
 			$(document).ready(function() {
-				
-				$("#chatMiddle").scrollTop($(document).height());
-				
+
 				var showOrHide = true;
 				
-				
 				$("#chatButton").toggle(showOrHide);
-				
+
 					$("#chatButton, #chatClose").click(function() { 
-					 
-					
+
 						if(showOrHide === true) {
 						
 						$("#chat").show();
@@ -209,6 +238,8 @@
 										text += "</tr>";
 										
 										$("#tblList tbody").append(text);
+										
+										$("#chatMiddle").scrollTop($(document).height());
 									});
 								} 
 							}

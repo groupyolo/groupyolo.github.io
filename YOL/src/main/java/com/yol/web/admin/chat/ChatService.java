@@ -44,4 +44,10 @@ public class ChatService implements IChatService {
 		return dao.chatView(seq);
 	}
 
+	@Override
+	public int MaddChat(HashMap<String, String> map) {
+		
+		return dao.MaddChat(map);
+	}
+
 }

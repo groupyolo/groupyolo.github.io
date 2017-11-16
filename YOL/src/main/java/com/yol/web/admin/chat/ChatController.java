@@ -88,6 +88,24 @@ public class ChatController {
 		return list;
 	}
 	
+	@RequestMapping(method = { RequestMethod.GET }, value = "/chat/MaddChat.action")
+	public @ResponseBody Object MaddChat(HttpServletRequest req,String mseq,String ccontent) {
+		
+		System.out.println(ccontent);
+		System.out.println(mseq);
+		
+		HashMap<String,String> map = new HashMap<String, String>();
+		map.put("mseq", mseq);
+		map.put("ccontent", ccontent);
+		
+		int result = service.MaddChat(map);
+		
+		return result;
+	}
+	
+	
+	
+	
 	
 }
 	

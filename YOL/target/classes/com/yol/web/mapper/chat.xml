@@ -30,6 +30,11 @@
 		<select id="chatView" parameterType="String" resultType="com.yol.web.DTO.ChatDTO">
 			select * from chatView where mseq = #{seq} order by cseq asc
 		</select>
+		
+		<insert id="MaddChat" parameterType="java.util.HashMap">
+			insert into chat (cseq, mseq, cwseq, ccontent) 
+				VALUES (chat_seq.nextval, #{mseq}, 2, #{ccontent})
+		</insert>
 	
 </mapper>
 
