@@ -68,6 +68,8 @@
 				</c:if>
 		</table>
 		
-		<input id="btn4"  class="btn btn-primary" type="button" value="글쓰기" onclick="location.href='${pageContext.request.contextPath}/member/pbadd.action?prSeq=${pdto.prSeq}'" />
+		<div id="btn4">
+		<input  class="btn btn-primary" type="button" value="글쓰기" onclick="location.href='${pageContext.request.contextPath}/member/pbadd.action?prSeq=${pdto.prSeq}'" />
+		</div>
 			
 		<div id="pagebar">${pagebar}</div>

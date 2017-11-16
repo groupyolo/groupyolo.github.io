@@ -497,3 +497,33 @@ insert into incfunction values(incSeq.nextval,3,'YOL! 도움말 센터','1:1 실
 commit;
 select * from incFunction ;
 
+
+ALTER TABLE login  ADD lCheckIP varchar2(100) default 'none';
+ALTER TABLE lstate  drop column lCheckIP;
+
+select * from login;
+commit;
+select * from member;
+select * from statemember;
+delete from member where mseq=241;
+
+create or replace view stateView
+    as select m.*, s.smseq,s.smdate, s.msseq,s.smdetail from member m
+    inner join statemember s
+    on m.mseq=s.mseq
+    where smseq in (select max(smseq) from statemember group by mseq )
+    order by m.mseq asc;
+    
+select * from stateView;
+
+
+
+
+
+
+
+
+
+
+
+

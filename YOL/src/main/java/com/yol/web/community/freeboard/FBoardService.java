@@ -25,6 +25,7 @@ public class FBoardService implements IFBoardService{
 	@Override
 	public List<VFBoardDTO> list(VFBoardDTO dto) {
 		List<VFBoardDTO> list=dao.list(dto);
+		
 		return list;
 	}
 	
@@ -33,5 +34,12 @@ public class FBoardService implements IFBoardService{
 		
 		VFBoardDTO vdto = dao.view( fbSeq);
 		return vdto;
+	}
+	
+
+	@Override
+	public List<VFBoardDTO> listshort(VFBoardDTO dto) {
+		List<VFBoardDTO> list=dao.listshort(dto);
+		return list;
 	}
 }

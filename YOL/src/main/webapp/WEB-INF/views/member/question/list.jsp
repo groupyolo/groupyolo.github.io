@@ -97,6 +97,24 @@
 	padding-bottom: 10px;
 }
 
+#all {
+	background-color: cornflowerblue;
+	color: white;
+	}
+
+blockquote footer {
+	color: white;
+}
+
+#topBox {		
+	padding: 40px;
+}
+
+#box {
+	margin: 0px auto;
+	margin-top: 50px;
+}
+
 </style>
 
 <script>
@@ -152,38 +170,50 @@
 
 	<!-- List 주업무 -->
 
-	
-	<table id="tblList">
-		<thead>
-		<tr>
-			<th>번호</th>
-			<th>카테고리</th>
-			<th>제목</th>
-			<th>글쓴이</th>
-			<th>날짜</th>
-			<th>조회수</th>
-		</tr>
-		</thead>
-		<tbody>
-		<c:forEach items="${list}" var="dto">
+	<div id="all">
+		<div id="topBox">
+			<blockquote>
+			<h2>질문 게시판</h2>
+			<footer>서로 소통하고 질문하는 커뮤니티 공간입니다.</footer>
+			
+			</blockquote>
+		</div>
+	</div>
+
+	<div id="box">
+		<table id="tblList">
+			<thead>
 			<tr>
-				<td>${dto.questionseq}</td>
-				<td>${dto.qcategory}</td>
-				<td><a
-					href="${pageContext.request.contextPath}/question/view.action?questionseq=${dto.questionseq}">
-						${dto.qtitle} </a> <span>( ${dto.qcommentcount} )</span></td>
-				<td>${dto.mnickname}</td>
-				<td>${dto.qtime}</td>
-				<td>${dto.qhits}</td>
+				<th>번호</th>
+				<th>카테고리</th>
+				<th>제목</th>
+				<th>글쓴이</th>
+				<th>날짜</th>
+				<th>조회수</th>
 			</tr>
-		</c:forEach>
-			<c:if test="${list.size() == 0}">
+			</thead>
+			<tbody>
+			<c:forEach items="${list}" var="dto">
 				<tr>
-					<td colspan="6"> 현재 게시물이 존재하지 않습니다 </td>
+					<td>${dto.questionseq}</td>
+					<td>${dto.qcategory}</td>
+					<td><a
+						href="${pageContext.request.contextPath}/question/view.action?questionseq=${dto.questionseq}">
+							${dto.qtitle} </a> <span>( ${dto.qcommentcount} )</span></td>
+					<td>${dto.mnickname}</td>
+					<td>${dto.qtime}</td>
+					<td>${dto.qhits}</td>
 				</tr>
-			</c:if>
-		</tbody>
-	</table>
+			</c:forEach>
+				<c:if test="${list.size() == 0}">
+					<tr>
+						<td colspan="6"> 현재 게시물이 존재하지 않습니다 </td>
+					</tr>
+				</c:if>
+			</tbody>
+		</table>
+	</div>
+	
 	<div id="btns">
 		<input type="button" value="글 쓰기"
 			onclick="location.href='${pageContext.request.contextPath}/question/add.action'">

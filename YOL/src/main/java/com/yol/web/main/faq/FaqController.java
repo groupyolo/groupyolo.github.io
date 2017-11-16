@@ -22,7 +22,7 @@ public class FaqController {
 	private IFaqService service;
 	
  
-	  @RequestMapping(method= {RequestMethod.GET},value="/main/faqView.action" )
+	  @RequestMapping(method= {RequestMethod.GET},value="/main/faqview.action" )
 	  public String faqView(HttpServletRequest req, String search) throws UnsupportedEncodingException {
 		  
 		  req.setCharacterEncoding("UTF-8");
@@ -46,7 +46,7 @@ public class FaqController {
 		  req.setAttribute("categoryList", categoryList);
 		  req.setAttribute("faqList", faqList);
 		  
-		  return "main.faq.faqView";
+		  return "main.faq.faqview";
 		  
 	  }
 

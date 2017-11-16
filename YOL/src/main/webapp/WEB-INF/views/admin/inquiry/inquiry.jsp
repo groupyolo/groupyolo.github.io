@@ -56,7 +56,7 @@
 			<tr>
 				<td>${idto.inquiryseq}</td>
 				<td><a id="a1" href="${pageContext.request.contextPath}/admin/inquiryView.action?inquiryseq=${idto.inquiryseq}">${idto.title}</a></td>
-				<td>${idto.enrolltime.substring(0,10)}</td>
+				<td>${idto.enrolltime.substring(0,19)}</td>
 				<td>0</td>
 			</tr>
 			</c:forEach>

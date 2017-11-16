@@ -15,7 +15,8 @@ $(document).ready(function() {
 			dataType: "json",
 			success : function(data) {
 				if (data.result == 1) {
-					var tr = "<tr><td>${loginDTO.mNickName}</td><td>"+ $("#Pbcomment").val()+"</td><td>" + data.pbcRegdate 	+"<c:if test='${pbcdto.mSeq == loginDTO.mSeq}'><span class='glyphicon glyphicon-remove' onclick='cdel(${pbcdto.pbcSeq})'></span></c:if>"+"</td></tr>";
+					var tr = "<tr><td>${loginDTO.mNickName}</td><td>"+ data.pbcRegdate  +"</td></tr><tr><td colspan='2'>" + $("#Pbcomment").val() + "</td></tr>";
+					
 					
 					$("#tblComment tbody").append(tr);
 					$("#Pbcomment").val("");
@@ -59,7 +60,7 @@ $(document).ready(function() {
 				dataType: "json",
 				success: function(result) {
 					if(result == 1) {
-						$("#trSeq"+pbcSeq).remove();
+						$(".trSeq"+pbcSeq).remove();
 					}
 				}
 			})
@@ -76,40 +77,45 @@ $(document).ready(function() {
 		</blockquote>	
 			
 			<table id="tbl3" class="table table-striped">
+				<tbody>
 				<tr>
-					<th>번호</th>
-					<td>${bdto.pbSeq }</td>
-				</tr>
-				<tr>
-					<th>카테고리</th>
-					<td> 
-						<c:if test="${bdto.nsSeq == 1 }"> 공지</c:if>
-						<c:if test="${bdto.nsSeq == 0 }"> 일반</c:if>
-					</td>
-				</tr>
-				<tr>
-					<th>작성자</th>
-					<td>${bdto.mNickName }</td>
-				</tr>
-				<tr>
-					<th>작성 날짜</th>
-					<td>${bdto.pbregdate }</td>
-				</tr>
-				<tr>
-					<th>제목</th>
-					<td>${bdto.pbSubject }</td>
-				</tr>
-				<tr>
-					<th>내용</th>
-					<td>${bdto.pbContent }</td>
-				</tr>
-				<tr>
-					<th>태그허용</th>
 					<td>
-						<c:if test="${bdto.pbtag == 'y' }"> 허용</c:if>
-						<c:if test="${bdto.pbtag == 'n' }"> 비허용</c:if>
+						<span>카테고리</span>
+						<span>
+							<c:if test="${bdto.nsSeq == 1 }"> 공지</c:if>
+							<c:if test="${bdto.nsSeq == 0 }"> 일반</c:if>
+						</span>
 					</td>
 				</tr>
+				<tr>
+					<td>
+						<span>제목</span>
+						<span>${bdto.pbSubject }</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span>작성자</span>
+						<span>
+							 ${bdto.mNickName }
+						</span>
+						<span>작성일</span>		
+						<span>${bdto.pbregdate }</span>
+					</td>
+				</tr>
+				<tr>
+					<td><span>내용</span><span>${bdto.pbContent }</span></td>
+				</tr>
+				<tr>
+					<td>
+						<span>태그허용</span>
+						<span>
+							<c:if test="${bdto.pbtag == 'y' }"> 허용</c:if>
+							<c:if test="${bdto.pbtag == 'n' }"> 비허용</c:if>
+						</span>
+					</td>
+				</tr>
+				</tbody>
 			</table>	
 			<input type="hidden"  name="mSeq" value= "${loginDTO.mSeq}"/>
 			<input type="hidden" name="prSeq" value= "${pdto.prSeq }"/>
@@ -121,42 +127,42 @@ $(document).ready(function() {
 			<input type="button" value="돌아가기"   class="btn btn-default" onclick="history.back();" />
 		</div>
 		
-		
-		<hr />
-		
 	
 			
-			<table id="tblComment" class="table">
+			<table id="tblComment" >
 				<tbody>
 					<c:forEach items="${pbclist}" var="pbcdto">
-						<tr id="trSeq${pbcdto.pbcSeq}">
-							<td>${pbcdto.mNickName}</td>
-							<td>${pbcdto.pbcomment}</td>
-							<td>
+						<tr class="trSeq${pbcdto.pbcSeq}">
+							<td class="cnick">${pbcdto.mNickName}</td>
+							<td class="cregdate">
 								${pbcdto.pbcRegdate}
-								<c:if test="${pbcdto.mSeq == loginDTO.mSeq}">
-									<span class="glyphicon glyphicon-remove" onclick="cdel(${pbcdto.pbcSeq})"></span>
-								</c:if>
+								<span class="pcdel">
+									<c:if test="${pbcdto.mSeq == loginDTO.mSeq}">
+										<span class="icon glyphicon glyphicon-remove" onclick="cdel(${pbcdto.pbcSeq});"></span>
+									</c:if>
+								</span>
 							</td>
 						</tr>
-						<tr>
-						
+						<tr class="trSeq${pbcdto.pbcSeq}">
+							<td colspan="2" class="pcomment">
+								${pbcdto.pbcomment}
+							</td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
 
 			
-				<div  class="col-lg-6">
-		 	<form id="form1" class="form-inline">
-    				<div class="input-group">
-      					<textarea  name = "Pbcomment" id="Pbcomment"class="form-control" placeholder="내용을 입력하세요."></textarea>
-      					<span class="input-group-btn">
-        					<button id="btn5"class="btn btn-default" type="button">등록!</button>
-      					</span>
-    				</div>
-			</form> 
-  				</div>
+			<div  class="col-lg-6">
+			 	<form id="form1" class="form-inline">
+	    				<div class="input-group">
+	      					<textarea  name = "Pbcomment" id="Pbcomment"class="form-control" placeholder="내용을 입력하세요."></textarea>
+	      					<span class="input-group-btn">
+	        					<button id="btn5"class="btn btn-default" type="button">등록!</button>
+	      					</span>
+	    				</div>
+				</form> 
+  			</div>
 
 
 
