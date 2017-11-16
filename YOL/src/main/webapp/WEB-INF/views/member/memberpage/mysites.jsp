@@ -13,7 +13,7 @@
 			</tr>
 			<c:forEach items="${vCreationList }" var="list">
 				
-				<c:if test="${list.jCount eq 1}">
+				<c:if test="${list.jCount == 1}">
 				<tr>
 					<td>${list.prName}</td>
 					<td><a href="/web/member/manage.action?prSeq=${list.prSeq}">${list.prURL}</a></td>
@@ -38,7 +38,7 @@
 			
 			<c:forEach items="${vCreationList }" var="list">
 				
-				<c:if test="${list.jCount gt 1}">
+				<c:if test="${list.jCount > 1}">
 				<tr>
 					<td>${list.prName}</td>
 					<td>${list.prURL}</td>

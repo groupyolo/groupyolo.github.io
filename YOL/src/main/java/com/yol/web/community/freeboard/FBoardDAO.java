@@ -36,6 +36,12 @@ public class FBoardDAO {
 		return sql.selectOne("fboard.view", fbSeq);
 	}
 
-	
+
+	public List<VFBoardDTO> listshort(VFBoardDTO dto) {
+		// TODO Auto-generated method stub
+		return sql.selectList("fboard.listshort", dto);
+	}
+
+
 	
 }
