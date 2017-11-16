@@ -29,7 +29,7 @@
 	</select>
 	
 	<select id="iadd" resultType="com.yol.web.DTO.InquiryDTO">
-		INSERT INTO INQUIRY VALUES (3, 1, #{title}, #{icontent}, sysdate, 0, #{openseq}, #{inquiryCategoryseq})
+		INSERT INTO INQUIRY VALUES (inquiryseq, 1, #{title}, #{icontent}, sysdate, 0, #{openseq}, #{inquiryCategoryseq})
 	</select>
 	
 	<select id="idel" parameterType="String" resultType="Integer">
@@ -45,11 +45,27 @@
 	</select>
 	
 	<select id="readd" parameterType="com.yol.web.DTO.InquiryboardDTO">
-		insert into INQUIRYBOARD values (5, #{content}, 'o', #{inquiryseq})
+		insert into INQUIRYBOARD values (inquiryboardseq, #{content}, 'o', #{inquiryseq})
 	</select>
 	
 	<select id="redel" parameterType="String" resultType="Integer">
 		delete from INQUIRYBOARD where inquiryboardseq = #{inquiryboardseq}
+	</select>
+	
+	<select id="faq" resultType="com.yol.web.DTO.FAQDTO">
+		select * from FAQ
+	</select>
+	
+	<select id="fvlist" resultType="com.yol.web.DTO.FAQDTO">
+		select * from FAQ where FAQseq = #{FAQseq}
+	</select>
+	
+	<select id="faqadd" resultType="com.yol.web.DTO.FAQDTO">
+		INSERT INTO FAQ VALUES (FAQseq.nextval, #{FAQCategoryseq}, #{title}, #{fcontent}, sysdate, #{openseq})
+	</select>
+	
+	<select id="faqdel" parameterType="String" resultType="Integer">
+		delete from FAQ where FAQseq = #{FAQseq}
 	</select>
 	
 

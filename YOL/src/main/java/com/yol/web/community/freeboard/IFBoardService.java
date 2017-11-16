@@ -1,5 +1,6 @@
 package com.yol.web.community.freeboard;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.yol.web.DTO.VFBoardDTO;
@@ -10,6 +11,13 @@ public interface IFBoardService {
 
 	List<VFBoardDTO> list(VFBoardDTO dto);
 
-	VFBoardDTO view(String fbSeq);	
+	VFBoardDTO view(String fbSeq);
+
+	List<VFBoardDTO> listshort(VFBoardDTO dto);
+
+	int getTotalCount();
+
+	List<VFBoardDTO> search(HashMap<String, String> map);
+	
 	
 }

@@ -12,7 +12,6 @@ html, body {
 
 
 html{
-
 	width:100%;height:100%;
 	min-width:1070px;
 }
@@ -32,7 +31,7 @@ body{
 
 #menutop{
 	width:100%; height:50px;
-	background-color: black;
+	background-color: #4E4845;
 	display:inline-block;
 	border:1px soild lightgrey;
 }	
@@ -40,7 +39,7 @@ body{
 #topbar{
 	width:1300px; height:50px;
 	margin: 0px auto;
-	background-color: black;
+	background-color: #4E4845;
 }
 
 .logo{
@@ -62,7 +61,6 @@ body{
 }
 .topmenutext div{
 	display:inline-block;
-	color: #626262;
 	font-weight: bold;
 	font-size: 1em;
 	margin-right: 8%; 
@@ -70,15 +68,14 @@ body{
 }
 
 .topmenutext a{
-	/* color:#626262; */
-	color:white;
+	color:#FFF0F5;
 }
 
 .topmenutext a:hover{
 	text-decoration:none;
 	cursor: pointer;
-	color:black;
-	text-shadow: 0.1px 0.1px FloralWhite;
+	color:#FFFFFF;
+	/* text-shadow: 0.1px 0.1px FloralWhite; */
 }
 
 .smallmenu{
@@ -123,6 +120,7 @@ z-index:200;
 .smallmenu ul li:hover{
 	color:black;
 	background-color: #FBFBFB;
+	cursor:pointer;
 }
 
 
@@ -134,10 +132,12 @@ display:block;   마우스 커서 올리면 서브메뉴 보이게 하기
 
 
 #core{
+	
 	width: 1000px;
-	min-height: 1200px;
+	min-height: 700px;
 	margin:0px auto;
-	border: 0px dashed grey;
+	border: 1px dashed grey;
+	margin-top:30px;
 }
 
 #msubmenu{
