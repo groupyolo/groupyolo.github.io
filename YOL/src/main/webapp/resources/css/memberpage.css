@@ -32,7 +32,7 @@ body{
 
 #menutop{
 	width:100%; height:50px;
-	background-color: white;
+	background-color: #4E4845;
 	display:inline-block;
 	border:1px soild lightgrey;
 }	
@@ -62,7 +62,6 @@ body{
 }
 .topmenutext div{
 	display:inline-block;
-	color: #626262;
 	font-weight: bold;
 	font-size: 1em;
 	margin-right: 8%; 
@@ -70,7 +69,7 @@ body{
 }
 
 .topmenutext a{
-	color:#626262;\	
+	color: white;
 }
 
 .topmenutext a:hover{
@@ -84,7 +83,7 @@ body{
 	margin-top: 15px;
 	float: right;
 	display:inline-block;
-	color: #626262;
+	color: white;
 }
 
 .smallmenu i:hover{
