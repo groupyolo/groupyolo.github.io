@@ -18,6 +18,8 @@ public interface IFBoardService {
 	int getTotalCount();
 
 	List<VFBoardDTO> search(HashMap<String, String> map);
+
+	VFBoardDTO edit(String fbSeq);
 	
 	
 }

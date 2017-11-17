@@ -51,7 +51,7 @@
 			<div class="info">LAST UPDATA - </div> 
 		</div>
 		<div id="btn1">
-			<div id="siteEdit"><i class="fa fa-pencil"></i>사이트 편집</div>
+			<div id="siteEdit" onclick=""><i class="fa fa-pencil"></i>사이트 편집</div>
 			<div id="upgrade"><i class="fa fa-level-up"></i>업그레이드 </div>
 		</div>	
 	</div>

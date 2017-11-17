@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.yol.web.DTO.ConceptDTO;
 import com.yol.web.DTO.MemberDTO;
 import com.yol.web.DTO.VCreationDTO;
 import com.yol.web.DTO.VFBoardDTO;
@@ -72,13 +73,15 @@ public class MemberController {
 		int result = ics.creation(dto);
 		req.setAttribute("result", result);
 		
-		return "member.creation.creatpok";
+		return "member.creation.createpok";
 	}
 	
 	@RequestMapping(method = { RequestMethod.POST }, value = "/member/creationok.action")
 	public String creationok(HttpServletRequest req, VCreationDTO dto) {
 
 		int result = ics.add(dto);
+		int prSeq = ics.getPrSeq();
+		int copy = ics.copyTemplate(dto, prSeq);
 		
 		req.setAttribute("result", result);
 		
@@ -139,7 +142,27 @@ public class MemberController {
 		return "member.community.boardlist";
 	}
 
-	
+	@RequestMapping(method = { RequestMethod.POST }, value = "/member/filewriter.action")
+	public String filewriter(HttpServletRequest req, HttpSession session, ConceptDTO dto, VCreationDTO vdto) {
 
+		
+		System.out.println(req.getAttribute("whatda"));
+		
+		int result = ics.filewrt(dto, vdto);
+		
+		req.setAttribute("result", result);
+		
+		return "member.creation.filewriter";
+	}
+
+	@RequestMapping(method = { RequestMethod.GET }, value = "/member/creation/projectedit.action")
+	public String projectedit(HttpServletRequest req, VCreationDTO dto) {
+
+		String prSeq = dto.getPrSeq();
+		
+		
+		return "member.creation.projectedit";
+	}
+	
 }
 

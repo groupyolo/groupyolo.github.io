@@ -144,4 +144,15 @@ public class FBoardController {
 		return list;
 	}
 	
+	@RequestMapping(method = { RequestMethod.GET }, value = "/community/freeboard/boardedit.action")
+	public String boardedit(HttpServletRequest req, String fbSeq) {
+
+		VFBoardDTO vdto = ifb.view(fbSeq);
+		req.setAttribute("vdto", vdto);
+		
+		return "member.boardfree.boardedit";
+	}
+	
+	
+	
 }
