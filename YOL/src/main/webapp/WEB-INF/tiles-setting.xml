@@ -27,13 +27,10 @@
 
 	</definition>
 	
-	<!-- 임시 로그인 -->
-	<definition name= "main.*" template = "/WEB-INF/views/member/siteManage/login.jsp">
-		<put-attribute name="core" value="/WEB-INF/views/main/{1}.jsp"></put-attribute>
-	</definition>
+	<!-- 컨텐츠 -->
 	
-	<definition name= "test" template = "/WEB-INF/views/member/siteManage/test.jsp">
-		<put-attribute name="test" value="/WEB-INF/views/member/siteManage/test1.jsp"></put-attribute>
-	</definition>
+	<definition name="section.*" template="/WEB-INF/views/member/siteManage/section.jsp">
+		<put-attribute name ="part" value="/WEB-INF/views/member/siteManage/{1}.jsp"></put-attribute>
+	 </definition>
 	
 </tiles-definitions>
