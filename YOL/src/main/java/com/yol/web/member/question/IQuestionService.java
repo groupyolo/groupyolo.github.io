@@ -39,4 +39,6 @@ public interface IQuestionService {
 
 	List<QuestionDTO> list(HashMap<String, String> map);
 
+	List<QuestionDTO> qlist();
+
 }
