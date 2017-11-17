@@ -107,6 +107,8 @@ public class JoinTeamService implements IJoinTeamService {
 		//날짜수정
 		dto.setjStart((dto.getjStart().substring(0, 10)));
 		dto.setjEnd((dto.getjEnd().substring(0, 10)));
+		dto.setjRegDate(dto.getjRegDate().substring(0,19));
+		dto.setsName(dto.getsName().equals("모집중")?"<span class='label label-warning'>모집중</span>":dto.getsName().equals("마감")?"<span class='label label-default'>마감</span>":"삭제");
 		
 		return dto;
 	}

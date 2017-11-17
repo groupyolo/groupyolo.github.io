@@ -1,20 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<style>
-	.boxBasic { width:85%; margin:0 auto; }
-	#searchBox { text-align:right; }
-	#search_column { width:15%; }
-	#search_word { width:20%; }
-	#listTbl { margin-top:30px; }
-	#listTbl thead { text-align:center; }
-	#btns_list { text-align:right; }
-	.btn { background-color: #73a45e; color:white; }
-	#pagebar { margin:0 auto; width:50%; text-align:center; }
-</style>
-
-	<h2 class="boxBasic">팀원구하기용</h2>
-	
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/jointeam.css">
+	<div class="core_top">
+		<h2 class="boxBasic">팀원구하기용</h2>
+	</div>
 	<div id="searchBox" class="boxBasic">
 		<form action="" method="get" class="form-inline">
 			<select name="column" id="search_column" class="form-control">
@@ -26,7 +16,7 @@
 		</form>
 	</div>
 	<div id="listTbl" class="boxBasic">
-		<table class="tbl table">
+		<table class="table">
 			<thead>
 				<tr>
 					<th>번호</th>

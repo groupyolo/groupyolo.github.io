@@ -21,10 +21,7 @@ public class VCreationDTO {
 	private String apSeq;
 	private String jRegDate;
 	private String jointime;
-	private String activeState;
-	
-	
-	
+	private String activeState;	
 	
 	public String getActiveState() {
 		return activeState;
