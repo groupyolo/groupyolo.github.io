@@ -249,7 +249,6 @@
 	#tbl1, #tbl2 {
 		display:block;
 		 width: 80%;
-		border: 1px solid black;
 		 margin-top: 10px;
 		 text-align: center;
 		 margin: 0px auto;
@@ -381,6 +380,10 @@
 		margin-bottom: 25px;
 		border: 1px solid #dde1e2;
 		background-color: #fff;
+	}
+	
+	.site-sub-titile {
+		
 	}
 	
 	#use {
