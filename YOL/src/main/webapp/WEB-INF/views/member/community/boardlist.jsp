@@ -5,6 +5,7 @@
 <div id="boardqna">
 <h4>질문게시판</h4>
 
+	
 
 </div>
 
@@ -12,7 +13,7 @@
 <div id="boardrecruit">
 <h4>모집게시판</h4>
 
-
+	
 
 </div>
 
