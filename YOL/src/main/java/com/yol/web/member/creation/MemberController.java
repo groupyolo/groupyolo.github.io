@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.yol.web.DTO.MemberDTO;
+import com.yol.web.DTO.QuestionDTO;
 import com.yol.web.DTO.VCreationDTO;
 import com.yol.web.DTO.VFBoardDTO;
 import com.yol.web.community.freeboard.IFBoardService;
+import com.yol.web.member.question.IQuestionService;
 
 @Controller
 public class MemberController {
@@ -23,6 +25,10 @@ public class MemberController {
 	
 	@Autowired
 	private IFBoardService ifb;
+	
+	@Autowired
+	private IQuestionService iqs;
+	
 	
 	@RequestMapping(method = { RequestMethod.GET }, value = "/main.action")
 	public String main(HttpServletRequest req) {
@@ -134,7 +140,10 @@ public class MemberController {
 	public String boardlist(HttpServletRequest req, VFBoardDTO dto) {
 
 		List<VFBoardDTO> list = ifb.listshort(dto);
+		List<QuestionDTO> qlist = iqs.qlist();
+		
 		req.setAttribute("fblistshort", list);
+		req.setAttribute("qlist", qlist);
 		
 		return "member.community.boardlist";
 	}

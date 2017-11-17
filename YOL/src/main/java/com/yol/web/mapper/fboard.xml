@@ -28,5 +28,6 @@
  	<select id="search" parameterType="map" resultType="com.yol.web.DTO.VFBoardDTO">
  		select * from VFREEBOARD  where activation = 'y' and ${category} like '%' || #{word} || '%' order by fbSeq desc
  	</select>
- 
+ 	
+
 </mapper>
