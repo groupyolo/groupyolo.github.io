@@ -1,11 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/jointeam.css">
 <script>
 	$(document).ready(function() {
 		$("#memberTbl").hide();
@@ -25,12 +21,16 @@
 				$("#memberTbl").show();
 				$("#requestTbl").show();
 				var n = 1;
+
+				console.log(data.length);										
+				
+				
 				$(data).each(function (index, item) {				
 					//var jSeq = item.jSeq;
-					var tr = "<tr><td>"+n+"</td><td>"+item.mNickName+"</td><td>"+item.jRegDate+"</td><td>"+item.gradeName+"</td><td><input type='button' value='승인' id='btnApprove"+item.jSeq+"' onclick='approve("+item.mSeq+","+item.reSeq+");'> <input type='button' id='btnReject"+item.jSeq+"' value='거절' onclick='reject("+item.mSeq+","+item.reSeq+");'></td></tr>"
+					var tr = "<tr><td>"+n+"</td><td>"+item.mNickName+"</td><td>"+item.jRegDate+"</td><td>"+item.gradeName+"</td><td><input type='button' value='승인' class='btn' id='btnApprove"+item.jSeq+"' onclick='approve("+item.mSeq+","+item.reSeq+");'> <input type='button' id='btnReject"+item.jSeq+"' value='거절' class='btn' onclick='reject("+item.mSeq+","+item.reSeq+");'> <input type='hidden' id='listHidden'></td></tr>"
 					$("#memberList tbody").append(tr);
 					n++;
-					$("#btnHidden").val(item.reSeq);
+					$("#listHidden").val();
 					if(item.apSeq != '0') {
 						//버튼 비활성
 						/* 
@@ -42,6 +42,8 @@
 						$("#" + "btnApprove" + item.jSeq).attr("disabled",true);
 						$("#" + "btnReject" + item.jSeq).attr("disabled",true);
 					}
+					
+					
 				});
 				
 			},
@@ -49,6 +51,7 @@
 				alert("실패");
 			}			
 		});
+		
 		
 		if($("#mCount").text() == $("#jCount").text()) {
 			$("#btnSearch").attr("disabled",true);
@@ -108,14 +111,18 @@
 				console.log(data);
 				//$("#mEmail").val("");
 				$(data).each(function(index, item) {
-					var nickName = $("#memberList tbody tr td").eq(2).text();
+					var nickName = $("#memberList tbody tr td").eq(1).text();
 					console.log(nickName);
 					if(data.length == 0) {
 						$("#txtAddMember").val("해당 멤버가 존재하지 않습니다.");
+						$("#txtAddMember").attr("disabled",true);
 					} else if (item.mNickName == nickName) {
 						$("#txtAddMember").val("이미 처리가 완료된 회원입니다.");
+						$("#txtAddMember").attr("disabled",true);
 					} else {
-						$("#txtAddMember").val(item.mNickName);						
+						$("#txtAddMember").val(item.mNickName);		
+						$("#btnHidden").val(item.reSeq);
+						console.log($("#btnhidden").val());
 						$("#btnAddMember").attr("disabled",false);
 					}
 					
@@ -152,18 +159,18 @@
 </script>
 </head>
 <body>
-	<h1>팀 마스터 페이지</h1>
-	<div id="projectTbl"> <!--  -->
-		<table></table>
+	<div class="core_top">
+		<h2 class="boxBasic">팀 마스터 페이지</h2>
 	</div>
-	<div id="recruitTbl"> <!-- 모집중 -->	
-		<h3>모집중인 프로젝트</h3>
-		<table>
+	<div id="recruitTbl" class="boxBasic">
+		<h4>모집중인 프로젝트</h4>
+		<table class="table">
 			<tr>
 				<th>글번호</th>
 				<th>제목</th>
 				<th>시작일 ~ 종료일</th>
 				<th>인원수</th>
+				<th>모집 on/off</th>
 				<th>프로젝트</th>
 			</tr>
 			<c:if test="${tlist.size() eq 0}">
@@ -178,7 +185,8 @@
 					<td>${tdto.jSubject}</td>
 					<td>${tdto.jStart}~${tdto.jEnd}</td>
 					<td><span id="mCount${tdto.reSeq}">${tdto.mCount}</span>/<span id="jCount">${tdto.jCount}</span></td>
-					<td><input type="button" id="btnProject" value="생성" onclick="modal(${tdto.prSeq});"/></td>
+					<td><label class="switch"><input type="checkbox"><span class="slider round"></span></label></td>
+					<td><input type="button" id="btnProject" value="생성" class="btn" onclick="modal(${tdto.prSeq});"/></td>
 					<c:if test="${tdto.pCount==1}">
 					<script>
 						$("#btnProject").val("이동");
@@ -190,21 +198,22 @@
 			</c:if>
 		</table>
 	</div>
-	<div id="requestTbl">
-		<h3>새 멤버 요청</h3>
+	<div id="requestTbl" class="boxBasic">
+		<h4>새 멤버 요청</h4>
 		<div id="searchMember">
-			<input type="text" id="mEmail"  />
-			<input type="button" id="btnSearch" value="회원검색" onclick="searchMember();" />
+			<input type="text" id="mEmail" class="form-control" />
+			<input type="button" id="btnSearch" class="btn" value="회원검색" onclick="searchMember();" />
 			<input type="hidden" id="btnHidden"/>
 		</div>
 		<div id="addMember">		
-			<input type="text" id="txtAddMember" readonly/>
-			<input type="button" id="btnAddMember" onclick="addMember();" value="멤버요청"/>
+			<input type="text" id="txtAddMember" class="form-control" readonly/>
+			<input type="button" id="btnAddMember" class="btn" onclick="addMember();" value="멤버요청"/>
 		</div>
+		<div></div>
 	</div>
-	<div id="memberTbl">
-		<h3>신청자 리스트</h3>
-		<table id="memberList">
+	<div id="memberTbl" class="boxBasic">
+		<h4>신청자 리스트</h4>
+		<table id="memberList" class="table">
 			<thead>
 				<tr>
 					<th>번호</th>
@@ -217,5 +226,3 @@
 			<tbody></tbody>
 		</table>
 	</div>	
-</body>
-</html>
