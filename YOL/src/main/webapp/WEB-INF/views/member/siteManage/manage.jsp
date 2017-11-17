@@ -4,7 +4,65 @@
 <script src="/web/js/jquery-1.12.4.js"></script>
 <link rel="stylesheet" href="${pageContext.request.contextPath }/css/membersite.css"/>
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109683796-1"></script>
 <script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+/*   window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-109683796-1'); */
+
+ 
+ 
+  <!-- Google Analytics -->
+
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-109683796-1', 'auto');
+  ga('send', 'pageview');
+  
+  ga(function(tracker) {
+	  // Logs the tracker created above to the console.
+	  console.log(tracker);
+	  // Logs the trackers name.
+	  // (Note: default trackers are given the name "t0")
+	  console.log(tracker.get('name'));
+
+	  // Logs the client ID for the current user.
+	  console.log(tracker.get('clientId'));
+
+	  // Logs the URL of the referring site (if available).
+	  console.log(tracker.get('referrer'));
+	});
+  
+  ga('set', {
+	  page: '/about',
+	  title: 'About Us'
+	});
+  
+  ga('myTracker.set', 'page', '/about');
+  
+  ga(function(tracker) {
+	  tracker.set('page', '/about');
+	});
+  
+  ga(function(tracker) {
+	  // Gets the title using the analytics.js field name.
+	  console.log(tracker.get('title'));
+
+	  // Gets the title using the measurement protocol
+	  // parameter name, prefixed with an ampersand.
+	  console.log(tracker.get('&dt'));
+	});
+  <!-- End Google Analytics -->
+  
+  
+
 	$(document).ready(function() {
 		$('#btn2').click(function() {
 			$("#siteInfo").toggle();
@@ -151,7 +209,36 @@
 	<div id="analysisInfo">
 		<div id="aInfo">
 			<div id="in">
-				<div>사이트 방문자 통계</div>
+					<div class="site-sub-title">사이트 방문자 통계</div>
+					<div class='visit-date'>
+						<div class='change-date-box'>
+					        <div id='site-visit-start-wrap' class="input-group">
+							  <input id="site-visit-start" type="text" class="form-control" aria-describedby="site visit start date" readonly="true">
+							</div>
+							<span class="fa"></span>
+					        <div id='site-visit-end-wrap' class="input-group">
+							  <input id="site-visit-end" type="text" class="form-control" aria-describedby="site visit end date" readonly="true">
+							</div>
+						</div>
+					</div>
+					<ul class='visit-info legend'>
+						<li>
+							<label>오늘</label>
+							<span class="count today-visit"></span>
+						</li>
+						<li>
+							<label>전체</label>
+							<span class="count total-visit"></span>
+						</li>
+					</ul>
+
+					<div class="visit-chart">
+						<canvas id="visitChart">
+						</canvas>
+					</div>
+					<div class='analytics-source'>
+						<a href="/analytics/view">유입경로</a>
+					</div>
 			</div>
 			<div id="use">
  				<div>사용 용량</div> 
