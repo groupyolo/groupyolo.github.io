@@ -489,7 +489,7 @@
 		var target = $(obj).parent().attr("id");
 		
 		var temp= "";
-		temp+="<div class='optionMenu-box'><div class='optionMenu-box-top'>상세메뉴</div><div class='optionMenu-box-title' onclick='menuTitleClick(this)'>여백설정</div><div class='optionMenu-box-content'>				<div><span>좌측여백</span><input type='range' min='0' max='100' value='0' direction='left' onchange='paddingChange(this,"+target+");'></div>				<div><span>우측여백</span><input type='range' min='0' max='100' value='0' direction='right' onchange='paddingChange(this,"+target+");'></div>				<div><span>상측여백</span><input type='range' min='0' max='100' value='0' direction='top' onchange='paddingChange(this,"+target+");'></div>				<div><span>하측여백</span><input type='range' min='0' max='100' value='0' direction='bottom' onchange='paddingChange(this,"+target+");'></div>			</div>			<div class='optionMenu-box-title' onclick='menuTitleClick(this)'>				<div>배경설정</div>			</div><div class='optionMenu-box-content'>				<div>배경내용</div>		</div><div class='optionMenu-box-title' onclick='menuTitleClick(this)'>				<div>이미지설정</div>	</div><div class='optionMenu-box-content'>				<div>이미지내용</div>	</div>		</div>";
+		temp+="<div class='optionMenu-box'><div class='optionMenu-box-top'>상세메뉴</div><div class='optionMenu-box-title' onclick='menuTitleClick(this)'>여백설정</div><div class='optionMenu-box-content'>				<div><span>좌측여백</span><input type='range' min='0' max='100' value='0' direction='left' onchange='paddingChange(this,"+target+");'></div>				<div><span>우측여백</span><input type='range' min='0' max='100' value='0' direction='right' onchange='paddingChange(this,"+target+");'></div>				<div><span>상측여백</span><input type='range' min='0' max='100' value='0' direction='top' onchange='paddingChange(this,"+target+");'></div>				<div><span>하측여백</span><input type='range' min='0' max='100' value='0' direction='bottom' onchange='paddingChange(this,"+target+");'></div>			</div>			<div class='optionMenu-box-title' onclick='menuTitleClick(this)'>				<div>배경설정</div>			</div><div class='optionMenu-box-content'>				<div><span>이미지 선택</span><input type='button' onclick='boxImageChange(this,"+target+");'></div><div><span>색 선택</span><input type='color' onclick='boxColorChange(this,"+target+");'></div>		</div><div class='optionMenu-box-title' onclick='menuTitleClick(this)'>				<div>이미지설정</div>	</div><div class='optionMenu-box-content'>				<div>이미지내용</div>	</div>		</div>";
 		
 		return temp;
 		
@@ -579,7 +579,25 @@
 		$(target).css("padding-"+direction,value+"px");
 		
 	}
-	
+	function boxImageChange(obj,target){
+		event.cancelBubble = true;
+		event.stopPropagation();
+		
+		var direction = $(obj).attr("direction");
+		var value =  $(obj).val();
+		
+		$(target).css("padding-"+direction,value+"px");
+	}
+	function boxColorChange(obj,target){
+		event.cancelBubble = true;
+		event.stopPropagation();
+		
+		
+		var value =  $(obj).val();
+		console.log(target);
+		
+		$(target).css("background-color",value);
+	}
 	
 	
 	/* 드래그 구현  */
