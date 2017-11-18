@@ -31,7 +31,7 @@
 	</select>
 	
 	<select id="member" parameterType="String" resultType="com.yol.web.DTO.VJoinMemberDTO">
-		SELECT * FROM VJoinMember WHERE reSeq = #{reSeq} AND apSeq in (0, 1) ORDER BY jRegDate ASC
+		SELECT * FROM VJoinMember WHERE reSeq = #{reSeq} AND apSeq in (0, 1, 2, 4) ORDER BY jRegDate ASC
 	</select>
 	
 	<update id="edit" parameterType="com.yol.web.DTO.JoinBoardDTO">
