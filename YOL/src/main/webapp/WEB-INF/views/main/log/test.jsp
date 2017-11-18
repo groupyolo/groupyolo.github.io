@@ -438,7 +438,7 @@
 				$("<ul class='hover-add'><li class='hover-add-child'><div class='add' onclick='addDIV(this);'>+</div></li></ul>").insertAfter(this);
 				
 			 	$(this).find(".default-btn").show(); 
-				$("#").css("left","300px");
+			 	$(".optionMenu").html("");
 				select="";
 			}
 		});
@@ -464,9 +464,11 @@
  		
  		selectDIVon();
  		
+ 		
+ 		
  		/* 테스트용 div 번호 */
  			
- 		$("<div class='block block-body' "+"id='block"+($(".block-body").length+1)+"'></div>").insertBefore($(obj).parent().parent());
+ 		$("<div class='block block-body' "+"id='block"+($(".block-body").length+1)+"'><div class=''></div><div class='background'>		<div class='backgroundImage'>			<div class='innerImage'>	</div>	<div class='innerText'>		<p>무뭐뭐1</p>	<p>무뭐뭐2</p>		<p>무뭐뭐3</p>	</div></div></div></div>").insertBefore($(obj).parent().parent());
  		
  		/* 템플릿 본문 */
  
@@ -478,7 +480,7 @@
  		
  		addShow();
  		select="";
-		$("#").css("left","300px");
+ 		$(".optionMenu").html("");
  	
 	}
 	
