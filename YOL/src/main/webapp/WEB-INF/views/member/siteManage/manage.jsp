@@ -147,6 +147,10 @@
 	</div>
 		
 	
+	<div id="analysisInfo">
+		<div id="in"></div>
+		<div id="use"></div>
+	</div>
 <div role="tabpanel" id=inbox>
 	  <!-- Nav tabs -->
 	  <ul class="nav nav-tabs" role="tablist">
