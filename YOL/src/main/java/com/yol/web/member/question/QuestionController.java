@@ -280,28 +280,76 @@ public class QuestionController {
 	}
 	
 	
-	@RequestMapping(method = { RequestMethod.GET }, value = "/question/createTable1.action")
-	public String createTable1(HttpServletRequest req) {
-		
-		return "member.question.createTable1";
-	}
-	
-	
-	@RequestMapping(method = { RequestMethod.GET }, value = "/question/createTable.action")
-	public String createTable(HttpServletRequest req) {
+	@RequestMapping(method = { RequestMethod.GET }, value = "/question/memo.action")
+	public String memo(HttpServletRequest req) {
 
-		HashMap<String,String> map = new HashMap<String,String>();
-		
-		map.put("width", req.getParameter("width"));
-		map.put("height", req.getParameter("height"));
-		req.getParameter("color");
-		req.getParameter("cols");
-		req.getParameter("cols2");
-		req.getParameter("clos3");
-		req.getParameter("clos4");
-		
-		return "member.question.createTable";
+		return "member.question.memo";
 	}
+
+	
+	@RequestMapping(method = { RequestMethod.GET }, value = "/question/contact1.action")
+	public String contact1(HttpServletRequest req) {
+
+		return "member.question.contact1";
+	}
+	
+	@RequestMapping(method = { RequestMethod.GET }, value = "/question/contact2.action")
+	public String contact2(HttpServletRequest req) {
+
+		return "member.question.contact2";
+	}
+	
+	@RequestMapping(method = { RequestMethod.GET }, value = "/question/contact3.action")
+	public String contact3(HttpServletRequest req) {
+
+		return "member.question.contact3";
+	}
+	
+	
+	@RequestMapping(method = { RequestMethod.GET }, value = "/question/menu1.action")
+	public String menu1(HttpServletRequest req) {
+
+		return "member.question.menu1";
+	}
+	
+	@RequestMapping(method = { RequestMethod.GET }, value = "/question/menu2.action")
+	public String menu2(HttpServletRequest req) {
+
+		return "member.question.menu2";
+	}
+	
+	
+	@RequestMapping(method = { RequestMethod.GET }, value = "/question/menu3.action")
+	public String menu3(HttpServletRequest req) {
+
+		return "member.question.menu3";
+	}
+	
+	
+	@RequestMapping(method = { RequestMethod.GET }, value = "/question/footer1.action")
+	public String footer1(HttpServletRequest req) {
+
+		return "member.question.footer1";
+	}
+	
+	
+	@RequestMapping(method = { RequestMethod.GET }, value = "/question/footer2.action")
+	public String footer2(HttpServletRequest req) {
+
+		return "member.question.footer2";
+	}
+	
+	
+	@RequestMapping(method = { RequestMethod.GET }, value = "/question/footer3.action")
+	public String footer3(HttpServletRequest req) {
+
+		return "member.question.footer3";
+	}
+	
+	
+	
+	
+	
 	
 	
 }
