@@ -197,5 +197,10 @@ public class JoinTeamService implements IJoinTeamService {
 		return dao.getTotalCount(map);
 	}
 
+	@Override
+	public int stateChange(String reSeq) {
+		return dao.stateChange(reSeq);
+	}
+
 
 }

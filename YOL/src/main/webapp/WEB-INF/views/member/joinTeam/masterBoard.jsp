@@ -153,6 +153,28 @@
 		})
 	}
 	
+	function stateOff(reSeq) { /* 이거 수정해야됨!!! 부모 못찾...음 */
+		$(this).closest('tr').hide();
+		/* $.ajax({
+			type:"get",
+			url:"${pageContext.request.contextPath}/member/stateChange.action",
+			data:"reSeq="+reSeq,
+			dataType:"json",
+			success:function(data) {
+				//console.log(data);
+				if(data == "1") {
+					console.log("성공");
+					//리스트에서 삭제?!
+					$(this).parent("tr");
+					
+				}
+			},
+			error:function() {
+				alert("실패");
+			}
+		}) */
+	}
+	
 	function modal() {
 		
 	}
@@ -180,12 +202,12 @@
 			</c:if>
 			<c:if test="${tlist.size() ne 0}">
 				<c:forEach items="${tlist}" var="tdto">
-				<tr id="btnMember" onclick="showMember(${tdto.reSeq});" style="cursor:pointer;">
+				<tr id="btnMember" onclick="showMember(${tdto.reSeq});" style="cursor:pointer;" class="cde">
 					<td>${tdto.reSeq}</td>
 					<td>${tdto.jSubject}</td>
 					<td>${tdto.jStart}~${tdto.jEnd}</td>
 					<td><span id="mCount${tdto.reSeq}">${tdto.mCount}</span>/<span id="jCount">${tdto.jCount}</span></td>
-					<td><label class="switch"><input type="checkbox"><span class="slider round"></span></label></td>
+					<td class="abc"><input type="button" value="OFF" class="btn-btn" onclick="stateOff(${tdto.reSeq});" /></td>
 					<td><input type="button" id="btnProject" value="생성" class="btn" onclick="modal(${tdto.prSeq});"/></td>
 					<c:if test="${tdto.pCount==1}">
 					<script>
