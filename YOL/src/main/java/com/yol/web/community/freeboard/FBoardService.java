@@ -57,4 +57,9 @@ public class FBoardService implements IFBoardService{
 		return list;
 	}
 	
+	@Override
+	public VFBoardDTO edit(String fbSeq) {
+		
+		return null;
+	}
 }

@@ -280,5 +280,28 @@ public class QuestionController {
 	}
 	
 	
+	@RequestMapping(method = { RequestMethod.GET }, value = "/question/createTable1.action")
+	public String createTable1(HttpServletRequest req) {
+		
+		return "member.question.createTable1";
+	}
+	
+	
+	@RequestMapping(method = { RequestMethod.GET }, value = "/question/createTable.action")
+	public String createTable(HttpServletRequest req) {
+
+		HashMap<String,String> map = new HashMap<String,String>();
+		
+		map.put("width", req.getParameter("width"));
+		map.put("height", req.getParameter("height"));
+		req.getParameter("color");
+		req.getParameter("cols");
+		req.getParameter("cols2");
+		req.getParameter("clos3");
+		req.getParameter("clos4");
+		
+		return "member.question.createTable";
+	}
+	
 	
 }

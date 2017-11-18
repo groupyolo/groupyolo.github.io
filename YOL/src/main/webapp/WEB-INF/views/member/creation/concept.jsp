@@ -132,7 +132,7 @@ $(document).ready(function() {
 	  } );
 	
 	function m3(){
-		var sors = $("#check").html;
+		var sors = $("#core").html();
 		document.getElementById("whatda").value +=sors;
 	}
 
@@ -233,9 +233,12 @@ $(document).ready(function() {
 	 
 	</div>
 
+	<form method="POST" action="${pageContext.request.contextPath}/member/filewriter.action">
 	<textarea name="whatda" id="whatda" cols="30" rows="10">
 	
 	</textarea>
+	<input type="submit" value="파일쓰기" />
+	</form>
 
 
   
