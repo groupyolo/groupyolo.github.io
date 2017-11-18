@@ -207,5 +207,11 @@ public class JoinTeamController {
 		int result = sv.addM(mEmail, reSeq);		
 		return result;
 	}
+	@RequestMapping(method= {RequestMethod.GET},value="/member/stateChange.action")
+	public @ResponseBody Object stateChange(HttpServletRequest req, String reSeq) {
+				
+		int result = sv.stateChange(reSeq);		
+		return result;
+	}
 	
 }
