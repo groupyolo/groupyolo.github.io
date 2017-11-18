@@ -1,5 +1,6 @@
 package com.yol.web.main.inpuiry;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +15,14 @@ public class InquiryService implements IInquiryService {
 	private InquiryDAO dao;
 
 	@Override
-	public List<InquiryDTO> list() {
+	public List<InquiryDTO> list(HashMap<String, String> map) {
 		
-		return dao.list();
+		return dao.list(map);
+	}
+
+	@Override
+	public int getTotalCount() {
+
+		return dao.getTotalCount();
 	}
 }

@@ -6,7 +6,11 @@
 <!-- 매퍼 파일안에 있는 쿼리들은 물리적인 파일에 의해서 관리가 되는 것이 아니라 namespace 속성에 의해서 관리된다. -->
 <mapper namespace="log">
 	<select id="in" parameterType="com.yol.web.DTO.MemberDTO" resultType="com.yol.web.DTO.MemberDTO">
-		select * from Member where mEmail=#{mEmail} and mPassword=#{mPassword} and mgSeq=1
+		select * from stateView where mEmail=#{mEmail} and mPassword=#{mPassword} and mgSeq=1 and msSeq=2
+	</select>
+
+	<select id="getNewSession" parameterType="com.yol.web.DTO.MemberDTO" resultType="com.yol.web.DTO.MemberDTO">
+		select * from Member where mEmail=#{mEmail} and mgSeq=#{mgSeq}
 	</select>
 
 	<select id="getId" parameterType="String" resultType="String">
@@ -46,6 +50,10 @@
 		insert into Member(mSeq, mgSeq, mNickName, mEmail, mPassword, mDate) values(mSeq.nextVal, ${mgSeq}, #{mNickName},#{mEmail},'ascdec12312',sysdate )
 	</insert>
 
+	<insert id="editProfile" parameterType="com.yol.web.DTO.MemberDTO">
+		update Member set mNickName=#{mNickName}, mPassword=#{mPassword} where mgSeq=#{mgSeq} and mEmail=#{mEmail}
+	</insert>
+
 	<insert id="addStateMember" parameterType="com.yol.web.DTO.MemberDTO">
 		insert into StateMember(smSeq, mSeq, msSeq, smDate, smDetail) values(smSeq.nextVal, (select mSeq from member where mEmail=#{mEmail} and mgSeq=1),1,sysdate,null )
 	</insert>
@@ -60,6 +68,10 @@
 	
 	<insert id="apiAuthok" parameterType="com.yol.web.DTO.MemberDTO">
 		insert into StateMember(smSeq, mSeq, msSeq, smDate, smDetail) values(smSeq.nextVal, (select mSeq from member where mEmail=#{mEmail} and mgSeq=${mgSeq}),2,sysdate,'연동회원' )
+	</insert>
+	
+	<insert id="addLogin" parameterType="map">
+		insert into Login(lSeq, mSeq, lsSeq, lDate, lCheckIP) values(lSeq.nextVal, #{mSeq}, 1,sysdate,#{lCheckIP})
 	</insert>
 	
 	

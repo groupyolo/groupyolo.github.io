@@ -4,7 +4,65 @@
 <script src="/web/js/jquery-1.12.4.js"></script>
 <link rel="stylesheet" href="${pageContext.request.contextPath }/css/membersite.css"/>
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109683796-1"></script>
 <script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+/*   window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-109683796-1'); */
+
+ 
+ 
+  <!-- Google Analytics -->
+
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-109683796-1', 'auto');
+  ga('send', 'pageview');
+  
+  ga(function(tracker) {
+	  // Logs the tracker created above to the console.
+	  console.log(tracker);
+	  // Logs the trackers name.
+	  // (Note: default trackers are given the name "t0")
+	  console.log(tracker.get('name'));
+
+	  // Logs the client ID for the current user.
+	  console.log(tracker.get('clientId'));
+
+	  // Logs the URL of the referring site (if available).
+	  console.log(tracker.get('referrer'));
+	});
+  
+  ga('set', {
+	  page: '/about',
+	  title: 'About Us'
+	});
+  
+  ga('myTracker.set', 'page', '/about');
+  
+  ga(function(tracker) {
+	  tracker.set('page', '/about');
+	});
+  
+  ga(function(tracker) {
+	  // Gets the title using the analytics.js field name.
+	  console.log(tracker.get('title'));
+
+	  // Gets the title using the measurement protocol
+	  // parameter name, prefixed with an ampersand.
+	  console.log(tracker.get('&dt'));
+	});
+  <!-- End Google Analytics -->
+  
+  
+
 	$(document).ready(function() {
 		$('#btn2').click(function() {
 			$("#siteInfo").toggle();
@@ -51,7 +109,7 @@
 			<div class="info">LAST UPDATA - </div> 
 		</div>
 		<div id="btn1">
-			<div id="siteEdit"><i class="fa fa-pencil"></i>사이트 편집</div>
+			<div id="siteEdit" onclick=""><i class="fa fa-pencil"></i>사이트 편집</div>
 			<div id="upgrade"><i class="fa fa-level-up"></i>업그레이드 </div>
 		</div>	
 	</div>
@@ -147,46 +205,83 @@
 	</div>
 		
 	
-	<div id="analysisInfo">
-		<div id="in"></div>
-		<div id="use"></div>
-	</div>
-<div role="tabpanel" id=inbox>
-	  <!-- Nav tabs -->
-	  <ul class="nav nav-tabs" role="tablist">
-	    <li role="presentation" class="active">
-	    	<a href="#all" aria-controls="all" role="tab" data-toggle="tab">
-	    		<div class="count not-mobile all">0</div>
-				<div class="type">전체</div>
-			</a>
-		</li>
-	    <li role="presentation">
-	    	<a href="#comments" aria-controls="comments" role="tab" data-toggle="tab">
-	    		<div class="count not-mobile comments">0</div>
-				<div class="type">댓글</div>	
-	    	</a>
-	    </li>
-	   	<li role="presentation">
-	   		<a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">
-	   			<div class="count not-mobile messages">0</div>
-				<div class="type">컨택트</div>
-	   		</a>
-	   	</li>
-	    <li role="presentation">
-	    	<a href="#board" aria-controls="board" role="tab" data-toggle="tab">
-	    		<div class="count not-mobile board">0</div>
-				<div class="type">게시판</div>
-	    	</a>
-	    </li>
-	  </ul>
 	
-	  <!-- Tab panes -->
-	  <div class="tab-content">
-	    <div role="tabpanel" class="tab-pane active" id="home">새로운 소식이 없습니다.</div>
-	    <div role="tabpanel" class="tab-pane" id="profile">댓글이 없습니다.</div>
-	    <div role="tabpanel" class="tab-pane" id="messages">메시지가 없습니다.</div>
-	    <div role="tabpanel" class="tab-pane" id="settings">게시물이 없습니다.</div>
-	  </div>
+	<div id="analysisInfo">
+		<div id="aInfo">
+			<div id="in">
+					<div class="site-sub-title">사이트 방문자 통계</div>
+					<div class='visit-date'>
+						<div class='change-date-box'>
+					        <div id='site-visit-start-wrap' class="input-group">
+							  <input id="site-visit-start" type="text" class="form-control" aria-describedby="site visit start date" readonly="true">
+							</div>
+							<span class="fa"></span>
+					        <div id='site-visit-end-wrap' class="input-group">
+							  <input id="site-visit-end" type="text" class="form-control" aria-describedby="site visit end date" readonly="true">
+							</div>
+						</div>
+					</div>
+					<ul class='visit-info legend'>
+						<li>
+							<label>오늘</label>
+							<span class="count today-visit"></span>
+						</li>
+						<li>
+							<label>전체</label>
+							<span class="count total-visit"></span>
+						</li>
+					</ul>
+
+					<div class="visit-chart">
+						<canvas id="visitChart">
+						</canvas>
+					</div>
+					<div class='analytics-source'>
+						<a href="/analytics/view">유입경로</a>
+					</div>
+			</div>
+			<div id="use">
+ 				<div>사용 용량</div> 
+			</div>
+		</div>	
+	
+	<div role="tabpanel" id=inbox>
+		  <!-- Nav tabs -->
+		  <ul class="nav nav-tabs" role="tablist">
+		    <li role="presentation" class="active">
+		    	<a href="#all" aria-controls="all" role="tab" data-toggle="tab">
+		    		<div class="count not-mobile all">0</div>
+					<div class="type">전체</div>
+				</a>
+			</li>
+		    <li role="presentation">
+		    	<a href="#comments" aria-controls="comments" role="tab" data-toggle="tab">
+		    		<div class="count not-mobile comments">0</div>
+					<div class="type">댓글</div>	
+		    	</a>
+		    </li>
+		   	<li role="presentation">
+		   		<a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">
+		   			<div class="count not-mobile messages">0</div>
+					<div class="type">컨택트</div>
+		   		</a>
+		   	</li>
+		    <li role="presentation">
+		    	<a href="#board" aria-controls="board" role="tab" data-toggle="tab">
+		    		<div class="count not-mobile board">0</div>
+					<div class="type">게시판</div>
+		    	</a>
+		    </li>
+		  </ul>
+		
+		  <!-- Tab panes -->
+		  <div class="tab-content">
+		    <div role="tabpanel" class="tab-pane active" id="all"><span>새로운 소식이 없습니다.</span></div>
+		    <div role="tabpanel" class="tab-pane" id="comments"><span>댓글이 없습니다.</span></div>
+		    <div role="tabpanel" class="tab-pane" id="messages"><span>메시지가 없습니다.</span></div>
+		    <div role="tabpanel" class="tab-pane" id="board"><span>게시물이 없습니다.</span></div>
+		  </div>
+	</div>
 </div>
 	
 		

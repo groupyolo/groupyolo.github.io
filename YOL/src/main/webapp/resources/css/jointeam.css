@@ -1,0 +1,66 @@
+/* communityBoard */
+	.core_top { margin-top:70px; }
+	.boxBasic { width:85%; margin:0 auto; }
+	.btn { background-color: #837E7C; color:white; border-radius:0; }
+	.page { background-color: #837E7C; color:white; }
+	
+	#searchBox { text-align:right; }
+	#search_column { width:15%; }
+	#search_word { width:20%; }
+	
+	#listTbl { margin-top:30px; }
+	#listTbl table thead tr th { text-align:center; border-top:1px solid #3c4451; border-bottom:1px solid #3c4451; }
+	#listTbl table tbody tr td { text-align:center; }
+	#listTbl table tbody tr td:nth-child(2) { text-align:left; }
+	
+	#btns_list { text-align:right; }
+	
+	#pagebar { margin:0 auto; width:50%; text-align:center; }
+	#pagebar .active a { background-color: #837E7C; color:white; border-color:#837E7C; }
+	
+/*  boardview */	
+	#viewTbl { margin-top:30px; vertical-align:middle; }
+	#viewTbl table tr td { padding-left:15px; vertical-align:middle; }
+	#viewTbl table tr:nth-child(2) { font-size:1.2em; height:8%;}
+	#viewTbl table tr:first-child td span:nth-child(2) { margin-left:50px; }
+	#viewTbl table tr:nth-child(2) td span { margin-left:10px; }
+	#viewTbl table tr:nth-child(3) td:last-child{ text-align:right; }
+	#viewTbl table tr:first-child td span:last-child { color:#ccc; float:right; }
+	#viewTbl table tr:last-child { height:200px; }
+	#viewTbl table tr td:first-child { width:40%; }
+	
+	#applyTbl table thead tr th { text-align:center; border-top:1px solid #3c4451; border-bottom:1px solid #3c4451; font-size:1.1em; }
+	#applyTbl table tbody tr td { text-align:center; }
+	#btns_member { text-align:center; margin-top:10px; }
+	#btns_member .btn { background-color:#ff6200; border:1px solid #ff6200; color:white; width:200px; border-radius:0; }
+	#btns_member .btn:hover { background-color:white; border:1px solid #ff6200; color:#ff6200; width:200px; border-radius:none !important; }
+	
+/* joinTeamAdd */
+	#formTbl { margin-top:30px; }
+	#formTbl th { width:15%; background-color:#eee; font-size:1.1em; }
+	#formTbl .form-control { width:100%; }
+	#formTbl tr:last-child td textarea { height:250px; }
+	#formTbl tr:nth-child(3) select { width:10%; }
+	
+/*  teamMaster */
+	#recruitTbl { margin-top:30px; }
+	#recruitTbl tr th { font-size:1.1em; }
+	#recruitTbl th, #recruitTbl td { text-align:center; vertical-align:middle; }
+	#recruitTbl tr:hover { background-color:#eee; }
+	#recruitTbl .btn { background-color:#ff6200; border:1px solid #ff6200; color:white; width:100px; border-radius:0; }
+	#recruitTbl .btn:hover { background-color:white; border:1px solid #ff6200; color:#ff6200; width:100px; border-radius:none !important; }
+	
+	#requestTbl { margin-top:30px; }
+	#requestTbl div { float:left; width:50%; text-align:center; }
+	#requestTbl #addMember:after { clear:both; content:""; display:block; }
+	#requestTbl .form-control { width:70%; display:inline-block;}
+	#searchMember { width:60%; }
+	#addMember { width:60%; }
+	
+	#memberTbl { margin-top:80px; }
+	#memberList tr th { font-size:1.1em; }
+	#memberList tr th, #memberList tr td { text-align:center; vertical-align:middle;}
+	#memberList tr td:nth-child(2) { text-align:left; }
+	
+	
+	

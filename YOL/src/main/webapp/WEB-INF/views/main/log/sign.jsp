@@ -336,10 +336,6 @@
 		}
 		
 	}
-	$("#mEmail").keyup(function(){
-		
-	});
-	
 	
 	$("#mEmail").change(function(){
 		
@@ -354,7 +350,7 @@
 			
 			$.ajax({
 				type:"get",
-				url:"/web/main/mEmailCheck.action",
+				url:"/web/main/memailcheck.action",
 				data:"mEmail="+$("#mEmail").val(),
 				dataType:"json",
 				success:function(result){
@@ -397,7 +393,7 @@
 			
 			$.ajax({
 				type:"get",
-				url:"/web/main/mNickNameCheck.action",
+				url:"/web/main/mnicknamecheck.action",
 				data:"mNickName="+$("#mNickName").val(),
 				dataType:"json",
 				success:function(result){

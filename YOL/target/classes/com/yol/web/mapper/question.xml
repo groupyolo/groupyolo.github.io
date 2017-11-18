@@ -69,6 +69,10 @@
 	<select id="getTotalCount" resultType="Integer">
 		select count(*) from question
 	</select>
+	
+	<select id="qlist" resultType="com.yol.web.DTO.QuestionDTO">
+ 		select * from (SELECT a.*, rownum as rnum FROM (select *from questionView order by questionseq desc) a) where<![CDATA[ rnum <= 5]]>
+ 	</select>
 </mapper>
 
 

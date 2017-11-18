@@ -76,9 +76,9 @@ public class JoinTeamController {
 		 
 		 while ( !(loop >blockSize || n > totalPage)) {
 		 	if (n == nowPage) {
-		 		pagebar += String.format("<li class='active'><a href='#'>%d</a></li>", n);
+		 		pagebar += String.format("<li class='active'><a href='#' class='page'>%d</a></li>", n);
 		 	} else {
-		 		pagebar += String.format("<li><a href='/web/member/communityBoard.action?page=%d'>%d</a></li>", n, n);
+		 		pagebar += String.format("<li><a href='/web/member/communityBoard.action?page=%d'>%d</a></li>", n);
 		 	}
 		 	loop++;
 		 	n++;
@@ -87,7 +87,7 @@ public class JoinTeamController {
 		 if (n > totalPage) {
 		 	pagebar += String.format("<li class='disabled'><a href='#' aria-label='Next'><span aria-hidden='true'>&raquo;</span></a></li>");
 		 } else {
-		 	pagebar += String.format("<li><a href='/web/member/communityBoard.action?page=%d' aria-label='Next'><span aria-hidden='true'>&raquo;</span></a></li>", n);
+		 	pagebar += String.format("<li><a href='/web/member/communityBoard.action?page=%d' aria-label='Next'><span aria-hidden='true'>&raquo;</span></a></li>", n, n-1);
 		 }		 
 		 pagebar += "</ul></nav>";
 		

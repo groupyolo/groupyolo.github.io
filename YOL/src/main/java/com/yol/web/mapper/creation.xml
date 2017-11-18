@@ -18,5 +18,9 @@
 	<select id="getList" parameterType="String" resultType="com.yol.web.DTO.VCreationDTO">
 		SELECT * FROM VCREATEINFO where mSeq=#{mSeq}
 	</select>
+
+	<select id="getPrSeq" resultType="Integer">
+		select prSeq.currval from dual
+	</select>
  
 </mapper>

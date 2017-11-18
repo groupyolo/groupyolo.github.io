@@ -38,4 +38,16 @@ public class ChatService implements IChatService {
 		return dao.creadUp(mseq);
 	}
 
+	@Override
+	public List<ChatDTO> chatView(String seq) {
+		
+		return dao.chatView(seq);
+	}
+
+	@Override
+	public int MaddChat(HashMap<String, String> map) {
+		
+		return dao.MaddChat(map);
+	}
+
 }

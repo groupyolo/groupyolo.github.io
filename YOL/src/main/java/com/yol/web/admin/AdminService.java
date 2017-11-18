@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.yol.web.DTO.FAQDTO;
 import com.yol.web.DTO.InquiryDTO;
 import com.yol.web.DTO.InquiryboardDTO;
 import com.yol.web.DTO.NoticeCategoryDTO;
@@ -79,9 +80,51 @@ public class AdminService implements IAdminService {
 	}//inquiryedit
 	
 	@Override
-	public List<InquiryboardDTO> iblist() {
+	public List<InquiryboardDTO> iblist(String inquiryseq) {
 		
-		return dao.iblist();
+		return dao.iblist(inquiryseq);
+	}
+	
+	@Override
+	public int readd(InquiryboardDTO dto) {
+		
+		return dao.readd(dto);
+	}
+	
+	@Override
+	public int readd1(String inquiryseq) {
+		
+		return dao.readd(inquiryseq);
+	}
+	
+	@Override
+	public int redel(String inquiryboardseq) {
+		
+		return dao.redel(inquiryboardseq);
+	}
+	
+	@Override
+	public List<FAQDTO> faqlist() {
+		
+		return dao.faqlist();
+	}
+
+	@Override
+	public List<FAQDTO> fvlist(String FAQseq) {
+		
+		return dao.fvlist(FAQseq);
+	}
+	
+	@Override
+	public int faqadd(FAQDTO dto) {
+		
+		return dao.faqadd(dto);
+	}
+	
+	@Override
+	public int faqDel(String FAQseq) {
+		
+		return dao.faqDel(FAQseq);
 	}
 	
 }//AmdinService

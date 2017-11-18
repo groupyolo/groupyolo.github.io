@@ -19,7 +19,7 @@
 		<!-- header -->
 		<tiles:insertAttribute name="membermenu"></tiles:insertAttribute>
 		
-		<div id="mainCore">
+		<div id="mainCore" style="position:relative;">
 		<!-- 주업무 -->
 		<tiles:insertAttribute name="core"></tiles:insertAttribute>
 		</div>

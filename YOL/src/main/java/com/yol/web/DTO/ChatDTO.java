@@ -4,7 +4,7 @@ public class ChatDTO {
 	
 	private String cseq;
 	private String mseq;
-	private String mnickName;
+	private String mnickname;
 	private String cwseq;
 	private String cwwriter;
 	private String ccontent;
@@ -19,11 +19,12 @@ public class ChatDTO {
 	public void setCseq(String cseq) {
 		this.cseq = cseq;
 	}
-	public String getMnickName() {
-		return mnickName;
+
+	public String getMnickname() {
+		return mnickname;
 	}
-	public void setMnickName(String mnickName) {
-		this.mnickName = mnickName;
+	public void setMnickname(String mnickname) {
+		this.mnickname = mnickname;
 	}
 	public String getCwwriter() {
 		return cwwriter;

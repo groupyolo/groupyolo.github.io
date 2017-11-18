@@ -13,8 +13,16 @@ public class VFBoardDTO {
 	 private String fbVCount;
 	 private String fbMain;
 	 private String fbTime;
+	 private String gap;
 	 
 	 
+	 
+	public String getGap() {
+		return gap;
+	}
+	public void setGap(String gap) {
+		this.gap = gap;
+	}
 	public String getFbSeq() {
 		return fbSeq;
 	}
