@@ -6,6 +6,17 @@ public class LoginDTO {
 	private String mSeq;
 	private String lsSeq;
 	private String lDate;
+	private String lCheckIP;
+
+	
+	
+	public String getlCheckIP() {
+		return lCheckIP;
+	}
+
+	public void setlCheckIP(String lCheckIP) {
+		this.lCheckIP = lCheckIP;
+	}
 
 	public String getlSeq() {
 		return lSeq;

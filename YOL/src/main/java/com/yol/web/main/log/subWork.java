@@ -1,19 +1,19 @@
 package com.yol.web.main.log;
 
-import java.io.UnsupportedEncodingException;
 
-import javax.mail.MessagingException;
+import java.util.HashMap;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
 
+import com.yol.web.DTO.LoginDTO;
 import com.yol.web.DTO.MemberDTO;
 
 @Aspect
@@ -23,16 +23,12 @@ public class subWork {
 	@Autowired 
 	private LogDAO dao;
 
-	  @Autowired
-	    private JavaMailSender mailSender;
-	
-	 
-	    @Pointcut("execution(public String com.yol.web.main.mail.LogController.signAuth(..))")
-		public void auth() {}
+	    @Pointcut("execution(public String com.yol.web.member.creation.MemberController.myinfo(..))")
+		public void login() {}
 
-	    @Pointcut("execution(public String com.yol.web.main.mail.LogController.apiSignok(..))")
+/*	    @Pointcut("execution(public String com.yol.web.main.mail.LogController.apiSignok(..))")
 	    public void apiAuth() {}
-
+*/
 		
 	   /* @After("apiAuth()")
 	    @Transactional
@@ -72,6 +68,24 @@ public class subWork {
 	        sendMail.setTo(mEmail);
 	        sendMail.send();
 	    }*/
-
+	    
+	    @Before("login()")
+	    public void getIP(JoinPoint joinPoint) {
+	    	
+	    	Object[] args = joinPoint.getArgs();
+			HttpServletRequest req = (HttpServletRequest)args[0];
+			HttpSession session = (HttpSession)args[1];
+	    	//세션도 가져오기
+			// DTO에 넣어서 넘기기
+	        String ip = req.getHeader("X-FORWARDED-FOR");
+	        if(ip == null) ip = req.getRemoteAddr();
+	        
+	        
+	        MemberDTO dto = (MemberDTO)session.getAttribute("loginDTO");
+	        HashMap<String,String> map = new HashMap<String, String>();
+	        map.put("mSeq", dto.getmSeq());
+	        map.put("lCheckIP", ip);
+	    	dao.addLogin(map);
+	    }
 	   	
 }

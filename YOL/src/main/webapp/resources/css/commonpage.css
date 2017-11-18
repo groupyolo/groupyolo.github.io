@@ -1,10 +1,60 @@
 #footer {
-
-   width: 100%;
-   height: 250px;
-   border:1px dashed purple;
-   
+	background-color: white;
+	width: 100%;
+	height: 250px;
+	border:1px dashed purple;
+	padding-top: 20px;
 }
+
+#footmenu{
+	width: 1000px;
+	border: 1px dashed blue;	
+	margin: 0px auto;
+}
+#menulist{
+	width: 700px;
+	margin: 0px auto;	
+}
+
+#menulist div span{
+	font-size: 1em;
+	font-weight: bold;
+	
+}
+
+#menulist ul{
+	list-style: none;
+	margin:0px; padding:0px;
+	padding-top:5px;
+	
+}
+#menulist ul li{
+margin-top:3px;
+}
+
+#footmenu #menulist div{
+	display:inline-block;
+	vertical-align: top;
+	margin-right:5%;
+	border: 1px dashed red;
+	width:120px;
+}
+
+#footmenu #menulist div:nth-child(4){
+	margin-right:0px;
+}
+
+
+#companyinfo{
+	text-align: center;
+	
+}
+
+#companyinfo p{
+	vertical-align: middle;	
+}
+	
+
 
 #footer #Fbox {
    margin-top: 30px;
@@ -39,6 +89,7 @@
 #footer #fot li {
    display: inline-block;
    margin: 20px;
+   font-size: 0.9em;
 }
 
 #footer #fotBox {

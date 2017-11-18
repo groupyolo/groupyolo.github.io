@@ -2,6 +2,7 @@ package com.yol.web.admin;
 
 import java.util.List;
 
+import com.yol.web.DTO.FAQDTO;
 import com.yol.web.DTO.InquiryDTO;
 import com.yol.web.DTO.InquiryboardDTO;
 import com.yol.web.DTO.NoticeCategoryDTO;
@@ -29,7 +30,27 @@ public interface IAdminService {
 
 	int iedit(InquiryDTO dto);
 
-	List<InquiryboardDTO> iblist();
+	List<InquiryboardDTO> iblist(String inquiryseq);
+
+	int readd(InquiryboardDTO dto);
+
+	int readd1(String inquiryseq);
+
+	int redel(String inquiryboardseq);
+
+	List<FAQDTO> faqlist();
+
+	List<FAQDTO> fvlist(String FAQseq);
+
+	int faqadd(FAQDTO dto);
+
+	int faqDel(String FAQseq);
+
+
+
+
+
+
 
 	
 

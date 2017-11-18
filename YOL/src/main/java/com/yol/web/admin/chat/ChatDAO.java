@@ -34,5 +34,15 @@ public class ChatDAO {
 
 		return sql.update("chat.creadUp",mseq);
 	}
+
+	public List<ChatDTO> chatView(String seq) {
+
+		return sql.selectList("chat.chatView",seq);
+	}
+
+	public int MaddChat(HashMap<String, String> map) {
+
+		return sql.insert("chat.MaddChat",map);
+	}
 	
 }

@@ -74,9 +74,14 @@ public class LogService implements ILogService{
 		return dao.apiLoginok(dto);
 	}
 	
+	@Transactional
 	@Override
 	public int apiSign(MemberDTO dto) {
-		return dao.apiSign(dto);
+		
+		int result = dao.apiSign(dto);
+		dao.addapiStateMember(dto);
+		dao.apiAuthok(dto);
+		return result;
 	}
 	
 	@Override
@@ -102,7 +107,7 @@ public class LogService implements ILogService{
 	        	sendMail.setSubject("[비밀번호 변경]");
 				sendMail.setText(new StringBuffer().append("<h1>비밀번호 변경</h1>")
 				        //.append("<a href='http://211.63.89.36:8080/web/emailConfirm?key=")
-						.append("<a href='http://localhost:8081/web/main/findPasswordChange.action?mEmail=")
+						.append("<a href='http://localhost:8081/web/main/findpasswordchange.action?mEmail=")
 						.append(mEmail)
 				        .append("' target='_blank'>비밀번호 재설정</a>")
 				        .toString());
@@ -122,7 +127,14 @@ public class LogService implements ILogService{
 		return dao.findPasswordChange(dto);
 	}
 	
-	
+	@Override
+	public MemberDTO editProfile(MemberDTO ldto) {
+		MemberDTO dto=null;
+		if (dao.editProfile(ldto)==1) {
+			dto = dao.getNewSession(ldto);
+		}
+		return dto;
+	}
 	
 	
 	

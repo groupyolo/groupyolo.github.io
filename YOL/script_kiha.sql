@@ -33,18 +33,18 @@ alter table statemember MODIFY SMDETAIL not null ;
 
 
 
-insert into MSTATE(msSeq,MSSTATE) VALUES (1,'대기');
-insert into MSTATE(msSeq,MSSTATE) VALUES (2,'활성');
-insert into MSTATE(msSeq,MSSTATE) VALUES (3,'휴면');
-insert into MSTATE(msSeq,MSSTATE) VALUES (4,'탈퇴');
+insert into MSTATE(msSeq,MSSTATE) VALUES (1,'��湲�');
+insert into MSTATE(msSeq,MSSTATE) VALUES (2,'�솢�꽦');
+insert into MSTATE(msSeq,MSSTATE) VALUES (3,'�쑕硫�');
+insert into MSTATE(msSeq,MSSTATE) VALUES (4,'�깉�눜');
 
 
 
-insert into LSTATE(lsSeq,lsSTATE) VALUES (1,'로그인');
-insert into LSTATE(lsSeq,lsSTATE) VALUES (2,'로그아웃');
+insert into LSTATE(lsSeq,lsSTATE) VALUES (1,'濡쒓렇�씤');
+insert into LSTATE(lsSeq,lsSTATE) VALUES (2,'濡쒓렇�븘�썐');
 
-insert into mGrade(MGSEQ,MGGRADE) VALUES (1,'무료');
-insert into mGrade(MGSEQ,MGGRADE) VALUES (2,'유료');
+insert into mGrade(MGSEQ,MGGRADE) VALUES (1,'臾대즺');
+insert into mGrade(MGSEQ,MGGRADE) VALUES (2,'�쑀猷�');
 
 
 
@@ -56,106 +56,106 @@ select * from MGRADE;
 commit;
 
 
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'제갈병우','초딩희준','2016-8-6','bibid@naver.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'제갈혜나','구리구리송사리','2016-5-4','baby19142@gmail.com','0000','2');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'장남준','너와나의골렘83','2016-5-20','bibid@yahoo.com','0000','2');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'천찬희','구리구리병아리108','2016-9-12','start@naver.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'공혁','천하무적삐약이117','2016-3-15','apple1959@daum.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'남궁기하','좋아하는김지현','2017-5-10','hothot@daum.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'한희진','웃는김지현','2016-2-12','web1931@daum.com','0000','2');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'우기하','상큼한돌돔','2017-2-25','abc@paran.com','0000','2');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'주정희','웃는송사리','2017-5-15','apple@gmail.com','0000','2');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'조남준','고장난정아','2016-2-10','baby@naver.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'한혜진','너와나의송사리','2017-5-21','def@gmail.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'우시현','슈퍼오크','2017-3-20','hothot@gmail.com','0000','2');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'장후','죽일놈의김지현','2017-2-12','def19131@paran.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'김혁','못난이삐약이','2017-3-20','web19129@naver.com','0000','2');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'성미희','웃는김지현54','2016-4-10','abc@yahoo.com','0000','2');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'우해나','천하무적화영','2016-2-6','soso@gmail.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'방희준','초딩선영','2016-11-25','baby@yahoo.com','0000','2');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'남궁병우','천하무적삐약이','2017-3-15','orange@paran.com','0000','2');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'최정희','슈퍼해나','2016-9-4','baby@paran.com','0000','2');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'우얼','좋아하는병아리','2016-8-20','hothot19137@gmail.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'최호진','죽일놈의오징어','2017-3-4','abc@naver.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'우후','더럽병아리','2016-10-6','soso@naver.com','0000','2');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'제갈희준','슈퍼오징어','2016-11-20','abc@daum.com','0000','2');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'제갈희준','너와나의골렘','2017-9-12','bibid@gmail.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'최남준','더럽화영','2016-9-21','weare1946@naver.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'한건희','귀여운화영','2017-2-6','orange@daum.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'한해나','귀여운삐약이','2017-8-2','web@yahoo.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'김태현','너와나의화영','2017-9-10','bibid1997@daum.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'방태현','죽일놈의희준','2017-5-12','sexy@daum.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'남궁건희','슈퍼선영','2016-5-20','soso1927@gmail.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'최병우','울트라화영','2016-9-20','abc1960@naver.com','0000','2');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'조민','죽일놈의송사리','2017-5-15','abc1963@daum.com','0000','2');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'공시현','고장난송사리','2016-10-21','web1971@yahoo.com','0000','2');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'김남준','웃는삐약이','2016-3-20','hothot1973@paran.com','0000','2');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'주혁','죽일놈의화영','2017-4-20','start19105@paran.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'장태현','상큼한오크','2016-3-15','hothot@paran.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'조우혁','아름다운오징어','2017-4-2','orange1962@paran.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'정호진','구리구리오징어','2016-2-2','gogo1945@gmail.com','0000','2');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'한병우','너와나의희준70','2017-5-6','weare1947@yahoo.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'천혜나','초딩오크','2017-2-6','baby1928@gmail.com','0000','2');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'성혁','천하무적삐약이69','2016-11-10','def@naver.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'공시현','울트라삐약이','2017-9-12','start1990@yahoo.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'공남준','귀여운김지현','2016-2-12','orange@yahoo.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'방민','좋아하는오크','2016-2-21','apple1998@gmail.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'한얼','귀여운희준','2017-4-2','def1994@paran.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'천태현','상큼한병아리','2016-4-8','weare@paran.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'남궁희진','너와나의병아리','2016-5-12','web@paran.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'제갈기태','아름다운화영','2016-2-8','sexy@paran.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'정기태','초딩해나','2017-4-6','def19114@gmail.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'정해나','천하무적선영','2017-2-12','sexy@yahoo.com','0000','2');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'성희준','고장난화영','2016-3-15','start@gmail.com','0000','2');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'공선영','구리구리골렘','2016-11-6','start@daum.com','0000','2');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'공후','울트라김지현','2016-11-12','hothot@yahoo.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'이남혁','구리구리오크','2016-9-6','start@paran.com','0000','2');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'방정희','못난이병아리','2016-2-4','weare@gmail.com','0000','2');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'정윤아','슈퍼화영','2016-11-10','def19100@yahoo.com','0000','2');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'이정희','상큼한김지현79','2016-5-6','web1976@naver.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'제갈우혁','구리구리정아','2017-5-12','soso19109@daum.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'김후','천하무적돌돔','2017-4-10','def@paran.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'이후','초딩김지현','2016-8-10','bibid@paran.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'정혜진','상큼한삐약이75','2017-4-25','apple@daum.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'방기하','죽일놈의삐약이','2017-8-15','baby@gmail.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'김기하','상큼한화영','2017-5-10','def1977@naver.com','0000','2');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'장혜진','아름다운선영','2016-3-20','soso@paran.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'제갈해나','못난이정아50','2016-2-20','orange1972@naver.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'제갈우혁','구리구리선영','2017-8-15','gogo@naver.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'방기태','구리구리병아리','2017-8-21','orange@gmail.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'제갈얼','울트라정아','2016-4-10','start19126@daum.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'김진','초딩송사리','2017-5-12','apple@naver.com','0000','2');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'성호진','너와나의오크','2017-3-20','gogo1961@yahoo.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'한호진','좋아하는돌돔','2017-4-8','soso1958@paran.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'성병우','못난이돌돔','2016-10-12','abc1968@naver.com','0000','2');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'박희진','너와나의선영','2017-2-21','apple@yahoo.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'남궁남혁','천하무적해나','2017-5-10','gogo@yahoo.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'장호진','슈퍼골렘','2017-5-20','gogo19115@paran.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'성우혁','아름다운삐약이','2016-10-10','bibid@daum.com','0000','2');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'제갈태현','너와나의오징어','2017-5-8','hothot19101@yahoo.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'박진','울트라선영','2016-8-8','web@naver.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'박호진','상큼한선영','2016-11-2','apple@paran.com','0000','2');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'주태현','고장난김지현','2017-2-8','weare19130@gmail.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'한우혁','웃는선영','2017-9-10','def1940@daum.com','0000','2');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'성얼','더럽삐약이','2017-3-2','weare@naver.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'이얼','아름다운병아리','2017-9-10','gogo@paran.com','0000','2');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'우찬희','더럽송사리55','2017-9-6','orange19127@yahoo.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'방민','울트라돌돔','2016-11-21','baby1984@yahoo.com','0000','2');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'정태현','귀여운해나','2017-2-6','sexy1993@gmail.com','0000','2');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'공진','울트라오징어99','2016-5-4','hothot1992@paran.com','0000','2');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'김진','귀여운골렘135','2017-4-25','baby@daum.com','0000','2');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'천윤아','너와나의돌돔','2017-3-20','def@yahoo.com','0000','2');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'장혁','고장난병아리','2017-5-8','soso@yahoo.com','0000','2');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'김진','죽일놈의병아리','2017-9-20','start19119@yahoo.com','0000','2');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'장정희','너와나의해나','2016-11-4','start@yahoo.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'주해나','좋아하는화영','2016-5-15','sexy@naver.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'이남혁','상큼한희준','2016-4-10','hothot@naver.com','0000','2');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'김건희','좋아하는골렘','2016-2-25','orange1978@gmail.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'이남혁','귀여운오징어','2016-3-10','soso@daum.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'한정희','초딩화영','2017-9-20','sexy1952@daum.com','0000','1');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'조진','구리구리삐약이','2016-4-25','orange@naver.com','0000','2');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'제갈미희','귀여운병아리106','2017-9-4','gogo@daum.com','0000','2');
-insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'방혜진','귀여운돌돔','2016-9-10','web1944@daum.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�젣媛덈퀝�슦','珥덈뵫�씗以�','2016-8-6','bibid@naver.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�젣媛덊삙�굹','援щ━援щ━�넚�궗由�','2016-5-4','baby19142@gmail.com','0000','2');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�옣�궓以�','�꼫���굹�쓽怨⑤젞83','2016-5-20','bibid@yahoo.com','0000','2');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'泥쒖갔�씗','援щ━援щ━蹂묒븘由�108','2016-9-12','start@naver.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'怨듯쁺','泥쒗븯臾댁쟻�굪�빟�씠117','2016-3-15','apple1959@daum.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�궓沅곴린�븯','醫뗭븘�븯�뒗源�吏��쁽','2017-5-10','hothot@daum.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�븳�씗吏�','�썐�뒗源�吏��쁽','2016-2-12','web1931@daum.com','0000','2');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�슦湲고븯','�긽�겮�븳�룎�룘','2017-2-25','abc@paran.com','0000','2');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'二쇱젙�씗','�썐�뒗�넚�궗由�','2017-5-15','apple@gmail.com','0000','2');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'議곕궓以�','怨좎옣�궃�젙�븘','2016-2-10','baby@naver.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�븳�삙吏�','�꼫���굹�쓽�넚�궗由�','2017-5-21','def@gmail.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�슦�떆�쁽','�뒋�띁�삤�겕','2017-3-20','hothot@gmail.com','0000','2');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�옣�썑','二쎌씪�냸�쓽源�吏��쁽','2017-2-12','def19131@paran.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'源��쁺','紐삳궃�씠�굪�빟�씠','2017-3-20','web19129@naver.com','0000','2');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�꽦誘명씗','�썐�뒗源�吏��쁽54','2016-4-10','abc@yahoo.com','0000','2');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�슦�빐�굹','泥쒗븯臾댁쟻�솕�쁺','2016-2-6','soso@gmail.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'諛⑺씗以�','珥덈뵫�꽑�쁺','2016-11-25','baby@yahoo.com','0000','2');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�궓沅곷퀝�슦','泥쒗븯臾댁쟻�굪�빟�씠','2017-3-15','orange@paran.com','0000','2');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'理쒖젙�씗','�뒋�띁�빐�굹','2016-9-4','baby@paran.com','0000','2');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�슦�뼹','醫뗭븘�븯�뒗蹂묒븘由�','2016-8-20','hothot19137@gmail.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'理쒗샇吏�','二쎌씪�냸�쓽�삤吏뺤뼱','2017-3-4','abc@naver.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�슦�썑','�뜑�읇蹂묒븘由�','2016-10-6','soso@naver.com','0000','2');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�젣媛덊씗以�','�뒋�띁�삤吏뺤뼱','2016-11-20','abc@daum.com','0000','2');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�젣媛덊씗以�','�꼫���굹�쓽怨⑤젞','2017-9-12','bibid@gmail.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'理쒕궓以�','�뜑�읇�솕�쁺','2016-9-21','weare1946@naver.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�븳嫄댄씗','洹��뿬�슫�솕�쁺','2017-2-6','orange@daum.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�븳�빐�굹','洹��뿬�슫�굪�빟�씠','2017-8-2','web@yahoo.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'源��깭�쁽','�꼫���굹�쓽�솕�쁺','2017-9-10','bibid1997@daum.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'諛⑺깭�쁽','二쎌씪�냸�쓽�씗以�','2017-5-12','sexy@daum.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�궓沅곴굔�씗','�뒋�띁�꽑�쁺','2016-5-20','soso1927@gmail.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'理쒕퀝�슦','�슱�듃�씪�솕�쁺','2016-9-20','abc1960@naver.com','0000','2');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'議곕��','二쎌씪�냸�쓽�넚�궗由�','2017-5-15','abc1963@daum.com','0000','2');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'怨듭떆�쁽','怨좎옣�궃�넚�궗由�','2016-10-21','web1971@yahoo.com','0000','2');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'源��궓以�','�썐�뒗�굪�빟�씠','2016-3-20','hothot1973@paran.com','0000','2');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'二쇳쁺','二쎌씪�냸�쓽�솕�쁺','2017-4-20','start19105@paran.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�옣�깭�쁽','�긽�겮�븳�삤�겕','2016-3-15','hothot@paran.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'議곗슦�쁺','�븘由꾨떎�슫�삤吏뺤뼱','2017-4-2','orange1962@paran.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�젙�샇吏�','援щ━援щ━�삤吏뺤뼱','2016-2-2','gogo1945@gmail.com','0000','2');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�븳蹂묒슦','�꼫���굹�쓽�씗以�70','2017-5-6','weare1947@yahoo.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'泥쒗삙�굹','珥덈뵫�삤�겕','2017-2-6','baby1928@gmail.com','0000','2');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�꽦�쁺','泥쒗븯臾댁쟻�굪�빟�씠69','2016-11-10','def@naver.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'怨듭떆�쁽','�슱�듃�씪�굪�빟�씠','2017-9-12','start1990@yahoo.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'怨듬궓以�','洹��뿬�슫源�吏��쁽','2016-2-12','orange@yahoo.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'諛⑸��','醫뗭븘�븯�뒗�삤�겕','2016-2-21','apple1998@gmail.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�븳�뼹','洹��뿬�슫�씗以�','2017-4-2','def1994@paran.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'泥쒗깭�쁽','�긽�겮�븳蹂묒븘由�','2016-4-8','weare@paran.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�궓沅곹씗吏�','�꼫���굹�쓽蹂묒븘由�','2016-5-12','web@paran.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�젣媛덇린�깭','�븘由꾨떎�슫�솕�쁺','2016-2-8','sexy@paran.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�젙湲고깭','珥덈뵫�빐�굹','2017-4-6','def19114@gmail.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�젙�빐�굹','泥쒗븯臾댁쟻�꽑�쁺','2017-2-12','sexy@yahoo.com','0000','2');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�꽦�씗以�','怨좎옣�궃�솕�쁺','2016-3-15','start@gmail.com','0000','2');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'怨듭꽑�쁺','援щ━援щ━怨⑤젞','2016-11-6','start@daum.com','0000','2');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'怨듯썑','�슱�듃�씪源�吏��쁽','2016-11-12','hothot@yahoo.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�씠�궓�쁺','援щ━援щ━�삤�겕','2016-9-6','start@paran.com','0000','2');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'諛⑹젙�씗','紐삳궃�씠蹂묒븘由�','2016-2-4','weare@gmail.com','0000','2');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�젙�쑄�븘','�뒋�띁�솕�쁺','2016-11-10','def19100@yahoo.com','0000','2');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�씠�젙�씗','�긽�겮�븳源�吏��쁽79','2016-5-6','web1976@naver.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�젣媛덉슦�쁺','援щ━援щ━�젙�븘','2017-5-12','soso19109@daum.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'源��썑','泥쒗븯臾댁쟻�룎�룘','2017-4-10','def@paran.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�씠�썑','珥덈뵫源�吏��쁽','2016-8-10','bibid@paran.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�젙�삙吏�','�긽�겮�븳�굪�빟�씠75','2017-4-25','apple@daum.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'諛⑷린�븯','二쎌씪�냸�쓽�굪�빟�씠','2017-8-15','baby@gmail.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'源�湲고븯','�긽�겮�븳�솕�쁺','2017-5-10','def1977@naver.com','0000','2');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�옣�삙吏�','�븘由꾨떎�슫�꽑�쁺','2016-3-20','soso@paran.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�젣媛덊빐�굹','紐삳궃�씠�젙�븘50','2016-2-20','orange1972@naver.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�젣媛덉슦�쁺','援щ━援щ━�꽑�쁺','2017-8-15','gogo@naver.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'諛⑷린�깭','援щ━援щ━蹂묒븘由�','2017-8-21','orange@gmail.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�젣媛덉뼹','�슱�듃�씪�젙�븘','2016-4-10','start19126@daum.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'源�吏�','珥덈뵫�넚�궗由�','2017-5-12','apple@naver.com','0000','2');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�꽦�샇吏�','�꼫���굹�쓽�삤�겕','2017-3-20','gogo1961@yahoo.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�븳�샇吏�','醫뗭븘�븯�뒗�룎�룘','2017-4-8','soso1958@paran.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�꽦蹂묒슦','紐삳궃�씠�룎�룘','2016-10-12','abc1968@naver.com','0000','2');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'諛뺥씗吏�','�꼫���굹�쓽�꽑�쁺','2017-2-21','apple@yahoo.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�궓沅곷궓�쁺','泥쒗븯臾댁쟻�빐�굹','2017-5-10','gogo@yahoo.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�옣�샇吏�','�뒋�띁怨⑤젞','2017-5-20','gogo19115@paran.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�꽦�슦�쁺','�븘由꾨떎�슫�굪�빟�씠','2016-10-10','bibid@daum.com','0000','2');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�젣媛덊깭�쁽','�꼫���굹�쓽�삤吏뺤뼱','2017-5-8','hothot19101@yahoo.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'諛뺤쭊','�슱�듃�씪�꽑�쁺','2016-8-8','web@naver.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'諛뺥샇吏�','�긽�겮�븳�꽑�쁺','2016-11-2','apple@paran.com','0000','2');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'二쇳깭�쁽','怨좎옣�궃源�吏��쁽','2017-2-8','weare19130@gmail.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�븳�슦�쁺','�썐�뒗�꽑�쁺','2017-9-10','def1940@daum.com','0000','2');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�꽦�뼹','�뜑�읇�굪�빟�씠','2017-3-2','weare@naver.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�씠�뼹','�븘由꾨떎�슫蹂묒븘由�','2017-9-10','gogo@paran.com','0000','2');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�슦李ы씗','�뜑�읇�넚�궗由�55','2017-9-6','orange19127@yahoo.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'諛⑸��','�슱�듃�씪�룎�룘','2016-11-21','baby1984@yahoo.com','0000','2');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�젙�깭�쁽','洹��뿬�슫�빐�굹','2017-2-6','sexy1993@gmail.com','0000','2');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'怨듭쭊','�슱�듃�씪�삤吏뺤뼱99','2016-5-4','hothot1992@paran.com','0000','2');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'源�吏�','洹��뿬�슫怨⑤젞135','2017-4-25','baby@daum.com','0000','2');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'泥쒖쑄�븘','�꼫���굹�쓽�룎�룘','2017-3-20','def@yahoo.com','0000','2');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�옣�쁺','怨좎옣�궃蹂묒븘由�','2017-5-8','soso@yahoo.com','0000','2');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'源�吏�','二쎌씪�냸�쓽蹂묒븘由�','2017-9-20','start19119@yahoo.com','0000','2');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�옣�젙�씗','�꼫���굹�쓽�빐�굹','2016-11-4','start@yahoo.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'二쇳빐�굹','醫뗭븘�븯�뒗�솕�쁺','2016-5-15','sexy@naver.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�씠�궓�쁺','�긽�겮�븳�씗以�','2016-4-10','hothot@naver.com','0000','2');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'源�嫄댄씗','醫뗭븘�븯�뒗怨⑤젞','2016-2-25','orange1978@gmail.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�씠�궓�쁺','洹��뿬�슫�삤吏뺤뼱','2016-3-10','soso@daum.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�븳�젙�씗','珥덈뵫�솕�쁺','2017-9-20','sexy1952@daum.com','0000','1');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'議곗쭊','援щ━援щ━�굪�빟�씠','2016-4-25','orange@naver.com','0000','2');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'�젣媛덈�명씗','洹��뿬�슫蹂묒븘由�106','2017-9-4','gogo@daum.com','0000','2');
+insert into Member(mSeq,mName,mNickName,mDate,mEmail,mPassword,mgSeq) values(mSeq.nextval,'諛⑺삙吏�','洹��뿬�슫�룎�룘','2016-9-10','web1944@daum.com','0000','1');
 
 
 
@@ -404,7 +404,7 @@ declare
     end loop;
   END;
 
-/*실제 나중에 쓸 프로시저. 휴면계정 검색용*/
+/*�떎�젣 �굹以묒뿉 �벝 �봽濡쒖떆��. �쑕硫닿퀎�젙 寃��깋�슜*/
 
 create or replace PROCEDURE vacationMember
   as
@@ -424,7 +424,7 @@ create or replace PROCEDURE vacationMember
   end;
 
 
-/* 더미용 프로시저. 휴면계정 검색용*/
+/* �뜑誘몄슜 �봽濡쒖떆��. �쑕硫닿퀎�젙 寃��깋�슜*/
 
 declare
 
@@ -448,3 +448,82 @@ begin
   vacationMember();
 
 END;
+
+create or replace view faqTotalView
+as select b.*, a.faqcategory from faqCategory a
+    inner join faq b
+        on a.faqCategorySeq=b.faqCategorySeq;
+
+select * from faqTotalView;
+commit;
+select * from faqCategory;
+select * from faq;
+insert into faq values(2,2,'테스트2','내용2',sysdate,1);
+insert into faq values(3,2,'테스트3','내용3',sysdate,1);
+insert into faq values(4,3,'테스트4','내용4',sysdate,1);
+insert into faq values(5,5,'테스트5','내용5',sysdate,1);
+
+select * from faqTotalView where faqCategoryseq=1;
+
+insert into faq values(6,1,'테스트6','내용6',sysdate,1);
+insert into faq values(7,1,'테스트7','내용7',sysdate,1);
+insert into faq values(8,1,'테스트8','내용8',sysdate,1);
+insert into faq values(9,1,'테스트9','내용9',sysdate,1);
+insert into faq values(10,1,'테스트10','내용10',sysdate,1);
+insert into faq values(11,1,'테스트11','내용11',sysdate,1);
+
+create table incfunction(
+    seq number primary key,
+    BigTitleNum number,
+    bigtitle varchar2(2000),
+    title varchar2(1000),
+    cont varchar2(3000)
+);
+
+create sequence incSeq;
+
+insert into incfunction values(incSeq.nextval,1,'쉽고 확실한 홈페이지','간편한 에디터','코딩 걱정없이 쉽고 간편한 사용자 친화적인 드래그-앤-드롭 방식의 에디터로 내 홈페이지를 완성하세요.');
+insert into incfunction values(incSeq.nextval,1,'쉽고 확실한 홈페이지','원페이지','내 비즈니스 홍보를 위한 한장짜리 원페이지 홈페이지를 손쉽고 멋지게 제작하세요.');
+insert into incfunction values(incSeq.nextval,1,'쉽고 확실한 홈페이지','이미지편집','이미지 편집 기능을 활용해 비즈니스 효과를 극대화하세요.');
+insert into incfunction values(incSeq.nextval,1,'쉽고 확실한 홈페이지','스크린 위치 고정','스크린 스크롤 및 크기 조절시에도 방문자가 사용할 수 있도록 요소의 위치를 고정시켜보세요.');
+insert into incfunction values(incSeq.nextval,1,'쉽고 확실한 홈페이지','소셜미디어 연동','내 홈페이지와 소셜 채널의 연동을 위해 소셜 미디어 아이콘을 추가하세요.');
+
+insert into incfunction values(incSeq.nextval,2,'비지니스를 위한 홈페이지','웹 로그 분석','방문 횟수 및 방문 경로, 페이지뷰 등 내 홈페이지 활동 및 트래픽을 통계로 확인하세요.');
+insert into incfunction values(incSeq.nextval,2,'비지니스를 위한 홈페이지','커뮤니케이션 도구','방문자 및 고객 관리를 위한 YOL! 커뮤니케이션 도구로 직접 소통하세요.');
+
+insert into incfunction values(incSeq.nextval,3,'YOL! 도움말 센터','24시 고객지원','언제든지 YOL! 도움말 센터를 통해 내 문의사항을 해결하세요.');
+insert into incfunction values(incSeq.nextval,3,'YOL! 도움말 센터','자주 묻는 질문','[자주 묻는 질문] 페이지에서 다양한 질문 및 답변을 확인하세요.');
+insert into incfunction values(incSeq.nextval,3,'YOL! 도움말 센터','1:1 실시간 채팅','실시간으로 관계자에게 궁금한 것을 확인하세요.');
+commit;
+select * from incFunction ;
+
+
+ALTER TABLE login  ADD lCheckIP varchar2(100) default 'none';
+ALTER TABLE lstate  drop column lCheckIP;
+
+select * from login;
+commit;
+select * from member;
+select * from statemember;
+delete from member where mseq=241;
+
+create or replace view stateView
+    as select m.*, s.smseq,s.smdate, s.msseq,s.smdetail from member m
+    inner join statemember s
+    on m.mseq=s.mseq
+    where smseq in (select max(smseq) from statemember group by mseq )
+    order by m.mseq asc;
+    
+select * from stateView;
+
+
+
+
+
+
+
+
+
+
+
+

@@ -75,7 +75,7 @@ public class SiteManageController {
 		int end = 0;
 		int n = 0;
 		int loop = 0;
-		int blockSize = 10;
+		int blockSize = 5;
 		
 		
 		String page = req.getParameter("page");
@@ -109,7 +109,7 @@ public class SiteManageController {
 			if (n == nowPage) {
 				pagebar += String.format("<li class='active'><a href='#'>%d</a></li>", n);
 			} else {
-				pagebar += String.format("<li><a href='/web/member/manage.action?page=%d&prSeq=%s'>%d</a></li>", n, n,prSeq);
+				pagebar += String.format("<li><a href='/web/member/manage.action?page=%d&prSeq=%s'>%d</a></li>", n, prSeq, n);
 			}
 			loop++;
 			n++;
@@ -132,7 +132,7 @@ public class SiteManageController {
 		return "member.siteManage.list";
 	}
 	
-	@RequestMapping (method= {RequestMethod.GET}, value="/member/add.action" )
+	@RequestMapping (method= {RequestMethod.GET}, value="/member/pbadd.action" )
 	private String add(HttpServletRequest req, String prSeq) {
 		
 		HttpSession session = req.getSession();
@@ -158,7 +158,7 @@ public class SiteManageController {
 		return "member.siteManage.boardadd";
 	}
 	
-	@RequestMapping (method= {RequestMethod.POST}, value="/member/addok.action" )
+	@RequestMapping (method= {RequestMethod.POST}, value="/member/pbaddok.action" )
 	private String addok(HttpServletRequest req, ProjectBoardDTO bdto) {
 			
 		String jSeq = service.getJSeq(bdto.getmSeq());
@@ -171,7 +171,7 @@ public class SiteManageController {
 		return "member.siteManage.boardaddok";
 	}
 	
-	@RequestMapping (method= {RequestMethod.GET}, value="/member/view.action" )
+	@RequestMapping (method= {RequestMethod.GET}, value="/member/pbview.action" )
 	private String view(HttpServletRequest req, String prSeq, String pbSeq ) {
 		
 	HttpSession session = req.getSession();
@@ -204,7 +204,7 @@ public class SiteManageController {
 		return "member.siteManage.boardview";
 	}
 	
-	@RequestMapping (method= {RequestMethod.GET}, value="/member/delok.action" )
+	@RequestMapping (method= {RequestMethod.GET}, value="/member/pbdelok.action" )
 	private String delok(HttpServletRequest req, String prSeq, String pbSeq ) {
 
 		System.out.println(pbSeq);
@@ -218,7 +218,7 @@ public class SiteManageController {
 		return "member.siteManage.boarddelok";
 	}
 	
-	@RequestMapping (method= {RequestMethod.GET}, value="/member/edit.action" )
+	@RequestMapping (method= {RequestMethod.GET}, value="/member/pbedit.action" )
 	private String edit(HttpServletRequest req, String prSeq, String pbSeq ) {
 		HttpSession session = req.getSession();
 		
@@ -247,7 +247,7 @@ public class SiteManageController {
 		return "member.siteManage.boardedit";
 	}
 	
-	@RequestMapping (method= {RequestMethod.GET}, value="/member/editok.action" )
+	@RequestMapping (method= {RequestMethod.GET}, value="/member/pbeditok.action" )
 	private String editok(HttpServletRequest req, ProjectBoardDTO dto) {
 		
 		int result = service.edit(dto);
@@ -261,7 +261,7 @@ public class SiteManageController {
 		return "member.siteManage.boardeditok";
 	}
 	
-	@RequestMapping (method= {RequestMethod.POST}, value="/member/commentadd.action" )
+	@RequestMapping (method= {RequestMethod.POST}, value="/member/pbcommentadd.action" )
 	private String commentadd(HttpServletRequest req, PbCommentDTO cdto) {
 		
 		cdto.setjSeq(service.getJSeq(cdto.getmSeq()));
@@ -275,11 +275,23 @@ public class SiteManageController {
 		return "member.siteManage.commentadd.ajax";
 	}
 	
-	@RequestMapping (method= {RequestMethod.GET}, value="/member/commentdel.action" )
+	@RequestMapping (method= {RequestMethod.GET}, value="/member/pbcommentdel.action" )
 	private @ResponseBody Object commentdel(HttpServletRequest req, String pbcSeq) {
 		
 		int result = service.commentDel(pbcSeq);
 		return result;
+	}
+	
+	@RequestMapping (method= {RequestMethod.GET}, value="/member/contents.action" )
+	private String contents(HttpServletRequest req) {
+		
+		return "section.contents";
+	}
+	
+	@RequestMapping (method= {RequestMethod.GET}, value="/member/gallery.action" )
+	private String gallery(HttpServletRequest req) {
+		
+		return "section.gallery";
 	}
 	
 }

@@ -1,19 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+
 <div id="mysites">
 	<div id="sitelist">
-		<p><span>홍길동님</span>의 사이트 정보</p>
+		<p><span style="font-weight: bold;">${loginDTO.mNickName }</span>님의 사이트 정보</p>
 		<hr />
 		<table class="table .table-condensed">
 			<tr>
-				<th>이름</th><th>주소</th><th>게시 상태</th>
+				<th>이름</th><th>주소</th><th>시작일</th><th>게시 상태</th>
 			</tr>
-			<tr>
-				<td>test1</td><td>http://test1.yol.com</td><td>미게시</td>			
-			</tr>
-			<tr>
-				<td>test2</td><td>http://test2.yol.com</td><td>미게시</td>			
-			</tr>
+			<c:forEach items="${vCreationList }" var="list">
+				
+				<c:if test="${list.jCount == 1}">
+				<tr>
+					<td>${list.prName}</td>
+					<td><a href="/web/member/manage.action?prSeq=${list.prSeq}">${list.prURL}</a></td>
+					<td>${list.jStart.substring(0,10)}</td>		
+					<td>${list.activeState}</td>
+				</tr>					
+				</c:if>
+			
+			</c:forEach>
 		</table>	
 	</div>
 	
@@ -26,22 +35,35 @@
 			<tr>
 				<th>이름</th><th>주소</th><th>기간</th><th>게시 상태</th>
 			</tr>
-			<tr>
-				<td>test1</td><td>http://test1.yol.com</td><td>2017-11-18 ~ 2017-11-19</td><td>미게시</td>			
-			</tr>
-			<tr>
-				<td>test2</td><td>http://test2.yol.com</td><td>2017-11-18 ~ 2017-11-19</td><td>미게시</td>			
-			</tr>
+			
+			<c:forEach items="${vCreationList }" var="list">
+				
+				<c:if test="${list.jCount > 1}">
+				<tr>
+					<td>${list.prName}</td>
+					<td>${list.prURL}</td>
+					<td>${list.jStart.substring(0,10)}~${list.jEnd.substring(0,10)}</td>
+					<td>${list.activeState}</td>		
+				</tr>					
+				</c:if>
+			
+			</c:forEach>
+
 		</table>	
 	</div>
 	
-	<a data-toggle="modal" class="btn btn-info" href="layer.html" data-target="#myModal">Click me !</a>
- 
+	<div id="btncreate">
+	<a data-toggle="modal" class="btn btn-danger"  data-target="#myModal">추가하기</a>
+ 	</div>
+ 	
 	<!-- Modal -->
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	    <div class="modal-dialog">
 	        <div class="modal-content">
+	        	
+	        	
          		<form method="POST" action="/web/member/creationok.action">
+	        	
 	            <div class="modal-body">
 	            
 	            <div id="tabs">
@@ -69,6 +91,23 @@
 									</select>
 							</td>				
 						</tr>
+						<script>
+						function m1(){
+							$("#pnum").val("1");
+
+							if($(":input:radio[name=ptype]:checked").val()=="share"){
+								$("#pnum option:eq(0)").replaceWith("<option value=\"\" disabled='disabled'>인원수를 선택하세요.</option>");
+								$("#pnum").show();
+								
+							}else{
+								$("#pnum option:eq(0)").replaceWith("<option value=\"1\">인원수를 선택하세요.</option>");
+								$("#pnum").val("1");
+								$("#pnum").hide();
+							}
+								
+						}
+						
+						</script>
 						
 						<tr>
 							<td colspan="4">
@@ -141,8 +180,9 @@
 				  } );
 				  </script>
 	            
-	            
 	            </div>
+	            <input type="hidden" name="mSeq" value="${loginDTO.mSeq }" />
+	            
 	            <div class="modal-footer">
 	                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 	                <button type="submit" id="action" class="btn btn-primary">Next</button>
@@ -163,6 +203,49 @@
 	        </div> <!-- /.modal-content -->
 	    </div> <!-- /.modal-dialog -->
 	</div> <!-- /.modal -->
+
+	<hr />	
+
+	<div id="otherswork">
+		<p>다른사람들의 프로젝트 둘러보기</p>
+		<div id="worklist">
+		<div class="othersp">
+		
+		</div>
+		<div class="othersp">
+		
+		</div>
+		<div class="othersp rdsp">
+		
+		</div>
+		<div class="othersp">
+		
+		</div>
+		<div class="othersp">
+		
+		</div>
+		<div class="othersp rdsp">
+		
+		</div>
+		<div class="othersp">
+		
+		</div>
+		<div class="othersp">
+		
+		</div>
+		<div class="othersp rdsp">
+		
+		</div>
+		
+		</div>
+	
+		<hr />
+		<div style="padding:30px; width:100%; height: 400; border: 1px dashed blue;">
+			자주 묻는 질문 
+		</div>
+		
+	
+	</div>
 	
 
 </div>
