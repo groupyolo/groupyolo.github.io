@@ -132,30 +132,34 @@
  		font-weight: bolder;
  		top:20px;
  		right:20px;
+ 		border:2px solid gray;
+ 		text-align: center;
+ 		vertical-align: middle;
+ 		padding-top:3px;
  	}
  	/* 블럭 옵션 버튼 */
  	.option-btn{
  		top:20px;
  		right:160px;
- 		background-color: red;
+ 		/* background-color: red; */
  	}
  	/* 블럭 이동 버튼 */
  	.move-btn{
  		top:20px;
  		right:120px;
- 		background-color: green;
+ 		/* background-color: green; */
  	}
  	/* 블럭 복사 버튼 */
  	.copy-btn{
  		top:20px;
  		right:80px;
- 		background-color: blue;
+ 		/* background-color: blue; */
  	}
  	/* 블럭 삭제 버튼 */
  	.del-btn{
  		top:20px;
  		right:40px;
- 		background-color: gray;
+ 		/* background-color: gray; */
  	}
  	/* 우측 블럭 추가메뉴 */
  	.selectDIV{
@@ -277,21 +281,24 @@
 
  	<div id="block1" class="block block-body" >
 <!--  	<div id="block1" class="block" draggable="true" ondragstart="dragstart_handler(this);" ondragover="return false;" ondrop="event.preventDefault();"> -->
-	  	
 		
-		<div>
+		<div>asdfsafd
 		야야야아아아아아
-		
+		cadfsadasdfsadf<br>dasdfdas
 		</div>
 		
 	   	
 	   	<div class="default-btn option-btn" title="옵션" onclick="optionClick(this);">
+	   	<i class="fa fa-cog" aria-hidden="true"></i>
 	   	</div>
 	   	<div class="default-btn move-btn" title="이동" onclick="moveClick(this);">
+	   	<i class="fa fa-scissors" aria-hidden="true"></i>
 	   	</div>
 	   	<div class="default-btn copy-btn" title="복사" onclick="copyClick(this);">
+	   	<i class="fa fa-files-o" aria-hidden="true"></i>
 	   	</div>
 	   	<div class="default-btn del-btn" title="삭제" onclick="delClick(this);">
+	   	<i class="fa fa-eraser" aria-hidden="true"></i>
 	   	</div>
     </div>
     
@@ -373,7 +380,13 @@
 				$(".block").find(".default-btn").hide();
 			 	$(this).prev().show();
 			 	$(this).next().show(); */
-				$(this).find(".default-btn").show(); 
+			 	$(".default-btn").hide();
+				$(".hover-add").remove();
+			 	
+				$("<ul class='hover-add'><li class='hover-add-child'><div class='add' onclick='addDIV(this);'>+</div></li></ul>").insertBefore(this);
+				$("<ul class='hover-add'><li class='hover-add-child'><div class='add' onclick='addDIV(this);'>+</div></li></ul>").insertAfter(this);
+				
+			 	$(this).find(".default-btn").show(); 
 				$("#optMenu").remove();
 				select="";
 			}
@@ -443,14 +456,14 @@
  		/* 템플릿 본문 */
  		
  		console.log("#block"+$(".block-body"));
- 		$("#block"+$(".block-body").length).append("<div class='default-btn option-btn' title='옵션' onclick='optionClick(this);'></div>");
- 		$("#block"+$(".block-body").length).append("<div class='default-btn move-btn' title='이동' onclick='moveClick(this);'></div>");
- 		$("#block"+$(".block-body").length).append("<div class='default-btn copy-btn' title='복사' onclick='copyClick(this);'></div>");
- 		$("#block"+$(".block-body").length).append("<div class='default-btn del-btn' title='삭제' onclick='delClick(this);'></div>");
- 			
- 		
+ 		$("#block"+$(".block-body").length).append("<div class='default-btn option-btn' title='옵션' onclick='optionClick(this);'><i class='fa fa-cog' aria-hidden='true'></i></div>");
+ 		$("#block"+$(".block-body").length).append("<div class='default-btn move-btn' title='이동' onclick='moveClick(this);'><i class='fa fa-scissors' aria-hidden='true'></i></div>");
+ 		$("#block"+$(".block-body").length).append("<div class='default-btn copy-btn' title='복사' onclick='copyClick(this);'>	<i class='fa fa-files-o' aria-hidden='true'></i></div>");
+ 		$("#block"+$(".block-body").length).append("<div class='default-btn del-btn' title='삭제' onclick='delClick(this);'>	<i class='fa fa-eraser' aria-hidden='true'></i></div>");
  		
  		addShow();
+ 		select="";
+		$("#optMenu").remove();
  		//addHide();
  		
 	}
