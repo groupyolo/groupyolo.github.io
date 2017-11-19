@@ -43,5 +43,7 @@ public interface IJoinTeamService {
 
 	int stateChange(String reSeq);
 
+	List<VJoinTeamDTO> addProject(String reSeq);
+
 
 }

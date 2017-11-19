@@ -213,5 +213,12 @@ public class JoinTeamController {
 		int result = sv.stateChange(reSeq);		
 		return result;
 	}
-	
+	@RequestMapping(method= {RequestMethod.GET},value="/member/addProject.action")
+	public @ResponseBody Object addProject(HttpServletRequest req, String reSeq) {
+		
+		List<VJoinTeamDTO> nlist = sv.addProject(reSeq);
+		//req.setAttribute("nlist", nlist);
+		//return "member.joinTeam.addProject.ajax";
+		return nlist;
+	}
 }

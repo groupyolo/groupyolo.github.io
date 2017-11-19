@@ -88,5 +88,9 @@ public class JoinTeamDAO {
 	public int stateChange(String reSeq) {
 		return sql.update("joinTeam.state", reSeq);
 	}
+
+	public List<VJoinTeamDTO> addProject(String reSeq) {
+		return sql.selectList("joinTeam.view", reSeq);
+	}
 	
 }

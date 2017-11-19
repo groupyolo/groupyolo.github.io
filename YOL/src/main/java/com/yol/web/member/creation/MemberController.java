@@ -84,7 +84,11 @@ public class MemberController {
 	
 	@RequestMapping(method = { RequestMethod.POST }, value = "/member/creationok.action")
 	public String creationok(HttpServletRequest req, VCreationDTO dto) {
-
+		System.out.println("여기들어옴");
+		System.out.println(dto.getjStart());
+		System.out.println(dto.getjEnd());
+		System.out.println("찍음");
+		
 		int result = ics.add(dto);
 		int prSeq = ics.getPrSeq();
 		int copy = ics.copyTemplate(dto, prSeq);

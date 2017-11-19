@@ -17,7 +17,7 @@
 		});
 	});
 	
-	function showMember(reSeq, subhide) {
+	function showMember(reSeq, subhide) { //완료
 		console.log(subhide);
 		$("#btnSearch").attr("disabled",false);
 		$("#mEmail").attr("readonly",false);
@@ -63,7 +63,7 @@
 		
 	}
 	
-	function approve(mSeq, reSeq) {
+	function approve(mSeq, reSeq) { //완료
 		$.ajax({
 			type:"get",
 			url:"${pageContext.request.contextPath}/member/approveMember.action",
@@ -198,13 +198,45 @@
 		}
 	}
 	
-	function modal(reSeq) {
-		 $("#myModal").modal("show");
+	function modal(reSeq) {	
+		$.ajax({
+			type:"get",
+			url:"${pageContext.request.contextPath}/member/addProject.action",
+			data:"reSeq="+reSeq,
+			dataType:"json",
+			success:function(data) {
+				console.log(data);
+				$(data).each(function(index, item) {
+				
+				//2번째 tr -> td -> 1input 2input
+				$("#step1tbl tr:eq(1) td input:eq(0)").attr("disabled",true);
+				$("#step1tbl tr:eq(1) td input:eq(1)").attr("checked",true);				
+				$("#pnum").val(item.jCount).attr("selected","selected");
+				$("#pnum").attr("disabled",true);
+				$("#pnum").show();				
+				
+				//7번째 tr -> 1번 td(start) / 2번 td (end)
+				$("#step1tbl tr:eq(6) td:eq(0)").children().val(item.jStart);
+				$("#step1tbl tr:eq(6) td:eq(0)").children().attr("disabled",true);
+				$("#step1tbl tr:eq(6) td:eq(1)").children().val(item.jEnd);
+				$("#step1tbl tr:eq(6) td:eq(1)").children().attr("disabled",true);
+				
+				//reSeq 넘겨줌
+				$("#reSeq").val(reSeq);
+				
+				$("#myModal").modal("show");
+				
+				});
+			},
+			error:function() {
+				alert("실패");
+			}
+		})		
 	}
 </script>
 
 	<div class="core_top">
-		<h2 class="boxBasic">팀 마스터 페이지</h2>
+		<h2 class="boxBasic">프로젝트팀 마스터</h2>
 	</div>
 	<div id="recruitTbl" class="boxBasic">
 		<h4>모집중인 프로젝트</h4>
@@ -239,7 +271,7 @@
 					</script>
 					</c:if>
 					<td class="abc"><input type="button" value="OFF" class="btn-btn state-off" onclick="stateOff(${tdto.reSeq});" /></td>
-					<td><input type="button" id="btnProject" value="생성" class="btn" onclick="modal(${tdto.prSeq});"/></td>
+					<td><input type="button" id="btnProject" value="생성" class="btn" onclick="modal(${tdto.reSeq});"/></td>
 					<c:if test="${tdto.pCount==1}">
 					<script>
 						$("#btnProject").val("이동");
@@ -284,7 +316,7 @@
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	    <div class="modal-dialog">
 	        <div class="modal-content">
-         		<form method="POST" action="/web/member/creationok.action">
+         		<form method="POST" action="/web/member/createpok.action">
 	            <div class="modal-body">
 	            <div id="tabs">
 				  <ul>
@@ -294,13 +326,8 @@
 				  
 				  <div id="tabs-1">
 				    <table id="step1tbl">
-						<tr>
-							<th colspan="4">
-								프로젝트명
-							</th>
-						</tr>
-						<tr>
-							<td colspan="4">
+						<tr><th colspan="4">프로젝트명</th></tr>
+						<tr><td colspan="4">
 								<input type="radio" class="rdo" name="ptype" value="private" checked onclick="m1();"/>개인
 								<input type="radio" class="rdo" name="ptype" value="share" onclick="m1();" />공용
 									<select name="jCount" id="pnum" style="display:none;">
@@ -384,6 +411,7 @@
 	            </div>
 	            
 	            <input type="hidden" name="mSeq" value="${loginDTO.mSeq}" />
+	            <input type="hidden" name="reSeq" id="reSeq"/>
 	            
 	            <div class="modal-footer">
 	                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
