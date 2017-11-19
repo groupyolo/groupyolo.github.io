@@ -41,5 +41,9 @@ public interface IJoinTeamService {
 
 	int getTotalCount(HashMap<String, String> map);
 
+	int stateChange(String reSeq);
+
+	List<VJoinTeamDTO> addProject(String reSeq);
+
 
 }

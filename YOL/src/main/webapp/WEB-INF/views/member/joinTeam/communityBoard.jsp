@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <link rel="stylesheet" href="${pageContext.request.contextPath }/css/jointeam.css">
 	<div class="core_top">
-		<h2 class="boxBasic">팀원구하기용</h2>
+		<h2 class="boxBasic">멤버 모집</h2>
 	</div>
 	<div id="searchBox" class="boxBasic">
 		<form action="" method="get" class="form-inline">
