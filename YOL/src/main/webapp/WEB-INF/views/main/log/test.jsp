@@ -451,10 +451,10 @@
  		/* 테스트용 div 번호 */
  			
  		/* 템플리 공통부분 */
- 		
  		temp+="<div class='block block-body'"+"id='block"+($(".block-body").length+1)+"'>";
  		temp+="</div>";
  		$(temp).insertBefore($(obj).parent().parent());
+ 		console.log(temp);
  		
  		/* 템플릿 본문 */
  		temp="<div class='background'>";
@@ -465,10 +465,10 @@
  		temp+="<p>무뭐뭐2</p>";
  		temp+="<p>무뭐뭐3</p>";
  		temp+="</div>";
- 		temp+="</div>";
  		temp+="</div>"; 		
+ 		console.log(temp);
 		
- 		$("#block"+($(".block-body").length+1)).append(temp);
+ 		$("#block"+($(".block-body").length)).append(temp);
  		
  		
  		/* 템플릿 공통 부분 */
