@@ -224,6 +224,7 @@
  		position: fixed;
  		left:700px;
  		top:300px;
+ 		z-index: 40;
  		
  	}
  	.optionMenu-box{
@@ -299,7 +300,7 @@
  	header
  	</div>
 
- 	<div id="block1" class="block block-body" >
+ 	<div id="block1" class="block block-body">
 		<div class="background">
 			<!-- <div class="background-box">
 			</div> -->
@@ -440,8 +441,15 @@
 		});
 		
 	}	
-
+	/* 이동 상태 걸기및 없애기 */
+	function moveOn(){
+		
+		$(".draggable").draggable();
+		$(".droppable").dropabble();
+	}
 	
+	
+	/* 구역 추가 */
 	function addDIV(obj){
  		var temp="";
  		selectDIVon();
@@ -455,7 +463,7 @@
  		temp+="</div>";
  		$(temp).insertBefore($(obj).parent().parent());
  		console.log(temp);
- 		
+ 		1
  		/* 템플릿 본문 */
  		temp="<div class='background'>";
  		temp+="<div class='innerBox innerBox1'>";
@@ -501,9 +509,9 @@
 		temp+="<div>배경설정</div>";
 		temp+="</div>";
 		temp+="<div class='optionMenu-box-content'>";
-		temp+="<div><span>투명도</span><input type='range' min='-1' max='0' step='0.01' value='-1' onchange='opacityChange(this,"+target+");'></div>";
-		temp+="<div><span>이미지 선택</span><input type='button' onclick='boxImageChange(this,"+target+");'></div>";
-		temp+="<div><span>색 선택</span><input type='color' onchange='boxColorChange(this,"+target+");'></div>";
+		temp+="<div><span>투명도</span><input type='range'class='opacityChange' min='-1' max='0' step='0.01' value='-1' onchange='opacityChange(this,"+target+");'></div>";
+		temp+="<div><span>이미지 선택</span><input type='button' class='' onclick='boxImageChange(this,"+target+");'></div>";
+		temp+="<div><span>색 선택</span><input type='color' class='' onchange='boxColorChange(this,"+target+");'></div>";
 		temp+="</div>";
 		temp+="<div class='optionMenu-box-title' onclick='menuTitleClick(this)'>";
 		temp+="<div>노출 박스 설정</div>";
@@ -532,12 +540,12 @@
 		var menu = optionMenu(obj);
 		
 		if(select==""){
-			select=temp;
+			select=obj;
 			$(".optionMenu").append(menu);
 			$(".optionMenu").css("left",event.clientX-215+"px");
 			$(".optionMenu").css("top",event.clientY+"px");
 			console.log(select);
-		}else if(select==temp){
+		}else if(select==obj){
 			select="";
 			$(".optionMenu").html("");
 			console.log(select);
@@ -546,9 +554,23 @@
 	}
 	/* 이동버튼 */
 	function moveClick(obj){
+		event.cancelBubble = true;
+		event.stopPropagation();
 		
 		var temp =$(obj).parent();
+		var menu = optionMenu(obj);
 		
+		if(select==""){
+			select=obj;
+			temp.addClass("draggable");
+			$("#mainCore").addClass("droppable");
+			moveOn();
+		}else if(select==obj){
+			select="";
+			temp.removeClass("draggable");
+			$("#mainCore").removeClass("droppable");
+			
+		}
 		
 	}
 	/* 삭제버튼 */
@@ -645,6 +667,7 @@
 		
 		var arr = sixteenToten(value);
 		$(target).css("background","rgba("+arr[0]+","+arr[1]+","+arr[2]+","+"1)");
+		$(".opacityChange").val("-1");
 		
 	}
 	/* 16진수 색 rgb로 변환 */
@@ -696,7 +719,7 @@
 	 */
 	
 
-	
+
 	
 	
 /*                 함수 선언부     */	
