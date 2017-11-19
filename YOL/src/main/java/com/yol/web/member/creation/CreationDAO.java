@@ -1,9 +1,11 @@
 package com.yol.web.member.creation;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -71,12 +73,7 @@ public class CreationDAO {
 			
 			String txt = dto.getWhatda();
 			System.out.println(txt);
-			
-			
-			
-			
-			
-			
+						
 			wrtr.write(txt);
 					
 			wrtr.close();
@@ -96,33 +93,46 @@ public class CreationDAO {
 		return sql.selectOne("createproject.getPrSeq");
 	}
 
-	public int copyTemplate(VCreationDTO dto, int prSeq) {
-		
-		FileInputStream fis = null;
-		FileOutputStream fos = null; 
+	
+	
+	//성공하면 경로를 반환
+	public String copyTemplate(VCreationDTO dto, int prSeq) {
 
-		String path = "C:\\Users\\SIST06\\Documents\\GitHub\\groupyolo.github.io\\YOL\\src\\main\\webapp\\resources\\files\\";
-		path += "" + dto.getmSeq();
-		path +="\\" + dto.getPrName() + ".html";
+		//서버에 맞게 변경해야함
+		String orgPath = "C:\\Users\\cryin\\Documents\\GitHub\\groupyolo.github.io\\YOL\\src\\main\\webapp\\resources\\files\\template1.html"; 
+		String path = "C:\\Users\\cryin\\Documents\\GitHub\\groupyolo.github.io\\YOL\\src\\main\\webapp\\WEB-INF\\views\\works\\";
+
+		path += "" +prSeq;
+		path += "\\" + dto.getmSeq();
+		
+		
+		System.out.println("================================================================================");
+		System.out.println("path >>> " + path);
+		System.out.println("================================================================================");
+		
 		
 		try {
-
-			fis = new FileInputStream("C:\\Users\\SIST06\\Documents\\GitHub\\groupyolo.github.io\\YOL\\src\\main\\webapp\\resources\\files\\template1.html");                             // 원본파일
-			fos = new FileOutputStream(path);   // 복사위치
-			   
-			byte[] buffer = new byte[1024];
-			int readcount = 0;
-			  
-			while((readcount=fis.read(buffer)) != -1) {
-			fos.write(buffer, 0, readcount);    // 파일 복사 
-
+			
+			System.out.println("step:1");
+			File file = new File(path);
+			System.out.println("step:2");
+			//!표를 붙여주어 파일이 존재하지 않는 경우의 조건을 걸어줌
+			if(!file.exists()){
+				//디렉토리 생성 메서드
+				file.mkdirs();
+				System.out.println("Directory has been created");
+				path +="\\" + dto.getPrName() + ".html";
+				
+				
+			}else {
+				path +="\\" + dto.getPrName() + ".html";
+				
+				
 			}
+					
+			fileCopy(orgPath, path);
 			
-			fis.close();
-			fos.close();
-		
-			
-			return 1;
+			return path;
 			
 		} catch (Exception e) {
 			System.out.println("####CreationDAO.copyTemplate ####");
@@ -130,19 +140,41 @@ public class CreationDAO {
 			
 		}
 		
-		try {
-			fis.close();
-			fos.close();
-		
-		} catch (Exception e) {
-			System.out.println("####CreationDAO.copyTemplate ####");
-			e.printStackTrace();
-		}
-		
-		return 0;
+		return null;
 	}
 
 	
+    public static void fileCopy(String inFileName, String outFileName) {
+		  try {
+		   FileInputStream fis = new FileInputStream(inFileName);
+		   FileOutputStream fos = new FileOutputStream(outFileName);
+		   
+		   int data = 0;
+		   while((data=fis.read())!=-1) {
+		    fos.write(data);
+		   }
+		   fis.close();
+		   fos.close();
+		   
+		  } catch (IOException e) {
+		   // TODO Auto-generated catch block
+		   e.printStackTrace();
+		  }
+  	  
+  	 }
 	
-	
+    public static void fileMake(String makeFileName) {
+    	  File f1 = new File(makeFileName);
+    	  try {
+    	   f1.createNewFile();
+    	  } catch (IOException e) {
+    	   // TODO Auto-generated catch block
+    	   e.printStackTrace();
+    	  }
+ 
+    }
+
+ 
+    
+    
 }

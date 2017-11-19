@@ -91,7 +91,19 @@ public class MemberController {
 		
 		int result = ics.add(dto);
 		int prSeq = ics.getPrSeq();
-		int copy = ics.copyTemplate(dto, prSeq);
+		System.out.println("===========================");
+		System.out.println("prSeq  = " + prSeq);
+		System.out.println("===========================");
+		
+		//설정된 템플릿으로 폴더와 파일을 생성하고 파일의 경로를 리턴
+		String copy = ics.copyTemplate(dto, prSeq);
+		//띄어쓰기허용안되는듯
+		System.out.println("최종경로는 다음과 같습니다 > ");
+		System.out.println(copy);
+		System.out.println("==========================");
+		
+		
+		
 		
 		req.setAttribute("result", result);
 		
@@ -168,6 +180,8 @@ public class MemberController {
 		return "member.creation.filewriter";
 	}
 
+	
+	
 	@RequestMapping(method = { RequestMethod.GET }, value = "/member/creation/projectedit.action")
 	public String projectedit(HttpServletRequest req, VCreationDTO dto) {
 
