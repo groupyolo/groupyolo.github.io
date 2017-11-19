@@ -164,7 +164,63 @@
  	
  		
  	
- 	
+/* 드래그 구현  */
+	
+	function dragstart_handler(obj) {
+		//event.preventDefault();
+		
+/* 		var img = new Image(); 
+		event.dataTransfer.setDragImage(img, 10, 10); */
+		
+ 		event.dataTransfer.setData("text/html", event.target.id);
+ 		//event.cancelBubble = true;
+	}
+
+	function dragover_handler(obj) {
+		event.preventDefault();
+		
+		if(mnc=="copy"){
+			event.dataTransfer.dropEffect = "copy";
+			
+		}else if(mnc=="move"){
+			event.dataTransfer.dropEffect = "move";
+		}
+		
+		//event.cancelBubble = true;
+	}
+	function drop_handler(obj) {
+		
+		//event.preventDefault();
+		 // 대상의 id를 가져와 대상 DOM에 움직인 요소를 추가합니다.
+		var data = event.dataTransfer.getData("text/html");
+		console.log(data);
+		if(event.target.id=="mainCore" && !$(event.target).hasClass("block-body")) {
+			
+			if(mnc=="copy"){
+				var nodeCopy = document.getElementById(data).cloneNode(true);
+				nodeCopy.id="block"+($(".block").length+1);
+				event.target.appendChild(nodeCopy);
+				
+			}else if(mnc=="move"){
+				console.log(event.target);
+				console.log(document.getElementById(data));
+				
+				event.target.appendChild(document.getElementById(data));
+				
+			}
+			
+		}else{
+			
+		}
+		 
+		//event.cancelBubble = true;
+	}
+	
+	function returnFalse(){
+		
+		return false;
+	}
+	
  	
  </script>
  		
