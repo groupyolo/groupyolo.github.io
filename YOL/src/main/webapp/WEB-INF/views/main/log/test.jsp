@@ -34,12 +34,12 @@
   		position:absolute;
  		width:100%;
  		height:30px;
- 		z-index:5;
+ 		z-index:30;
  		/* border:1px solid black; */
  		margin-top:-15px; 
  		padding:0px;
  		/* display:none; */
- 	
+ 		
  	}
  	.hover-add-child{
  		width:100%;
@@ -62,7 +62,6 @@
  		width:30px;
  		height:30px;
  		border-radius: 100%;
- 		z-index:6;
  		cursor: pointer;
  		font-size: 1.4em;
  		text-align: center;
@@ -72,17 +71,7 @@
  		background-color: green;
  		margin:0px auto;
  	}
- 	/* 블록 위버튼 */
- 	.add-up{
-/*  	left:900px;
- 		top:-20px; */
- 	}
- 	/* 블록 아래버튼 */
- 	.add-down{
-/*  	left:900px;
- 		bottom:-20px; */
- 		
- 	}
+ 
  	/* 테스트용 */
  	.point{
  		/* left:200px;
@@ -124,7 +113,7 @@
  		width:30px;
  		height:30px;
  		border-radius: 100%;
- 		z-index: 3;
+ 		z-index: 10;
  		cursor: pointer;
  		display:none;
  		font-size: 1em;
@@ -137,6 +126,7 @@
  		text-align: center;
  		vertical-align: middle;
  		padding-top:3px;
+ 		background-color: white;
  	}
  	/* 블럭 옵션 버튼 */
  	.option-btn{
@@ -170,7 +160,7 @@
  		left:-600px;
  		top:0px;
  		padding-top:50px;
- 		z-index: 5;
+ 		z-index: 100;
  		/* background-color: green; */
  	}
  	.selectDIVContent{
@@ -225,15 +215,17 @@
  		height:100%;
  		position:fixed;
  		z-index: 4;
- 		background-color: gray;
+ 	 	background-color: gray; 
  		display: none;
- 		opacity:.5;
+ 		opacity:0;
  	}
  	/* 블럭 옵션 클릭 시 나오는 메뉴 */
  	.optionMenu{
  		position: fixed;
  		left:700px;
  		top:300px;
+ 		z-index: 40;
+ 		
  	}
  	.optionMenu-box{
  		box-shadow: 1px 1px 1px 1px;
@@ -271,26 +263,35 @@
  	
  	/* 테스트용 DIV */
  	.background{
- 		width:100%;
- 		
+ 		width:700px;
+ 		height:400px;
+ 		z-index:3;
+ 		margin:0px auto;
+ 		background:rgba(#fff,0.7);
  	}
- 	.backgroundImage{
+ 	.background-box{
  		width:100%;
- 		height:600px;
+ 		height:100%;
+ 		position: absolute;
+ 		z-index: 1;
  	}
- 	.backgroundImage div{
+ 	.background div{
  		float:left;
  	}
- 	
- 	.innerImage{
- 		width:500px;
+ 	.background div:after{
+ 		content:"";
+ 		clear:both;
+ 	}
+ 	.innerBox{
+ 		width:300px;
  		height:300px;
- 		border:1px solid gray;
+ 		/* border:1px solid gray; */
+ 		opacity:1;
+ 		background-color: yellow;
+ 		z-index: 7;
+ 		margin:20px;
  	}
- 	.innerText{
- 		width:400px;
- 		height:500px;
- 	}
+ 	
  	
  	 </style>
 <!--  <div class="createArea">  -->
@@ -299,21 +300,24 @@
  	header
  	</div>
 
- 	<div id="block1" class="block block-body" >
+ 	<div id="block1" class="block block-body">
 		<div class="background">
-			<div class="backgroundImage">
-				<div class="innerImage">
-					
-				</div>
-				<div class="innerText">
-					<p>무뭐뭐1</p>
-					<p>무뭐뭐2</p>
-					<p>무뭐뭐3</p>
-				</div>
+			<!-- <div class="background-box">
+			</div> -->
 			
-			
-			
+			<div class="innerBox innerBox1">
+				
 			</div>
+			
+			<div class="innerBox innerBox2">
+				<p>무뭐뭐1</p>
+				<p>무뭐뭐2</p>
+				<p>무뭐뭐3</p>
+			</div>
+			
+			
+			
+			
 		</div>
 	   	
 	   	<div class="default-btn option-btn" title="옵션" onclick="optionClick(this);">
@@ -367,48 +371,28 @@
 		</div>
 	</div>
 	
-	<div class='optionMenu'></div>
-	<!-- 메뉴바 테스트용-->
-	<!-- <div class='optionMenu' id='optMenu'>
-		<div class='optionMenu-box'>
-			<div class='optionMenu-box-top'>상세메뉴</div>
-			
-			<div class='optionMenu-box-title' onclick='menuTitleClick(this)'>여백설정</div>
-			
-			<div class='optionMenu-box-content'>
-				<div><span>좌측여백</span><input type="range" min="0" max="100" value="0" direction="left" onchange="paddingChange(this);"></div>
-				<div><span>우측여백</span><input type="range" min="0" max="100" value="0" direction="right" onchange="paddingChange(this);"></div>
-				<div><span>상측여백</span><input type="range" min="0" max="100" value="0" direction="top" onchange="paddingChange(this);"></div>
-				<div><span>하측여백</span><input type="range" min="0" max="100" value="0" direction="bottom" onchange="paddingChange(this);"></div>
-			</div>
-				
-			<div class='optionMenu-box-title' onclick='menuTitleClick(divis)'>
-				<div>배경설정</div>
-			</div>
-			
-			<div class='optionMenu-box-content'>
-				<div>배경내용</div>
-			</div>
-			
-			<div class='optionMenu-box-title' onclick='menuTitleClick(divis)'>
-				<div>이미지설정</div>
-			</div>
-			
-			<div class='optionMenu-box-content'>
-				<div>이미지내용</div>
-			</div>
-		</div>
-	</div> -->
-	
+	  <!-- form enctype="multipart/form-data" 을 꼭 적어줘야 함 -->
+<%--     <form class="form-horizontal" method="post" action="<c:url value='/re/add'/>" enctype="multipart/form-data">
+        <!-- input type="file" 이라고 꼭 저어줘야 함 -->
+        <input type="file" class="form-control1" id="uploadFile" name="uploadFile" style="border:0px solid black;"/>
+        
+        <button type="submit" class="btn btn-default">등록</button>
+        <button type="reset" class="btn btn-default">취소</button>
+    </form>
+ --%>
 
-		
-<!-- </div> -->
+	
+	
+	<div class='optionMenu'></div>
+	
+	
     
  <script>
  	var divNum="";
- 	var mnc="copy"; /* 테스트용 카피 나중에 클래스에따라서 변동 있을 것  */
  	var select="";
  	var menuSelect="1";
+ 	
+ 	/* 왼쪽 div 추가메뉴 */
  	
  	function selectDIVon(){
  		$(".selectDIV").css("left","0px");
@@ -426,11 +410,10 @@
  		selectDIVoff();
  	}
  	
- 	
+ 	/* 커서가 가면 메뉴 보이기  */
 	function addShow(){
 		$(".block-body").click(function(){
 			if(select!=""){
-				console.log("dd");
 			 	$(".default-btn").hide();
 				$(".hover-add").remove();
 			 	
@@ -458,21 +441,45 @@
 		});
 		
 	}	
-
+	/* 이동 상태 걸기및 없애기 */
+	function moveOn(){
+		
+		$(".draggable").draggable();
+		$(".droppable").dropabble();
+	}
 	
+	
+	/* 구역 추가 */
 	function addDIV(obj){
- 		
+ 		var temp="";
  		selectDIVon();
- 		
+ 		/* 추 후 템플릿 별로 만들기 */
  		
  		
  		/* 테스트용 div 번호 */
  			
- 		$("<div class='block block-body' "+"id='block"+($(".block-body").length+1)+"'><div class=''></div><div class='background'>		<div class='backgroundImage'>			<div class='innerImage'>	</div>	<div class='innerText'>		<p>무뭐뭐1</p>	<p>무뭐뭐2</p>		<p>무뭐뭐3</p>	</div></div></div></div>").insertBefore($(obj).parent().parent());
- 		
+ 		/* 템플리 공통부분 */
+ 		temp+="<div class='block block-body'"+"id='block"+($(".block-body").length+1)+"'>";
+ 		temp+="</div>";
+ 		$(temp).insertBefore($(obj).parent().parent());
+ 		console.log(temp);
+ 		1
  		/* 템플릿 본문 */
- 
- 		console.log("#block"+$(".block-body"));
+ 		temp="<div class='background'>";
+ 		temp+="<div class='innerBox innerBox1'>";
+ 		temp+="</div>";
+ 		temp+="<div class='innerBox innerBox2'>";
+ 		temp+="<p>무뭐뭐1</p>";
+ 		temp+="<p>무뭐뭐2</p>";
+ 		temp+="<p>무뭐뭐3</p>";
+ 		temp+="</div>";
+ 		temp+="</div>"; 		
+ 		console.log(temp);
+		
+ 		$("#block"+($(".block-body").length)).append(temp);
+ 		
+ 		
+ 		/* 템플릿 공통 부분 */
  		$("#block"+$(".block-body").length).append("<div class='default-btn option-btn' title='옵션' onclick='optionClick(this);'><i class='fa fa-cog' aria-hidden='true'></i></div>");
  		$("#block"+$(".block-body").length).append("<div class='default-btn move-btn' title='이동' onclick='moveClick(this);'><i class='fa fa-scissors' aria-hidden='true'></i></div>");
  		$("#block"+$(".block-body").length).append("<div class='default-btn copy-btn' title='복사' onclick='copyClick(this);'>	<i class='fa fa-files-o' aria-hidden='true'></i></div>");
@@ -483,17 +490,49 @@
  		$(".optionMenu").html("");
  	
 	}
-	
+	//옵션버튼클릭시 나오는 메뉴
 	function optionMenu(obj){
 		
 		var target = $(obj).parent().attr("id");
 		
 		var temp= "";
-		temp+="<div class='optionMenu-box'><div class='optionMenu-box-top'>상세메뉴</div><div class='optionMenu-box-title' onclick='menuTitleClick(this)'>여백설정</div><div class='optionMenu-box-content'>				<div><span>좌측여백</span><input type='range' min='0' max='100' value='0' direction='left' onchange='paddingChange(this,"+target+");'></div>				<div><span>우측여백</span><input type='range' min='0' max='100' value='0' direction='right' onchange='paddingChange(this,"+target+");'></div>				<div><span>상측여백</span><input type='range' min='0' max='100' value='0' direction='top' onchange='paddingChange(this,"+target+");'></div>				<div><span>하측여백</span><input type='range' min='0' max='100' value='0' direction='bottom' onchange='paddingChange(this,"+target+");'></div>			</div>			<div class='optionMenu-box-title' onclick='menuTitleClick(this)'>				<div>배경설정</div>			</div><div class='optionMenu-box-content'>				<div><span>이미지 선택</span><input type='button' onclick='boxImageChange(this,"+target+");'></div><div><span>색 선택</span><input type='color' onclick='boxColorChange(this,"+target+");'></div>		</div><div class='optionMenu-box-title' onclick='menuTitleClick(this)'>				<div>이미지설정</div>	</div><div class='optionMenu-box-content'>				<div>이미지내용</div>	</div>		</div>";
+		temp+="<div class='optionMenu-box'>";
+		temp+="<div class='optionMenu-box-top'>상세메뉴</div>";
+		temp+="<div class='optionMenu-box-title' onclick='menuTitleClick(this)'>여백설정</div>";
+		temp+="<div class='optionMenu-box-content'>";
+		temp+="<div><span>좌측여백</span><input type='range' min='0' max='100' value='0' direction='left' onchange='paddingChange(this,"+target+");'></div>";
+		temp+="<div><span>우측여백</span><input type='range' min='0' max='100' value='0' direction='right' onchange='paddingChange(this,"+target+");'></div>";
+		temp+="<div><span>상측여백</span><input type='range' min='0' max='100' value='0' direction='top' onchange='paddingChange(this,"+target+");'></div>";
+		temp+="<div><span>하측여백</span><input type='range' min='0' max='100' value='0' direction='bottom' onchange='paddingChange(this,"+target+");'></div>";
+		temp+="</div>";
+		temp+="<div class='optionMenu-box-title' onclick='menuTitleClick(this)'>";
+		temp+="<div>배경설정</div>";
+		temp+="</div>";
+		temp+="<div class='optionMenu-box-content'>";
+		temp+="<div><span>투명도</span><input type='range'class='opacityChange' min='-1' max='0' step='0.01' value='-1' onchange='opacityChange(this,"+target+");'></div>";
+		temp+="<div><span>이미지 선택</span><input type='button' class='' onclick='boxImageChange(this,"+target+");'></div>";
+		temp+="<div><span>색 선택</span><input type='color' class='' onchange='boxColorChange(this,"+target+");'></div>";
+		temp+="</div>";
+		temp+="<div class='optionMenu-box-title' onclick='menuTitleClick(this)'>";
+		temp+="<div>노출 박스 설정</div>";
+		temp+="</div>";
+		temp+="<div class='optionMenu-box-content'>";
+		temp+="<div>";
+		temp+="<input type='text' id='box-parallel' placeholder='가로'>";
+		temp+="</div>";
+		temp+="<div>";
+		temp+="<input type='text' id='box-vertical' placeholder='세로'>";
+		temp+="</div>";
+		temp+="<div>";
+		temp+="<input type='button' class='btn btn-info' value='설정' onclick='innerBoxNumChange(this,"+target+");'>";
+		temp+="</div>";
+		temp+="</div>";
+		temp+="</div>";
 		
 		return temp;
 		
 	}
+	/* 메뉴버튼 */
 	function optionClick(obj){
 		event.cancelBubble = true;
 		event.stopPropagation();
@@ -503,24 +542,38 @@
 		if(select==""){
 			select=obj;
 			$(".optionMenu").append(menu);
-			$(".optionMenu").css("left",event.clientX-210+"px");
+			$(".optionMenu").css("left",event.clientX-215+"px");
 			$(".optionMenu").css("top",event.clientY+"px");
-			
+			console.log(select);
 		}else if(select==obj){
-			//console.log("ccc");
 			select="";
-			//$("#optMenu").css("left","300px");
 			$(".optionMenu").html("");
+			console.log(select);
 		}
 		
 	}
-	
+	/* 이동버튼 */
 	function moveClick(obj){
+		event.cancelBubble = true;
+		event.stopPropagation();
 		
 		var temp =$(obj).parent();
+		var menu = optionMenu(obj);
 		
+		if(select==""){
+			select=obj;
+			temp.addClass("draggable");
+			$("#mainCore").addClass("droppable");
+			moveOn();
+		}else if(select==obj){
+			select="";
+			temp.removeClass("draggable");
+			$("#mainCore").removeClass("droppable");
+			
+		}
 		
 	}
+	/* 삭제버튼 */
 	function delClick(obj){
 		
 		var answer = confirm("정말 삭제하시겠습니까?");
@@ -538,6 +591,7 @@
 			$(obj).parent().remove();
 		}
 	}
+	/* 복사버튼 */
 	function copyClick(obj){
 		var data = $(obj).parent()[0];
 		var answer = confirm("복사하시겠습니까?");
@@ -551,6 +605,7 @@
 		}
 	}
 	
+	/* 메뉴에서 제목 클릭 시 본문 나오기 */
 	function menuTitleClick(obj){
 		event.cancelBubble=true;
 		event.stopPropagation();
@@ -567,97 +622,104 @@
 		
 		
 	}
-	
+	/* 패딩 */
 	function paddingChange(obj,target){
 		event.cancelBubble = true;
 		event.stopPropagation();
 		
 		var direction = $(obj).attr("direction");
 		var value =  $(obj).val();
-		console.log(target);
-		
 		$(target).css("padding-"+direction,value+"px");
 		
 	}
+	/* 전체 배경 opacity */
+	function opacityChange(obj,target){
+		event.cancelBubble = true;
+		event.stopPropagation();
+		
+		var value =  $(obj).val();
+		var temp = $(target).css("background-color").substr(4,15);
+		var arr = temp.split(", ");
+		
+		for(var i in arr){
+			arr[i]=arr[i].replace("(","");
+			arr[i]=arr[i].replace(")","");
+			arr[i]=parseInt(arr[i]);
+		}
+		$(target).css("background","rgba("+arr[0]+","+arr[1]+","+arr[2]+","+value*-1+")");
+	}
+	
+	/* 전체 배경 이미지 */
 	function boxImageChange(obj,target){
 		event.cancelBubble = true;
 		event.stopPropagation();
 		
-		var direction = $(obj).attr("direction");
+		
+		
+	
+	}
+	/* 전체 배경 색 */
+	function boxColorChange(obj,target){
+		event.cancelBubble = true;
+		event.stopPropagation();
+		
 		var value =  $(obj).val();
 		
-		$(target).css("padding-"+direction,value+"px");
+		var arr = sixteenToten(value);
+		$(target).css("background","rgba("+arr[0]+","+arr[1]+","+arr[2]+","+"1)");
+		$(".opacityChange").val("-1");
+		
 	}
-	function boxColorChange(obj,target){
+	/* 16진수 색 rgb로 변환 */
+	function sixteenToten(num){
+		var arr=[];
+		
+		arr.push(parseInt("0x"+num.substr(1,2)).toString(10));
+		arr.push(parseInt("0x"+num.substr(3,2)).toString(10));
+		arr.push(parseInt("0x"+num.substr(5,2)).toString(10));
+		
+		return arr;
+	}
+	
+	
+	/* 내부 박스 개수 변경 */
+	function innerBoxNumChange(obj,target){
+		event.cancelBubble = true;
+		event.stopPropagation();
+		
+		var x = $("#box-parallel").val();		
+		var y = $("#box-vertical").val();
+
+		console.log($(target).find("background"));
+		console.log((parseInt($(target).find(".background").css("height"))+40)*y+"px");
+		var appendBox = x*y-$(".innerBox").length;
+		
+		if(appendBox>0){
+			
+			for(var i=0;i<appendBox;i++){
+				$(".background").append("<div class='innerBox innerBox"+($(".innerBox").length+1)+"'></div>");
+			}
+		}
+		//특정 블록과 특정 박스로 한정지어야 함.
+		$(target).find(".innerBox").css("width",parseInt($(".background").css("width"))/x-40+"px");
+		$(target).find(".background").css("height",(parseInt($(target).find(".innerBox").css("height"))+40)*y+"px");
+	}
+	/*  
+	function innerBoxColorChange(obj,target){
 		event.cancelBubble = true;
 		event.stopPropagation();
 		
 		
 		var value =  $(obj).val();
-		console.log(target);
 		
-		$(target).css("background-color",value);
+		//$(target).find(".innerImage").css("background-color",value);
+		var arr = sixteenToten(value);
+		$(target).find(".innerImage").css("background","rgba("+arr[0]+","+arr[1]+","+arr[2]+","+"0)");
 	}
+	 */
 	
-	
-	/* 드래그 구현  */
-	
-	function dragstart_handler(obj) {
-		//event.preventDefault();
-		
-/* 		var img = new Image(); 
-		event.dataTransfer.setDragImage(img, 10, 10); */
-		
- 		event.dataTransfer.setData("text/html", event.target.id);
- 		//event.cancelBubble = true;
-	}
 
-	function dragover_handler(obj) {
-		event.preventDefault();
-		
-		if(mnc=="copy"){
-			event.dataTransfer.dropEffect = "copy";
-			
-		}else if(mnc=="move"){
-			event.dataTransfer.dropEffect = "move";
-		}
-		
-		//event.cancelBubble = true;
-	}
-	function drop_handler(obj) {
-		
-		//event.preventDefault();
-		 // 대상의 id를 가져와 대상 DOM에 움직인 요소를 추가합니다.
-		var data = event.dataTransfer.getData("text/html");
-		console.log(data);
-		if(event.target.id=="mainCore" && !$(event.target).hasClass("block-body")) {
-			
-			if(mnc=="copy"){
-				var nodeCopy = document.getElementById(data).cloneNode(true);
-				nodeCopy.id="block"+($(".block").length+1);
-				event.target.appendChild(nodeCopy);
-				
-			}else if(mnc=="move"){
-				console.log(event.target);
-				console.log(document.getElementById(data));
-				
-				event.target.appendChild(document.getElementById(data));
-				
-			}
-			
-		}else{
-			
-		}
-		 
-		//event.cancelBubble = true;
-	}
-	
-	function returnFalse(){
-		
-		return false;
-	}
-	
-	
+
 	
 	
 /*                 함수 선언부     */	
