@@ -126,6 +126,7 @@
  		text-align: center;
  		vertical-align: middle;
  		padding-top:3px;
+ 		background-color: white;
  	}
  	/* 블럭 옵션 버튼 */
  	.option-btn{
@@ -159,7 +160,7 @@
  		left:-600px;
  		top:0px;
  		padding-top:50px;
- 		z-index: 20;
+ 		z-index: 100;
  		/* background-color: green; */
  	}
  	.selectDIVContent{
@@ -214,9 +215,9 @@
  		height:100%;
  		position:fixed;
  		z-index: 4;
- 		background-color: gray;
+ 	 	background-color: gray; 
  		display: none;
- 		opacity:.5;
+ 		opacity:0;
  	}
  	/* 블럭 옵션 클릭 시 나오는 메뉴 */
  	.optionMenu{
@@ -262,7 +263,7 @@
  	/* 테스트용 DIV */
  	.background{
  		width:700px;
- 		height:600px;
+ 		height:400px;
  		z-index:3;
  		margin:0px auto;
  		background:rgba(#fff,0.7);
@@ -280,23 +281,16 @@
  		content:"";
  		clear:both;
  	}
- 	.innerImage{
- 		width:200px;
+ 	.innerBox{
+ 		width:300px;
  		height:300px;
- 		border:1px solid gray;
+ 		/* border:1px solid gray; */
  		opacity:1;
  		background-color: yellow;
  		z-index: 7;
- 		
+ 		margin:20px;
  	}
- 	.innerText{
- 		width:300px;
- 		height:300px;
- 		border:1px solid gray;
- 		opacity:1;
- 		background-color: red;
- 		z-index: 7;
- 	}
+ 	
  	
  	 </style>
 <!--  <div class="createArea">  -->
@@ -310,11 +304,11 @@
 			<!-- <div class="background-box">
 			</div> -->
 			
-			<div class="innerImage">
+			<div class="innerBox innerBox1">
 				
 			</div>
 			
-			<div class="innerText">
+			<div class="innerBox innerBox2">
 				<p>무뭐뭐1</p>
 				<p>무뭐뭐2</p>
 				<p>무뭐뭐3</p>
@@ -449,18 +443,35 @@
 
 	
 	function addDIV(obj){
- 		
+ 		var temp="";
  		selectDIVon();
  		/* 추 후 템플릿 별로 만들기 */
  		
  		
  		/* 테스트용 div 번호 */
  			
- 		$("<div class='block block-body' "+"id='block"+($(".block-body").length+1)+"'><div class=''></div><div class='background'>		<div class='backgroundImage'>			<div class='innerImage'>	</div>	<div class='innerText'>		<p>무뭐뭐1</p>	<p>무뭐뭐2</p>		<p>무뭐뭐3</p>	</div></div></div></div>").insertBefore($(obj).parent().parent());
+ 		/* 템플리 공통부분 */
+ 		
+ 		temp+="<div class='block block-body'"+"id='block"+($(".block-body").length+1)+"'>";
+ 		temp+="</div>";
+ 		$(temp).insertBefore($(obj).parent().parent());
  		
  		/* 템플릿 본문 */
- 
- 		console.log("#block"+$(".block-body"));
+ 		temp="<div class='background'>";
+ 		temp+="<div class='innerBox innerBox1'>";
+ 		temp+="</div>";
+ 		temp+="<div class='innerBox innerBox2'>";
+ 		temp+="<p>무뭐뭐1</p>";
+ 		temp+="<p>무뭐뭐2</p>";
+ 		temp+="<p>무뭐뭐3</p>";
+ 		temp+="</div>";
+ 		temp+="</div>";
+ 		temp+="</div>"; 		
+		
+ 		$("#block"+($(".block-body").length+1)).append(temp);
+ 		
+ 		
+ 		/* 템플릿 공통 부분 */
  		$("#block"+$(".block-body").length).append("<div class='default-btn option-btn' title='옵션' onclick='optionClick(this);'><i class='fa fa-cog' aria-hidden='true'></i></div>");
  		$("#block"+$(".block-body").length).append("<div class='default-btn move-btn' title='이동' onclick='moveClick(this);'><i class='fa fa-scissors' aria-hidden='true'></i></div>");
  		$("#block"+$(".block-body").length).append("<div class='default-btn copy-btn' title='복사' onclick='copyClick(this);'>	<i class='fa fa-files-o' aria-hidden='true'></i></div>");
@@ -495,10 +506,18 @@
 		temp+="<div><span>색 선택</span><input type='color' onchange='boxColorChange(this,"+target+");'></div>";
 		temp+="</div>";
 		temp+="<div class='optionMenu-box-title' onclick='menuTitleClick(this)'>";
-		temp+="<div>노출설정</div>";
+		temp+="<div>노출 박스 설정</div>";
 		temp+="</div>";
 		temp+="<div class='optionMenu-box-content'>";
-		temp+="<div><span>노출 박스 개수</span><input type='button' onclick='innerBoxImageChange(this,"+target+");'></div>";
+		temp+="<div>";
+		temp+="<input type='text' id='box-parallel' placeholder='가로'>";
+		temp+="</div>";
+		temp+="<div>";
+		temp+="<input type='text' id='box-vertical' placeholder='세로'>";
+		temp+="</div>";
+		temp+="<div>";
+		temp+="<input type='button' class='btn btn-info' value='설정' onclick='innerBoxNumChange(this,"+target+");'>";
+		temp+="</div>";
 		temp+="</div>";
 		temp+="</div>";
 		
@@ -597,14 +616,14 @@
 		event.stopPropagation();
 		
 		var value =  $(obj).val();
-		var temp = $(target).css("background-color").substr(4,13);
+		var temp = $(target).css("background-color").substr(4,15);
 		var arr = temp.split(", ");
 		
 		for(var i in arr){
 			arr[i]=arr[i].replace("(","");
+			arr[i]=arr[i].replace(")","");
 			arr[i]=parseInt(arr[i]);
 		}
-		
 		$(target).css("background","rgba("+arr[0]+","+arr[1]+","+arr[2]+","+value*-1+")");
 	}
 	
@@ -623,7 +642,6 @@
 		event.stopPropagation();
 		
 		var value =  $(obj).val();
-	//	$(target).css("background-color",value);
 		
 		var arr = sixteenToten(value);
 		$(target).css("background","rgba("+arr[0]+","+arr[1]+","+arr[2]+","+"1)");
@@ -641,12 +659,27 @@
 	}
 	
 	
-	/* 내부 박스 이미지 */
-	function innerBoxImageChange(obj,target){
+	/* 내부 박스 개수 변경 */
+	function innerBoxNumChange(obj,target){
 		event.cancelBubble = true;
 		event.stopPropagation();
 		
+		var x = $("#box-parallel").val();		
+		var y = $("#box-vertical").val();
+
+		console.log($(target).find("background"));
+		console.log((parseInt($(target).find(".background").css("height"))+40)*y+"px");
+		var appendBox = x*y-$(".innerBox").length;
 		
+		if(appendBox>0){
+			
+			for(var i=0;i<appendBox;i++){
+				$(".background").append("<div class='innerBox innerBox"+($(".innerBox").length+1)+"'></div>");
+			}
+		}
+		//특정 블록과 특정 박스로 한정지어야 함.
+		$(target).find(".innerBox").css("width",parseInt($(".background").css("width"))/x-40+"px");
+		$(target).find(".background").css("height",(parseInt($(target).find(".innerBox").css("height"))+40)*y+"px");
 	}
 	/*  
 	function innerBoxColorChange(obj,target){
