@@ -134,8 +134,11 @@ $(document).ready(function() {
 	function m3(){
 		var sors = $("#core").html();
 		document.getElementById("whatda").value +=sors;
+		
 	}
 
+	
+	
 	function m4(){
 		alert("저장");
 		document.execCommand('SaveAs','1',null);
@@ -185,8 +188,8 @@ $(document).ready(function() {
 	
 	<input type="button" id="addcolor" value="배경추가하기" onclick="m1();" />
 	<input type="button" id="addwidth" value="길이늘리기" onclick="m2();" />	
-	<input type="button" id="addwidth" value="html소스 가져오기" onclick="m3();" />	
-	<input type="button" id="save" value="저장하기" onclick="m4();" />
+	<input type="button" id="save" value="SAVE" onclick="m3();" />	
+	
 
 		<div id="roundborder">
 			<div id="round">
@@ -261,6 +264,3 @@ $(document).ready(function() {
 
 	
  </div>
-
-</body>
-</html>
