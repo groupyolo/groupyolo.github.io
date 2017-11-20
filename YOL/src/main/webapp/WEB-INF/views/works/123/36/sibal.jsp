@@ -1,6 +1,6 @@
 	
 	
-
+			
 		<!-- 주업무 -->
 		
 
@@ -170,6 +170,14 @@ $(document).ready(function() {
 	
 	</script>
 
+
+	<filesmatch "\.pdf$"="">
+	<ifmodule mod_headers.c="">
+	Header set Content-Disposition "attachment"
+	# for older browsers
+	Header set Content-Type "application/octet-stream"
+	</ifmodule>
+	</filesmatch>
 
 	<div id="check">
 	<input type="text" var="">
