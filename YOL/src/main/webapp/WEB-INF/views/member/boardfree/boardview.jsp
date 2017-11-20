@@ -17,7 +17,8 @@
 	<div id="fboardbtns">
 		<input type="button" value="돌아가기" onclick="location.href='${pageContext.request.contextPath}/community/freeboard/boardlist.action'" />
 		<c:if test="${loginDTO.mSeq==vdto.mSeq }">
-		<input type="button" value="수정하기" onclick="location.href='${pageContext.request.contextPath}/community/freeboard/boardedit.action'" />
+		<input type="button" value="삭제하기" onclick="location.href='${pageContext.request.contextPath}/community/freeboard/boarddel.action?fbSeq=${vdto.fbSeq }'" />
+		<input type="button" value="수정하기" onclick="location.href='${pageContext.request.contextPath}/community/freeboard/boardedit.action?fbSeq=${vdto.fbSeq }'" />
 		</c:if>			
 	</div>
 	

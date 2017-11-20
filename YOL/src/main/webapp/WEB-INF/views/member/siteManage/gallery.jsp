@@ -7,7 +7,14 @@
 <div class="gallery1">
 	<div class="row">
 		<div class="line1">
-			div.img
+			<div class="img1"></div>
+			<div class="img2"></div>
+			<div class="img3"></div>
+		</div>
+		<div class="line2">
+			<div class="img1"></div>
+			<div class="img2"></div>
+			<div class="img3"></div>
 		</div>
 	</div>
 </div>

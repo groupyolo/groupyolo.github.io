@@ -280,5 +280,76 @@ public class QuestionController {
 	}
 	
 	
+	@RequestMapping(method = { RequestMethod.GET }, value = "/question/memo.action")
+	public String memo(HttpServletRequest req) {
+
+		return "member.question.memo";
+	}
+
+	
+	@RequestMapping(method = { RequestMethod.GET }, value = "/question/contact1.action")
+	public String contact1(HttpServletRequest req) {
+
+		return "member.question.contact1";
+	}
+	
+	@RequestMapping(method = { RequestMethod.GET }, value = "/question/contact2.action")
+	public String contact2(HttpServletRequest req) {
+
+		return "member.question.contact2";
+	}
+	
+	@RequestMapping(method = { RequestMethod.GET }, value = "/question/contact3.action")
+	public String contact3(HttpServletRequest req) {
+
+		return "member.question.contact3";
+	}
+	
+	
+	@RequestMapping(method = { RequestMethod.GET }, value = "/question/menu1.action")
+	public String menu1(HttpServletRequest req) {
+
+		return "member.question.menu1";
+	}
+	
+	@RequestMapping(method = { RequestMethod.GET }, value = "/question/menu2.action")
+	public String menu2(HttpServletRequest req) {
+
+		return "member.question.menu2";
+	}
+	
+	
+	@RequestMapping(method = { RequestMethod.GET }, value = "/question/menu3.action")
+	public String menu3(HttpServletRequest req) {
+
+		return "member.question.menu3";
+	}
+	
+	
+	@RequestMapping(method = { RequestMethod.GET }, value = "/question/footer1.action")
+	public String footer1(HttpServletRequest req) {
+
+		return "member.question.footer1";
+	}
+	
+	
+	@RequestMapping(method = { RequestMethod.GET }, value = "/question/footer2.action")
+	public String footer2(HttpServletRequest req) {
+
+		return "member.question.footer2";
+	}
+	
+	
+	@RequestMapping(method = { RequestMethod.GET }, value = "/question/footer3.action")
+	public String footer3(HttpServletRequest req) {
+
+		return "member.question.footer3";
+	}
+	
+	
+	
+	
+	
+	
 	
 }

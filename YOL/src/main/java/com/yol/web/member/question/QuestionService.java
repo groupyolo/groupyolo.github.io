@@ -110,6 +110,12 @@ public class QuestionService implements IQuestionService {
 		return dao.getTotalCount();
 	}
 
+	@Override
+	public List<QuestionDTO> qlist() {
+
+		return dao.qlist();
+	}
+
 
 
 
