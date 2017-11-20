@@ -27,11 +27,12 @@
 	#chatBox {
 		margin-right: 30px;
 		float: right;
+		border: 1px solid #837E7C;
 	}
 	
 	
 	#chatTop {
-		background-color: black;
+		background-color: #837E7C;
 		color: white;
 		width: 330px;
 		height: 50px;
@@ -66,15 +67,15 @@
 	}
 	#chatText {
 		width: 260px;
+		height: 50px;
 		color: black;
 	}
 	#send {
 		display: inline-block;
 		margin: 0px auto;
 		float: right;
-		width: 50px;
+		width: 70px;
 		height: 50px;
-		margin-right: 20px;
 		color: black;
 	}
 	
@@ -141,7 +142,7 @@
 						<li onclick="location.href='${pageContext.request.contextPath}/community/freeboard/boardlist.action';">자유게시판</li>
 					</ul>
 				</div>
-				<div><a href="${pageContext.request.contextPath }/supports.action">고객지원</a></div>
+				<div><a href="${pageContext.request.contextPath }/main/faqview.action">고객지원</a></div>
 			</div>
 			
 		<script>
@@ -229,7 +230,7 @@
 								$("#tblList tbody").append(text);
 								$("#chatText").val("");
 								
-								$("#chatMiddle").scrollTop($(document).height());
+								$("#chatMiddle").scrollTop($(document).height() + 5000);
 							
 						} else {
 							
@@ -280,7 +281,7 @@
 										
 										$("#tblList tbody").append(text);
 										
-										$("#chatMiddle").scrollTop($(document).height());
+										$("#chatMiddle").scrollTop($(document).height() + 5000);
 									});
 								} 
 							}

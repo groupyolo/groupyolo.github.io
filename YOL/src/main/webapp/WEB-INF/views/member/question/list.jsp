@@ -53,7 +53,8 @@
 }
 
 #tblQList th {
-	background-color: #eee;
+	background-color: cornflowerblue;
+	color: white;
 }
 
 
@@ -95,11 +96,18 @@
 	height: 30px;
 }
 
+.btn {
+	background-color: cornflowerblue;
+	color:white;
+	border-radius:0;
+}
+
 #pagebar {
 	margin: 0px auto;
 	text-align:center;
 	padding-top: 10px;
 	padding-bottom: 10px;
+	
 }
 
 #all {
@@ -221,7 +229,7 @@ blockquote footer {
 	
 	<div id="btns">
 		<input type="button" value="글 쓰기"
-			onclick="location.href='${pageContext.request.contextPath}/question/add.action'">
+			onclick="location.href='${pageContext.request.contextPath}/question/add.action'" class="btn">
 	</div>
 
 		<div id="pagebar">${pagebar}</div>
@@ -234,7 +242,7 @@ blockquote footer {
 				<option value="mnickname">글쓴이</option>
 			</select> 
 			<input type="text" id="word" name="word"> 
-			<input type="button" value="검색하기" id="btn" onclick="search();">
+			<input type="button" value="검색하기" id="btn" class="btn" onclick="search();">
 		</div>
 		
 
