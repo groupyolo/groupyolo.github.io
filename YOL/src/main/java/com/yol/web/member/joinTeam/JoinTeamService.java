@@ -197,5 +197,24 @@ public class JoinTeamService implements IJoinTeamService {
 		return dao.getTotalCount(map);
 	}
 
+	@Override
+	public int stateChange(String reSeq) {
+		return dao.stateChange(reSeq);
+	}
+
+	@Override
+	public List<VJoinTeamDTO> addProject(String reSeq) {
+		
+		List<VJoinTeamDTO> nlist = dao.addProject(reSeq);
+		
+		for (VJoinTeamDTO dto : nlist) {			
+			//날짜수정
+			dto.setjStart((dto.getjStart().substring(0, 10)));
+			dto.setjEnd((dto.getjEnd().substring(0, 10)));
+		}		
+		
+		return nlist;
+	}
+
 
 }

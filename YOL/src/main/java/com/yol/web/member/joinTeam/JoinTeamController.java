@@ -203,9 +203,22 @@ public class JoinTeamController {
 	}
 	@RequestMapping(method= {RequestMethod.GET},value="/member/addMember.action")
 	public @ResponseBody Object addMember(HttpServletRequest req, String mEmail, String reSeq) {
-				
+		System.out.println("reSeq를 찍다");
+		System.out.println(reSeq);
 		int result = sv.addM(mEmail, reSeq);		
 		return result;
 	}
-	
+	@RequestMapping(method= {RequestMethod.GET},value="/member/stateChange.action")
+	public @ResponseBody Object stateChange(HttpServletRequest req, String reSeq) {
+		int result = sv.stateChange(reSeq);		
+		return result;
+	}
+	@RequestMapping(method= {RequestMethod.GET},value="/member/addProject.action")
+	public @ResponseBody Object addProject(HttpServletRequest req, String reSeq) {
+		
+		List<VJoinTeamDTO> nlist = sv.addProject(reSeq);
+		//req.setAttribute("nlist", nlist);
+		//return "member.joinTeam.addProject.ajax";
+		return nlist;
+	}
 }

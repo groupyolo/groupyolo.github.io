@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-hr { margin: 40px 0px;}
+/* hr { margin: 40px 0px;} */
 
 /* ------------------------- */
 .contents1 {
@@ -52,15 +52,17 @@ hr { margin: 40px 0px;}
 }
 
 .contents1 .textbox {
-	/* border: 1px solid black; */
+	border: 1px solid black; 
 	width: 45%;
 	padding-left: 30px;
 	/* padding-right: 60px; */
 	float: left;
 	cursor: text;
+	height: 100%;
 }
 
 .contents1 .textbox .text1 h3 {
+	/* border: 1px solid red; */
 	line-height: 1.7;
 	font-size: 22px;
 	font-weight: 100;
@@ -71,6 +73,7 @@ hr { margin: 40px 0px;}
 }
 
 .contents1 .textbox .text2 p {
+	/* border: 1px solid orange; */
 	line-height: 2.4;
 	color: #888;
 	font-size: 12px;
@@ -298,4 +301,64 @@ hr { margin: 40px 0px;}
 	margin: 0px auto;
 }
 
+.gallery1 .line1 {
+	border: 1px solid blue;
+	width: 100%;
+	height: 50%;
+	float: left;
+}
+
+.gallery1 .line2 {
+	border: 1px solid orange;
+	width: 100%;
+	height: 50%;
+	float: left;
+}
+ .img1, .img2, .img3 {
+	width: (100/3);
+	height: 100%;
+	border: 1px solid green;
+}  
+
+/* ----------------------------------- */
+
+.textbox1 {
+	border: 1px solid black;
+	width: 100%;
+	height: 300px;
+}
+
+.textbox1 .row {
+	/* border: 1px solid red; */
+	width: 1170px;
+	height: 100%;
+	margin: 0 auto;
+}
+
+.textbox1 .row .textbox {
+	border: 1px solid orange; 
+	width: calc(100%/4);
+	height: 100%;
+	float: left;
+}
+	
+.textbox1 .row .textbox .text1 {
+	padding: 0px;
+	margin: 0px;
+	font-size: 70px;
+	margin-bottom: 30px;
+	min-width: 23px;
+	border: 1px solid red;
+	heigth: 70px;
+}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 

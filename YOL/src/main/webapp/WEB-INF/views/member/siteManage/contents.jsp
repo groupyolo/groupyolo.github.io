@@ -4,17 +4,6 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>   
 <link rel="stylesheet" href="${pageContext.request.contextPath }/css/section.css"/>
 <script src="${pageContext.request.contextPath }/js/jquery-1.12.4.js"></script>
-<script>
-/* 	$( ".innerbox .text1" ).bind( "click", function( event ) {
-  var str = "( " + event.pageX + ", " + event.pageY + " )";
-  	alert(str);
-	});
-	 */
-	$("p").click(function() {
-		alert("ddd");
-	});
-</script>
-
 <div class="contents1">
 		<div class="row">
 			<div class="warp">
