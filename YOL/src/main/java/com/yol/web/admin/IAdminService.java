@@ -2,6 +2,7 @@ package com.yol.web.admin;
 
 import java.util.List;
 
+import com.yol.web.DTO.AdminDTO;
 import com.yol.web.DTO.FAQDTO;
 import com.yol.web.DTO.InquiryDTO;
 import com.yol.web.DTO.InquiryboardDTO;
@@ -45,6 +46,8 @@ public interface IAdminService {
 	int faqadd(FAQDTO dto);
 
 	int faqDel(String FAQseq);
+
+	AdminDTO logIn(AdminDTO adto);
 
 
 

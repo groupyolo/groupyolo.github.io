@@ -18,32 +18,32 @@
 </head>
 <body>
 
-	<h1>공지사항 글쓰기</h1>
+	<h1 align="center">공지사항 글쓰기</h1>
 	
-	<div id="noticeBoardadd">
+	<div id="inquirydadd" align="center">
 		<form action="${pageContext.request.contextPath}/admin/inquiryaddOk.action" method="post">
 			<div id="formTbl">
 				<table>
 					<tr>
 						<th>카테고리</th>
 						<td>
-							<select name="inquiryCategoryseq" id="" requried>
+							<select name="inquiryCategoryseq" style="width:500px;" id="" requried>
 								<option value="1">공지</option>
 							</select>
 						</td>
 					</tr>
 					<tr>
 						<th>제목</th>
-						<td><input type="text" name="title" requried/></td>
+						<td><input type="text" name="title" style="width:500px;" requried/></td>
 					</tr>
 					<tr>
 						<th>내용</th>
-						<td><input type="text" name="icontent" style="height:400px; weight:500px;" requried></td>
+						<td><textarea name="icontent" style="height:300px; width:500px; resize:none;" requried></textarea></td>
 					</tr>
 					<tr>
 						<th>공개여부</th>
 						<td>
-							<select name="openseq" id="" requried>
+							<select name="openseq" style="width:500px;" requried>
 								<option value="1">공개</option>
 								<option value="2">비공개</option>
 							</select>

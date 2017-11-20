@@ -9,13 +9,6 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.12.4.js"></script>
 
 <style>
-	#noticeBoardView {
-		border:1px solid blue;
-	}
-	
-	#noticeBoardView th {border:1px solid red;}
-	#noticeBoardView td {border:1px solid pink;}
-	
 	
 </style>
 		
@@ -33,18 +26,19 @@
 </head>
 <body>
 
-	<h1>공지사항 게시판</h1>
+	<h1 align="center">문의사항 수정 게시판</h1>
 	
+	<div id="inquiryEdit" align="center">
 	<c:forEach items="${ivlist}" var="ivdto">
 	<form action="${pageContext.request.contextPath}/admin/inquiryEditOk.action" method="post">
-	<table id="noticeBoardView">
+	<table id="inquiryEdit" style="width:500px;">
 		<tr>
 			<td>번호</td>
 			<td>${ivdto.inquiryseq}</td>
 		</tr>
 		<tr>
 			<td>제목</td>
-			<td><input name="title" type="text" value="${ivdto.title}"></td>
+			<td><input name="title" type="text" value="${ivdto.title}" ></td>
 		</tr>
 		<tr>
 			<td>내용</td>
@@ -67,6 +61,8 @@
 
 	</form>
 		</c:forEach>
+	</div>
+	
 </body>
 </html>
 
