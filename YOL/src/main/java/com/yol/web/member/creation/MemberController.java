@@ -96,14 +96,12 @@ public class MemberController {
 		System.out.println("===========================");
 		
 		//설정된 템플릿으로 폴더와 파일을 생성하고 파일의 경로를 리턴
-		String copy = ics.copyTemplate(dto, prSeq);
+		String copy[] = ics.copyTemplate(dto, prSeq);
 		//띄어쓰기허용안되는듯
 		System.out.println("최종경로는 다음과 같습니다 > ");
-		System.out.println(copy);
+		System.out.println(copy[0]+"\\"+copy[1]+"\\"+copy[2]+"\\"+copy[3]);
 		System.out.println("==========================");
-		
-		
-		
+				
 		
 		req.setAttribute("result", result);
 		
@@ -136,6 +134,7 @@ public class MemberController {
 
 		return "member.memberpage.myinfo";
 	}
+	
 
 	@RequestMapping(method = { RequestMethod.GET }, value = "/member/mysites.action")
 	public String mysites(HttpServletRequest req, VCreationDTO dto, HttpSession session) {
@@ -183,13 +182,25 @@ public class MemberController {
 	
 	
 	@RequestMapping(method = { RequestMethod.GET }, value = "/member/creation/projectedit.action")
-	public String projectedit(HttpServletRequest req, VCreationDTO dto) {
+	public String projectedit(HttpServletRequest req, int prSeq) {
 
-		String prSeq = dto.getPrSeq();
+		String result = ics.projectedit(prSeq);
+		result = result.replace(".jsp", "");
+		
+		String url[] = result.split("\\\\");
 		
 		
-		return "member.creation.projectedit";
+		System.out.println("=======projectedit=======");
+		System.out.println(url[0]);
+		System.out.println(url[1]);
+		System.out.println(url[2]);
+		System.out.println(url[3]);
+		System.out.println("========================");
+		String mapping = url[0]+"."+ url[1] + "." + url[2]+"."+url[3]; 
+		System.out.println("매핑된 주소 체크 : " + mapping);
+		return mapping ;
 	}
+	
 	
 }
 

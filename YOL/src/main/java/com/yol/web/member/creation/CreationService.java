@@ -56,10 +56,18 @@ public class CreationService implements ICreationService{
 	}
 	
 	@Override
-	public String copyTemplate(VCreationDTO dto, int prSeq) {
+	public String[] copyTemplate(VCreationDTO dto, int prSeq) {
 		// 
-		String path = dao.copyTemplate(dto, prSeq);
+		String[] path = dao.copyTemplate(dto, prSeq);
 		return path;
+	}
+	
+	@Override
+	public String projectedit(int prSeq) {
+		
+		String result =dao.projectedit(prSeq);
+		
+		return result;
 	}
 	
 }
