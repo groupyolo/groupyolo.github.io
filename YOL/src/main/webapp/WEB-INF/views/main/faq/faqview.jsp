@@ -103,7 +103,7 @@
 			</table>
 			
 		</form>
-		<div id ="find" style="padding:30px;">찾으시는 내용이 없으세요?  <a href="${pageContext.request.contextPath }/main/qnaview.action">문의 게시판 가기</a></div>
+		<div id ="find" style="padding:30px;">찾으시는 내용이 없으세요?  <a href="${pageContext.request.contextPath }/inquiry/list.action">문의 게시판 가기</a></div>
 	</div>
 	<div id="box">
 	<ul id="sub">

@@ -375,7 +375,14 @@
 	</c:forEach>	
 	
 	$(".func-box-title").click(function(){
-		location.href="${pageContext.request.contextPath }/main/login.action";
+		
+		if($(this).text() == "24시 고객지원") {
+			location.href="${pageContext.request.contextPath }/inquiry/list.action";
+		} else if($(this).text() == "자주 묻는 질문") {
+			location.href="${pageContext.request.contextPath }/main/faqview.action";
+		} else {
+			location.href="${pageContext.request.contextPath }/main/login.action";
+		}
 	});
 	
 	</script>

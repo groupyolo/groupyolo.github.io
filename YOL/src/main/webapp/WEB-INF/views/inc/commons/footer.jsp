@@ -14,11 +14,15 @@
 				</ul>
 			</div>
 			<div><span>회사소개</span>
+				<ul>
+					<li><a href="${pageContext.request.contextPath }/main/company.action">회사 소개</a></li>
+					<li><a href="${pageContext.request.contextPath }/main/company2.action">개발자 소개</a></li>
+				</ul>
 			</div>
 			<div><span>고객지원</span>
 				<ul>
-					<li><a href="">문의하기</a></li>
-					<li><a href="">서포트센터</a></li>
+					<li><a href="${pageContext.request.contextPath }/main/faqview.action">서포트센터</a></li>
+					<li><a href="${pageContext.request.contextPath }/inquiry/list.action">문의하기</a></li>
 					<li><a href="">공지</a></li>
 					
 				</ul>
