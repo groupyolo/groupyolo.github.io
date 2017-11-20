@@ -10,7 +10,7 @@
 	<!-- JDBC의 Connection 역할 -->
 
 	<!-- 집에서 -->
-	<!-- <bean id="source" class="org.apache.commons.dbcp.BasicDataSource">
+<!-- 	<bean id="source" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
 		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"></property>
 		<property name="username" value="Jung"></property>
@@ -19,7 +19,7 @@
 	
 
 	<!--  학원에서 -->
-	<bean id="source" class="org.apache.commons.dbcp.BasicDataSource">
+ <bean id="source" class="org.apache.commons.dbcp.BasicDataSource">
 
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
 		<property name="url" value="jdbc:oracle:thin:@211.63.89.36:1521:xe"></property>
