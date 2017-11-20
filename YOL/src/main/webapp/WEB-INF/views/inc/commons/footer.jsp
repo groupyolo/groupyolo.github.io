@@ -7,6 +7,9 @@
 		
 		<div id="footmenu">
 			<div id="menulist">
+			<img src="${pageContext.request.contextPath }/css/images/logoorange.png" alt=""  style="width:50px;" />
+			<!-- <span style="font-weight: bold;">YOL.COM</span> -->
+			
 			<div><span>서비스</span>
 				<ul>
 					<li><a href="${pageContext.request.contextPath }/main/templateView.action">템플릿</a></li>
@@ -27,20 +30,19 @@
 					
 				</ul>
 			</div>
-			<div><span>개인정보 취급방침</span></div>
+			<div><span>개인정보처리방침</span></div>
 			</div>
 		</div>		
 	
 
 		<div class='footer_logo clear'>
 			<div id='companyinfo'>
-				<img src="${pageContext.request.contextPath }/css/images/logoorange.png" alt=""  style="width:20px; height:20px;" />
-				<span style="font-weight: bold;">YOL.COM</span>
-				<span>132, Teheran-ro, Gangnam-gu, Seoul, Republic of Korea</span>
-				<span>Registration No. : 000-00-00000</span>
-				<span>Representative : JungAh Park</span>
-				<span>+82-070-0000-0000</span>
-				<address style="font-weight: bold;">Copyright©YOL.COM All Rights Reserved.</address>
+				
+				<span>132, Teheran-ro, Gangnam-gu, Seoul, Republic of Korea </span><span> | </span>
+				<span>Registration No. : 000-00-00000</span><span> | </span>
+				<span>Representative : JungAh Park</span><span> | </span>
+				<span>+82-070-0000-0000</span><br>
+				<address style="font-weight: bold;">COPYRIGHT©YOL.COM All Rights Reserved.</address>
 			</div>
 			
 		</div>
