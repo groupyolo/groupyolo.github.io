@@ -199,6 +199,7 @@ public class MemberController {
 		String mapping = url[0]+"."+ url[1] + "." + url[2]+"."+url[3]; 
 		System.out.println("매핑된 주소 체크 : " + mapping);
 		return mapping ;
+		
 	}
 	
 	
