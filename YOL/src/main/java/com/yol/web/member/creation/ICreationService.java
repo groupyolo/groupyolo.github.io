@@ -18,5 +18,5 @@ public interface ICreationService {
 
 	int getPrSeq();
 
-	int copyTemplate(VCreationDTO dto, int prSeq);
+	String copyTemplate(VCreationDTO dto, int prSeq);
 }

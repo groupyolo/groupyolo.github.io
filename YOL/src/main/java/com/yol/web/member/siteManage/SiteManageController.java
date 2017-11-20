@@ -294,4 +294,10 @@ public class SiteManageController {
 		return "section.gallery";
 	}
 	
+	@RequestMapping (method= {RequestMethod.GET}, value="/member/text.action" )
+	private String text(HttpServletRequest req) {
+		
+		return "section.text";
+	}
+	
 }
