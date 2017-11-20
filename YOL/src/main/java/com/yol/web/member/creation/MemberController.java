@@ -11,11 +11,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.yol.web.DTO.ConceptDTO;
+import com.yol.web.DTO.JoinBoardDTO;
 import com.yol.web.DTO.MemberDTO;
 import com.yol.web.DTO.QuestionDTO;
 import com.yol.web.DTO.VCreationDTO;
 import com.yol.web.DTO.VFBoardDTO;
+import com.yol.web.DTO.VJoinTeamDTO;
 import com.yol.web.community.freeboard.IFBoardService;
+import com.yol.web.member.joinTeam.IJoinTeamService;
 import com.yol.web.member.question.IQuestionService;
 
 @Controller
@@ -29,6 +32,10 @@ public class MemberController {
 	
 	@Autowired
 	private IQuestionService iqs;
+	
+	@Autowired
+	private IJoinTeamService ijs;
+	
 	
 	
 	@RequestMapping(method = { RequestMethod.GET }, value = "/main.action")
@@ -159,9 +166,17 @@ public class MemberController {
 
 		List<VFBoardDTO> list = ifb.listshort(dto);
 		List<QuestionDTO> qlist = iqs.qlist();
+		List<VJoinTeamDTO> slist = ijs.slist();
+		
+		for(QuestionDTO qdto : qlist ) {
+			
+			qdto.setQtime(qdto.getQtime().substring(0,10));
+			
+		}
 		
 		req.setAttribute("fblistshort", list);
 		req.setAttribute("qlist", qlist);
+		req.setAttribute("slist", slist);
 		
 		return "member.community.boardlist";
 	}

@@ -8,7 +8,7 @@
 		
 	}
 
-#tblList {
+#tblQList {
 	border: 1px solid gray;
 	border-collapse: collapse;
 	width: 800px;
@@ -16,7 +16,11 @@
 	margin-top: 30px;
 }
 
-#tblList th, #tblList td {
+#tblQList tr {
+	padding: 10px;
+}
+
+#tblQList th, #tblQList td {
 	border: 1px solid gray;
 	padding: 5px;
 	text-align: center;
@@ -24,33 +28,34 @@
 
 
 
-#tblList th:nth-child(1) {
+#tblQList th:nth-child(1) {
 	width: 40px;
 }
 
-#tblList th:nth-child(2) {
+#tblQList th:nth-child(2) {
 	width: 80px;
 }
 
-#tblList th:nth-child(3) {
+#tblQList th:nth-child(3) {
 	width: 360px;
 }
 
-#tblList th:nth-child(4) {
+#tblQList th:nth-child(4) {
 	width: 80px;
 }
 
-#tblList th:nth-child(5) {
+#tblQList th:nth-child(5) {
 	width: 180px;
 }
 
-#tblList th:nth-child(6) {
+#tblQList th:nth-child(6) {
 	width: 60px;
 }
 
-#tblList th {
+#tblQList th {
 	background-color: #eee;
 }
+
 
 #btns {
 	width: 800px;
@@ -131,7 +136,7 @@ blockquote footer {
 			dataType: "json",
 			success: function(data) {
 				
-				$("#tblList tbody").html("");//검색 초기화
+				$("#tblQList tbody").html("");//검색 초기화
 				
 				
 				if($(data).size() > 0) {
@@ -148,7 +153,7 @@ blockquote footer {
 					text += "<td>" + list.qhits + "</td>";
 					text += "</tr>";
 					
-					$("#tblList tbody").append(text);
+					$("#tblQList tbody").append(text);
 				});
 					
 				} else {
@@ -156,7 +161,7 @@ blockquote footer {
 					text += "<td colspan='6'>" + "일치하는 내용이 없습니다" +"</td>";
 					text += "</tr>";
 					
-					$("#tblList tbody").append(text);
+					$("#tblQList tbody").append(text);
 				}
 				
 			}
@@ -181,7 +186,7 @@ blockquote footer {
 	</div>
 
 	<div id="box">
-		<table id="tblList">
+		<table id="tblQList">
 			<thead>
 			<tr>
 				<th>번호</th>

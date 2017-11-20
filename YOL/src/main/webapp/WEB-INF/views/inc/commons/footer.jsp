@@ -9,7 +9,7 @@
 			<div id="menulist">
 			<div><span>서비스</span>
 				<ul>
-					<li><a href="">템플릿</a></li>
+					<li><a href="${pageContext.request.contextPath }/main/templateView.action">템플릿</a></li>
 					<li><a href="">요금제</a></li>
 				</ul>
 			</div>

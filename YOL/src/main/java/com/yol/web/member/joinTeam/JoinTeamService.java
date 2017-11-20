@@ -216,5 +216,11 @@ public class JoinTeamService implements IJoinTeamService {
 		return nlist;
 	}
 
+	@Override
+	public List<VJoinTeamDTO> slist() {
+
+		return dao.slist();
+	}
+
 
 }

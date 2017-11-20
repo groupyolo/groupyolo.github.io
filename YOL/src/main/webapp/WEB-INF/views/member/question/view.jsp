@@ -20,17 +20,28 @@
 		margin-left: 100px;
 	}
 	
-	#tblList { border: 1px solid gray; border-collapse:collapse; width:800px;}
-	#tblList th, #tblList td { border: 1px solid gray; padding: 5px; }
-	#tblList td { text-align:center; }
+	#tblQList { border: 1px solid gray; border-collapse:collapse; width:800px;}
+	#tblQList th, #tblQList td { border: 1px solid gray; padding: 5px; text-align:center; }
+	#tblQList td { text-align:center; }
 	
-	#tblList th:nth-child(1) { width: 40px; }
-	#tblList th:nth-child(2) { width: 80px; }
-	#tblList th:nth-child(3) { width: 360px; }
-	#tblList th:nth-child(4) { width: 80px; }
-	#tblList th:nth-child(5) { width: 180px; }
-	#tblList th:nth-child(6) { width: 60px; }
-	#tblList th { background-color: #eee; }
+	#tblQList th:nth-child(1) { width: 60px;}
+	#tblQList th:nth-child(2) { width: 300px; }
+	#tblQList th:nth-child(3) { width: 70px; }
+	#tblQList th:nth-child(4) { width: 80px; }
+	#tblQList th:nth-child(5) { width: 180px; }
+	#tblQList th:nth-child(6) { width: 60px; }
+	#tblQList th { background-color: #eee; }
+	
+	#qtitle {
+		height: 50px;
+		text-align: left;
+	}
+	
+	#qcontent {
+		height: 150px;
+		text-align: left;
+	}
+	
 	#btns { width:800px; text-align:right; margin-bottom: 30px; margin-top: 20px; }
 	
 	#tblComment, #tblCList { border: 1px solid gray; width: 800px; border-collapse:collapse;}
@@ -178,34 +189,28 @@
 	</div>
 	
 	<div id="box">
-		<table id="tblList">
+		<table id="tblQList">
 			<tr>
 				<th>번호</th>
 				<td>${dto.questionseq}</td>
-			</tr>
-			<tr>
 				<th>카테고리</th>
 				<td>${dto.qcategory}</td>
-			</tr>
-			<tr>
-				<th>제목</th>
-				<td>${dto.qtitle}</td>
-			</tr>
-			<tr>
-				<th>글쓴이</th>
-				<td>${dto.mnickname}</td>
-			</tr>
-			<tr>
-				<th>날짜</th>
-				<td>${dto.qtime}</td>
-			</tr>
-			<tr>
 				<th>조회수</th>
 				<td>${dto.qhits}</td>
 			</tr>
 			<tr>
+				<th>글쓴이</th>
+				<td>${dto.mnickname}</td>
+				<th>날짜</th>
+				<td colspan="3">${dto.qtime}</td>
+			</tr>
+			<tr>
+				<th>제목</th>
+				<td colspan="5" id="qtitle">${dto.qtitle}</td>
+			</tr>
+			<tr>
 				<th>내용</th>
-				<td>${dto.qcontent}</td>
+				<td colspan="5" id="qcontent">${dto.qcontent}</td>
 			</tr>			
 		</table>
 		<div id="btns">
