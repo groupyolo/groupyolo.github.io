@@ -76,9 +76,9 @@ public class JoinTeamController {
 		 
 		 while ( !(loop >blockSize || n > totalPage)) {
 		 	if (n == nowPage) {
-		 		pagebar += String.format("<li class='active'><a href='#'>%d</a></li>", n);
+		 		pagebar += String.format("<li class='active'><a href='#' class='page'>%d</a></li>", n);
 		 	} else {
-		 		pagebar += String.format("<li><a href='/web/member/communityBoard.action?page=%d'>%d</a></li>", n, n);
+		 		pagebar += String.format("<li><a href='/web/member/communityBoard.action?page=%d'>%d</a></li>", n);
 		 	}
 		 	loop++;
 		 	n++;
@@ -87,7 +87,7 @@ public class JoinTeamController {
 		 if (n > totalPage) {
 		 	pagebar += String.format("<li class='disabled'><a href='#' aria-label='Next'><span aria-hidden='true'>&raquo;</span></a></li>");
 		 } else {
-		 	pagebar += String.format("<li><a href='/web/member/communityBoard.action?page=%d' aria-label='Next'><span aria-hidden='true'>&raquo;</span></a></li>", n);
+		 	pagebar += String.format("<li><a href='/web/member/communityBoard.action?page=%d' aria-label='Next'><span aria-hidden='true'>&raquo;</span></a></li>", n, n-1);
 		 }		 
 		 pagebar += "</ul></nav>";
 		
@@ -203,9 +203,22 @@ public class JoinTeamController {
 	}
 	@RequestMapping(method= {RequestMethod.GET},value="/member/addMember.action")
 	public @ResponseBody Object addMember(HttpServletRequest req, String mEmail, String reSeq) {
-				
+		System.out.println("reSeq를 찍다");
+		System.out.println(reSeq);
 		int result = sv.addM(mEmail, reSeq);		
 		return result;
 	}
-	
+	@RequestMapping(method= {RequestMethod.GET},value="/member/stateChange.action")
+	public @ResponseBody Object stateChange(HttpServletRequest req, String reSeq) {
+		int result = sv.stateChange(reSeq);		
+		return result;
+	}
+	@RequestMapping(method= {RequestMethod.GET},value="/member/addProject.action")
+	public @ResponseBody Object addProject(HttpServletRequest req, String reSeq) {
+		
+		List<VJoinTeamDTO> nlist = sv.addProject(reSeq);
+		//req.setAttribute("nlist", nlist);
+		//return "member.joinTeam.addProject.ajax";
+		return nlist;
+	}
 }

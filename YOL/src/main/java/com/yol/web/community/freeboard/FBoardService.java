@@ -1,5 +1,6 @@
 package com.yol.web.community.freeboard;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,5 +42,24 @@ public class FBoardService implements IFBoardService{
 	public List<VFBoardDTO> listshort(VFBoardDTO dto) {
 		List<VFBoardDTO> list=dao.listshort(dto);
 		return list;
+	}
+	
+	@Override
+	public int getTotalCount() {
+		
+		return dao.getTotalCount();
+	}
+	
+	@Override
+	public List<VFBoardDTO> search(HashMap<String, String> map) {
+	
+		List<VFBoardDTO> list=dao.search(map);
+		return list;
+	}
+	
+	@Override
+	public VFBoardDTO edit(String fbSeq) {
+		
+		return null;
 	}
 }

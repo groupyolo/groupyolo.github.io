@@ -9,6 +9,19 @@
 
 <tiles-definitions>
 
+	<!-- 생성된 사이트 접근 -->
+	<definition name="works.*.*.*" template="/WEB-INF/views/layouts/works/works_template.jsp" >
+		
+		<put-attribute name="asset" value="/WEB-INF/views/inc/commons/asset.jsp"></put-attribute>	
+		<put-attribute name="membermenu" value="/WEB-INF/views/inc/member/membermenu.jsp"></put-attribute>
+		<put-attribute name="footer" value="/WEB-INF/views/inc/commons/footer.jsp"></put-attribute>
+
+
+		<!-- 주업무 -->
+		<put-attribute name="core" value="/WEB-INF/views/works/{1}/{2}/{3}.jsp"></put-attribute>
+
+	</definition>
+	
 	<!-- ajax -->
 	<definition name="*.*.*.ajax" template="/WEB-INF/views/layouts/ajax.jsp" >
 		<put-attribute name="core" value="/WEB-INF/views/{1}/{2}/{3}.jsp"></put-attribute>
@@ -27,13 +40,11 @@
 
 	</definition>
 	
-	<!-- 임시 로그인 -->
-	<definition name= "main.*" template = "/WEB-INF/views/member/siteManage/login.jsp">
-		<put-attribute name="core" value="/WEB-INF/views/main/{1}.jsp"></put-attribute>
-	</definition>
+	<!-- 컨텐츠 -->
 	
-	<definition name= "test" template = "/WEB-INF/views/member/siteManage/test.jsp">
-		<put-attribute name="test" value="/WEB-INF/views/member/siteManage/test1.jsp"></put-attribute>
-	</definition>
+	<definition name="section.*" template="/WEB-INF/views/member/siteManage/section.jsp">
+		<put-attribute name ="part" value="/WEB-INF/views/member/siteManage/{1}.jsp"></put-attribute>
+	 </definition>
+
 	
 </tiles-definitions>

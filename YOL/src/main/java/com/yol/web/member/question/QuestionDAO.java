@@ -92,6 +92,11 @@ public class QuestionDAO {
 		return sql.selectOne("question.getTotalCount");
 	}
 
+	public List<QuestionDTO> qlist() {
+
+		return sql.selectList("question.qlist");
+	}
+
 	
 	
 }

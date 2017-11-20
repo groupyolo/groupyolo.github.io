@@ -1,5 +1,6 @@
 package com.yol.web.community.freeboard;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -40,6 +41,18 @@ public class FBoardDAO {
 	public List<VFBoardDTO> listshort(VFBoardDTO dto) {
 		// TODO Auto-generated method stub
 		return sql.selectList("fboard.listshort", dto);
+	}
+
+
+	public int getTotalCount() {
+		
+		return sql.selectOne("fboard.getTotalCount");
+	}
+
+
+	public List<VFBoardDTO> search(HashMap<String, String> map) {
+		
+		return sql.selectList("fboard.search",map);
 	}
 
 

@@ -6,11 +6,11 @@
 <mapper namespace="fboard">
 	
 	<insert id="add" parameterType="com.yol.web.DTO.VFBoardDTO">
-		INSERT INTO FREEBOARD values(fbSeq.nextval, #{mSeq}, #{fbCatSeq}, #{fbName}, default, #{fbMain}, default)
+		INSERT INTO FREEBOARD values(fbSeq.nextval, #{mSeq}, #{fbCatSeq}, #{fbName}, default, #{fbMain}, default, default)
 	</insert>
 	
 	<select id="list" resultType="com.yol.web.DTO.VFBoardDTO">
-		SELECT * FROM 	VFREEBOARD  order by fbSeq desc
+		SELECT * FROM 	VFREEBOARD  where activation = 'y' order by fbSeq desc
 	</select>
  
  	<select id="view" parameterType="String" resultType="com.yol.web.DTO.VFBoardDTO">
@@ -21,4 +21,13 @@
  		select * from (SELECT a.*, rownum as rnum FROM (select *from vfreeboard order by fbseq desc) a) where<![CDATA[ rnum <= 5]]>
  	</select>
  
+ 	<select id="getTotalCount" parameterType="map" resultType="Integer">
+ 		select count(*) from freeboard where activation ='y'
+ 	</select>
+ 
+ 	<select id="search" parameterType="map" resultType="com.yol.web.DTO.VFBoardDTO">
+ 		select * from VFREEBOARD  where activation = 'y' and ${category} like '%' || #{word} || '%' order by fbSeq desc
+ 	</select>
+ 	
+
 </mapper>

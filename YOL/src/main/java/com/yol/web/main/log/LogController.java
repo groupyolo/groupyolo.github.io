@@ -194,7 +194,29 @@ public class LogController {
 		  
 	  }
 	  
-	  
+	//  인자로 MulfiPartFile 객체, MultipartHttpServletRequest 객체, 업로드 하려는 도메인 클래스를 받는다
+	    /*public String reAddProCtrl(@RequestParam("uploadFile") MultipartFile uploadFile,
+	                                    MultipartHttpServletRequest request, Reward reward) {
+	        
+	        System.out.println("RewardController reAddProCtrl uploadFile : " + uploadFile);
+	        System.out.println("RewardController reAddProCtrl reward : " + reward);
+	        
+//	      UtilFile 객체 생성
+	        UtilFile utilFile = new UtilFile();
+	        
+//	      파일 업로드 결과값을 path로 받아온다(이미 fileUpload() 메소드에서 해당 경로에 업로드는 끝났음)
+	        String uploadPath = utilFile.fileUpload(request, uploadFile, reward);
+	        
+//	      해당 경로만 받아 db에 저장
+	        int n = rewardService.reAddServ(uploadPath, reward);
+	        
+	        System.out.println("RewardController reAddProCtrl n : " + n);
+	        System.out.println("RewardController reAddProCtrl uploadPath : " + uploadPath);
+	        
+	        return "redirect:listAll";
+	    }
+*/
+
 	  
 	  
 }

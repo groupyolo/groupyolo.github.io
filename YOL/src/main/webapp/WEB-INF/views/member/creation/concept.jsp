@@ -13,8 +13,8 @@
 	}
 
 	#roundborder{
-		width: 202px; height:202px;
-		border-radius: 100%;
+		
+		resize: both;
 		border:1px solid black;
 	}
 
@@ -23,12 +23,43 @@
 		background-color: yellow;
 		border-radius: 100%;
 	}
-	#roundborder:hover{
-		cursor: pointer;
+
+	
+	#round{
+	resize: both;
 	}
 	
-	#round:
-
+	
+	.column {
+    width: 170px;
+    float: left;
+    padding-bottom: 100px;
+  }
+  .portlet {
+    margin: 0 1em 1em 0;
+    padding: 0.3em;
+  }
+  .portlet-header {
+    padding: 0.2em 0.3em;
+    margin-bottom: 0.5em;
+    position: relative;
+  }
+  .portlet-toggle {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-top: -8px;
+  }
+  .portlet-content {
+    padding: 0.4em;
+  }
+  .portlet-placeholder {
+    border: 1px dotted black;
+    margin: 0 1em 1em 0;
+    height: 50px;
+  }
+	
+	
 </style>
 <script src="//cdn.ckeditor.com/4.7.3/full/ckeditor.js"></script>
 <script>
@@ -62,32 +93,159 @@ $(document).ready(function() {
 	
 	
 	$("#round").draggable();
+	$("#round").resizable(
+			
+	);
+	
+	$(".portlet").resizable(
+			
+	);
+	$(".portlet").droppable(
+			
+	);
 	
 	CKEDITOR.replace( 'editor1' );
 	
 	}); 
 	
 	
+	$( function() {
+		
+	    $( ".column" ).sortable({
+	      connectWith: ".column",
+	      handle: ".portlet-header",
+	      cancel: ".portlet-toggle",
+	      placeholder: "portlet-placeholder ui-corner-all"
+	    });
+	 
+	    $( ".portlet" )
+	      .addClass( "ui-widget ui-widget-content ui-helper-clearfix ui-corner-all" )
+	      .find( ".portlet-header" )
+	        .addClass( "ui-widget-header ui-corner-all" )
+	        .prepend( "<span class='ui-icon ui-icon-minusthick portlet-toggle'></span>");
+	 
+	    $( ".portlet-toggle" ).on( "click", function() {
+	      var icon = $( this );
+	      icon.toggleClass( "ui-icon-minusthick ui-icon-plusthick" );
+	      icon.closest( ".portlet" ).find( ".portlet-content" ).toggle();
+	    });
+	  } );
 	
+	function m3(){
+		var sors = $("#core").html();
+		document.getElementById("whatda").value +=sors;
+	}
 
+	function m4(){
+		alert("저장");
+		document.execCommand('SaveAs','1',null);
+		
+	}
+	
+    function ToggleEditable (button)
+    {
+           var div = document.getElementById ("myDiv");
+           if (div.contentEditable == "true") {
+             div.contentEditable = "false";
+             button.innerHTML = "Enable editing!";
+           }
+           else {
+             div.contentEditable = "true";
+             button.innerHTML = "Disable editing!";
+           }
+         }
+	
+	
 </script>
 </head>
 <body>
+
+	<a id="export" class="myButton" download="" href="#">export</a>
+	<script>
+
+		
 	
+	</script>
+
+
+	<FilesMatch "\.pdf$">
+	<IfModule mod_headers.c>
+	Header set Content-Disposition "attachment"
+	# for older browsers
+	Header set Content-Type "application/octet-stream"
+	</IfModule>
+	</FilesMatch>
+
+	<div id="check">
 	<input type="text" var="" />
+	
 	
 	
 	<input type="button" id="findid" value="아이디값찾기" onclick="m0();" />
 	
 	<input type="button" id="addcolor" value="배경추가하기" onclick="m1();" />
 	<input type="button" id="addwidth" value="길이늘리기" onclick="m2();" />	
-
+	<input type="button" id="addwidth" value="html소스 가져오기" onclick="m3();" />	
+	<input type="button" id="save" value="저장하기" onclick="m4();" />
 
 		<div id="roundborder">
 			<div id="round">
 		
 			</div>
+			
 		</div>
+
+
+	<div class="column">
+ 
+	  <div class="portlet">
+	    <div class="portlet-header">Feeds</div>
+	    <div class="portlet-content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</div>
+	  </div>
+	 
+	  <div class="portlet">
+	    <div class="portlet-header">News</div>
+	    <div class="portlet-content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</div>
+	  </div>
+	 
+	</div>
+	 
+	<div class="column">
+	 
+	  <div class="portlet">
+	    <div class="portlet-header">Shopping</div>
+	    <div class="portlet-content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</div>
+	  </div>
+	 
+	</div>
+	 
+	<div class="column">
+	 
+	  <div class="portlet">
+	    <div class="portlet-header">Links</div>
+	    <div class="portlet-content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</div>
+	  </div>
+	 
+	  <div class="portlet">
+	    <div class="portlet-header">Images</div>
+	    <div class="portlet-content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</div>
+	  </div>
+	 
+	</div>
+
+	<form method="POST" action="${pageContext.request.contextPath}/member/filewriter.action">
+	<textarea name="whatda" id="whatda" cols="30" rows="10">
+	
+	</textarea>
+	<input type="submit" value="파일쓰기" />
+	</form>
+
+
+  
+    <div id="myDiv" contenteditable="true">Edit this text!</div>
+    <br />
+    <input type="button" onclick="ToggleEditable (this);" value="Deny to edit!">
+
 
 	<div>
 		<form action="">
@@ -99,6 +257,10 @@ $(document).ready(function() {
 		</form>
 	
 	</div>
+
+
+	
+ </div>
 
 </body>
 </html>

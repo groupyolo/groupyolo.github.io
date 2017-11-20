@@ -282,4 +282,22 @@ public class SiteManageController {
 		return result;
 	}
 	
+	@RequestMapping (method= {RequestMethod.GET}, value="/member/contents.action" )
+	private String contents(HttpServletRequest req) {
+		
+		return "section.contents";
+	}
+	
+	@RequestMapping (method= {RequestMethod.GET}, value="/member/gallery.action" )
+	private String gallery(HttpServletRequest req) {
+		
+		return "section.gallery";
+	}
+	
+	@RequestMapping (method= {RequestMethod.GET}, value="/member/text.action" )
+	private String text(HttpServletRequest req) {
+		
+		return "section.text";
+	}
+	
 }

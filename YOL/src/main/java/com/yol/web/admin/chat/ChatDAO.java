@@ -39,5 +39,10 @@ public class ChatDAO {
 
 		return sql.selectList("chat.chatView",seq);
 	}
+
+	public int MaddChat(HashMap<String, String> map) {
+
+		return sql.insert("chat.MaddChat",map);
+	}
 	
 }
