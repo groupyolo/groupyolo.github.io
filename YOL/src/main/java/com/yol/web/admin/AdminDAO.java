@@ -6,10 +6,10 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.yol.web.DTO.AdminDTO;
 import com.yol.web.DTO.FAQDTO;
 import com.yol.web.DTO.InquiryDTO;
 import com.yol.web.DTO.InquiryboardDTO;
-import com.yol.web.DTO.NoticeCategoryDTO;
 import com.yol.web.DTO.NoticeboardDTO;
 
 @Repository
@@ -106,6 +106,11 @@ public class AdminDAO {
 	public int faqDel(String FAQseq) {
 		
 		return sql.delete("admin.faqdel", FAQseq);
+	}
+
+	public AdminDTO login(AdminDTO adto) {
+		
+		return sql.selectOne("admin.login", adto);
 	}
 
 

@@ -3,12 +3,14 @@ package com.yol.web.admin;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.yol.web.DTO.AdminDTO;
 import com.yol.web.DTO.FAQDTO;
 import com.yol.web.DTO.InquiryDTO;
 import com.yol.web.DTO.InquiryboardDTO;
@@ -210,6 +212,26 @@ public class AdminController {
 		return "admin.faq.faqDel";
 		
 	}//faqDel
+	
+	@RequestMapping(method={RequestMethod.GET}, value="/admin/login.action")
+	public String adminLogin(HttpServletRequest req, String login) {
+	
+		req.setAttribute("login", login);
+		
+		return "admin.login.login";
+		
+	}//login
+	
+	 @RequestMapping(method= {RequestMethod.POST},value="/admin/loginOk.action" )
+	  public String loginok(HttpServletRequest req,AdminDTO adto,HttpSession session) {
+		  
+		  AdminDTO dto = service.logIn(adto);
+		  
+		  session.setAttribute("AdminDTO", dto);
+		  
+		  return "admin.login.loginOk";
+		  
+	  }
 	
 	
 }//public

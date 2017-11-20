@@ -8,12 +8,13 @@
 <title>Insert title here</title>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.12.4.js"></script>
 <style>
-	#noticeBoardView {
+
+	#faqView {
 		border:1px solid blue;
 	}
 	
-	#noticeBoardView th {border:1px solid red;}
-	#noticeBoardView td {border:1px solid pink;}
+	#faqView th {border:1px solid red;}
+	#faqView td {border:1px solid pink;}
 	
 	
 </style>
@@ -29,7 +30,7 @@
 </head>
 <body>
 
-	<h1>FAQ 게시판</h1>
+	<h1 align="center">FAQ 게시판</h1>
 	
 	
 	<c:forEach items="${fvlist}" var="fvdto">

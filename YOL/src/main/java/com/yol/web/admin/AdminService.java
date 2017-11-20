@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.yol.web.DTO.AdminDTO;
 import com.yol.web.DTO.FAQDTO;
 import com.yol.web.DTO.InquiryDTO;
 import com.yol.web.DTO.InquiryboardDTO;
@@ -125,6 +126,12 @@ public class AdminService implements IAdminService {
 	public int faqDel(String FAQseq) {
 		
 		return dao.faqDel(FAQseq);
+	}
+	
+	@Override
+	public AdminDTO logIn(AdminDTO adto) {
+		
+		return dao.login(adto);
 	}
 	
 }//AmdinService

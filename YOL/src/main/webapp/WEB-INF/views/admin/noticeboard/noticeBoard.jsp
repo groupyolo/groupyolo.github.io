@@ -1,37 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
-<style>
-	#noticeboard {
-	border: 1px solid blue;
-	
-	}
-	
-	#noticeboard th {
-	border: 1px solid blue;
-	}
-	
-	#noticeboard td {
-	border: 1px solid red;
-	}
-	
-	
-	
-</style>
-
-오징?어튀김
 
 	<h1 align="center">공지사항 게시판</h1>
 	
-	<div>
-	<div>
-		<table id="noticeboard" align="center" width="1000px" height="100px">
+	<div class="container">
+		<table class="table table-boader">
 			<thead>
+				<colgroup>
+				<col width="7%">	<!-- 글 번호 -->
+				<col width="*">		<!--  제목   -->
+				<col width="15%">	<!-- 등록시간 -->
+				</colgroup>
 			<tr>
-				<th>번호</th>
-				<th>제목</th>
-				<th>등록시간</th>	
+				<th style="text-align:center;">번호</th>
+				<th style="text-align:center;">제목</th>
+				<th style="text-align:center;">등록시간</th>	
 			</tr>
 			</thead>
 			
@@ -39,17 +26,14 @@
 
 			<c:forEach items="${list}" var="dto">
 			<tr>
-				<td>${dto.noticeboardseq}</td>
-				<td><a href="${pageContext.request.contextPath}/admin/noticeBoardView.action?noticeboardseq=${dto.noticeboardseq}">${dto.title}</a></td>
-				<td>${dto.enrolltime.substring(0,10)}</td>
+				<td style="text-align:center;">${dto.noticeboardseq}</td>
+				<td style="text-align:center;"><a href="${pageContext.request.contextPath}/admin/noticeBoardView.action?noticeboardseq=${dto.noticeboardseq}">${dto.title}</a></td>
+				<td style="text-align:center;">${dto.enrolltime.substring(0,10)}</td>
 			</tr>
 			</c:forEach>
 			</tdoby>
 		</table>
+				<input class="btn btn-normal pull-right" type="button" value="글쓰기" onclick="location.href='/web/admin/noticeBoardadd.action';">
 	</div>
 		
-		<div align="right">
-		<input type="button" value="글쓰기" onclick="location.href='/web/admin/noticeBoardadd.action';" align="right">
-		</div>
-	</div>
 	

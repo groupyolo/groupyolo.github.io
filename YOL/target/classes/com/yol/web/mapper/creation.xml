@@ -23,4 +23,12 @@
 		select prSeq.currval from dual
 	</select>
  
+ 	<update id="updateFilePath" parameterType="map">
+ 		update Project set prFileName = #{path} where prSeq=#{prSeq}
+ 	</update>
+ 
+ 	<select id="getPrFileName" parameterType="Integer" resultType="String">
+ 		SELECT prFileName FROM Project where prSeq = #{prSeq}
+ 	</select>
+ 
 </mapper>

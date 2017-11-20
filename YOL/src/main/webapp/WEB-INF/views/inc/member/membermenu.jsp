@@ -98,9 +98,33 @@
 	#tblList #member { float: right; background-color: yellow; border-radius: 50px; margin: 10px; padding-right: 5px; }
 	#tblList #member td:nth-child(1) { width: 200px; padding-left: 20px; padding-top: 10px; }
 	#tblList #member td:nth-child(2) { width: 130px; float: right; font-size: 7pt;}
-				
+	
+	#thirdchild{
+		height:50px;
+	}
+	
+	#comsub{
+		background: #4E4845;
+		display:none;  /* 평상시에는 서브메뉴가 안보이게 하기 */
+		height:auto;
+		list-style:none;
+		padding:3px;
+		margin-top:15px;
+		border:0px solid lightgrey;
+		position:absolute;
+		color: #FFF0F5;
+		width:100px;
+		z-index:200;
+		font-size:1.1em;
+	}
+	
+	#comsub li:hover{
+		cursor:pointer;
+	}
+	
 	</style>
 
+	
 	<div id="menutop" >
 		<div id="topbar">
 		<div class="logo"><a href=""><img src="${pageContext.request.contextPath }/css/images/logoorange.png" alt=""  style="width:32px; height:32px;" /></a></div>
@@ -110,12 +134,29 @@
 
 				</div>
 				<div><a href="${pageContext.request.contextPath }/member/mysites.action">내사이트</a></div>
-				<div><a href="${pageContext.request.contextPath }/member/community.action">커뮤니티</a></div>
+				<div id="thirdchild"><a href="${pageContext.request.contextPath }/member/community.action">커뮤니티</a>
+					<ul id="comsub">
+						<li onclick="location.href='${pageContext.request.contextPath}/member/communityBoard.action';">모집게시판</li>
+						<li onclick="location.href='${pageContext.request.contextPath}/question/list.action';">질문게시판</li>
+						<li onclick="location.href='${pageContext.request.contextPath}/community/freeboard/boardlist.action';">자유게시판</li>
+					</ul>
+				</div>
 				<div><a href="${pageContext.request.contextPath }/supports.action">고객지원</a></div>
 			</div>
 			
-			
-			
+		<script>
+		
+			$("#thirdchild").hover(
+				
+			  function () {
+				    $("#comsub").show();
+				  }, 
+				  function () {
+				    $("#comsub").hide();
+				  }
+			);
+				
+		</script>		
 			<!-- 채팅창 버튼 -->
 			<div class="chatmenu" style="margin-left: 30px;">
 			
