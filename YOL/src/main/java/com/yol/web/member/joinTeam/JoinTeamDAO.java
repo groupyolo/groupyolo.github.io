@@ -92,5 +92,10 @@ public class JoinTeamDAO {
 	public List<VJoinTeamDTO> addProject(String reSeq) {
 		return sql.selectList("joinTeam.view", reSeq);
 	}
+
+	public List<VJoinTeamDTO> slist() {
+		
+		return sql.selectList("joinTeam.slist");
+	}
 	
 }
