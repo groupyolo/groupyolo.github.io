@@ -39,7 +39,7 @@
 			<c:forEach items="${faqlist}" var="faqdto">
 			<tr>
 				<td style="text-align:center;">${faqdto.FAQseq}</td>
-				<td><a href="${pageContext.request.contextPath}/admin/faqView.action?FAQseq=${faqdto.FAQseq}">${faqdto.title}</a></td>
+				<td style="text-align:center;"><a href="${pageContext.request.contextPath}/admin/faqView.action?FAQseq=${faqdto.FAQseq}">${faqdto.title}</a></td>
 				<td style="text-align:center;" id="faqCategory">
 					<c:if test="${faqdto.FAQCategoryseq == 1}">
 					시작하기

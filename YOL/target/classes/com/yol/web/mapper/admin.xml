@@ -29,7 +29,7 @@
 	</select>
 	
 	<select id="iadd" resultType="com.yol.web.DTO.InquiryDTO">
-		INSERT INTO INQUIRY VALUES (inquiryseq, 1, #{title}, #{icontent}, sysdate, 0, #{openseq}, #{inquiryCategoryseq})
+		INSERT INTO INQUIRY VALUES (inquiryseq.nextval, 1, #{title}, #{icontent}, sysdate, 0, #{openseq}, #{inquiryCategoryseq})
 	</select>
 	
 	<select id="idel" parameterType="String" resultType="Integer">
@@ -45,7 +45,7 @@
 	</select>
 	
 	<select id="readd" parameterType="com.yol.web.DTO.InquiryboardDTO">
-		insert into INQUIRYBOARD values (inquiryboardseq, #{content}, 'o', #{inquiryseq})
+		insert into INQUIRYBOARD values (inquiryboardseq.nextval, #{content}, default, #{inquiryseq})
 	</select>
 	
 	<select id="redel" parameterType="String" resultType="Integer">
@@ -70,6 +70,10 @@
 	
 	<select id="login" parameterType="com.yol.web.DTO.AdminDTO" resultType="com.yol.web.DTO.AdminDTO">
 		select * from ADMIN where ADMINID=#{adminID} and PASSWORD=#{password}
+	</select>
+	
+	<select id="mlist" resultType="com.yol.web.DTO.MemberDTO">
+		select * from MEMBER
 	</select>
 
 </mapper>

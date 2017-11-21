@@ -14,6 +14,7 @@ import com.yol.web.DTO.AdminDTO;
 import com.yol.web.DTO.FAQDTO;
 import com.yol.web.DTO.InquiryDTO;
 import com.yol.web.DTO.InquiryboardDTO;
+import com.yol.web.DTO.MemberDTO;
 import com.yol.web.DTO.NoticeboardDTO;
 
 @Controller
@@ -232,6 +233,17 @@ public class AdminController {
 		  return "admin.login.loginOk";
 		  
 	  }
+
+	@RequestMapping(method={RequestMethod.GET}, value="/admin/adminMember.action")
+	public String member(HttpServletRequest req) {
+
+		List<MemberDTO> mlist = service.mlist();
+			
+		req.setAttribute("mlist", mlist);
+			
+		return "admin.noticeboard.adminMember";
+	}//회원보기
+	 
 	
 	
 }//public
