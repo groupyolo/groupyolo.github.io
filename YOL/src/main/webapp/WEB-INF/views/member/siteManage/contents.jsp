@@ -22,7 +22,6 @@
 						<div class="text2">
 							<p>
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem necessitatibus ad laboriosam cum soluta ipsum at beatae in eius dicta quia rem vitae molestias illum nisi eveniet ut eaque praesentium?
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum reiciendis rem laboriosam deleniti atque facere assumenda natus praesentium iure nobis laudantium voluptas culpa alias numquam distinctio. Sequi neque aut dolor!
 							</p>
 						</div>
 					</div>
