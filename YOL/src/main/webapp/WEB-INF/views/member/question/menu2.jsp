@@ -62,6 +62,7 @@
 		padding: 3%;
 		padding-top: 4%;
 		color: white;
+		cursor: pointer;
 	}
 	
 	.menuUl li:hover {

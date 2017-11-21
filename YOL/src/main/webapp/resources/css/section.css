@@ -4,42 +4,40 @@
 
 /* ------------------------- */
 .contents1 {
-	border: 1px solid black;
-	width: 100%;
+	width: 998px;
 	height: 480px;
-	padding: 40px 0px;
 }
 
 .contents1 .row {
-	width: 1170px;
+	width: 900px;
 	height: 450px;
 	margin: 0px auto;
 }
 
 .contents1 .warp {
-/* 	border: 1px solid red; */
 	position: relative;
-	width: 1140px;
+	width: 830px;
 	/* height: 390px; */
 	padding-top: 60px;
 	padding-left: 15px;
 	padding-right: 15px;
+	margin: 0px auto;
 }
 
 .contents1 .innerbox {
-	/* border: 1px solid #eee; */
-	width: 1140px;
+	width: 830px;
 	height: 280px;
 	padding-top: 60px;
 	padding-bottom: 50px;
 	background-color: #f8f8f8;
 	float: left;
+	margin: 0px auto;
 }
 
 .contents1 .imgbox {
 	/* border: 1px solid red; */
-	width: 45%;
-	padding-left: 60px;
+	width: 50%;
+	padding-left: 30px;
 	/* padding-right: 30px; */
 	 float: left; 
 }
@@ -47,14 +45,15 @@
 .contents1 .imgbox img {
 	margin-top: -120px;
 	 width: 100%; 
-	/* margin: 0 auto; */
+	 height:380px;
 	border: 0;
 }
 
 .contents1 .textbox {
-	border: 1px solid black; 
-	width: 45%;
-	/* padding: 10px; */
+	/* border: 1px solid black;  */
+	width: 40%;
+	padding: 10px;
+	padding-left:15px;
 	/* padding-right: 60px; */
 	float: left;
 	cursor: text;
@@ -67,7 +66,7 @@
 	font-size: 22px;
 	font-weight: 100;
 	margin-top:0px;
-	margin-bottom: 40px;
+	margin-bottom: 20px;
 	color: #888;
 	/* cursor:pointer; */
 }
@@ -288,54 +287,85 @@
 
 /* ------------------------- */
 .gallery1 {
-	border: 1px solid black;
-	width: 100%;
-	height: 800px;
-	padding: 40px 0;
+	/* border: 1px solid black; */
+	width: 996px;
+	height: 700px;
+	padding: 20px 0;
 }
 
 .gallery1 .row {
-	border: 1px solid red;
-	width: 1170px;
+	/* border: 1px solid red; */
+	width: 100%;
 	height: 100%;
 	margin: 0px auto;
 }
 
 .gallery1 .line1 {
-	border: 1px solid blue;
+	/* border: 1px solid blue; */
 	width: 100%;
 	height: 50%;
-	float: left;
+	
 }
 
 .gallery1 .line2 {
-	border: 1px solid orange;
+/* 	border: 1px solid orange; */
 	width: 100%;
 	height: 50%;
 	float: left;
 }
  .img1, .img2, .img3 {
-	width: (100/3);
-	height: 100%;
-	border: 1px solid green;
+	width: calc(95% /3);
+	height: 95%;
+	float: left;
+	background-color: #eee;
 }  
+
+.img2, .img3 {
+	margin-left: 15px;
+}
+
+.gallery1 img {
+	width: 100%;
+	height: 85%;
+	margin-bottom: 0px;
+}
+
+.con {
+	margin-top: 0px;
+	width: 90%;
+	height: 10%;
+	background-color: #eee;
+	padding: 8px 15px ;
+}
+
+.con span:nth-child(1) {
+	font-size: 15px;
+	color: #555;
+}
+
+.con span:nth-child(3) {
+	font-size: 12px;
+	color: #999;
+	padding-bottom:5px;
+}
 
 /* ----------------------------------- */
 
 .textbox1 {
-	border: 1px solid black;
-	width: 100%;
+	/* border: 1px solid black; */
+	width: 996px;
 	height: 300px;
 }
 
 .textbox1 .row {
-	width: 1170px;
+	width: 900px;
 	height: 100%;
 	margin: 0 auto;
 }
 
 .textbox1 .row .textbox {
 	width: calc(91%/4);
+	height: 100%;
 	float: left;
 	padding-left: 20px;
 }
@@ -371,8 +401,122 @@
 	
 	
 	
+/* ------------------------- */
+
+	.menu {
+		width: 100%;
+		height: 100%;
+	}
+	
+	.menuLogo {
+		width: 100%;
+		height: 100%;
+		margin: 0px auto;
+		text-align: center;
+		background-color: white;
+		padding: 0.5%;
+	}
+	
+	.menuLogo .logoTitle {
+		color: black;
+		font-weight: bold;
+		font-size: 3em;
+	}
+	
+	.menuLogo .logoFooter {
+		color: #aaa;
+		font-size: 1.5em;
+		font-weight: bold;
+	}
+	
+	.menuBox {
+		background-color: #aaa;
+		widht: 100%;
+		height: 100%;
+	}
+	
+	 .menuSel {
+		width: 60%;
+		display: inline-block;
+		margin: 0px auto;
+		margin-left: 20%;
+		margin-right: 20%;
+		text-align: center;
+	}
+	
+	 .menuUl {
+	 	width: 100%;
+		list-style : none;
+		display: inline-block;
+		margin: 0px auto;
+	}
+	
+	.menuUl li {
+		display: inline-block;
+		padding: 3%;
+		padding-top: 3%;
+		color: white;
+		font-size: 1.5em;
+		font-weight: bold;
+		margin: 0px auto;
+	}
+	
+	.menuUl li:hover {
+		background-color: red;
+	}  	
 	
 	
+	/* ----------------------------------- */
+		.conBox1 {
+		width:100%;
+		height: 800px;
+		background: linear-gradient(to bottom, #f0f2f0, #000c40);
+	}
+
+	.conText {
+		width: 100%;
+		margin: 0px auto;
+		padding-top: 100px;
+		text-align: center;
+	}
+	
+	.conText span {
+		color: black;
+		font-size: 4em;
+	}
+	
+	.tblCon {
+		margin: 0px auto;
+		margin-top: 50px;
+	}
+	
+	.tblCon tr {
+		padding: 30px;
+		color: black;
+		font-size: 1.3em;
+	}
+	
+	.tblCon tr:nth-child(1) input {
+		width: 300px;
+		height: 50px;
+		padding: 30px;
+		margin: 20px;
+		
+	}
+	.tblCon tr:nth-child(2) input {
+		width: 650px;
+		height: 50px;
+		padding: 30px;
+		margin: 20px;
+		
+	}
+	
+	.tblCon tr:nth-child(3) textarea {
+		width: 650px;
+		height: 200px;
+		padding: 30px;
+		margin: 20px;
+	}
 	
 	
 	

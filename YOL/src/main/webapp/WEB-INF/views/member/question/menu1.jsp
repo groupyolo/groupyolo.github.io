@@ -10,7 +10,7 @@
 	}
 	
 	.menuBox {
-		margin-left: 15%;
+		margin-left: 10%;
 	}
 	
 	.menuLogo {
@@ -29,7 +29,7 @@
 		width: 80%;
 		display: inline-block;
 		margin: 0px auto;
-		margin-left: 10%;
+		margin-left: 5%;
 		text-align: center;
 	}
 	

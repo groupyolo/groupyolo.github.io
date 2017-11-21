@@ -3,6 +3,8 @@ package com.yol.web.community.freeboard;
 import java.util.HashMap;
 import java.util.List;
 
+import com.yol.web.DTO.FBoardComDTO;
+import com.yol.web.DTO.VFBCommentDTO;
 import com.yol.web.DTO.VFBoardDTO;
 
 public interface IFBoardService {
@@ -19,7 +21,17 @@ public interface IFBoardService {
 
 	List<VFBoardDTO> search(HashMap<String, String> map);
 
-	VFBoardDTO edit(String fbSeq);
+	int edit(VFBoardDTO dto);
+
+	int del(String fbSeq);
+
+	List<VFBCommentDTO> getComment(String fbSeq);
+
+	int addComment(FBoardComDTO dto);
+
+	int delComment(FBoardComDTO dto);
+
+	void bcount(String fbSeq);
 	
 	
 }

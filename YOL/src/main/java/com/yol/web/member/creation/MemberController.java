@@ -171,9 +171,9 @@ public class MemberController {
 	@RequestMapping(method = { RequestMethod.GET }, value = "/member/community.action")
 	public String boardlist(HttpServletRequest req, VFBoardDTO dto) {
 
-		List<VFBoardDTO> list = ifb.listshort(dto);
-		List<QuestionDTO> qlist = iqs.qlist();
 		List<VJoinTeamDTO> slist = ijs.slist();
+		List<QuestionDTO> qlist = iqs.qlist();
+		List<VFBoardDTO> list = ifb.listshort(dto);
 		
 		for(QuestionDTO qdto : qlist ) {
 			
@@ -181,9 +181,9 @@ public class MemberController {
 			
 		}
 		
-		req.setAttribute("fblistshort", list);
-		req.setAttribute("qlist", qlist);
 		req.setAttribute("slist", slist);
+		req.setAttribute("qlist", qlist);
+		req.setAttribute("fblistshort", list);
 		
 		return "member.community.boardlist";
 	}

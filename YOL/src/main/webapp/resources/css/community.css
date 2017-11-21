@@ -1,7 +1,7 @@
 #boardfree{
 	width: 100%;
 	min-height: 500px;
-	border: 1px dashed green;
+	border: 0px dashed green;
 	padding:20px;	
 }
 
@@ -10,7 +10,7 @@
 	display:inline-block;
 	width: 45%;
 	min-height: 500px;
-	border: 1px dashed blue;
+	border: 0px dashed blue;
 	margin-right:50px;
 	margin-left:20px;
 	
@@ -20,13 +20,13 @@
 	display:inline-block;
 	width: 45%;
 	min-height: 500px;
-	border: 1px dashed red;
+	border: 0px dashed red;
 }
 
 #fboardwrapper{
 	width: 85%;
 	margin: 0px auto;
-	border: 1px dashed red;
+	border: 0px dashed red;
 }
 
 #tblfreeboard{
@@ -60,7 +60,7 @@
 }
 
 #fbtns{
-	border:1px dashed grey;
+	border:0px dashed grey;
 	text-align: right;	
 }
 
@@ -80,7 +80,7 @@
 #fboardaddbtn{
 	text-align: right;
 	width: 85%;
-	border:1px dashed blue;
+	border:0px dashed blue;
 	margin: 0px auto;
 }
 #tblfboardadd{
@@ -114,7 +114,7 @@
 
 #tblboardview{
 	width:85%;
-	border:1px dashed red;
+	border:0px dashed red;
 	margin:0px auto;
 }
 

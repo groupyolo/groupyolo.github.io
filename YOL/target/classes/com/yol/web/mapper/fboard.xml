@@ -18,7 +18,7 @@
  	</select>
  
  	<select id="listshort" resultType="com.yol.web.DTO.VFBoardDTO">
- 		select * from (SELECT a.*, rownum as rnum FROM (select *from vfreeboard order by fbseq desc) a) where<![CDATA[ rnum <= 5]]>
+ 		select * from (SELECT a.*, rownum as rnum FROM (select * from vfreeboard WHERE activation = 'y' order by fbseq desc) a) where<![CDATA[ rnum <= 5]]>
  	</select>
  
  	<select id="getTotalCount" parameterType="map" resultType="Integer">
@@ -29,5 +29,27 @@
  		select * from VFREEBOARD  where activation = 'y' and ${category} like '%' || #{word} || '%' order by fbSeq desc
  	</select>
  	
-
+ 	<update id="edit" parameterType="com.yol.web.DTO.VFBoardDTO">
+		UPDATE FREEBOARD SET fbCatSeq = #{fbCatSeq}, fbName = #{fbName}, fbMain = #{fbMain} WHERE fbSeq = #{fbSeq}
+	</update>
+	
+ 	<update id="del" parameterType="String">
+		UPDATE FREEBOARD SET activation = 'n' WHERE fbSeq = #{fbSeq}
+	</update>
+ 	
+ 	<select id="commentList" parameterType="String" resultType="com.yol.web.DTO.VFBCommentDTO">
+		SELECT * FROM VFBComment where fbSeq = #{fbSeq} order by fbComTime desc
+	</select>
+	
+	<insert id="addComment" parameterType="com.yol.web.DTO.FBoardComDTO">
+		INSERT INTO FBoardCom values(fbComSeq.nextval, #{fbSeq}, #{mSeq}, #{fbComA}, default)
+	</insert>
+	
+	<delete id="delComment" parameterType="com.yol.web.DTO.FBoardComDTO">
+		DELETE FROM FBoardCom WHERE fbComSeq = #{fbComSeq}
+	</delete>
+	
+ 	<update id="bcount" parameterType="String">
+ 		UPDATE FreeBoard SET fbVCount = fbVCount + 1 WHERE fbSeq = #{fbSeq}
+ 	</update>
 </mapper>

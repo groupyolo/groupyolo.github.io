@@ -22,6 +22,9 @@
 		width: 350px;
 		display: inline-block;
 	}
+	#questionList td:nth-child(2):hover {
+		text-decoration: underline;
+	}
 	
 	#questionList td:nth-child(3) {
 		float: right;
@@ -81,8 +84,8 @@
 
 <div id="boardrecruit">
 	<div id="topBox">
-			<h4><a href="${pageContext.request.contextPath}/member/communityBoard.action">모집게시판</a></h4>
-		</div>
+		<h4><a href="${pageContext.request.contextPath}/member/communityBoard.action">모집게시판</a></h4>
+	</div>
 
 		<table id="questionList">
 				<tbody>
@@ -103,9 +106,6 @@
 					</c:if>
 				</tbody>
 			</table>
-
-	
-
 </div>
 
 <div id="boardfree">

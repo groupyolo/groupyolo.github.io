@@ -11,7 +11,6 @@
 		select * from (select a.*, rownum rnum from 
 			(select * from inquiry order by inquiryseq desc) a) 
 				where rnum &gt;= #{start} and rnum &lt;= #{end}
-		
 	</select>
 	
 	<select id="getTotalCount" resultType="Integer">
