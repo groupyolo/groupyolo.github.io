@@ -2,63 +2,60 @@ package com.yol.web.DTO;
 
 public class FBoardComDTO {
 
-	private String FBComSeq;
-	private String FBSeq;
+	private String fbComSeq;
+	private String fbSeq;
 	private String mSeq;
-	private String FBComA;
-	private String FBComTime;
+	private String fbComA;
+	private String fbComTime;
 
-	public String getFBComSeq() {
-		return FBComSeq;
+
+	public String getFbComSeq() {
+		return fbComSeq;
 	}
 
-	public void setFBComSeq(String fBComSeq) {
-		FBComSeq = fBComSeq;
+
+	public void setFbComSeq(String fbComSeq) {
+		this.fbComSeq = fbComSeq;
 	}
 
-	public String getFBSeq() {
-		return FBSeq;
+
+	public String getFbSeq() {
+		return fbSeq;
 	}
 
-	public void setFBSeq(String fBSeq) {
-		FBSeq = fBSeq;
+
+	public void setFbSeq(String fbSeq) {
+		this.fbSeq = fbSeq;
 	}
+
 
 	public String getmSeq() {
 		return mSeq;
 	}
 
+
 	public void setmSeq(String mSeq) {
 		this.mSeq = mSeq;
 	}
 
-	public String getFBComA() {
-		return FBComA;
+
+	public String getFbComA() {
+		return fbComA;
 	}
 
-	public void setFBComA(String fBComA) {
-		FBComA = fBComA;
+
+	public void setFbComA(String fbComA) {
+		this.fbComA = fbComA;
 	}
 
-	public String getFBComTime() {
-		return FBComTime;
+
+	public String getFbComTime() {
+		return fbComTime;
 	}
 
-	public void setFBComTime(String fBComTime) {
-		FBComTime = fBComTime;
+
+	public void setFbComTime(String fbComTime) {
+		this.fbComTime = fbComTime;
 	}
 
-	// 디버깅용 toString()
-	@Override
-	public String toString() {
-		String temp = "";
-		temp += "\r\n\r\n";
-		temp += String.format("teSEq : %s\r\n", FBComSeq);
-		temp += String.format("tName : %s\r\n", FBSeq);
-		temp += String.format("tFileName : %s\r\n", mSeq);
-		temp += String.format("FBComA : %s\r\n", FBComA);
-		temp += String.format("FBComTime : %s\r\n", FBComTime);
-		temp += "\r\n\r\n";
-		return temp;
-	}
 }

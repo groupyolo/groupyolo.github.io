@@ -6,6 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.yol.web.DTO.FBoardComDTO;
+import com.yol.web.DTO.VFBCommentDTO;
 import com.yol.web.DTO.VFBoardDTO;
 
 @Service
@@ -58,8 +60,37 @@ public class FBoardService implements IFBoardService{
 	}
 	
 	@Override
-	public VFBoardDTO edit(String fbSeq) {
-		
-		return null;
+	public int edit(VFBoardDTO dto) {
+		return dao.edit(dto);
+	}
+
+	@Override
+	public int del(String fbSeq) {
+		return dao.del(fbSeq);
+	}
+
+	@Override
+	public List<VFBCommentDTO> getComment(String fbSeq) {
+
+		List<VFBCommentDTO> clist = dao.getComment(fbSeq);
+		for(VFBCommentDTO cdto : clist) {	
+			cdto.setFbComTime(cdto.getFbComTime().substring(0,19));		
+		}
+		return clist;
+	}
+
+	@Override
+	public int addComment(FBoardComDTO dto) {
+		return dao.addComment(dto);
+	}
+
+	@Override
+	public int delComment(FBoardComDTO dto) {
+		return dao.delComment(dto);
+	}
+
+	@Override
+	public void bcount(String fbSeq) {
+		dao.bcount(fbSeq);		
 	}
 }

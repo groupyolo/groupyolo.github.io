@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.yol.web.DTO.InquiryDTO;
-import com.yol.web.DTO.QuestionDTO;
+import com.yol.web.DTO.FBoardComDTO;
+import com.yol.web.DTO.VFBCommentDTO;
 import com.yol.web.DTO.VFBoardDTO;
 
 @Controller
@@ -122,12 +122,30 @@ public class FBoardController {
 	@RequestMapping(method = { RequestMethod.GET }, value = "/community/freeboard/boardview.action")
 	public String boardview(HttpServletRequest req, String fbSeq) {
 
+		ifb.bcount(fbSeq);
+
 		VFBoardDTO vdto = ifb.view(fbSeq);
 		req.setAttribute("vdto", vdto);
+		
+		List<VFBCommentDTO> clist = ifb.getComment(fbSeq);		
+		req.setAttribute("clist", clist);
 		
 		
 		return "member.boardfree.boardview";
 	}
+	@RequestMapping(method = { RequestMethod.GET }, value = "/community/freeboard/addComment.action")
+	public @ResponseBody Object addComment(HttpServletRequest req, FBoardComDTO dto) {
+		
+		int result = ifb.addComment(dto);		
+		return result;
+	}
+	@RequestMapping(method = { RequestMethod.GET }, value = "/community/freeboard/delComment.action")
+	public @ResponseBody Object delComment(HttpServletRequest req, FBoardComDTO dto) {
+		
+		int result = ifb.delComment(dto);		
+		return result;
+	}
+	
 	
 	@RequestMapping(method = { RequestMethod.GET }, value = "/community/freeboard/search.action")
 	public @ResponseBody Object search(HttpServletRequest req, String word, String category) {
@@ -151,6 +169,23 @@ public class FBoardController {
 		req.setAttribute("vdto", vdto);
 		
 		return "member.boardfree.boardedit";
+	}
+	@RequestMapping(method = { RequestMethod.POST }, value = "/community/freeboard/boardeditok.action")
+	public String boardeditok(HttpServletRequest req, VFBoardDTO dto) {
+		
+		int result = ifb.edit(dto);
+		req.setAttribute("result", result);
+		req.setAttribute("fbSeq", dto.getFbSeq());
+		
+		return "member.boardfree.boardeditok";
+	}
+	@RequestMapping(method = { RequestMethod.GET }, value = "/community/freeboard/boarddel.action")
+	public String boarddelok(HttpServletRequest req, String fbSeq) {
+		
+		int result = ifb.del(fbSeq);
+		req.setAttribute("result", result);
+		
+		return "member.boardfree.boarddelok";
 	}
 	
 	
