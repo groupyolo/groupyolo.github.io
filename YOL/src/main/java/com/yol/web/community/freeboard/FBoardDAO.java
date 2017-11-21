@@ -7,6 +7,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.yol.web.DTO.FBoardComDTO;
+import com.yol.web.DTO.VFBCommentDTO;
 import com.yol.web.DTO.VFBoardDTO;
 
 @Repository
@@ -53,6 +55,37 @@ public class FBoardDAO {
 	public List<VFBoardDTO> search(HashMap<String, String> map) {
 		
 		return sql.selectList("fboard.search",map);
+	}
+
+
+	public int edit(VFBoardDTO dto) {
+		return sql.update("fboard.edit", dto);
+	}
+
+
+	public int del(String fbSeq) {
+		return sql.update("fboard.del", fbSeq);
+	}
+
+
+	public List<VFBCommentDTO> getComment(String fbSeq) {
+		return sql.selectList("fboard.commentList", fbSeq);
+	}
+
+
+	public int addComment(FBoardComDTO dto) {
+		return sql.insert("fboard.addComment", dto);
+	}
+
+
+	public int delComment(FBoardComDTO dto) {
+		return sql.delete("fboard.delComment", dto);
+	}
+
+
+	public void bcount(String fbSeq) {
+		sql.update("fboard.bcount", fbSeq);
+		
 	}
 
 

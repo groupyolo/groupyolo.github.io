@@ -13,7 +13,14 @@
 				</div>	
 				<div>
 					<span>말머리</span>
-					<select name="fbCatSeq" ><option value="1">잡담</option><option value="2">문화</option></select>
+					<select name="fbCatSeq" >
+						<option value="1">잡담</option>
+						<option value="2">게임</option>
+						<option value="3">스포츠</option>
+						<option value="4">후기</option>
+						<option value="5">토론</option>
+						<option value="6">기타</option>
+					</select>
 					<span>제목</span>
 					<input type="text" name="fbName" placeholder="글 제목을 입력하세요"  style="width:700px;" required/>
 				</div>
