@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.yol.web.DTO.ConceptDTO;
+import com.yol.web.DTO.LoginDTO;
 import com.yol.web.DTO.VCreationDTO;
 
 @Service
@@ -68,6 +69,14 @@ public class CreationService implements ICreationService{
 		String result =dao.projectedit(prSeq);
 		
 		return result;
+	}
+	
+	
+	@Override
+	public List<LoginDTO> getLogList(String mSeq) {
+		
+		List<LoginDTO> list = dao.getLogList(mSeq);
+		return list;
 	}
 	
 }

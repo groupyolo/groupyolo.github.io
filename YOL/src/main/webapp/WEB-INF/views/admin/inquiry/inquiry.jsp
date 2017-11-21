@@ -18,14 +18,14 @@
 </head>
 <body>	
 
-	<h1 align="center">문의 게시판</h1>
 	
 	<div class="container">
+	<h1 align="center">문의 게시판</h1>
 		<table class="table table-boarder" id="inquiry">
-			<thead>
+
 			<colgroup>
 				<col width="7%">	<!-- 글 번호 -->
-				<col width="*">		<!--  제목   -->
+				<col width="40%">		<!--  제목   -->
 				<col width="15%">	<!-- 등록시간 -->
 				<col width="7%">	<!-- 조회수 -->
 			</colgroup>
@@ -36,18 +36,17 @@
 				<th style="text-align:center;">등록시간</th>
 				<th style="text-align:center;">조회수</th>	
 			</tr>
-			</thead>
-			
-			<tdoby>
+
+
 			<c:forEach items="${ilist}" var="idto">
 			<tr>
 				<td style="text-align:center;">${idto.inquiryseq}</td>
-				<td><a id="a1" href="${pageContext.request.contextPath}/admin/inquiryView.action?inquiryseq=${idto.inquiryseq}">${idto.title}</a></td>
+				<td style="text-align:center;"><a id="a1" href="${pageContext.request.contextPath}/admin/inquiryView.action?inquiryseq=${idto.inquiryseq}">${idto.title}</a></td>
 				<td style="text-align:center;">${idto.enrolltime.substring(0,19)}</td>
-				<td style="text-align:center;">0</td>
+				<td style="text-align:center;">${idto.hits}</td>
 			</tr>
 			</c:forEach>
-			</tdoby>
+
 		</table>
 		
 		<input class="btn btn-normal pull-right" type="button" value="글쓰기" onclick="location.href='/web/admin/inquiryadd.action';">

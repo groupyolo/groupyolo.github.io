@@ -109,8 +109,8 @@
 	#upgrade {
 		background-color: #2d343e;
 		color: #fff;
-		padding-top: 11px;
-		border: 1px soild #2d343e;
+		padding-top: 10px;
+		/* border: 1px soild #2d343e; */
 	}
 	
 	#siteInfo {
@@ -233,7 +233,80 @@
 		background-color:#5894e9;
 	}
 
+	.site-sub-title {
+	   padding-left: 10px;
+	   padding-top: 10px;
+	   float: left;
+	   font-size: 16px;
+	}
 	
+	 #site-visit-start {
+	 	margin-left: 14px;
+	 }
+	.change-date-box .form-control {
+		margin-top: 5px;
+		width: 135px;
+		padding: 0px;
+		float: left;
+	}
+	.change-date-box .fa {
+		float: left;
+		padding-top: 10px; 
+		margin-left: 2px;
+		margin-right: 2px;
+	}
+	
+	.change-date-box .form-control:after {
+		display: block;
+		content: " ";
+		clear: both;
+	}
+	
+	.visit-info li {
+		float: left;
+		font-size: 13px;
+	}
+	
+	.visit-info li label {
+		color: #a1a7af;
+	}
+	
+	.visit-info li:nth-child(2) {
+		margin-left: 23px;
+	}
+	
+	.visit-chart {
+		margin-top: 70px;
+		width: 100%;
+		height: 200px;
+		padding-top: 30px;
+	}
+	
+	#use-info {
+		border: 1px solid red;	
+		float: left;
+		margin: 15px;
+	}
+	
+	#tr-info {
+		border: 1px solid green;
+		float:left;
+		margin: 15px;
+	}
+
+	#circles1 {
+		border: 1px solid blue;
+		width: 150px;
+		heigth: 70px;
+		float:left;
+		margin: 15px;
+	}
+	#circles2 {
+		border: 1px solid blue;
+		width: 150px;
+		heigth: 70px;
+		float:left;
+	}
 	hr {
 		margin-bottom: 30px;
 	}

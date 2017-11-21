@@ -28,36 +28,38 @@
 
 	<h1 align="center">문의사항 수정 게시판</h1>
 	
-	<div id="inquiryEdit" align="center">
+	<div class="container">
 	<c:forEach items="${ivlist}" var="ivdto">
 	<form action="${pageContext.request.contextPath}/admin/inquiryEditOk.action" method="post">
-	<table id="inquiryEdit" style="width:500px;">
+	<table class="table table-boader" id="inquiryEdit" width="400px" height="300px">
 		<tr>
-			<td>번호</td>
+			<th>번호</th>
 			<td>${ivdto.inquiryseq}</td>
 		</tr>
 		<tr>
-			<td>제목</td>
-			<td><input name="title" type="text" value="${ivdto.title}" ></td>
+			<th>제목</th>
+			<td><input name="title" type="text" value="${ivdto.title}" style="width:500px;" ></td>
 		</tr>
 		<tr>
-			<td>내용</td>
-			<td><input name="icontent" type="text" value="${ivdto.icontent}"></td>
+			<th>내용</th>
+			<td><input name="icontent" type="text" value="${ivdto.icontent}" style="width:500px;"></td>
 		</tr>
 		<tr>
-			<td>등록시간</td>
+			<th>등록시간</th>
 			<td>${ivdto.enrolltime}</td>
 		</tr>
 		<tr>
-			<td>조회수</td>
+			<th>조회수</th>
 			<td>${ivdto.hits}</td>
 		</tr>
 		
 	</table>
 		
-		<input type="hidden" name="inquiryseq" value="${ivdto.inquiryseq}" >
-		<input type="button" value="뒤로가기" onclick="history.back();">
-		<input type="submit" id="iedit" name="iedit" value="수정완료" >
+		<div align="center">
+		<input class="btn btn-normal" type="hidden" name="inquiryseq" value="${ivdto.inquiryseq}" >
+		<input class="btn btn-normal" type="button" value="뒤로가기" onclick="history.back();">
+		<input class="btn btn-normal" type="submit" id="iedit" name="iedit" value="수정완료" >
+		</div>
 
 	</form>
 		</c:forEach>

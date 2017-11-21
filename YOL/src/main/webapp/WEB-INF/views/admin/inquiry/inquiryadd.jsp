@@ -18,7 +18,7 @@
 </head>
 <body>
 
-	<h1 align="center">공지사항 글쓰기</h1>
+	<h1 align="center">문의사항 글쓰기</h1>
 	
 	<div id="inquirydadd" align="center">
 		<form action="${pageContext.request.contextPath}/admin/inquiryaddOk.action" method="post">

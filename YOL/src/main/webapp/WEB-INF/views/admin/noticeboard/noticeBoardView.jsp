@@ -8,13 +8,7 @@
 <title>Insert title here</title>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.12.4.js"></script>
 <style>
-	#noticeBoardView {
-		border:1px solid blue;
-	}
-	
-	#noticeBoardView th {border:1px solid red;}
-	#noticeBoardView td {border:1px solid pink;}
-	
+
 	
 </style>
 
@@ -28,12 +22,11 @@
 </script>
 </head>
 <body>
-하앙
-	<h1>공지사항 게시판</h1>
+	<h1 align="center">공지사항 게시판</h1>
 	
-	
+	<div class="container">
 	<c:forEach items="${vlist}" var="vdto">
-	<table id="noticeBoardView" align="center" width="400px" height="300px">
+	<table class="table table-boader" id="noticeBoardView" align="center">
 		<tr>
 			<td>제목</td>
 			<td>${vdto.title}</td>
@@ -57,10 +50,11 @@
 		<%-- <input type="hidden" value="${vdto.noticeboardseq}"> --%>
 	</table>
 	<div align="center">
-		<input type="button" value="뒤로가기" onclick="history.back();">
-		<input type="button" value="글삭제" onclick="location.href='${pageContext.request.contextPath}/admin/noticeBoardDel.action?noticeboardseq=${vdto.noticeboardseq}';">
+		<input class="btn btn-normal" type="button" value="뒤로가기" onclick="history.back();">
+		<input class="btn btn-normal" type="button" value="글삭제" onclick="location.href='${pageContext.request.contextPath}/admin/noticeBoardDel.action?noticeboardseq=${vdto.noticeboardseq}';">
 	</div>
 		</c:forEach>
+		</div>
 	
 </body>
 </html>

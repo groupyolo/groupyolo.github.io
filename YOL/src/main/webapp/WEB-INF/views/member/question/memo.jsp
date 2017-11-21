@@ -55,13 +55,19 @@
 		color: black;
 	}
 	
-	.memoText p {
+	/* .memoText #ptime {
 		position: absolute;
 		float: right;
 		margin-top:140px;
 		z-index: 0;
 	}
-	
+	 */
+	#ptime{
+		width:100%;
+		border:1px solid grey;
+		text-align: center;
+		vertical-align: middle;
+	}
 	
 </style>
 
@@ -89,9 +95,10 @@
 			var memo = "<div class='memo'>";
 				
 				memo += "<div class='memoText'>";
-				memo += "<p>" + NowTime + "</p>";
-				memo += memoInput;
-				memo += "</div>" + "</div>";
+				memo +=  "<p>" + memoInput+"</p>";
+				memo += "</div>" 
+				memo += "<div id='ptime'><span>" + NowTime + "</span></div>";
+				memo += "</div>";
 				
 				$(".memoList").prepend(memo);
 				
@@ -121,15 +128,15 @@
  	<div class="memoList">
 	 	<div class="memo">
 	 		<div class="memoText">
-	 		<p>2017-11-18 19:8:51</p>
-	 		홈페이지가 정말 이쁘십니다.! 대단하신것 같아요!...
+	 		<p>홈페이지가 정말 이쁘십니다.! 대단하신것 같아요!...</p>
 	 		</div>
+	 		<div id='ptime'><span>2017-11-18 19:8:51</span></div>
 	 	</div>
 	 	<div class="memo">
 	 		<div class="memoText">
-	 		<p>2017-11-18 19:8:51</p>
-	 		우와..원더풀합니다..짱!!
+	 		<p>우와..원더풀합니다..짱!!</p>
 	 		</div>
+	 		<div id='ptime'><span>2017-11-18 19:8:51</span></div>
 	 	</div>
  	</div>
  </div>
