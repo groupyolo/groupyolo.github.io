@@ -50,6 +50,7 @@ public class SiteManageController {
 		//내가 개설한 사이트 정보 
 		List<ProjectInfoDTO> plist = service.pList(mSeq);
 
+		// 프로젝트 팀원
 		int count = service.jCount(prSeq) ;
 		if ( count != 0) {
 			List<ProjectJoinDTO> jlist = service.jList(prSeq);

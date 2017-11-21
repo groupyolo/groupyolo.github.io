@@ -283,35 +283,40 @@
 	}
 	
 	#use-info {
-		border: 1px solid red;	
 		float: left;
 		margin: 15px;
+		margin-left: 30px;
+		font-size: 16px;
 	}
 	
 	#tr-info {
-		border: 1px solid green;
 		float:left;
 		margin: 15px;
+		margin-left: 115px;
+		font-size: 16px;
 	}
 
 	#circles1 {
-		border: 1px solid blue;
 		width: 150px;
 		heigth: 70px;
 		float:left;
-		margin: 15px;
+		margin-top: 5px;
+		margin-left: 30px;
+		font-size: 16px;
 	}
 	#circles2 {
-		border: 1px solid blue;
 		width: 150px;
 		heigth: 70px;
 		float:left;
+		margin-top: 5px; 
+		margin-left: 50px;
 	}
 	hr {
 		margin-bottom: 30px;
 	}
 	
-	blockquote { margin-left: 50px;}
+	blockquote { margin-left: 50px; }
+	blockquote h1 { margin-top:600px;}
 	
 	#search {
 		/* border:1px solid black; */

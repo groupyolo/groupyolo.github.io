@@ -77,6 +77,11 @@
 		var n =e.value;
 		location.href = "/web/member/manage.action?prSeq=" + n;
 	}
+	
+	function sitedel() {
+		alert("삭제");
+		
+	}
 </script>
 
 	
@@ -170,7 +175,7 @@
 				</ul>
 		</div>
 		</div>
-		<div id="btn3"> <i class="glyphicon glyphicon-trash"></i><span>사이트 삭제</span> </div>
+		<div id="btn3" onclick="sitedel();"> <i class="glyphicon glyphicon-trash"></i><span>사이트 삭제</span> </div>
 	</div>
 
 	<c:if test="${count != 0 }">
@@ -274,7 +279,7 @@
 		<script>
 			var myCircle = Circles.create({
 				  id:                  'circles1',
-				  radius:              70,
+				  radius:              75,
 				  value:               8,
 				  maxValue:         200,
 				  width:               10,
@@ -286,7 +291,7 @@
 			
 			var myCircle = Circles.create({
 				  id:                  'circles2',
-				  radius:              70,
+				  radius:              75,
 				  value:               8,
 				  maxValue:         200,
 				  width:               10,
