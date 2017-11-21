@@ -22,6 +22,9 @@
 		width: 350px;
 		display: inline-block;
 	}
+	#questionList td:nth-child(2):hover {
+		text-decoration: underline;
+	}
 	
 	#questionList td:nth-child(3) {
 		float: right;

@@ -70,7 +70,7 @@
 <script>
 $(document).ready(function() {    
 
-}
+
 	
 	
 	$("#round").draggable();
@@ -115,14 +115,9 @@ $(document).ready(function() {
 	function m3(){
 		var sors = $("#core").html();
 		document.getElementById("whatda").value +=sors;
-	}
-
-	function m4(){
-		alert("저장");
-		document.execCommand('SaveAs','1',null);
 		
 	}
-	
+
     function ToggleEditable (button)
     {
            var div = document.getElementById ("myDiv");
@@ -136,30 +131,17 @@ $(document).ready(function() {
            }
          }
 	
+    function m5(){
+		var sors = $("#core").html();
+		document.getElementById("whatda").value +=sors;
+    }
 	
 </script>
 
-
-
-	<a id="export" class="myButton" download="" href="#">export</a>
-	<script>
-
-		
-	
-	</script>
-
-
 	<div id="check">
-	<input type="text" var="">
-	
-	
-	
-	<input type="button" id="findid" value="아이디값찾기" onclick="m0();">
-	
-	<input type="button" id="addcolor" value="배경추가하기" onclick="m1();">
-	<input type="button" id="addwidth" value="길이늘리기" onclick="m2();">	
+
 	<input type="button" id="addwidth" value="html소스 가져오기" onclick="m3();">	
-	<input type="button" id="save" value="저장하기" onclick="m4();">
+	
 
 		<div id="roundborder">
 			<div id="round" class="ui-draggable ui-draggable-handle ui-resizable" style="position: relative;">
@@ -207,9 +189,12 @@ $(document).ready(function() {
 	</div>
 
 	<form method="POST" action="/web/member/filewriter.action">
-	<textarea name="whatda" id="whatda" cols="30" rows="10">	
+	<textarea style="display:none;" name="whatda" id="whatda" cols="30" rows="10">	
 	</textarea>
-	<input type="submit" value="파일쓰기">
+	<input type="text" name="prFileName" value="${mapping }"/>
+	<input type="text" name="prSeq" value="${prSeq }"/>
+	<input type="submit" value="파일쓰기" onclick="m5();">
+
 	</form>
 
 
@@ -228,6 +213,7 @@ $(document).ready(function() {
 		</form>
 	
 	</div>
+	<a id="export" download="" href="#">Download</a>
 
 
 	

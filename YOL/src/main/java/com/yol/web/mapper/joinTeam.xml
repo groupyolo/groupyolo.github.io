@@ -67,7 +67,7 @@
 	</update>
 	
 	<select id="slist" resultType="com.yol.web.DTO.VJoinTeamDTO">
- 		select * from (SELECT a.*, rownum as rnum FROM (select *from vjointeam order by reseq desc) a) where<![CDATA[ rnum <= 10]]>
+ 		select * from (SELECT a.*, rownum as rnum FROM (select *from vjointeam WHERE activeState in ('n', 'y') order by reseq desc) a) where<![CDATA[ rnum <= 10]]>
  	</select>
 	
 </mapper>
