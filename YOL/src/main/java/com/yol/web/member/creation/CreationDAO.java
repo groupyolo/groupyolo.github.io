@@ -131,7 +131,7 @@ public class CreationDAO {
 	public String[] copyTemplate(VCreationDTO dto, int prSeq) {
 
 		//서버에 맞게 변경해야함
-		String orgPath = "C:\\Users\\SIST06\\Documents\\GitHub\\groupyolo.github.io\\YOL\\src\\main\\webapp\\resources\\files\\template1.html"; 
+		String orgPath = "C:\\Users\\SIST06\\Documents\\GitHub\\groupyolo.github.io\\YOL\\src\\main\\webapp\\resources\\files\\template1.jsp"; 
 		String path = "C:\\Users\\SIST06\\Documents\\GitHub\\groupyolo.github.io\\YOL\\src\\main\\webapp\\WEB-INF\\views\\works\\";
 
 		path += "" +prSeq;

@@ -188,14 +188,6 @@ $(document).ready(function() {
 	 
 	</div>
 
-	<form method="POST" action="/web/member/filewriter.action">
-	<textarea style="display:none;" name="whatda" id="whatda" cols="30" rows="10">	
-	</textarea>
-	<input type="text" name="prFileName" value="${mapping }"/>
-	<input type="text" name="prSeq" value="${prSeq }"/>
-	<input type="submit" value="파일쓰기" onclick="m5();">
-
-	</form>
 
 
   
