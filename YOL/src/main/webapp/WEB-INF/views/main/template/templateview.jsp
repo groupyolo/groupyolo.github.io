@@ -5,10 +5,10 @@
 
 	$(document).ready(function() {
 		
-		$(".btn").click(function() {
+		$(".menuimg").mouseover(function() {
 			
-			
-			
+/* 			$(".menuimg").css("opacity","0.4");
+			$(this).css("opacity","1"); */
 		});
 		
 		
@@ -19,7 +19,7 @@
 
 	#header {
 		text-align:center;
-		margin-top: 250px;
+		margin-top: 300px;
 	}
 
 	#header2 {
@@ -29,13 +29,11 @@
 	#content {
 		width: 100%;
 		height: 100%;
-		border: 1px solid yellow;
 	}
 	
 	
 	#menu {
-		border: 1px solid red;
-		margin-top: 100px;
+		margin-top: 250px;
 		margin-left: 10%;
 		margin-right: 10%;
 		text-align: center;
@@ -44,13 +42,14 @@
 	#menuname {
 		text-align: left;
 		width: 100%;
-		
+		border-top: 5px dashed black;
+		border-bottom: 5px dashed black;
+		padding-bottom: 50px;
+		padding-top: 50px;
 	}
 	
 	#menuname blockquote {
-		font-size: 30pt;
-		border: 1px solid black;
-	
+		font-size: 40pt;
 	}
 	
 	#menusel {
@@ -61,7 +60,7 @@
 		display: inline-block;
 		margin: 0px auto;
 		margin-top: 80px;
-		border: 1px solid cornflowerblue;
+		border: 1px solid #eee;
 	}	
 	
 
@@ -97,6 +96,20 @@
 		<div id="menu">
 			<div id="menuname">
 				<blockquote>
+					Form
+				</blockquote>
+			</div>
+			<div id="menusel">
+				<div class="menuimg" style="width: 1047px; height:430px; background: url('${pageContext.request.contextPath}/images/template7.png')"></div>
+				<div class="menuimg" style="width: 1045px; height:469px; background: url('${pageContext.request.contextPath}/images/template8.png')"></div>
+				<div class="menuimg" style="width: 1048px; height:287px; background: url('${pageContext.request.contextPath}/images/template9.png')"></div>
+				<div class="menuimg" style="width: 1032px; height:251px; background: url('${pageContext.request.contextPath}/images/template10.png')"></div>
+			</div>
+		</div>
+	
+		<div id="menu">
+			<div id="menuname">
+				<blockquote>
 					Contact Us 
 				</blockquote>
 			</div>
@@ -106,32 +119,7 @@
 				<div class="menuimg" style="width: 895px; height:717px; background: url('${pageContext.request.contextPath}/images/template6.png')"></div>
 			</div>
 		</div>
-		
-		<div id="menu">
-			<div id="menuname">
-				<blockquote>
-					Form
-				</blockquote>
-			</div>
-			<div id="menusel">
-				<div class="menuimg" style="width: 1047px; height:430px; background: url('${pageContext.request.contextPath}/images/template7.png')"></div>
-				<div class="menuimg" style="width: 1045px; height:469px; background: url('${pageContext.request.contextPath}/images/template8.png')"></div>
-				<div class="menuimg" style="width: 1048px; height:287px; background: url('${pageContext.request.contextPath}/images/template9.png')"></div>
-			</div>
-		</div>
 	
-		<div id="menu">
-			<div id="menuname">
-				<blockquote>
-					Form
-				</blockquote>
-			</div>
-			<div id="menusel">
-				<div class="menuimg" style="width: 1047px; height:430px; background: url('${pageContext.request.contextPath}/images/template7.png')"></div>
-				<div class="menuimg" style="width: 1045px; height:469px; background: url('${pageContext.request.contextPath}/images/template8.png')"></div>
-				<div class="menuimg" style="width: 1048px; height:287px; background: url('${pageContext.request.contextPath}/images/template9.png')"></div>
-			</div>
-		</div>
 	</div>
 	
 	
