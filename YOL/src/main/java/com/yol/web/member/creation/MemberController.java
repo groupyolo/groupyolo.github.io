@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.yol.web.DTO.ConceptDTO;
-import com.yol.web.DTO.JoinBoardDTO;
+import com.yol.web.DTO.LoginDTO;
 import com.yol.web.DTO.MemberDTO;
 import com.yol.web.DTO.QuestionDTO;
 import com.yol.web.DTO.VCreationDTO;
@@ -139,6 +139,13 @@ public class MemberController {
 	@RequestMapping(method = { RequestMethod.GET }, value = "/member/myinfo.action")
 	public String myinfo(HttpServletRequest req, HttpSession session) {
 
+		MemberDTO logDTO =  (MemberDTO) session.getAttribute("loginDTO");
+		String mSeq = logDTO.getmSeq();
+		List<LoginDTO> list = ics.getLogList(mSeq);
+				
+		req.setAttribute("clist", list);
+		
+		
 		return "member.memberpage.myinfo";
 	}
 	
@@ -184,8 +191,8 @@ public class MemberController {
 	@RequestMapping(method = { RequestMethod.POST }, value = "/member/filewriter.action")
 	public String filewriter(HttpServletRequest req, HttpSession session, ConceptDTO dto, VCreationDTO vdto) {
 		
-		String prFileName = ""+ req.getAttribute("prFileName");
-		String prSeq = ""+ req.getAttribute("prSeq");
+		String prFileName = ""+ vdto.getPrFileName();
+		String prSeq = ""+ vdto.getPrSeq();
 		
 		System.out.println("================");
 		System.out.println(prFileName);

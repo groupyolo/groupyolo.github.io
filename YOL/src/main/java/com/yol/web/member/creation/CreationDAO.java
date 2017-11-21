@@ -19,6 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.yol.web.DTO.ConceptDTO;
+import com.yol.web.DTO.LoginDTO;
 import com.yol.web.DTO.VCreationDTO;
 
 @Repository
@@ -68,21 +69,46 @@ public class CreationDAO {
 
 	public int filewrt(ConceptDTO dto, VCreationDTO ldto) {
 		
+		System.out.println("여기부터 filewrt");
 		
-		String path = "C:\\Users\\SIST06\\Documents\\GitHub\\groupyolo.github.io\\YOL\\src\\main\\webapp\\resources\\files\\";
-		path += "" + ldto.getmSeq();
-		path +="\\" + ldto.getPrName() + ".jsp";
+		System.out.println(ldto.getPrSeq());
+		String fileName = ldto.getPrFileName().replace(".", "\\");
+		
+		
+		String path = "C:\\Users\\SIST06\\Documents\\GitHub\\groupyolo.github.io\\YOL\\src\\main\\webapp\\WEB-INF\\views";
+		//path += "" + ldto.getmSeq();
+		path +="\\" + fileName + ".jsp";
+		
+		System.out.println(path);
+		
+		String path2="C:\\Users\\SIST06\\Documents\\GitHub\\groupyolo.github.io\\YOL\\src\\main\\webapp\\WEB-INF\\views";
+		long time = System.currentTimeMillis();
+		
+		path2 +="\\" + fileName+time + ".jsp";
+		
+		fileCopy(path, path2);
+		
+		
+		
 		
 		try {
 			BufferedWriter wrtr = new BufferedWriter(new FileWriter(path));
 			
 			
-			String txt = dto.getWhatda();
-			System.out.println(txt);
-						
-			wrtr.write(txt);
-					
+			String encode = "<%@ page language='java' contentType='text/html; charset=UTF-8' pageEncoding='UTF-8'%>";
+			encode += "<%@ taglib prefix=\"c\" uri=\"http://java.sun.com/jsp/jstl/core\" %>";
+			
+			wrtr.write(encode);
 			wrtr.close();
+			
+			String txt = dto.getWhatda();
+			/*System.out.println(txt);*/
+			
+			wrtr = new BufferedWriter(new FileWriter(path, true));
+			wrtr.write(txt);
+			wrtr.close();
+			
+					
 			
 			return 1;
 		} catch (Exception e) {
@@ -244,6 +270,11 @@ public class CreationDAO {
 		System.out.println(prSeq);
 		
 		return sql.selectOne("createproject.getPrFileName", prSeq);
+	}
+
+	public List<LoginDTO> getLogList(String mSeq) {
+		// 
+		return sql.selectList("log.loglist", mSeq);
 	}
 
 	

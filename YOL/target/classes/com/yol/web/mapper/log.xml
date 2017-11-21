@@ -74,6 +74,9 @@
 		insert into Login(lSeq, mSeq, lsSeq, lDate, lCheckIP) values(lSeq.nextVal, #{mSeq}, 1,sysdate,#{lCheckIP})
 	</insert>
 	
+	<select id="loglist" parameterType="String" resultType="com.yol.web.DTO.LoginDTO" >
+		SELECT mSeq, ldate, count(*) as cnt FROM vlogin where mSeq=#{mSeq} GROUP BY mseq, ldate ORDER BY ldate ASC
+	</select>
 	
 	
 </mapper>
