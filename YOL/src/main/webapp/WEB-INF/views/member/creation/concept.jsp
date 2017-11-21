@@ -31,13 +31,14 @@
 	
 	
 	.column {
-    width: 170px;
+    width: 100%;
     float: left;
     padding-bottom: 100px;
   }
   .portlet {
     margin: 0 1em 1em 0;
     padding: 0.3em;
+    width: 100%;
   }
   .portlet-header {
     padding: 0.2em 0.3em;
@@ -52,6 +53,7 @@
   }
   .portlet-content {
     padding: 0.4em;
+    width:100%;
   }
   .portlet-placeholder {
     border: 1px dotted black;
@@ -62,6 +64,7 @@
 	
 </style>
 <script src="//cdn.ckeditor.com/4.7.3/full/ckeditor.js"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/section.css"/>
 <script>
 $(document).ready(function() {    
 
@@ -199,13 +202,66 @@ $(document).ready(function() {
 	<div class="column">
  
 	  <div class="portlet">
-	    <div class="portlet-header">Feeds</div>
-	    <div class="portlet-content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</div>
+	    <div class="portlet-header">Feeds</div> 
+	    <div class="portlet-content">
+	    		<div class="menu">
+		
+		<div class="menuLogo">
+			<span class="logoTitle">BRAND</span>
+			<p class="logoFooter"> SUBTEXT FOR HEADER</p>
+		</div>
+		
+		<div class="menuBox">
+			
+			
+			<div class="menuSel">
+				<ul class="menuUl">
+					<li>Home </li>
+					<li>About </li>
+					<li>Service </li>
+					<li>Projects </li>
+					<li>Contact </li>
+				</ul>
+			</div>
+		</div>
+	</div>
+		</div>	
 	  </div>
 	 
 	  <div class="portlet">
 	    <div class="portlet-header">News</div>
-	    <div class="portlet-content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</div>
+	    <div class="portlet-content">
+	    	<div class="textbox1">
+		<div class="row">
+		<div class="innerbox">
+			<div class="textbox" contenteditable="true">
+				<div class="text1">01</div>
+				<div class="text2">STRATEGY</div>
+				<div class="text3"><hr /></div>
+				<div class="text4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis tempora excepturi praesentium vitae molestias quas deserunt sunt optio itaque eum aliquid ab. Odit libero reiciendis ab aperiam reprehenderit ipsa commodi!</div>
+			</div>
+			<div class="textbox" contenteditable="true">
+					<div class="text1" contenteditable="true">02</div>
+				<div class="text2" contenteditable="true">DESIGN</div>
+				<div class="text3" contenteditable="true"><hr /></div>
+				<div class="text4" >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis tempora excepturi praesentium vitae molestias quas deserunt sunt optio itaque eum aliquid ab. Odit libero reiciendis ab aperiam reprehenderit ipsa commodi!</div>
+			</div>
+			<div class="textbox" contenteditable="true">
+					<div class="text1">03</div>
+				<div class="text2">DEVELOP</div>
+				<div class="text3"><hr /></div>
+				<div class="text4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis tempora excepturi praesentium vitae molestias quas deserunt sunt optio itaque eum aliquid ab. Odit libero reiciendis ab aperiam reprehenderit ipsa commodi!</div>
+			</div>
+			<div class="textbox" contenteditable="true">
+					<div class="text1">04</div>
+				<div class="text2">MARKETING</div>
+				<div class="text3"><hr /></div>
+				<div class="text4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis tempora excepturi praesentium vitae molestias quas deserunt sunt optio itaque eum aliquid ab. Odit libero reiciendis ab aperiam reprehenderit ipsa commodi!</div>
+				</div>
+			</div>
+		</div>
+	</div> 
+	    </div>
 	  </div>
 	 
 	</div>
@@ -214,7 +270,33 @@ $(document).ready(function() {
 	 
 	  <div class="portlet">
 	    <div class="portlet-header">Shopping</div>
-	    <div class="portlet-content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</div>
+	    <div class="portlet-content">
+	    	<div class="contents1">
+				<div class="row">
+					<div class="warp">
+						<div class="innerbox">
+							<div class="imgbox">
+								<img src="${pageContext.request.contextPath}/images/contentimg.JPG" alt="" />
+							</div>
+							<div class="textbox">
+								<div class="text1">
+									<h3> 
+										Integer eleifen sem elit,
+										<br />
+										Lorem ipsum dolor sit amet consectetur 
+									</h3>
+								</div>
+								<div class="text2">
+									<p>
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem necessitatibus ad laboriosam cum soluta ipsum at beatae in eius dicta quia rem vitae molestias illum nisi eveniet ut eaque praesentium?
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	    </div>
 	  </div>
 	 
 	</div>
@@ -223,7 +305,26 @@ $(document).ready(function() {
 	 
 	  <div class="portlet">
 	    <div class="portlet-header">Links</div>
-	    <div class="portlet-content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</div>
+	    <div class="portlet-content">
+	    	<div class="conBox1">
+				<div class="conText">
+					<span>Contact Us</span>
+					<table class="tblCon">
+						<tr>
+							<td><input type="text" value="name" id="name" name="name" onfocus="this.value=''"></td>
+							<td><input type="text" value="email" id="email" name="email" onfocus="this.value=''"></td>
+						</tr>
+						<tr>
+							<td colspan="2"><input type="text" id="subject" name="subject" value="subject" onfocus="this.value=''"></td>
+						</tr>
+						<tr>
+							<td colspan="2"><textarea name="message" id="message" value="message" onfocus="this.value=''">message</textarea></td>
+						</tr>
+					</table>
+				</div>
+			
+			</div>
+	    </div>
 	  </div>
 	 
 	  <div class="portlet">
@@ -233,12 +334,14 @@ $(document).ready(function() {
 	 
 	</div>
 
+<div>
 	<form method="POST" action="${pageContext.request.contextPath}/member/filewriter.action">
 	<textarea name="whatda" id="whatda" cols="30" rows="10">
 	
 	</textarea>
 	<input type="submit" value="파일쓰기" />
 	</form>
+</div>
 
 
   
