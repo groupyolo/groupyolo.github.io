@@ -66,7 +66,7 @@
 	font-size: 22px;
 	font-weight: 100;
 	margin-top:0px;
-	margin-bottom: 40px;
+	margin-bottom: 20px;
 	color: #888;
 	/* cursor:pointer; */
 }
@@ -287,37 +287,67 @@
 
 /* ------------------------- */
 .gallery1 {
-	border: 1px solid black;
-	width: 100%;
-	height: 800px;
-	padding: 40px 0;
+	/* border: 1px solid black; */
+	width: 996px;
+	height: 700px;
+	padding: 20px 0;
 }
 
 .gallery1 .row {
-	border: 1px solid red;
-	width: 1170px;
+	/* border: 1px solid red; */
+	width: 100%;
 	height: 100%;
 	margin: 0px auto;
 }
 
 .gallery1 .line1 {
-	border: 1px solid blue;
+	/* border: 1px solid blue; */
 	width: 100%;
 	height: 50%;
-	float: left;
+	
 }
 
 .gallery1 .line2 {
-	border: 1px solid orange;
+/* 	border: 1px solid orange; */
 	width: 100%;
 	height: 50%;
 	float: left;
 }
  .img1, .img2, .img3 {
-	width: (100/3);
-	height: 100%;
-	border: 1px solid green;
+	width: calc(95% /3);
+	height: 95%;
+	float: left;
+	background-color: #eee;
 }  
+
+.img2, .img3 {
+	margin-left: 15px;
+}
+
+.gallery1 img {
+	width: 100%;
+	height: 85%;
+	margin-bottom: 0px;
+}
+
+.con {
+	margin-top: 0px;
+	width: 90%;
+	height: 10%;
+	background-color: #eee;
+	padding: 8px 15px ;
+}
+
+.con span:nth-child(1) {
+	font-size: 15px;
+	color: #555;
+}
+
+.con span:nth-child(3) {
+	font-size: 12px;
+	color: #999;
+	padding-bottom:5px;
+}
 
 /* ----------------------------------- */
 
