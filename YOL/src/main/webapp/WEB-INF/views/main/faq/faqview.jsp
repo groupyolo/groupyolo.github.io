@@ -60,12 +60,20 @@
 	}
 	#searchBox td:first-child {
 		width:900px;
+		padding-right: 20px;
 	
 	}
 	#searchBox td:nth-child(2) {
 		width:100px;
-	
 	}
+	#search {
+		height: 60px;
+	}
+	
+	#btn {
+		height: 60px;
+	}
+	
 	#find{
 		color:white;
 		text-align: center;
@@ -98,12 +106,12 @@
 			<table id="searchBox">
 			<tr>
 			<td><input type="text" placeholder="궁금하신 질문을 검색해보세요." name="search" id="search" class="form-control" required></td>
-			<td><input type="submit" class="form-control" value="검색하기"></td>
+			<td><input type="submit" class="form-control" value="검색하기" id="btn"></td>
 			</tr>
 			</table>
 			
 		</form>
-		<div id ="find" style="padding:30px;">찾으시는 내용이 없으세요?  <a href="${pageContext.request.contextPath }/main/qnaview.action">문의 게시판 가기</a></div>
+		<div id ="find" style="padding:30px;">찾으시는 내용이 없으세요?  <a href="${pageContext.request.contextPath }/inquiry/list.action">문의 게시판 가기</a></div>
 	</div>
 	<div id="box">
 	<ul id="sub">

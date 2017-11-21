@@ -75,7 +75,7 @@
 		
 		 var mseq = ${mseq};
 		
-		$("#chatBox").scrollTop($(document).height());
+		$("#chatBox").scrollTop($(document).height() + 5000);
 		
 		$("#btn").click(function() {
 			
@@ -112,7 +112,7 @@
 							
 							$("#cContent").val("");
 							
-							$("#chatBox").scrollTop($(document).height());
+							$("#chatBox").scrollTop($(document).height() + 5000);
 						
 					} else {
 						//실패

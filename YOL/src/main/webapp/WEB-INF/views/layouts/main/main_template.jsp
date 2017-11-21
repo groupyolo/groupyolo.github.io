@@ -7,10 +7,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>멤버들이 보는 화면 구성</title>
-<style>
-
-</style>
+<link rel="icon" href="${pageContext.request.contextPath }/images/favicon.ico">
+<title>YOL : As your wish</title>
 </head>
 <body>
 		<!-- assets -->

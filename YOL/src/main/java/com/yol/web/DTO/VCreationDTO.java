@@ -22,7 +22,16 @@ public class VCreationDTO {
 	private String jRegDate;
 	private String jointime;
 	private String activeState;	
+	private String prFileName;
 	
+	
+	
+	public String getPrFileName() {
+		return prFileName;
+	}
+	public void setPrFileName(String prFileName) {
+		this.prFileName = prFileName;
+	}
 	public String getActiveState() {
 		return activeState;
 	}

@@ -18,5 +18,7 @@ public interface ICreationService {
 
 	int getPrSeq();
 
-	String copyTemplate(VCreationDTO dto, int prSeq);
+	String[] copyTemplate (VCreationDTO dto, int prSeq);
+
+	String projectedit(int prSeq);
 }

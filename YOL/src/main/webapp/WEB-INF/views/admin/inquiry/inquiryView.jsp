@@ -9,19 +9,13 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.12.4.js"></script>
 
 <style>
-	#noticeBoardView {
+	
+	#inquiryView {
 		border:1px solid blue;
 	}
 	
-	#noticeBoardView th {border:1px solid red;}
-	#noticeBoardView td {border:1px solid pink;}
-	
-	#inquiryBoard {
-		border:1px solid blue;
-	}
-	
-	#inquiryBoard th {border:1px solid red;}
-	#inquiryBoard td {border:1px solid pink;}
+	#inquiryView th {border:1px solid red;}
+	#inquiryView td {border:1px solid pink;}
 	
 </style>
 		
@@ -39,9 +33,9 @@
 
 	<h1>문의 게시판</h1>
 	
-	
+	<div align="center">
 	<c:forEach items="${ivlist}" var="ivdto">
-	<table id="noticeBoardView">
+	<table id="inquiryView" width="400px" height="300px">
 		<tr>
 			<td>번호</td>
 			<td>${ivdto.inquiryseq}</td>
@@ -68,37 +62,42 @@
 	<c:forEach items="${iblist}" var="ibdto">
 	<input type="hidden" name="inquiryseq" value="${ivdto.inquiryseq}">
 	<input type="hidden" name="inquiryboardseq" value="${ibdto.inquiryboardseq}">
-	<table>
+	
+	<table id="inquiryreply">
 		<tr>
-			<th>내용ㅋㅋㅋ</th>
+			<th>내용</th>
 			<td>	
 			${ibdto.content}
-			</td>
-			<td>
-			
 			</td>
 			<td>
 			<a type="button" name="redel" onclick="location.href='${pageContext.request.contextPath}/admin/inquiryBoardDel.action?inquiryboardseq=${ibdto.inquiryboardseq}';">삭제</a>
 			</td>
 		</tr>	
 	</table>
+
 	</c:forEach>
 	
 		</c:forEach>
-		
-	
-	<div>
-		<form action="${pageContext.request.contextPath}/admin/inquiryBoardOk.action" method="post">
-		<a>내용</a>
-		<input type="text" name="content" style="width:200px; height:200px;">
-		<input type="hidden" name="inquiryseq" value="${ivdto.inquiryseq}">
-		<input type="submit" value="등록">
-		</form>
 	</div>
 		
+	
+	<div align="center">
+		<form action="${pageContext.request.contextPath}/admin/inquiryBoardOk.action" method="post">
+		
+		<table>
+		<tr>
+			<th>내용</th>
+			<td><textarea name="content" style="height:100px; width:200px; resize:none;" requried></textarea></td>
+		</tr>
+		</table>
+		<input type="hidden" name="inquiryseq" value="${ivdto.inquiryseq}">
+		<input type="submit" value="등록">
 		<input type="button" value="뒤로가기" onclick="history.back();">
 		<input type="button" value="글삭제" onclick="location.href='${pageContext.request.contextPath}/admin/inquiryDel.action?inquiryseq=${ivdto.inquiryseq}';">
 		<input type="button" id="iedit" name="iedit" value="수정하기" onclick="location.href='${pageContext.request.contextPath}/admin/inquiryEdit.action?inquiryseq=${ivdto.inquiryseq}';" >
+		</form>
+	</div>
+		
 		
 
 	

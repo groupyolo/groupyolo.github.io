@@ -68,6 +68,9 @@
 		delete from FAQ where FAQseq = #{FAQseq}
 	</select>
 	
+	<select id="login" parameterType="com.yol.web.DTO.AdminDTO" resultType="com.yol.web.DTO.AdminDTO">
+		select * from ADMIN where ADMINID=#{adminID} and PASSWORD=#{password}
+	</select>
 
 </mapper>
 
