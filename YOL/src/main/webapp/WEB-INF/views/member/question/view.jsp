@@ -252,7 +252,9 @@
 					<td>${com.mnickname}</td>
 					<td>${com.qcomment}</td>
 					<td>${com.qcommenttime}
-					<span style="float:right; cursor:pointer;" onclick="del(${com.qcommentseq});" title=" 댓글을 삭제합니다.">[&times;]</span>
+					<c:if test="${cdto.mNickName==loginDTO.mNickName}">
+						<span style="float:right; cursor:pointer;" onclick="del(${com.qcommentseq});" title=" 댓글을 삭제합니다.">[&times;]</span>
+					</c:if>
 					</td>
 				</tr>
 				</c:forEach>
