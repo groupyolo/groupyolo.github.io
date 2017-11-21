@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="admin">
+	
+	<select id="list" resultType="com.yol.web.DTO.NoticeboardDTO">
+		select * from NOTICEBOARD
+	</select>
+	
+	<select id="vlist" resultType="com.yol.web.DTO.NoticeboardDTO">
+		select * from NOTICEBOARD where NOTICEBOARDSEQ= #{NOTICEBOARDSEQ}
+	</select>
+	
+	<select id="add" resultType="com.yol.web.DTO.NoticeboardDTO">
+		INSERT INTO NOTICEBOARD VALUES (NOTICEBOARDSEQ.nextval, 1, #{title}, #{ncontent}, sysdate, #{startExp}, #{endExp})
+	</select>
+	
+	<select id="del" parameterType="String" resultType="Integer">
+		delete from NOTICEBOARD where NOTICEBOARDSEQ = #{noticeboardseq}
+	</select>
+	
+	<select id="ilist" resultType="com.yol.web.DTO.InquiryDTO">
+		select * from INQUIRY
+	</select>
+	
+	<select id="ivlist" resultType="com.yol.web.DTO.InquiryDTO">
+		select * from INQUIRY where inquiryseq= #{inquiryseq}
+	</select>
+	
+	<select id="iadd" resultType="com.yol.web.DTO.InquiryDTO">
+		INSERT INTO INQUIRY VALUES (inquiryseq.nextval, 1, #{title}, #{icontent}, sysdate, 0, #{openseq}, #{inquiryCategoryseq})
+	</select>
+	
+	<select id="idel" parameterType="String" resultType="Integer">
+		delete from INQUIRY where inquiryseq = #{inquiryseq}
+	</select>
+	
+	<select id="iedit" parameterType="com.yol.web.DTO.InquiryDTO" resultType="Integer">
+		update inquiry set title = #{title}, icontent = #{icontent} where inquiryseq = #{inquiryseq}
+	</select>
+	
+	<select id="iblist" resultType="com.yol.web.DTO.InquiryboardDTO" parameterType="com.yol.web.DTO.InquiryDTO">
+		select * from INQUIRYBOARD where inquiryseq = #{inquiryseq}
+	</select>
+	
+	<insert id="readd" parameterType="com.yol.web.DTO.InquiryboardDTO">
+		insert into INQUIRYBOARD values (INQUIRYBOARDSEQ.nextval, #{content}, 'n', #{inquiryseq})
+	</insert>
+	
+	<select id="redel" parameterType="String" resultType="Integer">
+		delete from INQUIRYBOARD where inquiryboardseq = #{inquiryboardseq}
+	</select>
+	
+	<select id="faq" resultType="com.yol.web.DTO.FAQDTO">
+		select * from FAQ
+	</select>
+	
+	<select id="fvlist" resultType="com.yol.web.DTO.FAQDTO">
+		select * from FAQ where FAQseq = #{FAQseq}
+	</select>
+	
+	<select id="faqadd" resultType="com.yol.web.DTO.FAQDTO">
+		INSERT INTO FAQ VALUES (FAQseq.nextval, #{FAQCategoryseq}, #{title}, #{fcontent}, sysdate, #{openseq})
+	</select>
+	
+	<select id="faqdel" parameterType="String" resultType="Integer">
+		delete from FAQ where FAQseq = #{FAQseq}
+	</select>
+	
+	<select id="login" parameterType="com.yol.web.DTO.AdminDTO" resultType="com.yol.web.DTO.AdminDTO">
+		select * from ADMIN where ADMINID=#{adminID} and PASSWORD=#{password}
+	</select>
+	
+	<select id="mlist" resultType="com.yol.web.DTO.MemberDTO">
+		select * from MEMBER
+	</select>
+	
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    

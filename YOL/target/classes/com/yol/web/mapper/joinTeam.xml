@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 회원>커뮤니티 -->
+<mapper namespace="joinTeam">
+	<select id="list" parameterType="map" resultType="com.yol.web.DTO.VJoinTeamDTO">
+		<!-- SELECT * FROM vJoinTeam WHERE activeState in ('n', 'y') -->
+			SELECT * FROM (SELECT a.*, rownum rnum FROM (SELECT * FROM vJoinTeam WHERE activeState in ('n', 'y')
+		<if test="isSearch eq 'y'.toString()">
+			AND ${column} LIKE '%' || #{word} || '%' ORDER BY jRegDate DESC) a) WHERE rnum &gt;= #{start} AND rnum &lt;= #{end}
+		</if> 
+		<if test="isSearch eq 'n'.toString()">
+			ORDER BY jRegDate DESC) a) WHERE rnum &gt;= #{start} AND rnum &lt;= #{end}
+		</if> 
+	</select>
+	
+	<select id="getTotalCount" parameterType="map" resultType="Integer">
+			SELECT count(*) FROM vJoinTeam WHERE activeState in ('n', 'y')
+		<if test="isSearch eq 'y'.toString()">
+			AND ${column} LIKE '%' || #{word} || '%' ORDER BY jRegDate DESC
+		</if>
+ 	</select>
+	
+	<insert id="add" parameterType="com.yol.web.DTO.JoinBoardDTO">
+		INSERT INTO joinBoard VALUES (reSeq.nextval, #{mSeq}, #{jSubject}, #{jContent}, #{jStart}, #{jEnd}, #{jCount}, default, 'y')
+	</insert>
+	
+	<select id="view" parameterType="String" resultType="com.yol.web.DTO.VJoinTeamDTO">
+		SELECT * FROM VJoinTeam WHERE reSeq = #{reSeq}
+	</select>
+	
+	<select id="member" parameterType="String" resultType="com.yol.web.DTO.VJoinMemberDTO">
+		SELECT * FROM VJoinMember WHERE reSeq = #{reSeq} AND apSeq in (0, 1, 2, 4) ORDER BY jRegDate ASC
+	</select>
+	
+	<update id="edit" parameterType="com.yol.web.DTO.JoinBoardDTO">
+		UPDATE joinBoard SET jSubject = #{jSubject}, jContent = #{jContent}, jStart = #{jStart}, jEnd = #{jEnd}, jCount = #{jCount} WHERE reSeq = #{reSeq}
+	</update>
+	
+	<select id="master" parameterType="String" resultType="com.yol.web.DTO.VJoinTeamDTO">
+		SELECT * FROM VJoinTeam WHERE mSeq = #{mSeq} AND activeState = 'y' ORDER BY jRegDate DESC
+	</select>
+	
+	<update id="changeMember" parameterType="com.yol.web.DTO.JoinDTO">
+		UPDATE Join SET apSeq = #{apSeq} WHERE mSeq = #{mSeq} AND reSeq = #{reSeq}
+	</update>
+	
+	<select id="searchMember" parameterType="String" resultType="com.yol.web.DTO.MemberDTO">
+		SELECT * FROM Member WHERE mEmail = #{mEmail}
+	</select>
+	
+	<insert id="addMember" parameterType="com.yol.web.DTO.JoinDTO">
+		INSERT INTO JOIN VALUES (jSeq.nextval, #{mSeq}, default, #{apSeq}, #{reSeq})
+	</insert>
+	
+	<select id="find" parameterType="String" resultType="String">
+		SELECT max(reSeq) as reSeq FROM JoinBoard WHERE mSeq = #{mSeq}
+	</select>
+	
+	<update id="del" parameterType="String">
+		UPDATE JoinBoard SET activeState = 'd' WHERE reSeq = #{reSeq}
+	</update>
+	
+	<update id="state"  parameterType="String">
+		UPDATE JoinBoard SET activeState = 'n' WHERE reSEq = #{reSeq}
+	</update>
+	
+	<select id="slist" resultType="com.yol.web.DTO.VJoinTeamDTO">
+ 		select * from (SELECT a.*, rownum as rnum FROM (select *from vjointeam WHERE activeState in ('n', 'y') order by reseq desc) a) where<![CDATA[ rnum <= 10]]>
+ 	</select>
+	
+</mapper>

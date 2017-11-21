@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 회원>커뮤니티 -->
+<mapper namespace="createproject">
+	
+	<insert id="insertJoinBoard" parameterType="com.yol.web.DTO.VCreationDTO">
+		INSERT INTO JoinBoard values(reSeq.nextval, #{mSeq}, #{prName}, #{jContent}, #{jStart}, #{jEnd}, #{jCount}, default, 'n')
+	</insert>
+
+	<insert id="insertJoin" parameterType="com.yol.web.DTO.VCreationDTO">
+		INSERT INTO Join values(jSeq.nextval, #{mSeq}, default, 1, reSeq.currval)
+	</insert>
+	<insert id="insertProject" parameterType="com.yol.web.DTO.VCreationDTO">
+		INSERT INTO Project values(prSeq.nextval, reSeq.currval, #{teSeq}, #{opSeq}, #{prName}, #{prURL}, default, default, default, #{prName}||sysdate||'.jsp', #{siteName} )
+	</insert>
+	<select id="getList" parameterType="String" resultType="com.yol.web.DTO.VCreationDTO">
+		SELECT * FROM VCREATEINFO where mSeq=#{mSeq}
+	</select>
+ 
+</mapper>

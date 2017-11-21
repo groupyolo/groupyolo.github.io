@@ -1,0 +1,140 @@
+#boardfree{
+	width: 100%;
+	min-height: 500px;
+	border: 0px dashed green;
+	padding:20px;	
+}
+
+
+#boardqna{
+	display:inline-block;
+	width: 45%;
+	min-height: 500px;
+	border: 0px dashed blue;
+	margin-right:50px;
+	margin-left:20px;
+	
+}
+
+#boardrecruit{
+	display:inline-block;
+	width: 45%;
+	min-height: 500px;
+	border: 0px dashed red;
+}
+
+#fboardwrapper{
+	width: 85%;
+	margin: 0px auto;
+	border: 0px dashed red;
+}
+
+#tblfreeboard{
+	margin: 0px auto;	
+	border:1px solid black;
+}
+
+#tblfreeboard tr th{
+	text-align: center;	
+}
+#tblfreeboard tr td{
+	text-align: center;	
+}
+#tblfreeboard tr td:nth-child(2){
+	text-align: left;
+	padding-left:20px;
+}
+#tblfreeboard tr th:nth-child(1){
+	width: 50px;
+	border: 1px solid red;	
+}
+#tblfreeboard tr th:nth-child(2){
+	
+	width: 500px;	
+}
+#tblfreeboard tr th:nth-child(3){
+	width: 150px;	
+}
+#tblfreeboard tr th:nth-child(4){
+	width: 100px;	
+}
+
+#fbtns{
+	border:0px dashed grey;
+	text-align: right;	
+}
+
+
+#fboardadd{
+	width:85%; height:600px;
+	margin:0px auto;
+	border:1px dashed red;
+	
+}
+
+#fboardadd table{
+	width:85%;
+	margin:0px auto;
+}
+
+#fboardaddbtn{
+	text-align: right;
+	width: 85%;
+	border:0px dashed blue;
+	margin: 0px auto;
+}
+#tblfboardadd{
+	width: 100%;
+	margin: 0px auto;
+		
+}
+
+#tblfboardadd span{
+	font-weight: bold;
+}
+
+
+#tblfboardadd div{
+	margin-bottom: 10px;
+}
+
+
+.boardpolicy{
+	/* border: 1px solid lightgrey; */	
+	/* border-radius: 10px; */
+	width: 99%;
+	height: 20px;
+	margin:0px auto;
+
+}
+.boardpolicy p{
+	font-size:0.8em;
+	color: #B9B9B9;
+}
+
+#tblboardview{
+	width:85%;
+	border:0px dashed red;
+	margin:0px auto;
+}
+
+#tblboardview div{
+	margin-bottom: 10px;
+}
+#tblboardview div span{
+	font-weight: bold;
+}
+
+#tblboardview div:nth-child(1){
+	border: 1px solid red;
+}
+
+#pagebar, #search{
+	text-align: center;	
+}
+
+#fboardbtns{
+	text-align: right;
+	
+}
+

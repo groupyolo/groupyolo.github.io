@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 회원>커뮤니티 -->
+<mapper namespace="faq">
+	
+
+	
+	<select id="getCategory" resultType="com.yol.web.DTO.FAQCategoryDTO">
+		select * from FAQCategory
+	</select>
+
+	<select id="getFaq" parameterType="map" resultType="com.yol.web.DTO.FAQTotalDTO">
+		select * from faqTotalView 
+		<if test="isSearch eq 'y'.toString()">
+			where title like '%' || #{search} || '%' or fcontent like '%' || #{search} || '%'
+		</if>
+	
+	</select>
+
+	<select id="getFaqMain" resultType="com.yol.web.DTO.FAQTotalDTO">
+		select * from faqTotalView where faqCategoryseq=1
+
+	</select>
+	
+	<select id="getInc" resultType="com.yol.web.DTO.IncFunctionDTO">
+		select * from incFunction 
+
+	</select>
+	
+ 
+</mapper>
