@@ -216,5 +216,18 @@ public class JoinTeamService implements IJoinTeamService {
 		return nlist;
 	}
 
+	@Override
+	public List<VJoinTeamDTO> slist() {
+
+		List<VJoinTeamDTO> slist = dao.slist();
+		
+		for (VJoinTeamDTO dto : slist) {			
+			//날짜수정
+			dto.setjRegDate((dto.getjRegDate().substring(0, 10)));
+		}
+		
+		return slist;
+	}
+
 
 }

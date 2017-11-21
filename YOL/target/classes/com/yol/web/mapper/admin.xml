@@ -44,9 +44,9 @@
 		select * from INQUIRYBOARD where inquiryseq = #{inquiryseq}
 	</select>
 	
-	<select id="readd" parameterType="com.yol.web.DTO.InquiryboardDTO">
-		insert into INQUIRYBOARD values (inquiryboardseq.nextval, #{content}, default, #{inquiryseq})
-	</select>
+	<insert id="readd" parameterType="com.yol.web.DTO.InquiryboardDTO">
+		insert into INQUIRYBOARD values (INQUIRYBOARDSEQ.nextval, #{content}, 'n', #{inquiryseq})
+	</insert>
 	
 	<select id="redel" parameterType="String" resultType="Integer">
 		delete from INQUIRYBOARD where inquiryboardseq = #{inquiryboardseq}
@@ -75,6 +75,7 @@
 	<select id="mlist" resultType="com.yol.web.DTO.MemberDTO">
 		select * from MEMBER
 	</select>
+	
 
 </mapper>
 

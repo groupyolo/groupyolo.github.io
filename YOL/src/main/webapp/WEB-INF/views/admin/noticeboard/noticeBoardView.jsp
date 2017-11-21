@@ -50,8 +50,8 @@
 		<%-- <input type="hidden" value="${vdto.noticeboardseq}"> --%>
 	</table>
 	<div align="center">
-		<input type="button" value="뒤로가기" onclick="history.back();">
-		<input type="button" value="글삭제" onclick="location.href='${pageContext.request.contextPath}/admin/noticeBoardDel.action?noticeboardseq=${vdto.noticeboardseq}';">
+		<input class="btn btn-normal" type="button" value="뒤로가기" onclick="history.back();">
+		<input class="btn btn-normal" type="button" value="글삭제" onclick="location.href='${pageContext.request.contextPath}/admin/noticeBoardDel.action?noticeboardseq=${vdto.noticeboardseq}';">
 	</div>
 		</c:forEach>
 		</div>

@@ -11,11 +11,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.yol.web.DTO.ConceptDTO;
+import com.yol.web.DTO.JoinBoardDTO;
 import com.yol.web.DTO.MemberDTO;
 import com.yol.web.DTO.QuestionDTO;
 import com.yol.web.DTO.VCreationDTO;
 import com.yol.web.DTO.VFBoardDTO;
+import com.yol.web.DTO.VJoinTeamDTO;
 import com.yol.web.community.freeboard.IFBoardService;
+import com.yol.web.member.joinTeam.IJoinTeamService;
 import com.yol.web.member.question.IQuestionService;
 
 @Controller
@@ -29,6 +32,10 @@ public class MemberController {
 	
 	@Autowired
 	private IQuestionService iqs;
+	
+	@Autowired
+	private IJoinTeamService ijs;
+	
 	
 	
 	@RequestMapping(method = { RequestMethod.GET }, value = "/main.action")
@@ -157,18 +164,33 @@ public class MemberController {
 	@RequestMapping(method = { RequestMethod.GET }, value = "/member/community.action")
 	public String boardlist(HttpServletRequest req, VFBoardDTO dto) {
 
-		List<VFBoardDTO> list = ifb.listshort(dto);
+		List<VJoinTeamDTO> slist = ijs.slist();
 		List<QuestionDTO> qlist = iqs.qlist();
+		List<VFBoardDTO> list = ifb.listshort(dto);
 		
-		req.setAttribute("fblistshort", list);
+		for(QuestionDTO qdto : qlist ) {
+			
+			qdto.setQtime(qdto.getQtime().substring(0,10));
+			
+		}
+		
+		req.setAttribute("slist", slist);
 		req.setAttribute("qlist", qlist);
+		req.setAttribute("fblistshort", list);
 		
 		return "member.community.boardlist";
 	}
 
 	@RequestMapping(method = { RequestMethod.POST }, value = "/member/filewriter.action")
 	public String filewriter(HttpServletRequest req, HttpSession session, ConceptDTO dto, VCreationDTO vdto) {
-
+		
+		String prFileName = ""+ req.getAttribute("prFileName");
+		String prSeq = ""+ req.getAttribute("prSeq");
+		
+		System.out.println("================");
+		System.out.println(prFileName);
+		System.out.println(prSeq);
+		System.out.println("================");
 		
 		System.out.println(req.getAttribute("whatda"));
 		
@@ -198,7 +220,12 @@ public class MemberController {
 		System.out.println("========================");
 		String mapping = url[0]+"."+ url[1] + "." + url[2]+"."+url[3]; 
 		System.out.println("매핑된 주소 체크 : " + mapping);
+		
+		req.setAttribute("prSeq", prSeq);
+		req.setAttribute("mapping", mapping);
+		
 		return mapping ;
+		
 	}
 	
 	

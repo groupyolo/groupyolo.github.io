@@ -9,6 +9,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.io.Writer;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.List;
 
@@ -164,13 +166,14 @@ public class CreationDAO {
     	
     	try {
     		
-			BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(inFileName), "UTF8"));
-			BufferedWriter writer = new BufferedWriter(new  OutputStreamWriter( new FileOutputStream(outFileName), "UTF8"));
+			BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(inFileName), StandardCharsets.UTF_8));
+			Writer writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outFileName), StandardCharsets.UTF_8));
 			
 			String line = "";
 			while((line = reader.readLine()) != null) {
 				System.out.println(line);
 				writer.write(line);
+				writer.write("\r\n");
 			}
 			
 			reader.close();
@@ -243,7 +246,7 @@ public class CreationDAO {
 		return sql.selectOne("createproject.getPrFileName", prSeq);
 	}
 
- 
+	
     
     
 }

@@ -29,6 +29,7 @@
 	
 	$(document).ready(function() {
 		
+		
 	});
 </script>
 		
@@ -70,9 +71,10 @@
 		
 	</table>
 
-	<c:forEach items="${iblist}" var="ibdto">
 	<input type="hidden" name="inquiryseq" value="${ivdto.inquiryseq}">
+	<c:forEach items="${iblist}" var="ibdto">
 	<input type="hidden" name="inquiryboardseq" value="${ibdto.inquiryboardseq}">
+
 	
 	<table class="table table-boader" id="inquiryreply">
 		<tr>
@@ -86,13 +88,8 @@
 		</tr>	
 	</table>
 
-	</c:forEach>
 	
-		</c:forEach>
 
-	</div>
-		
-	
 	<div align="center">
 		<form action="${pageContext.request.contextPath}/admin/inquiryBoardOk.action" method="post">
 		
@@ -104,12 +101,21 @@
 			<td><input type="submit" value="등록" style="height:46px;"></td>	
 		</tr>
 		</table>
-		<input type="hidden" name="inquiryseq" value="${ivdto.inquiryseq}">
-		<input type="button" value="뒤로가기" onclick="history.back();">
-		<input type="button" value="글삭제" onclick="location.href='${pageContext.request.contextPath}/admin/inquiryDel.action?inquiryseq=${ivdto.inquiryseq}';">
-		<input type="button" id="iedit" name="iedit" value="수정하기" onclick="location.href='${pageContext.request.contextPath}/admin/inquiryEdit.action?inquiryseq=${ivdto.inquiryseq}';" >
 		</form>
+		
+		<input class="btn btn-normal" type="button" value="뒤로가기" onclick="history.back();">
+		<input class="btn btn-normal" type="button" value="글삭제" onclick="location.href='${pageContext.request.contextPath}/admin/inquiryDel.action?inquiryseq=${ivdto.inquiryseq}';">
+		<input class="btn btn-normal" type="button" id="iedit" name="iedit" value="수정하기" onclick="location.href='${pageContext.request.contextPath}/admin/inquiryEdit.action?inquiryseq=${ivdto.inquiryseq}';" >
 	</div>
+
+
+	</c:forEach>
+
+		</c:forEach>
+	</div>
+	
+		
+	
 	</div>
 		
 		

@@ -4,50 +4,108 @@
 
 	#questionList {
 		width: 430px;
-		padding: 10px;
+	}
+
+	#questionList tr {
+		width: 100%;
+		border-bottom: 1px solid black;
+		padding-bottom: 5px;
 	}
 	
-	#questionList tr:nth-child(1) {
-		dlsplay:inline;
+	#questionList td:nth-child(1) {
+		display: inline-block;
+		width: 70px;
+		font-weight: bold;
 	}
-	#questionList tr:nth-child(2) {
-		float: left;
+	
+	#questionList td:nth-child(2) {
+		width: 350px;
+		display: inline-block;
+	}
+	#questionList td:nth-child(2):hover {
+		text-decoration: underline;
+	}
+	
+	#questionList td:nth-child(3) {
+		float: right;
+		display: inline-block;
+		margin-right: 30px;
+	}
+	
+	#questionList td:nth-child(4) {
+		float: right;
+		display: inline;
+		margin-right: 30px;
+	}
+	
+
+	#topBox {		
+		background-color: cornflowerblue;
+		color: white;
+		padding: 5px;
+	}
+	
+	#topBox a {
+		color: white;
+		font-weight: bold;
 	}
 
 </style>
 
 <div id="boardqna">
-<h4><a href="${pageContext.request.contextPath}/question/list.action">질문게시판</a></h4>
+		<div id="topBox">
+			<h4><a href="${pageContext.request.contextPath}/question/list.action">질문게시판</a></h4>
+		</div>
 
-	<table id="questionList">
-			<tbody>
-			<c:forEach items="${qlist}" var="dto" varStatus="status" >
-				<tr>
-					<td>
-					<a href="${pageContext.request.contextPath}/question/view.action?questionseq=${dto.questionseq}">
-							${dto.qtitle} </a></td>
-					<td>${dto.qcategory}</td>
-					<td>${dto.mnickname}</td>
-					<td>${dto.qtime}</td>
-				</tr>
-			</c:forEach>
-				<c:if test="${qlist.size() == 0}">
+		<table id="questionList">
+				<tbody>
+				<c:forEach items="${qlist}" var="dto" varStatus="status" >
 					<tr>
-						<td colspan="6"> 현재 게시물이 존재하지 않습니다 </td>
+						<td>[${dto.qcategory}]</td>
+						<td>
+						<a href="${pageContext.request.contextPath}/question/view.action?questionseq=${dto.questionseq}">
+								${dto.qtitle} ( ${dto.qcommentcount } )</a>
+						</td>
+						<td>${dto.qtime}</td>
+						<td>${dto.mnickname}</td>
 					</tr>
-				</c:if>
-			</tbody>
-		</table>
+				</c:forEach>
+					<c:if test="${qlist.size() == 0}">
+						<tr>
+							<td colspan="6"> 현재 게시물이 존재하지 않습니다 </td>
+						</tr>
+					</c:if>
+				</tbody>
+			</table>
 	
 
 </div>
 
 
 <div id="boardrecruit">
-<h4>모집게시판</h4>
+	<div id="topBox">
+		<h4><a href="${pageContext.request.contextPath}/member/communityBoard.action">모집게시판</a></h4>
+	</div>
 
-	
-
+		<table id="questionList">
+				<tbody>
+				<c:forEach items="${slist}" var="sdto" varStatus="status" >
+					<tr>
+						<td>[${sdto.sName}]</td>
+						<td>
+							<a href="${pageContext.request.contextPath}/member/joinTeamView.action?reSeq=${sdto.reSeq}">${sdto.jSubject}</a>
+						</td>
+						<td>${sdto.jRegDate}</td>
+						<td>${sdto.mNickName}</td>
+					</tr>
+				</c:forEach>
+					<c:if test="${slist.size() == 0}">
+						<tr>
+							<td colspan="6"> 현재 게시물이 존재하지 않습니다 </td>
+						</tr>
+					</c:if>
+				</tbody>
+			</table>
 </div>
 
 <div id="boardfree">

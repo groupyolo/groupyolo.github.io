@@ -43,7 +43,7 @@
 				<td style="text-align:center;">${idto.inquiryseq}</td>
 				<td style="text-align:center;"><a id="a1" href="${pageContext.request.contextPath}/admin/inquiryView.action?inquiryseq=${idto.inquiryseq}">${idto.title}</a></td>
 				<td style="text-align:center;">${idto.enrolltime.substring(0,19)}</td>
-				<td style="text-align:center;">0</td>
+				<td style="text-align:center;">${idto.hits}</td>
 			</tr>
 			</c:forEach>
 

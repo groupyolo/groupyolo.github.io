@@ -90,6 +90,8 @@ public class AdminController {
 		
 		req.setAttribute("iblist", iblist);
 		
+		
+
 		return "admin.inquiry.inquiryView";
 	}//noticeBoardView
 	
@@ -142,8 +144,10 @@ public class AdminController {
 	@RequestMapping(method={RequestMethod.GET}, value="/admin/inquiryBoardadd.action")
 	public String inquiryBoard(HttpServletRequest req) {
 		
+
 				
 		return "admin.inquiry.inquiryView";
+		
 		
 	}//inquiryBoardadd
 	
@@ -154,6 +158,7 @@ public class AdminController {
 
 		int result1 = service.readd1(inquiryseq);
 		
+	
 		return "admin.inquiry.inquiryBoardOk";
 	}//inquiryBoardOk
 	
@@ -243,7 +248,7 @@ public class AdminController {
 			
 		return "admin.noticeboard.adminMember";
 	}//회원보기
-	 
+	
 	
 	
 }//public

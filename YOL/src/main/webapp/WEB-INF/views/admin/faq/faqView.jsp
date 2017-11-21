@@ -55,8 +55,8 @@
 		</tr>
 	</table>
 	<div align="center">
-		<input type="button" value="뒤로가기" onclick="history.back();">
-		<input type="button" value="글삭제" onclick="location.href='${pageContext.request.contextPath}/admin/faqDel.action?FAQseq=${fvdto.FAQseq}';">
+		<input class="btn btn-normal" type="button" value="뒤로가기" onclick="history.back();">
+		<input class="btn btn-normal" type="button" value="글삭제" onclick="location.href='${pageContext.request.contextPath}/admin/faqDel.action?FAQseq=${fvdto.FAQseq}';">
 	</div>
 		</c:forEach>
 		</div>
