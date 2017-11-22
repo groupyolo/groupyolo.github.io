@@ -68,12 +68,14 @@
 		
 	</script>
 	
-	
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/jointeam.css">
 	
 	
 	<div id="fboardwrapper">
-	<h2>자유게시판</h2>
-	<table id="tblfreeboard">
+	<div class="core_top">
+	<h2 class="boxBasic">자유게시판</h2>
+	</div>
+	<table id="tblfreeboard" class="table table-hover" >
 		<thead>
 		<tr>
 			<th>번호</th><th>제목</th><th>글쓴이</th><th>날짜</th><th>조회수</th>
@@ -99,7 +101,7 @@
 		</tbody>	
 	</table>
 	<div id ="fbtns">
-		<input type="button" value="글쓰기" onclick="location.href='${pageContext.request.contextPath}/community/freeboard/boardadd.action';" />	
+		<input type="button" value="글쓰기" class="btn" onclick="location.href='${pageContext.request.contextPath}/community/freeboard/boardadd.action';" />	
 	</div>
 	<div id="search">
 		<select id="fblistsel">
@@ -110,7 +112,7 @@
 			<option value="mNickName">글쓴이</option>
 		</select> 
 		<input type="text" id="word" name="word"> 
-		<input type="button" value="검색하기" id="btn" onclick="fsearch();">
+		<input type="button" class="btn" value="검색하기" id="btn" onclick="fsearch();">
 	</div>
 	<div id="pagebar">${pagebar}</div>
 
