@@ -9,6 +9,7 @@ import com.yol.web.DTO.AdminDTO;
 import com.yol.web.DTO.FAQDTO;
 import com.yol.web.DTO.InquiryDTO;
 import com.yol.web.DTO.InquiryboardDTO;
+import com.yol.web.DTO.MemberDTO;
 import com.yol.web.DTO.NoticeCategoryDTO;
 import com.yol.web.DTO.NoticeboardDTO;
 
@@ -134,6 +135,13 @@ public class AdminService implements IAdminService {
 		return dao.login(adto);
 	}
 	
+	@Override
+	public List<MemberDTO> mlist() {
+		
+		return dao.mlist();
+	}
+
+
 }//AmdinService
 
 

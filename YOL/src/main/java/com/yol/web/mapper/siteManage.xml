@@ -78,4 +78,8 @@ order by pbseq desc) a) where rnum &gt;= #{start} and rnum &lt;= #{end}
 				and ${column} like '%' || #{word} || '%' order by pbseq
 			</if>
 	</select>
+	
+	<update id="prdelok" parameterType="String">
+		update project set opseq = 2 where prseq = #{prSeq}
+	</update>
 </mapper>

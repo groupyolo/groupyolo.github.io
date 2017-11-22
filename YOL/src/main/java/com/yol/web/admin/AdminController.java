@@ -14,6 +14,7 @@ import com.yol.web.DTO.AdminDTO;
 import com.yol.web.DTO.FAQDTO;
 import com.yol.web.DTO.InquiryDTO;
 import com.yol.web.DTO.InquiryboardDTO;
+import com.yol.web.DTO.MemberDTO;
 import com.yol.web.DTO.NoticeboardDTO;
 
 @Controller
@@ -88,8 +89,11 @@ public class AdminController {
 		List<InquiryboardDTO> iblist = service.iblist(inquiryseq);
 		
 		req.setAttribute("iblist", iblist);
+		req.setAttribute("inquiryseq",inquiryseq);
 		
 		return "admin.inquiry.inquiryView";
+		
+		
 	}//noticeBoardView
 	
 	@RequestMapping(method={RequestMethod.GET}, value="/admin/inquiryadd.action")
@@ -141,8 +145,10 @@ public class AdminController {
 	@RequestMapping(method={RequestMethod.GET}, value="/admin/inquiryBoardadd.action")
 	public String inquiryBoard(HttpServletRequest req) {
 		
+
 				
 		return "admin.inquiry.inquiryView";
+		
 		
 	}//inquiryBoardadd
 	
@@ -151,9 +157,12 @@ public class AdminController {
 		
 		int result = service.readd(dto);
 
-		int result1 = service.readd1(inquiryseq);
+		//int result1 = service.readd1(inquiryseq);
+		
+		req.setAttribute("result", result);
 		
 		return "admin.inquiry.inquiryBoardOk";
+		
 	}//inquiryBoardOk
 	
 	@RequestMapping(method={RequestMethod.GET}, value="/admin/inquiryBoardDel.action")
@@ -232,6 +241,17 @@ public class AdminController {
 		  return "admin.login.loginOk";
 		  
 	  }
+
+	@RequestMapping(method={RequestMethod.GET}, value="/admin/adminMember.action")
+	public String member(HttpServletRequest req) {
+
+		List<MemberDTO> mlist = service.mlist();
+			
+		req.setAttribute("mlist", mlist);
+			
+		return "admin.noticeboard.adminMember";
+	}//회원보기
+	
 	
 	
 }//public

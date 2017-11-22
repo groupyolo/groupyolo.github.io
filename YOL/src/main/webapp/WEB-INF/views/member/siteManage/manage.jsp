@@ -75,7 +75,25 @@
 	});
 	function site(e) {
 		var n =e.value;
-		location.href = "/web/member/manage.action?prSeq=" + n;
+		location.href = "${pageContext.request.contextPath}/member/manage.action?prSeq=" + n;
+	}
+	
+	function sitedel() {
+		var seq;
+			<c:forEach items="${jlist}" var="jdto">
+				if (${jdto.grade} = '팀장') {
+					seq = ${jdto.mSeq};
+				}
+			</c:forEach>
+	
+		if (confirm("정말 삭제하시겠습니까?")) {
+			if (seq ==  ${loginDTO.mSeq}) {
+				location.href='${pageContext.request.contextPath}/member/prdelok.action?prSeq=${pdto.prSeq }';
+			}	else {
+				alert("권한이 없습니다.");
+			}		
+		}
+		
 	}
 </script>
 
@@ -170,7 +188,7 @@
 				</ul>
 		</div>
 		</div>
-		<div id="btn3"> <i class="glyphicon glyphicon-trash"></i><span>사이트 삭제</span> </div>
+		<div id="btn3" onclick="sitedel();"> <i class="glyphicon glyphicon-trash"></i><span>사이트 삭제</span> </div>
 	</div>
 
 	<c:if test="${count != 0 }">
@@ -274,7 +292,7 @@
 		<script>
 			var myCircle = Circles.create({
 				  id:                  'circles1',
-				  radius:              70,
+				  radius:              75,
 				  value:               8,
 				  maxValue:         200,
 				  width:               10,
@@ -286,7 +304,7 @@
 			
 			var myCircle = Circles.create({
 				  id:                  'circles2',
-				  radius:              70,
+				  radius:              75,
 				  value:               8,
 				  maxValue:         200,
 				  width:               10,
