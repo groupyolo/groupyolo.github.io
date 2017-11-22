@@ -8,11 +8,11 @@
 	}
 
 	#all {
-		width: 1903px;
+		width: 1903px;;
 		background-color: #eee;
-		margin: 0px auto;
-		margin-top:-30px;
-		margin-left:-452px;
+		/* margin: 0px auto; */
+		margin-top: -30px;
+	 	margin-left:-452px;
 	}
 
 	#topBox {
