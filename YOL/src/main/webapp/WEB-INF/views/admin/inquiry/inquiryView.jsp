@@ -1,48 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.12.4.js"></script>
 
 <style>
-	
+	.container { margin-bottom:30px; }
 	#inquiryreply th {
 		width:178px;
 	}
 	#inquiryreplyi th {
 		width:178px;
-	}
-	#inquiryreplyii td{
-		
-	}
-	
-
-	
+	}	
 </style>
-		
-<script>
-	
-	
-	$(document).ready(function() {
-		
-		
-	});
-</script>
-		
-
-</head>
-<body>
 
 	<h1  align="center">문의 게시판</h1>
 	
 	<div class="container">
 	<div align="center">
+	<table class="table table-boader" id="inquiryView" style="width:600px;">
 	<c:forEach items="${ivlist}" var="ivdto">
-	<table class="table table-boader" id="inquiryView" width="400px" height="300px">
 		<tr>
 			<th>번호</th>
 			<td>${ivdto.inquiryseq}</td>
@@ -52,8 +27,8 @@
 			<td>${ivdto.title}</td>
 		</tr>
 		<tr>
-			<th>내용</th>
-			<td>${ivdto.icontent}</td>
+			<th style="height:300px;vertical-align: middle;">내용</th>
+			<td style="vertical-align: middle;">${ivdto.icontent}</td>
 		</tr>
 		<tr>
 			<th>등록시간</th>
@@ -68,76 +43,41 @@
 			<td>${ibdto.content}</td>
 			<td><a type="button" name="redel" onclick="location.href='${pageContext.request.contextPath}/admin/inquiryBoardDel.action?inquiryboardseq=${ibdto.inquiryboardseq}';">삭제</a>
 		</tr> --%>
-		
+	<input type="hidden" name="inquiryseq" id="inquiryseq" value="${ivdto.inquiryseq}">
+</c:forEach>		
 	</table>
-
-	<input type="hidden" name="inquiryseq" value="${ivdto.inquiryseq}">
 	<c:forEach items="${iblist}" var="ibdto">
 	<input type="hidden" name="inquiryboardseq" value="${ibdto.inquiryboardseq}">
-
-	
-	<table class="table table-boader" id="inquiryreply">
+	<table class="table table-boader" id="inquiryreply" style="width:600px;">
 		<tr>
 			<th>댓글내용</th>
 			<td>	
 			${ibdto.content}
 			</td>
 			<td>
-			<a type="button" name="redel" onclick="location.href='${pageContext.request.contextPath}/admin/inquiryBoardDel.action?inquiryboardseq=${ibdto.inquiryboardseq}';">삭제</a>
+			<a type="button" style='cursor:pointer;' name="redel" onclick="location.href='${pageContext.request.contextPath}/admin/inquiryBoardDel.action?inquiryboardseq=${ibdto.inquiryboardseq}';">삭제</a>
 			</td>
 		</tr>	
 	</table>
-
+	</c:forEach>
 	
 
-	<div align="center">
+	<div align="center" >
 		<form action="${pageContext.request.contextPath}/admin/inquiryBoardOk.action" method="post">
 		
-		<table class="table table-boader" id="inquiryreplyi">
+		<table class="table table-boader" id="inquiryreplyi" style="width:600px;height:100px;">
 		<tr>
 			<th>내용</th>
-			<td width="500px"><textarea name="content" style="width:500px; resize:none;" requried></textarea>
+			<td width="500px"><textarea name="content" style="width:460px;height:70px; resize:none;" requried></textarea>
 			</td>
-			<td><input type="submit" value="등록" style="height:46px;"></td>	
+			<td><input type="hidden" name="inquiryseq" value="${inquiryseq}"/><input type="submit" value="등록" style="height:46px;"></td>
 		</tr>
 		</table>
 		</form>
 		
 		<input class="btn btn-normal" type="button" value="뒤로가기" onclick="history.back();">
-		<input class="btn btn-normal" type="button" value="글삭제" onclick="location.href='${pageContext.request.contextPath}/admin/inquiryDel.action?inquiryseq=${ivdto.inquiryseq}';">
-		<input class="btn btn-normal" type="button" id="iedit" name="iedit" value="수정하기" onclick="location.href='${pageContext.request.contextPath}/admin/inquiryEdit.action?inquiryseq=${ivdto.inquiryseq}';" >
+		<input class="btn btn-normal" type="button" value="글삭제" onclick="location.href='${pageContext.request.contextPath}/admin/inquiryDel.action?inquiryseq=${inquiryseq}';">
+		<input class="btn btn-normal" type="button" id="iedit" name="iedit" value="수정하기" onclick="location.href='${pageContext.request.contextPath}/admin/inquiryEdit.action?inquiryseq=${inquiryseq}';" >
 	</div>
-
-
-	</c:forEach>
-
-		</c:forEach>
 	</div>
-	
-		
-	
 	</div>
-		
-		
-
-	
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

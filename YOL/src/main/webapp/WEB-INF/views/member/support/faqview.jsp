@@ -3,6 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 
 	<style>
+	/* #mainCore { position: relative; } /* position: absolute; top:50px; left: 0; width: 100%; */
+	#box { position:static; } */
+	
 	.faqTitle{
 		cursor:pointer;
 	}	
@@ -45,6 +48,7 @@
 		margin-bottom:50px;
 	}
 	#searchImage{
+		
 		background-image: url("${pageContext.request.contextPath }/images/search.png");
 		/* width:1000px;*/
 		height:400px;
@@ -98,7 +102,7 @@
 	
 
 	</style>
-	
+<div id="mainCore">
 	<div id="searchImage">
 
 		<!-- 검색어 어떠헥 너었더라?? -->
@@ -159,10 +163,15 @@
 	</c:forEach>
 	</div>
 	</div>
-	
+</div>
 	
 		
 	<script>
+	var bwidth = $("body").width();
+	$("#mainCore").width(bwidth);
+	//$("#mainCore").css("top",'0');
+	console.log(mainCore.position().top());
+	//$("#mainCore").left($(window).left());
 	
 	$(".faqContent").hide();
 	
