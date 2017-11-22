@@ -100,11 +100,11 @@
 	#tblList #member td:nth-child(1) { width: 200px; padding-left: 20px; padding-top: 10px; }
 	#tblList #member td:nth-child(2) { width: 130px; float: right; font-size: 7pt;}
 	
-	#thirdchild{
+	#fourthchild, #secondchild, #thirdchild {
 		height:50px;
 	}
 	
-	#comsub{
+	.comsub {
 		background: #4E4845;
 		display:none;  /* 평상시에는 서브메뉴가 안보이게 하기 */
 		height:auto;
@@ -119,7 +119,7 @@
 		font-size:1.1em;
 	}
 	
-	#comsub li:hover{
+	.comsub li:hover{
 		cursor:pointer;
 	}
 	
@@ -132,29 +132,37 @@
 			<!-- <div class="logo"><span style="color:red">Y</span><span>o</span><span style="letter-spacing:-2px; color:yellow">L!</span></div> -->
 			<div class="topmenutext">
 				<div><a href="${pageContext.request.contextPath }/member/myinfo.action">나의정보</a>
-
 				</div>
-				<div><a href="${pageContext.request.contextPath }/member/mysites.action">내사이트</a></div>
+				<div id="secondchild"><a href="${pageContext.request.contextPath }/member/mysites.action">내사이트</a>
+					<ul class="comsub">
+						<li onclick="location.href='${pageContext.request.contextPath}/member/mysites.action';">내사이트</li>
+						<li onclick="location.href='${pageContext.request.contextPath}/member/teamMaster.action?mSeq=${loginDTO.mSeq}';">팀마스터</li>
+					</ul>
+				</div>
 				<div id="thirdchild"><a href="${pageContext.request.contextPath }/member/community.action">커뮤니티</a>
-					<ul id="comsub">
+					<ul id="comsub" class="comsub">
 						<li onclick="location.href='${pageContext.request.contextPath}/member/communityBoard.action';">모집게시판</li>
 						<li onclick="location.href='${pageContext.request.contextPath}/question/list.action';">질문게시판</li>
 						<li onclick="location.href='${pageContext.request.contextPath}/community/freeboard/boardlist.action';">자유게시판</li>
 					</ul>
 				</div>
-				<div><a href="${pageContext.request.contextPath }/main/faqview.action">고객지원</a></div>
+				<div id="fourthchild"><a href="${pageContext.request.contextPath }/main/faqview.action">고객지원</a>
+					<ul class="comsub">
+						<li onclick="location.href='${pageContext.request.contextPath}/member/faqview.action';">서포트센터</li>
+						<li onclick="location.href='${pageContext.request.contextPath}/member/inquirylist.action';">문의게시판</li>		
+					</ul>
+				</div>
 			</div>
 			
 		<script>
 		
-			$("#thirdchild").hover(
-				
-			  function () {
-				    $("#comsub").show();
-				  }, 
-				  function () {
-				    $("#comsub").hide();
-				  }
+			$(".topmenutext").hover(
+				function () {
+					    $(".comsub").show();
+				}, 
+				function () {
+					    $(".comsub").hide();
+				}
 			);
 				
 		</script>		

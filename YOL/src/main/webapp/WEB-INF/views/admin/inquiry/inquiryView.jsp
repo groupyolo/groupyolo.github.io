@@ -10,12 +10,17 @@
 
 <style>
 	
-	#inquiryView {
-		border:1px solid blue;
+	#inquiryreply th {
+		width:178px;
+	}
+	#inquiryreplyi th {
+		width:178px;
+	}
+	#inquiryreplyii td{
+		
 	}
 	
-	#inquiryView th {border:1px solid red;}
-	#inquiryView td {border:1px solid pink;}
+
 	
 </style>
 		
@@ -24,6 +29,7 @@
 	
 	$(document).ready(function() {
 		
+		
 	});
 </script>
 		
@@ -31,41 +37,48 @@
 </head>
 <body>
 
-	<h1>문의 게시판</h1>
+	<h1  align="center">문의 게시판</h1>
 	
+	<div class="container">
 	<div align="center">
 	<c:forEach items="${ivlist}" var="ivdto">
-	<table id="inquiryView" width="400px" height="300px">
+	<table class="table table-boader" id="inquiryView" width="400px" height="300px">
 		<tr>
-			<td>번호</td>
+			<th>번호</th>
 			<td>${ivdto.inquiryseq}</td>
 		</tr>
 		<tr>
-			<td>제목</td>
+			<th>제목</th>
 			<td>${ivdto.title}</td>
 		</tr>
 		<tr>
-			<td>내용</td>
+			<th>내용</th>
 			<td>${ivdto.icontent}</td>
 		</tr>
 		<tr>
-			<td>등록시간</td>
+			<th>등록시간</th>
 			<td>${ivdto.enrolltime }</td>
 		</tr>
 		<tr>
-			<td>조회수</td>
+			<th>조회수</th>
 			<td>${ivdto.hits}</td>
 		</tr>
+		<%-- <tr>
+			<td>내용</td>
+			<td>${ibdto.content}</td>
+			<td><a type="button" name="redel" onclick="location.href='${pageContext.request.contextPath}/admin/inquiryBoardDel.action?inquiryboardseq=${ibdto.inquiryboardseq}';">삭제</a>
+		</tr> --%>
 		
 	</table>
 
-	<c:forEach items="${iblist}" var="ibdto">
 	<input type="hidden" name="inquiryseq" value="${ivdto.inquiryseq}">
+	<c:forEach items="${iblist}" var="ibdto">
 	<input type="hidden" name="inquiryboardseq" value="${ibdto.inquiryboardseq}">
+
 	
-	<table id="inquiryreply">
+	<table class="table table-boader" id="inquiryreply">
 		<tr>
-			<th>내용</th>
+			<th>댓글내용</th>
 			<td>	
 			${ibdto.content}
 			</td>
@@ -75,27 +88,34 @@
 		</tr>	
 	</table>
 
-	</c:forEach>
 	
-		</c:forEach>
-	</div>
-		
-	
+
 	<div align="center">
 		<form action="${pageContext.request.contextPath}/admin/inquiryBoardOk.action" method="post">
 		
-		<table>
+		<table class="table table-boader" id="inquiryreplyi">
 		<tr>
 			<th>내용</th>
-			<td><textarea name="content" style="height:100px; width:200px; resize:none;" requried></textarea></td>
+			<td width="500px"><textarea name="content" style="width:500px; resize:none;" requried></textarea>
+			</td>
+			<td><input type="submit" value="등록" style="height:46px;"></td>	
 		</tr>
 		</table>
-		<input type="hidden" name="inquiryseq" value="${ivdto.inquiryseq}">
-		<input type="submit" value="등록">
-		<input type="button" value="뒤로가기" onclick="history.back();">
-		<input type="button" value="글삭제" onclick="location.href='${pageContext.request.contextPath}/admin/inquiryDel.action?inquiryseq=${ivdto.inquiryseq}';">
-		<input type="button" id="iedit" name="iedit" value="수정하기" onclick="location.href='${pageContext.request.contextPath}/admin/inquiryEdit.action?inquiryseq=${ivdto.inquiryseq}';" >
 		</form>
+		
+		<input class="btn btn-normal" type="button" value="뒤로가기" onclick="history.back();">
+		<input class="btn btn-normal" type="button" value="글삭제" onclick="location.href='${pageContext.request.contextPath}/admin/inquiryDel.action?inquiryseq=${ivdto.inquiryseq}';">
+		<input class="btn btn-normal" type="button" id="iedit" name="iedit" value="수정하기" onclick="location.href='${pageContext.request.contextPath}/admin/inquiryEdit.action?inquiryseq=${ivdto.inquiryseq}';" >
+	</div>
+
+
+	</c:forEach>
+
+		</c:forEach>
+	</div>
+	
+		
+	
 	</div>
 		
 		

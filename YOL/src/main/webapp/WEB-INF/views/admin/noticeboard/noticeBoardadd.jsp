@@ -19,7 +19,7 @@
 </head>
 <body>
 
-	<h1 align="center">문의사항 글쓰기</h1>
+	<h1 align="center">공지사항 글쓰기</h1>
 	
 	<div id="noticeBoardadd" align="center">
 		<form action="${pageContext.request.contextPath}/admin/noticeBoardaddOk.action" method="post">
