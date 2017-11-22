@@ -1,5 +1,25 @@
 <%@ page language='java' contentType='text/html; charset=UTF-8' pageEncoding='UTF-8'%><%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
 	
+			
+		<!-- 주업무 -->
+			
+	
+			
+		<!-- 주업무 -->
+			
+	
+			
+		<!-- 주업무 -->
+			
+	
+			
+		<!-- 주업무 -->
+			
+	
+			
+		<!-- 주업무 -->
+		
+
 
 <style>
 	
@@ -343,14 +363,12 @@
 	}
 	
 	#remotecon{
-		border:0px solid black;
+		border:1px solid black;
 		width:100px;
 		height:100px;
 		position:fixed;
 		top: 100px;
 		right:20px;
-		text-align: center;
-		font-weight: bold;
 		
 	}
 	
@@ -358,6 +376,7 @@
 </style>
 <script src="//cdn.ckeditor.com/4.7.3/full/ckeditor.js"></script>
 <script>
+
 $(document).ready(function() {    
 
 	
@@ -419,7 +438,7 @@ $(document).ready(function() {
 	<div class="column ui-sortable" id="sortable">
  
 	  <div class="portlet ui-resizable ui-droppable ui-widget ui-widget-content ui-helper-clearfix ui-corner-all">
-	   <div class="portlet-header ui-widget-header ui-corner-all ui-sortable-handle"><span class="ui-icon ui-icon-minusthick portlet-toggle"></span><span class="ui-icon ui-icon-minusthick portlet-toggle"></span><span class="ui-icon ui-icon-minusthick portlet-toggle"></span><span class="ui-icon ui-icon-minusthick portlet-toggle"></span><span class="ui-icon ui-icon-minusthick portlet-toggle"></span><span class="ui-icon ui-icon-minusthick portlet-toggle"></span></div>
+	   <div class="portlet-header ui-widget-header ui-corner-all ui-sortable-handle"><span class="ui-icon ui-icon-minusthick portlet-toggle"></span><span class="ui-icon ui-icon-minusthick portlet-toggle"></span><span class="ui-icon ui-icon-minusthick portlet-toggle"></span><span class="ui-icon ui-icon-minusthick portlet-toggle"></span><span class="ui-icon ui-icon-minusthick portlet-toggle"></span></div>
 	    <div class="portlet-content">
 	    		<div class="menu">
 		
@@ -442,30 +461,30 @@ $(document).ready(function() {
 		
 		</div>
 		</div>	
-	  <div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div></div>
+	  <div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div></div>
 	 
 	  <div class="portlet ui-resizable ui-droppable ui-widget ui-widget-content ui-helper-clearfix ui-corner-all">
-	   <div class="portlet-header ui-widget-header ui-corner-all ui-sortable-handle"><span class="ui-icon ui-icon-minusthick portlet-toggle"></span><span class="ui-icon ui-icon-minusthick portlet-toggle"></span><span class="ui-icon ui-icon-minusthick portlet-toggle"></span><span class="ui-icon ui-icon-minusthick portlet-toggle"></span><span class="ui-icon ui-icon-minusthick portlet-toggle"></span><span class="ui-icon ui-icon-minusthick portlet-toggle"></span></div>
+	   <div class="portlet-header ui-widget-header ui-corner-all ui-sortable-handle"><span class="ui-icon ui-icon-minusthick portlet-toggle"></span><span class="ui-icon ui-icon-minusthick portlet-toggle"></span><span class="ui-icon ui-icon-minusthick portlet-toggle"></span><span class="ui-icon ui-icon-minusthick portlet-toggle"></span><span class="ui-icon ui-icon-minusthick portlet-toggle"></span></div>
 	    <div class="portlet-content">
 	    	<div class="textbox1">
 		<div class="row">
 		<div class="innerbox">
 			<div class="textbox cke_editable cke_editable_inline cke_contents_ltr cke_show_borders" contenteditable="true" tabindex="0" spellcheck="false" role="textbox" aria-label="리치 텍스트 편집기, editor1" title="리치 텍스트 편집기, editor1" aria-describedby="cke_142" style="position: relative;"><div class="text1">01</div><div class="text2">STRATEGY</div><div class="text3"><hr></div><div class="text4">안녕하세요</div></div>
-			<div class="textbox cke_editable cke_editable_inline cke_contents_ltr cke_show_borders" contenteditable="true" tabindex="0" spellcheck="false" role="textbox" aria-label="리치 텍스트 편집기, editor2" title="리치 텍스트 편집기, editor2" aria-describedby="cke_233" style="position: relative;"><div class="text1">02</div><div class="text2">DESIGN</div><div class="text3"><hr></div><div class="text4">반가워요</div></div>
-			<div class="textbox cke_editable cke_editable_inline cke_contents_ltr cke_focus cke_show_borders" contenteditable="true" tabindex="0" spellcheck="false" role="textbox" aria-label="리치 텍스트 편집기, editor3" title="리치 텍스트 편집기, editor3" aria-describedby="cke_324" style="position: relative;"><div class="text1">03</div><div class="text2">DEVELOP</div><div class="text3"><hr></div><div class="text4">제발</div></div>
+			<div class="textbox cke_editable cke_editable_inline cke_contents_ltr cke_show_borders" contenteditable="true" tabindex="0" spellcheck="false" role="textbox" aria-label="리치 텍스트 편집기, editor2" title="리치 텍스트 편집기, editor2" aria-describedby="cke_233" style="position: relative;"><div class="text1">02</div><div class="text2">DESIGN</div><div class="text3"><hr></div><div class="text4">으아니?</div></div>
+			<div class="textbox cke_editable cke_editable_inline cke_contents_ltr cke_show_borders" contenteditable="true" tabindex="0" spellcheck="false" role="textbox" aria-label="리치 텍스트 편집기, editor3" title="리치 텍스트 편집기, editor3" aria-describedby="cke_324" style="position: relative;"><div class="text1">03</div><div class="text2">DEVELOP</div><div class="text3"><hr></div><div class="text4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis tempora excepturi praesentium vitae molestias quas deserunt sunt optio itaque eum aliquid ab. Odit libero reiciendis ab aperiam reprehenderit ipsa commodi!</div></div>
 			<div class="textbox cke_editable cke_editable_inline cke_contents_ltr cke_show_borders" contenteditable="true" tabindex="0" spellcheck="false" role="textbox" aria-label="리치 텍스트 편집기, editor4" title="리치 텍스트 편집기, editor4" aria-describedby="cke_415" style="position: relative;"><div class="text1">04</div><div class="text2">MARKETING</div><div class="text3"><hr></div><div class="text4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis tempora excepturi praesentium vitae molestias quas deserunt sunt optio itaque eum aliquid ab. Odit libero reiciendis ab aperiam reprehenderit ipsa commodi!</div></div>
 			</div>
 		</div>
 	</div> 
 	    </div>
-	  <div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div></div>
+	  <div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div></div>
 	 
 	</div>
 	 
 	<div class="column ui-sortable">
 	 
 	  <div class="portlet ui-resizable ui-droppable ui-widget ui-widget-content ui-helper-clearfix ui-corner-all">
-	   <div class="portlet-header ui-widget-header ui-corner-all ui-sortable-handle"><span class="ui-icon ui-icon-minusthick portlet-toggle"></span><span class="ui-icon ui-icon-minusthick portlet-toggle"></span><span class="ui-icon ui-icon-minusthick portlet-toggle"></span><span class="ui-icon ui-icon-minusthick portlet-toggle"></span><span class="ui-icon ui-icon-minusthick portlet-toggle"></span><span class="ui-icon ui-icon-minusthick portlet-toggle"></span></div>
+	   <div class="portlet-header ui-widget-header ui-corner-all ui-sortable-handle"><span class="ui-icon ui-icon-minusthick portlet-toggle"></span><span class="ui-icon ui-icon-minusthick portlet-toggle"></span><span class="ui-icon ui-icon-minusthick portlet-toggle"></span><span class="ui-icon ui-icon-minusthick portlet-toggle"></span><span class="ui-icon ui-icon-minusthick portlet-toggle"></span></div>
 	    <div class="portlet-content">
 	    	<div class="contents1">
 				<div class="row">
@@ -483,14 +502,14 @@ $(document).ready(function() {
 				</div>
 			</div>
 	    </div>
-	  <div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div></div>
+	  <div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div></div>
 	 
 	</div>
 	 
 	<div class="column ui-sortable">
 	 
 	  <div class="portlet ui-resizable ui-droppable ui-widget ui-widget-content ui-helper-clearfix ui-corner-all">
-	    <div class="portlet-header ui-widget-header ui-corner-all ui-sortable-handle"><span class="ui-icon ui-icon-minusthick portlet-toggle"></span><span class="ui-icon ui-icon-minusthick portlet-toggle"></span><span class="ui-icon ui-icon-minusthick portlet-toggle"></span><span class="ui-icon ui-icon-minusthick portlet-toggle"></span><span class="ui-icon ui-icon-minusthick portlet-toggle"></span><span class="ui-icon ui-icon-minusthick portlet-toggle"></span></div>
+	    <div class="portlet-header ui-widget-header ui-corner-all ui-sortable-handle"><span class="ui-icon ui-icon-minusthick portlet-toggle"></span><span class="ui-icon ui-icon-minusthick portlet-toggle"></span><span class="ui-icon ui-icon-minusthick portlet-toggle"></span><span class="ui-icon ui-icon-minusthick portlet-toggle"></span><span class="ui-icon ui-icon-minusthick portlet-toggle"></span></div>
 	    <div class="portlet-content">
 			<div class="gallery1">
 				<div class="row">
@@ -525,9 +544,9 @@ $(document).ready(function() {
 				</div>
 			</div>
 	    </div>
-	  <div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div></div>
+	  <div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div></div>
 	  <div class="portlet ui-resizable ui-droppable ui-widget ui-widget-content ui-helper-clearfix ui-corner-all">
-	    <div class="portlet-header ui-widget-header ui-corner-all ui-sortable-handle"><span class="ui-icon ui-icon-minusthick portlet-toggle"></span><span class="ui-icon ui-icon-minusthick portlet-toggle"></span><span class="ui-icon ui-icon-minusthick portlet-toggle"></span><span class="ui-icon ui-icon-minusthick portlet-toggle"></span><span class="ui-icon ui-icon-minusthick portlet-toggle"></span><span class="ui-icon ui-icon-minusthick portlet-toggle"></span></div>
+	    <div class="portlet-header ui-widget-header ui-corner-all ui-sortable-handle"><span class="ui-icon ui-icon-minusthick portlet-toggle"></span><span class="ui-icon ui-icon-minusthick portlet-toggle"></span><span class="ui-icon ui-icon-minusthick portlet-toggle"></span><span class="ui-icon ui-icon-minusthick portlet-toggle"></span><span class="ui-icon ui-icon-minusthick portlet-toggle"></span></div>
 	    <div class="portlet-content">
 	    	<div class="conBox1">
 				<div class="conText">
@@ -548,7 +567,7 @@ $(document).ready(function() {
 			
 			</div>
 	    </div>
-	  <div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div></div>
+	  <div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div></div>
 	 
 	
 	 
@@ -563,16 +582,50 @@ $(document).ready(function() {
 	<form method="POST" action="/web/member/filewriter.action">
 	<textarea style="display:none;" name="whatda" id="whatda" cols="30" rows="10">	
 	</textarea>
-	<input type="hidden"  name="prFileName" value="works.144.4.구리구리병아리">
+	<input type="hidden" name="prFileName" value="works.144.4.구리구리병아리">
 	<input type="hidden" name="prSeq" value="144">
-	<input type="submit" class="btn" style="width:100%;" value="저장하기" onclick="save();">
-	<span style="width:100%;"><a id="export" class="btn" style="border:1px soild ligthgrey;"download="" href="#">내려받기</a></span>
-	<input type="button"class="btn" style="width:100%;"value="이미지추가" id="btnImg">
+	<input type="submit" value="저장하기" onclick="save();">
+
+	<span>*이미지 사이즈*</span>
+	<input type="button" value="이미지추가" id="btnImg">
 	<div id="imgAll"></div>
 	
 	</form>
 	</div>
 
+
+		
+		<!-- footer -->
+
+		
+
+	
+	
+		
+		<!-- footer -->
+
+		
+
+	
+	
+		
+		<!-- footer -->
+
+		
+
+	
+	
+		
+		<!-- footer -->
+
+		
+
+	
+	
+		
+		<!-- footer -->
+
+		
 
 	
 	

@@ -13,7 +13,7 @@
 	<definition name="works.*.*.*" template="/WEB-INF/views/layouts/works/works_template.jsp" >
 		
 		<put-attribute name="asset" value="/WEB-INF/views/inc/commons/asset.jsp"></put-attribute>	
-		<put-attribute name="membermenu" value="/WEB-INF/views/inc/member/membermenu.jsp"></put-attribute>
+		<put-attribute name="membermenu" value="/WEB-INF/views/inc/works/membermenu.jsp"></put-attribute>
 		<put-attribute name="footer" value="/WEB-INF/views/inc/commons/footer.jsp"></put-attribute>
 
 

@@ -72,9 +72,9 @@
 	
 	
 	<div id="fboardwrapper">
-	<div class="core_top">
+
 	<h2 class="boxBasic">자유게시판</h2>
-	</div>
+
 	<table id="tblfreeboard" class="table table-hover" >
 		<thead>
 		<tr>

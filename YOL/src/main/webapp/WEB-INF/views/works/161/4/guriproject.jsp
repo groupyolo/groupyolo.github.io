@@ -344,14 +344,12 @@
 	}
 	
 	#remotecon{
-		border:0px solid black;
+		border:1px solid black;
 		width:100px;
 		height:100px;
 		position:fixed;
 		top: 100px;
 		right:20px;
-		text-align: center;
-		font-weight: bold;
 		
 	}
 	
