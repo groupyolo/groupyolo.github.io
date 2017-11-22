@@ -5,13 +5,13 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
 <style>
-	.container { margin-bottom:30px; }
+	.container { margin-bottom:30px; width:850px; }
 </style>
 
 	
 	<div class="container">
 	<h1 align="center">공지사항 게시판</h1>
-		<table class="table table-boader" >
+		<table class="table table-boader" style="margin:0 auto;">
 			<thead>
 				<colgroup>
 				<col width="7%">	<!-- 글 번호 -->
@@ -36,7 +36,7 @@
 			</c:forEach>
 			</tdoby>
 		</table>
-				<input class="btn btn-normal pull-right" type="button" value="글쓰기" onclick="location.href='/web/admin/noticeBoardadd.action';">
+				<input class="btn btn-normal pull-right" type="button" style="margin-top:10px;" value="글쓰기" onclick="location.href='/web/admin/noticeBoardadd.action';">
 	</div>
 		
 	
