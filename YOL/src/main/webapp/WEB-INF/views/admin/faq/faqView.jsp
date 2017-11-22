@@ -8,7 +8,7 @@
 	
 	<div class="container">
 	<c:forEach items="${fvlist}" var="fvdto">
-	<table class="table table-boader" id="faqView" style="width:600px;">
+	<table class="table table-boader" id="faqView" style="width:650px;margin:0 auto;">
 		<tr>
 			<th>번호</th>
 			<td>${fvdto.FAQseq}</td>

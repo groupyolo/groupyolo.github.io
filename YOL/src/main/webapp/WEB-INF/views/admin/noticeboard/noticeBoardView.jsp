@@ -2,14 +2,14 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <style>
-	.container { margin-bottom:30px; }
+	.container { margin-bottom:30px;width:650px; }
 </style>
 
 	<h1 align="center">공지사항 게시판</h1>
 	
 	<div class="container">
 	<c:forEach items="${vlist}" var="vdto">
-	<table class="table table-boader" id="noticeBoardView" align="center">
+	<table class="table table-boader" id="noticeBoardView" style="margin:0 auto;" align="center">
 		<tr>
 			<td>제목</td>
 			<td>${vdto.title}</td>

@@ -7,7 +7,7 @@
 	<h1 align="center">FAQ 게시판</h1>
 	
 	<div class="container">
-		<table class="table table-board" id="inquiry">	
+		<table class="table table-board" id="inquiry" style="width:850px;margin:0 auto;">	
 			<colgroup>
 				<col width="7%">	<!-- 글 번호 -->
 				<col width="*">	<!-- 제목 -->
