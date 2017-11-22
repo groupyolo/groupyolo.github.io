@@ -25,6 +25,7 @@
 		border-collapse: collapse;
 		width: 1000px;
 		margin: 0px auto;
+		height: 200px;
 	}
 
 
@@ -41,9 +42,9 @@
 		border: 1px solid black;
 	}
 	
-	#tblList td { text-align: center; }
+	#tblList td { text-align: center; height: 50xp; padding: 0px; margin: 0px;}
 	
-	#tblList tr { border-bottom: 1px solid black; }
+	#tblList tr { border-bottom: 1px solid black; display: table-row; height: 50px;}
 	
 	#tblList th:nth-child(1) { width: 100px; }
 	#tblList th:nth-child(2) { width: 600px; }
