@@ -3,6 +3,7 @@ package com.yol.web.member.creation;
 import java.util.List;
 
 import com.yol.web.DTO.ConceptDTO;
+import com.yol.web.DTO.LoginDTO;
 import com.yol.web.DTO.VCreationDTO;
 
 
@@ -21,4 +22,7 @@ public interface ICreationService {
 	String[] copyTemplate (VCreationDTO dto, int prSeq);
 
 	String projectedit(int prSeq);
+
+	List<LoginDTO> getLogList(String mSeq);
+
 }

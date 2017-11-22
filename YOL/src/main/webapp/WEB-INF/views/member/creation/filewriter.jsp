@@ -6,7 +6,10 @@ String prSeq = request.getParameter("prSeq");
 %>
 
 	<c:if test="${result==1}">
-		되나본데
+		<script>
+			alert("저장이 완료되었습니다.");
+			history.back();
+		</script>
 	</c:if>
 	<c:if test="${result==0}">
 		<%=prSeq %>

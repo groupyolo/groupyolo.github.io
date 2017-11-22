@@ -7,8 +7,40 @@ public class LoginDTO {
 	private String lsSeq;
 	private String lDate;
 	private String lCheckIP;
+	private String year;
+	private String mon;
+	private String day;	
+	private String cnt;
 
 	
+	public String getCnt() {
+		return cnt;
+	}
+	public void setCnt(String cnt) {
+		this.cnt = cnt;
+	}
+	
+	public void setDay(String day) {
+		this.day = day;
+	}
+	public String getYear() {
+		year = lDate.substring(0,4);
+		return year;
+	}
+	public void setYear(String year) {
+		this.year = year;
+	}
+	public String getMon() {
+		mon = lDate.substring(5,7);
+		return mon;
+	}
+	public void setMon(String mon) {
+		this.mon = mon;
+	}
+	public String getDay() {
+		day = lDate.substring(8,10);
+		return day;
+	}
 	
 	public String getlCheckIP() {
 		return lCheckIP;

@@ -16,7 +16,7 @@
 		INSERT INTO Project values(prSeq.nextval, reSeq.currval, #{teSeq}, #{opSeq}, #{prName}, #{prURL}, default, default, default, #{prName}||sysdate||'.jsp', #{siteName} )
 	</insert>
 	<select id="getList" parameterType="String" resultType="com.yol.web.DTO.VCreationDTO">
-		SELECT * FROM VCREATEINFO where mSeq=#{mSeq}
+		SELECT * FROM VCREATEINFO where mSeq=#{mSeq} and opseq in (0, 1)
 	</select>
 
 	<select id="getPrSeq" resultType="Integer">

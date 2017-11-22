@@ -4,11 +4,14 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
+<style>
+	.container { margin-bottom:30px; }
+</style>
 
-	<h1 align="center">공지사항 게시판</h1>
 	
 	<div class="container">
-		<table class="table table-boader">
+	<h1 align="center">공지사항 게시판</h1>
+		<table class="table table-boader" >
 			<thead>
 				<colgroup>
 				<col width="7%">	<!-- 글 번호 -->

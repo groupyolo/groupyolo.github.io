@@ -7,14 +7,56 @@
 <div class="gallery1">
 	<div class="row">
 		<div class="line1">
-			<div class="img1"></div>
-			<div class="img2"></div>
-			<div class="img3"></div>
+			<div class="img1">
+				<img src="${pageContext.request.contextPath }/images/g1.JPG" alt="" />
+				<div class="con">
+					<span>LITORA</span>
+					<br />
+					<span>Sed ul imperdiet ul semper felis</span>
+				</div>
+			</div>
+			<div class="img2">
+				<img src="${pageContext.request.contextPath }/images/g2.JPG" alt="" />
+				<div class="con">
+					<span>CONUBIA</span>
+					<br />
+					<span>Sed ul imperdiet ul semper felis</span>
+				</div>
+			</div>
+			<div class="img3">
+				<img src="${pageContext.request.contextPath }/images/g3.JPG" alt="" />
+				<div class="con">
+					<span>NOSTRA</span>
+					<br />
+					<span>Sed ul imperdiet ul semper felis</span>
+				</div>
+			</div>
 		</div>
 		<div class="line2">
-			<div class="img1"></div>
-			<div class="img2"></div>
-			<div class="img3"></div>
+			<div class="img1">
+				<img src="${pageContext.request.contextPath }/images/g3.JPG" alt="" />
+				<div class="con">
+					<span>MAECENAS</span>
+					<br />
+					<span>Sed ul imperdiet ul semper felis</span>
+				</div>
+			</div>
+			<div class="img2">
+				<img src="${pageContext.request.contextPath }/images/g4.JPG" alt="" />
+				<div class="con">
+					<span>LACUS</span>
+					<br />
+					<span>Sed ul imperdiet ul semper felis</span>
+				</div>
+			</div>
+			<div class="img3">
+				<img src="${pageContext.request.contextPath }/images/g5.JPG" alt="" />
+				<div class="con">
+					<span>MAURIS</span>
+					<br />
+					<span>Sed ul imperdiet ul semper felis</span>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

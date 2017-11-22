@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<script src="/web/js/jquery-1.12.4.js"></script>
+<script src="${pageContext.request.contextPath}/js/jquery-1.12.4.js"></script>
 <link rel="stylesheet" href="${pageContext.request.contextPath }/css/membersite.css"/>
-
+<script src="https://code.highcharts.com/highcharts.src.js"></script>
+<script src="${pageContext.request.contextPath}/js/circles.js"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109683796-1"></script>
 <script>
 
@@ -74,7 +75,25 @@
 	});
 	function site(e) {
 		var n =e.value;
-		location.href = "/web/member/manage.action?prSeq=" + n;
+		location.href = "${pageContext.request.contextPath}/member/manage.action?prSeq=" + n;
+	}
+	
+	function sitedel() {
+		var seq;
+			<c:forEach items="${jlist}" var="jdto">
+				if (${jdto.grade} = '팀장') {
+					seq = ${jdto.mSeq};
+				}
+			</c:forEach>
+	
+		if (confirm("정말 삭제하시겠습니까?")) {
+			if (seq ==  ${loginDTO.mSeq}) {
+				location.href='${pageContext.request.contextPath}/member/prdelok.action?prSeq=${pdto.prSeq }';
+			}	else {
+				alert("권한이 없습니다.");
+			}		
+		}
+		
 	}
 </script>
 
@@ -105,8 +124,8 @@
 				</c:forEach>
 			</select>
 				
-			<div class="info">	SITE URL : http://${pdto.prURL }</div>
-			<div class="info">LAST UPDATA - </div> 
+			<div class="info">	SITE URL <span style="margin-left:35px;"> http://${pdto.prURL }</span></div>
+			<div class="info">LAST UPDATA <span style="margin-left:5px;">-</span> </div> 
 		</div>
 		<div id="btn1">
 			<div id="siteEdit" onclick="location.href='${pageContext.request.contextPath }/member/creation/projectedit.action?prSeq=${pdto.prSeq}'" ><i class="fa fa-pencil"></i>사이트 편집</div>
@@ -169,7 +188,7 @@
 				</ul>
 		</div>
 		</div>
-		<div id="btn3"> <i class="glyphicon glyphicon-trash"></i><span>사이트 삭제</span> </div>
+		<div id="btn3" onclick="sitedel();"> <i class="glyphicon glyphicon-trash"></i><span>사이트 삭제</span> </div>
 	</div>
 
 	<c:if test="${count != 0 }">
@@ -198,7 +217,7 @@
 	</c:if>
 		
 	<div class="site-cts">
-		<a href="" class="cts-box" >
+		<a href="${pageContext.request.contextPath }/inquiry/list.action" class="cts-box" >
 			<span>궁금한 점이나 불편한 사항이 있으신가요? 의견 남겨주시면 바로 회신드리고 서비스에 적극 반영하도록 하겠습니다. <strong><b>1:1 문의하기</b></strong></span>
 			<i class="fa fa-chevron-right"></i>
 		</a>
@@ -212,39 +231,89 @@
 					<div class="site-sub-title">사이트 방문자 통계</div>
 					<div class='visit-date'>
 						<div class='change-date-box'>
-					        <div id='site-visit-start-wrap' class="input-group">
-							  <input id="site-visit-start" type="text" class="form-control" aria-describedby="site visit start date" readonly="true">
-							</div>
-							<span class="fa"></span>
-					        <div id='site-visit-end-wrap' class="input-group">
-							  <input id="site-visit-end" type="text" class="form-control" aria-describedby="site visit end date" readonly="true">
-							</div>
+							  <input id="site-visit-start" type="date" class="form-control" value="2017-11-16" aria-describedby="site visit start date">
+							<span class="fa"> ~</span>
+							  <input id="site-visit-end" type="date" class="form-control" value="2017-11-22" aria-describedby="site visit end date">
 						</div>
 					</div>
 					<ul class='visit-info legend'>
 						<li>
 							<label>오늘</label>
-							<span class="count today-visit"></span>
+							<span class="count today-visit">0</span>
 						</li>
 						<li>
 							<label>전체</label>
-							<span class="count total-visit"></span>
+							<span class="count total-visit">1</span>
 						</li>
 					</ul>
 
-					<div class="visit-chart">
-						<canvas id="visitChart">
-						</canvas>
-					</div>
-					<div class='analytics-source'>
-						<a href="/analytics/view">유입경로</a>
-					</div>
+					<div  id="container" class="visit-chart"></div>
+					
+		<script type="text/javascript">
+			Highcharts.chart('container', {
+			
+			    title: {
+			        text: ''
+			    },
+			
+			    xAxis: {
+			       tickInterval: 1 
+			    },
+			
+			    yAxis: {
+			       /* type: 'logarithmic', */
+			        minorTickInterval: 0.1 
+			    },
+						    
+			    tooltip: {
+			        headerFormat: '<b>{series.name}</b><br />',
+			        pointFormat: 'x = {point.x}, y = {point.y}'
+			    },
+			
+			    series: [{
+			        data: [0, 0, 1, 0, 0, 0, 0],
+			        pointStart: 16
+			    }]
+			});
+			
+			$(".highcharts-legend-item").remove();
+			$(".highcharts-credits").css("font-size","0px");
+		</script>
 			</div>
 			<div id="use">
- 				<div>사용 용량</div> 
+ 				<div id="use-info">사용 용량</div> 
+ 				<div id="tr-info">트래픽 사용(월)</div>
+ 				<div style="clear:both;"></div>
+ 				<div id="circles1"></div>
+ 				<div id="circles2"></div>
 			</div>
 		</div>	
 	
+		<script>
+			var myCircle = Circles.create({
+				  id:                  'circles1',
+				  radius:              75,
+				  value:               8,
+				  maxValue:         200,
+				  width:               10,
+				  text:                function(value){return value;},
+				  colors:              ['#eee', 'rgb(85, 98, 116)'],
+				  duration:         70
+				 
+				});
+			
+			var myCircle = Circles.create({
+				  id:                  'circles2',
+				  radius:              75,
+				  value:               8,
+				  maxValue:         200,
+				  width:               10,
+				  text:                function(value){return value;},
+				  colors:              ['#eee', 'rgb(85, 98, 116)'],
+				  duration:         70
+				 
+				});
+		</script>
 	<div role="tabpanel" id=inbox>
 		  <!-- Nav tabs -->
 		  <ul class="nav nav-tabs" role="tablist">

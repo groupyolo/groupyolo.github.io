@@ -44,5 +44,7 @@ public interface ISiteManageService {
 
 	int getTotalCount(HashMap<String, String> map);
 
+	int prdelok(String prSeq);
+
 
 }

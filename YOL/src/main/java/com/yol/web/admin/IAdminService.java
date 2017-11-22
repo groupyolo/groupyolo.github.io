@@ -6,6 +6,7 @@ import com.yol.web.DTO.AdminDTO;
 import com.yol.web.DTO.FAQDTO;
 import com.yol.web.DTO.InquiryDTO;
 import com.yol.web.DTO.InquiryboardDTO;
+import com.yol.web.DTO.MemberDTO;
 import com.yol.web.DTO.NoticeCategoryDTO;
 import com.yol.web.DTO.NoticeboardDTO;
 
@@ -48,6 +49,8 @@ public interface IAdminService {
 	int faqDel(String FAQseq);
 
 	AdminDTO logIn(AdminDTO adto);
+
+	List<MemberDTO> mlist();
 
 
 

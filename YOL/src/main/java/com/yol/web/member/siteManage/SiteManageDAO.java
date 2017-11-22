@@ -85,6 +85,10 @@ public class SiteManageDAO {
 	public int getTotalCount(HashMap<String, String> map) {
 		return sql.selectOne("siteManage.getTotalCount", map);
 	}
+
+	public int prdelok(String prSeq) {
+		return sql.update("siteManage.prdelok", prSeq);
+	}
 	
 	
 }
