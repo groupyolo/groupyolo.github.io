@@ -7,8 +7,21 @@ $(document).ready(function() {
 	//동적으로 이미지 div 생성
 	var num = 1;
 	$("#btnImg").click(function() {
-		var div = "<div class='adImg'><input type='file' class='imgInp' id='imgInp"+num+"'/><div class='imgtemp'><img src='#' alt='img' id='imgtag"+num+"' onclick='imgResize(imgtag"+num+")' /></div></div>";
-		$("#imgAll").append(div);
+		var div = "<div class='portlet ui-resizable ui-droppable ui-widget ui-widget-content ui-helper-clearfix ui-corner-all droptab'>" +
+							"<div class='portlet-header ui-widget-header ui-corner-all ui-sortable-handle'>" +
+							"<span class='ui-icon ui-icon-minusthick portlet-toggle'></span>" +
+							"</div>" +
+							
+							"<div class='portlet-content'>" +
+								"<div class='adImg '>" +
+									"<input type='file' class='imgInp' id='imgInp"+num+"'/>" +
+										"<div class='imgtemp'>" +
+										"<img src='#' alt='img' id='imgtag"+num+"' onclick='imgResize(imgtag"+num+")' />" +
+										"</div>" +
+								"</div>" +
+							"</div>" +
+						"</div>";
+		$("#sortable").append(div);
 		num++;
 	});		
 });

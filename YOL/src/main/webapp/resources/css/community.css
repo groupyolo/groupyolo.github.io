@@ -31,7 +31,7 @@
 
 #tblfreeboard{
 	margin: 0px auto;	
-	border:1px solid black;
+	border:0px solid black;
 }
 
 #tblfreeboard tr th{
@@ -46,11 +46,11 @@
 }
 #tblfreeboard tr th:nth-child(1){
 	width: 50px;
-	border: 1px solid red;	
+	border: 0px solid red;	
 }
 #tblfreeboard tr th:nth-child(2){
 	
-	width: 500px;	
+	width: 420px;	
 }
 #tblfreeboard tr th:nth-child(3){
 	width: 150px;	
@@ -68,7 +68,7 @@
 #fboardadd{
 	width:85%; height:600px;
 	margin:0px auto;
-	border:1px dashed red;
+	border:0px dashed red;
 	
 }
 
@@ -84,7 +84,7 @@
 	margin: 0px auto;
 }
 #tblfboardadd{
-	width: 100%;
+	width: 100%;	
 	margin: 0px auto;
 		
 }
@@ -125,16 +125,40 @@
 	font-weight: bold;
 }
 
-#tblboardview div:nth-child(1){
-	border: 1px solid red;
+#viewhead{
+	border:0px solid black;	
 }
+
+#tblboardview div:nth-child(4){
+	border:1px solid lightgrey;
+	border-radius: 5px;
+	padding:20px;
+	padding-top:10px;
+	height:400px;
+}
+
 
 #pagebar, #search{
 	text-align: center;	
 }
 
+#tblviewhead tr:nth-child(1) th{
+		
+		width:100px;
+}
+#tblviewhead tr:nth-child(1) th ~ td{
+		
+		width:450px;
+}
+
+
+
+
 #fboardbtns{
+	width:85%;
+	margin:0px auto;
 	text-align: right;
+	
 	
 }
 

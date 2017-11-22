@@ -1,15 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <style>
-	#cbox { width:100%; }
-	#tblComment, #tblCList { border: 1px solid gray; width: 800px; border-collapse:collapse;}
-	#tblComment td, #tblCList td { border: 1px solid gray; padding: 5px; text-align:center; }
+	#cbox { width:85%; margin:0px auto;}
+	#tblComment, #tblCList { border: 0px solid gray; width: 800px; border-collapse:collapse;}
+	#tblComment td, #tblCList td { border: 0px solid gray; padding: 5px; text-align:center; }
 	#tblComment td:nth-child(1) { width: 700px; }
 	#tblComment td:nth-child(2) { width: 100px; }
 	
 	#tblCList td:nth-child(1) { width: 100px; }
 	#tblCList td:nth-child(2) { width: 600px; }
-	#tblCList td:nth-child(3) { width: 100px; }
+	#tblCList td:nth-child(3) { width: 100px;}
 </style>
 <script>
 	function del(fbSeq) {
@@ -82,23 +82,32 @@
 	};
 	
 </script>
+
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/jointeam.css">
+
 	<div id="tblboardview">
 		<h2>자유게시판</h2>
-		<div>
-			<p><span>제목</span>${vdto.fbName }<span>${vdto.fbTime.substring(0, 19)}</span></p>
+		<div id="viewhead">
+		<table id="tblviewhead"class="table">
+			<tr>
+				<th>제목</th><td>${vdto.fbName }</td><th>작성시간</th><td  colspan="3">${vdto.fbTime.substring(0, 19)}</td>
+			</tr>
+			<tr>
+				<th>작성자</th><td>${vdto.mNickName}</td><th>조회수</th><td>${vdto.fbVCount}</td><th>댓글수</th><td>${clist.size()}</td>
+		</table>
 		</div>	
 		<div>
-			<p><span>작성자 : ${vdto.mNickName}</span><span>조회수 : ${vdto.fbVCount}</span><span>댓글수 : ${clist.size()}</span></p>
+		
 		</div>
 		<div>
 			<p>${vdto.fbMain}</p>
 		</div>
 	</div>
 	<div id="fboardbtns">
-		<input type="button" value="돌아가기" onclick="location.href='${pageContext.request.contextPath}/community/freeboard/boardlist.action'" />
+		<input type="button" class="btn" value="돌아가기" onclick="location.href='${pageContext.request.contextPath}/community/freeboard/boardlist.action'" />
 		<c:if test="${loginDTO.mSeq==vdto.mSeq }">
-		<input type="button" value="삭제하기" onclick="del(${vdto.fbSeq});" />
-		<input type="button" value="수정하기" onclick="location.href='${pageContext.request.contextPath}/community/freeboard/boardedit.action?fbSeq=${vdto.fbSeq }';" />
+		<input type="button" class="btn" value="삭제하기" onclick="del(${vdto.fbSeq});" />
+		<input type="button" class="btn" value="수정하기" onclick="location.href='${pageContext.request.contextPath}/community/freeboard/boardedit.action?fbSeq=${vdto.fbSeq }';" />
 		</c:if>			
 	</div>
 	
@@ -112,7 +121,7 @@
 						<textarea id="fbComA" name="fbComA" style="width: 680px; height:100px;"></textarea>
 					</td>
 					<td>
-						<input type="button" value="댓글 작성" onclick="addComment();">
+						<input type="button" class="btn" value="댓글 작성" onclick="addComment();">
 					</td>
 				</tr>
 			</table>
