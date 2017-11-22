@@ -7,7 +7,13 @@
 		</c:if>	
 		<c:if test="${result==0 }">
 				 -->
-				aaaaa
+				
 		<%-- </c:if>	
 	</script>
 	 --%>
+
+	 <script>
+	 	alert("메일 인증 후 다시 로그인 해 주십시오.");
+	 	location.href="${pageContext.request.contextPath}/main/frontview.action";
+	 
+	 </script>

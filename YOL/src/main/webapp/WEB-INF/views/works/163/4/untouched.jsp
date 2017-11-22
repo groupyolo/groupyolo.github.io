@@ -1,7 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%
-%>
+<%@ page language='java' contentType='text/html; charset=UTF-8' pageEncoding='UTF-8'%><%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
+	
+			
+
+		
+
+
 <style>
 	
 	.column {
@@ -349,7 +352,7 @@
 		height:100px;
 		position:fixed;
 		top: 100px;
-		left:20px;
+		right:20px;
 		text-align: center;
 		font-weight: bold;
 		
@@ -364,7 +367,7 @@ $(document).ready(function() {
 	
 	$(".portlet").resizable(	);
 	$(".portlet").droppable( );
-	var num=1;
+	
 	
 });
 	
@@ -414,12 +417,12 @@ $(document).ready(function() {
 	
 	
 </script>
-<script type="text/javascript" src="/js/imgtemp.js"></script>
 
-	<div class="column">
+
+	<div class="column ui-sortable">
  
-	  <div class="portlet">
-	   <div class="portlet-header"></div>
+	  <div class="portlet ui-resizable ui-droppable ui-widget ui-widget-content ui-helper-clearfix ui-corner-all">
+	   <div class="portlet-header ui-sortable-handle ui-widget-header ui-corner-all"><span class="ui-icon ui-icon-minusthick portlet-toggle"></span></div>
 	    <div class="portlet-content">
 	    		<div class="menu">
 		
@@ -441,152 +444,98 @@ $(document).ready(function() {
 		</div>
 	</div>
 		</div>	
-	  </div>
+	  <div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div></div>
 	 
-	  <div class="portlet">
-	   <div class="portlet-header"></div>
+	  <div class="portlet ui-resizable ui-droppable ui-widget ui-widget-content ui-helper-clearfix ui-corner-all">
+	   <div class="portlet-header ui-sortable-handle ui-widget-header ui-corner-all"><span class="ui-icon ui-icon-minusthick portlet-toggle"></span></div>
 	    <div class="portlet-content">
 	    	<div class="textbox1">
 		<div class="row">
 		<div class="innerbox">
-			<div class="textbox" contenteditable="true">
-				<div class="text1">01</div>
-				<div class="text2">STRATEGY</div>
-				<div class="text3"><hr /></div>
-				<div class="text4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis tempora excepturi praesentium vitae molestias quas deserunt sunt optio itaque eum aliquid ab. Odit libero reiciendis ab aperiam reprehenderit ipsa commodi!</div>
-			</div>
-			<div class="textbox" contenteditable="true">
-					<div class="text1" contenteditable="true">02</div>
-				<div class="text2" contenteditable="true">DESIGN</div>
-				<div class="text3" contenteditable="true"><hr /></div>
-				<div class="text4" >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis tempora excepturi praesentium vitae molestias quas deserunt sunt optio itaque eum aliquid ab. Odit libero reiciendis ab aperiam reprehenderit ipsa commodi!</div>
-			</div>
-			<div class="textbox" contenteditable="true">
-					<div class="text1">03</div>
-				<div class="text2">DEVELOP</div>
-				<div class="text3"><hr /></div>
-				<div class="text4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis tempora excepturi praesentium vitae molestias quas deserunt sunt optio itaque eum aliquid ab. Odit libero reiciendis ab aperiam reprehenderit ipsa commodi!</div>
-			</div>
-			<div class="textbox" contenteditable="true">
-					<div class="text1">04</div>
-				<div class="text2">MARKETING</div>
-				<div class="text3"><hr /></div>
-				<div class="text4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis tempora excepturi praesentium vitae molestias quas deserunt sunt optio itaque eum aliquid ab. Odit libero reiciendis ab aperiam reprehenderit ipsa commodi!</div>
-				</div>
+			<div class="textbox cke_editable cke_editable_inline cke_contents_ltr cke_show_borders" contenteditable="true" tabindex="0" spellcheck="false" role="textbox" aria-label="리치 텍스트 편집기, editor1" title="리치 텍스트 편집기, editor1" aria-describedby="cke_154" style="position: relative;"><div class="text1">01</div><div class="text2">STRATEGY</div><div class="text3"><hr></div><div class="text4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis tempora excepturi praesentium vitae molestias quas deserunt sunt optio itaque eum aliquid ab. Odit libero reiciendis ab aperiam reprehenderit ipsa commodi!</div></div>
+			<div class="textbox cke_editable cke_editable_inline cke_contents_ltr cke_show_borders" contenteditable="true" tabindex="0" spellcheck="false" role="textbox" aria-label="리치 텍스트 편집기, editor2" title="리치 텍스트 편집기, editor2" aria-describedby="cke_245" style="position: relative;"><div class="text1">02</div><div class="text2">DESIGN</div><div class="text3"><hr></div><div class="text4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis tempora excepturi praesentium vitae molestias quas deserunt sunt optio itaque eum aliquid ab. Odit libero reiciendis ab aperiam reprehenderit ipsa commodi!</div></div>
+			<div class="textbox cke_editable cke_editable_inline cke_contents_ltr cke_show_borders" contenteditable="true" tabindex="0" spellcheck="false" role="textbox" aria-label="리치 텍스트 편집기, editor6" title="리치 텍스트 편집기, editor6" aria-describedby="cke_609" style="position: relative;"><div class="text1">03</div><div class="text2">DEVELOP</div><div class="text3"><hr></div><div class="text4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis tempora excepturi praesentium vitae molestias quas deserunt sunt optio itaque eum aliquid ab. Odit libero reiciendis ab aperiam reprehenderit ipsa commodi!</div></div>
+			<div class="textbox cke_editable cke_editable_inline cke_contents_ltr cke_show_borders" contenteditable="true" tabindex="0" spellcheck="false" role="textbox" aria-label="리치 텍스트 편집기, editor7" title="리치 텍스트 편집기, editor7" aria-describedby="cke_700" style="position: relative;"><div class="text1">04</div><div class="text2">MARKETING</div><div class="text3"><hr></div><div class="text4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis tempora excepturi praesentium vitae molestias quas deserunt sunt optio itaque eum aliquid ab. Odit libero reiciendis ab aperiam reprehenderit ipsa commodi!</div></div>
 			</div>
 		</div>
 	</div> 
 	    </div>
-	  </div>
+	  <div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div></div>
 	 
 	</div>
 	 
-	<div class="column">
+	<div class="column ui-sortable">
 	 
-	  <div class="portlet">
-	   <div class="portlet-header"></div>
+	  <div class="portlet ui-resizable ui-droppable ui-widget ui-widget-content ui-helper-clearfix ui-corner-all">
+	   <div class="portlet-header ui-sortable-handle ui-widget-header ui-corner-all"><span class="ui-icon ui-icon-minusthick portlet-toggle"></span></div>
 	    <div class="portlet-content">
 	    	<div class="contents1">
 				<div class="row">
 					<div class="warp">
 						<div class="innerbox">
 							<div class="imgbox">
-								<img src="${pageContext.request.contextPath}/images/contentimg.JPG" alt="" />
+								<img src="/web/images/contentimg.JPG" alt="">
 							</div>
-							<div class="textbox" >
-								<div class="text1" contenteditable="true">
-									<h3> 
-										Integer eleifen sem elit,
-										<br />
-										Lorem ipsum dolor sit 
-									</h3>
-								</div>
-								<div class="text2" contenteditable="true">
-									<p>
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem necessitatibus ad laboriosam cum soluta ipsum at beatae in eius dicta quia rem vitae molestias illum nisi eveniet ut eaque praesentium?
-									</p>
-								</div>
+							<div class="textbox">
+								<div class="text1 cke_editable cke_editable_inline cke_contents_ltr cke_show_borders" contenteditable="true" tabindex="0" spellcheck="false" role="textbox" aria-label="리치 텍스트 편집기, editor8" title="리치 텍스트 편집기, editor8" aria-describedby="cke_791" style="position: relative;"><h3>Integer eleifen sem elit,<br>Lorem ipsum dolor sit</h3></div>
+								<div class="text2 cke_editable cke_editable_inline cke_contents_ltr cke_show_borders" contenteditable="true" tabindex="0" spellcheck="false" role="textbox" aria-label="리치 텍스트 편집기, editor9" title="리치 텍스트 편집기, editor9" aria-describedby="cke_882" style="position: relative;"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem necessitatibus ad laboriosam cum soluta ipsum at beatae in eius dicta quia rem vitae molestias illum nisi eveniet ut eaque praesentium?</p></div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 	    </div>
-	  </div>
+	  <div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div></div>
 	 
 	</div>
 	 
-	<div class="column">
+	<div class="column ui-sortable">
 	 
-	  <div class="portlet">
-	    <div class="portlet-header"></div>
+	  <div class="portlet ui-resizable ui-droppable ui-widget ui-widget-content ui-helper-clearfix ui-corner-all">
+	    <div class="portlet-header ui-sortable-handle ui-widget-header ui-corner-all"><span class="ui-icon ui-icon-minusthick portlet-toggle"></span></div>
 	    <div class="portlet-content">
 			<div class="gallery1">
 				<div class="row">
 					<div class="line1">
 						<div class="img1">
-							<img src="${pageContext.request.contextPath }/images/g1.JPG" alt="" />
-							<div class="con" contenteditable="true">
-								<span>LITORA</span>
-								<br />
-								<span>Sed ul imperdiet ul semper felis</span>
-							</div>
+							<img src="/web/images/g1.JPG" alt="">
+							<div class="con cke_editable cke_editable_inline cke_contents_ltr cke_show_borders" contenteditable="true" tabindex="0" spellcheck="false" role="textbox" aria-label="리치 텍스트 편집기, editor10" title="리치 텍스트 편집기, editor10" aria-describedby="cke_973" style="position: relative;"><p>LITORA<br>Sed ul imperdiet ul semper felis</p></div>
 						</div>
 						<div class="img2">
-							<img src="${pageContext.request.contextPath }/images/g2.JPG" alt="" />
-							<div class="con" contenteditable="true">
-								<span>CONUBIA</span>
-								<br />
-								<span>Sed ul imperdiet ul semper felis</span>
-							</div>
+							<img src="/web/images/g2.JPG" alt="">
+							<div class="con cke_editable cke_editable_inline cke_contents_ltr cke_show_borders" contenteditable="true" tabindex="0" spellcheck="false" role="textbox" aria-label="리치 텍스트 편집기, editor11" title="리치 텍스트 편집기, editor11" aria-describedby="cke_1064" style="position: relative;"><p>CONUBIA<br>Sed ul imperdiet ul semper felis</p></div>
 						</div>
 						<div class="img3">
-							<img src="${pageContext.request.contextPath }/images/g3.JPG" alt="" />
-							<div class="con" contenteditable="true">
-								<span>NOSTRA</span>
-								<br />
-								<span>Sed ul imperdiet ul semper felis</span>
-							</div>
+							<img src="/web/images/g3.JPG" alt="">
+							<div class="con cke_editable cke_editable_inline cke_contents_ltr cke_show_borders" contenteditable="true" tabindex="0" spellcheck="false" role="textbox" aria-label="리치 텍스트 편집기, editor12" title="리치 텍스트 편집기, editor12" aria-describedby="cke_1155" style="position: relative;"><p>NOSTRA<br>Sed ul imperdiet ul semper felis</p></div>
 						</div>
 					</div>
 					<div class="line2">
 						<div class="img1">
-							<img src="${pageContext.request.contextPath }/images/g3.JPG" alt="" />
-							<div class="con" contenteditable="true">
-								<span>MAECENAS</span>
-								<br />
-								<span>Sed ul imperdiet ul semper felis</span>
-							</div>
+							<img src="/web/images/g3.JPG" alt="">
+							<div class="con cke_editable cke_editable_inline cke_contents_ltr cke_show_borders" contenteditable="true" tabindex="0" spellcheck="false" role="textbox" aria-label="리치 텍스트 편집기, editor13" title="리치 텍스트 편집기, editor13" aria-describedby="cke_1246" style="position: relative;"><p>MAECENAS<br>Sed ul imperdiet ul semper felis</p></div>
 						</div>
 						<div class="img2">
-							<img src="${pageContext.request.contextPath }/images/g4.JPG" alt="" />
-							<div class="con" contenteditable="true">
-								<span>LACUS</span>
-								<br />
-								<span>Sed ul imperdiet ul semper felis</span>
-							</div>
+							<img src="/web/images/g4.JPG" alt="">
+							<div class="con cke_editable cke_editable_inline cke_contents_ltr cke_show_borders" contenteditable="true" tabindex="0" spellcheck="false" role="textbox" aria-label="리치 텍스트 편집기, editor14" title="리치 텍스트 편집기, editor14" aria-describedby="cke_1337" style="position: relative;"><p>LACUS<br>Sed ul imperdiet ul semper felis</p></div>
 						</div>
 						<div class="img3">
-							<img src="${pageContext.request.contextPath }/images/g5.JPG" alt="" />
-							<div class="con" contenteditable="true">
-								<span>MAURIS</span>
-								<br />
-								<span>Sed ul imperdiet ul semper felis</span>
-							</div>
+							<img src="/web/images/g5.JPG" alt="">
+							<div class="con cke_editable cke_editable_inline cke_contents_ltr cke_show_borders" contenteditable="true" tabindex="0" spellcheck="false" role="textbox" aria-label="리치 텍스트 편집기, editor15" title="리치 텍스트 편집기, editor15" aria-describedby="cke_1428" style="position: relative;"><p>MAURIS<br>Sed ul imperdiet ul semper felis</p></div>
 						</div>
 					</div>
 				</div>
 			</div>
 	    </div>
-	  </div>
-	  <div class="portlet">
-	    <div class="portlet-header"></div>
+	  <div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div></div>
+	  <div class="portlet ui-resizable ui-droppable ui-widget ui-widget-content ui-helper-clearfix ui-corner-all">
+	    <div class="portlet-header ui-sortable-handle ui-widget-header ui-corner-all"><span class="ui-icon ui-icon-minusthick portlet-toggle"></span></div>
 	    <div class="portlet-content">
 	    	<div class="conBox1">
 				<div class="conText">
 					<span>Contact Us</span>
 					<table class="tblCon">
-						<tr>
+						<tbody><tr>
 							<td><input type="text" value="name" id="name" name="name" onfocus="this.value=''"></td>
 							<td><input type="text" value="email" id="email" name="email" onfocus="this.value=''"></td>
 						</tr>
@@ -596,12 +545,12 @@ $(document).ready(function() {
 						<tr>
 							<td colspan="2"><textarea name="message" id="message" value="message" onfocus="this.value=''">message</textarea></td>
 						</tr>
-					</table>
+					</tbody></table>
 				</div>
 			
 			</div>
 	    </div>
-	  </div>
+	  <div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div></div>
 	 
 	
 	 
@@ -609,44 +558,29 @@ $(document).ready(function() {
 
  
     <!-- <div id="myDiv" contenteditable="true">Edit this text!</div> -->
-    <br />
+    <br>
     <!-- <input type="button" id ="deny" onclick="ToggleEditable(this);" value="Deny to edit!"> -->
 
 	<div id="remotecon">
 	<form method="POST" action="/web/member/filewriter.action">
 	<textarea style="display:none;" name="whatda" id="whatda" cols="30" rows="10">	
 	</textarea>
-	<input type="hidden"  name="prFileName" value="${mapping }">
-	<input type="hidden" name="prSeq" value="${prSeq }">
+	<input type="hidden" name="prFileName" value="works.163.4.untouched">
+	<input type="hidden" name="prSeq" value="163">
 	<input type="submit" class="btn" style="width:100%;" value="저장하기" onclick="save();">
-	<span style="width:100%;"><a id="export" class="btn" style="border:1px soild ligthgrey;"download="" href="#">내려받기</a></span>
-	<input type="button"class="btn" style="width:100%;"value="이미지추가" id="btnImg">
+	<span style="width:100%;"><a id="export" class="btn" style="border:1px soild ligthgrey;" download="" href="#">내려받기</a></span>
+	<input type="button" class="btn" style="width:100%;" value="이미지추가" id="btnImg">
 	<div id="imgAll"></div>
 
-	
+
 	</form>
-	
-	<script>
-	$("#btnImg").click(function() {
-		var div = "<div class='portlet ui-resizable ui-droppable ui-widget ui-widget-content ui-helper-clearfix ui-corner-all droptab'>" +
-							"<div class='portlet-header ui-widget-header ui-corner-all ui-sortable-handle'>" +
-							"<span class='ui-icon ui-icon-minusthick portlet-toggle'></span>" +
-							"</div>" +
-							
-							"<div class='portlet-content'>" +
-								"<div class='adImg '>" +
-									"<input type='file' class='imgInp' id='imgInp"+num+"'/>" +
-										"<div class='imgtemp'>" +
-										"<img src='#' alt='img' id='imgtag"+num+"' onclick='imgResize(imgtag"+num+")' />" +
-										"</div>" +
-								"</div>" +
-							"</div>" +
-						"</div>";
-		$("#sortable").append(div);
-		num++;
-	});		
-	
-	</script>
-	
 	</div>
 
+
+		
+
+
+		
+
+	
+	

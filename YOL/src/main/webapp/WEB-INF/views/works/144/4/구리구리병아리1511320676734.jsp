@@ -1,5 +1,9 @@
 <%@ page language='java' contentType='text/html; charset=UTF-8' pageEncoding='UTF-8'%><%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
 	
+			
+		<!-- 주업무 -->
+			
+
 
 <style>
 	
@@ -343,14 +347,12 @@
 	}
 	
 	#remotecon{
-		border:0px solid black;
+		border:1px solid black;
 		width:100px;
 		height:100px;
 		position:fixed;
 		top: 100px;
 		right:20px;
-		text-align: center;
-		font-weight: bold;
 		
 	}
 	
@@ -413,7 +415,7 @@ $(document).ready(function() {
 	
 </script>
 <link rel="stylesheet" href="/web/css/imgtemp.css">
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/imgtemp.js"></script>
+<script type="text/javascript" src="/web/js/imgtemp.js"></script>
 
 
 	<div class="column ui-sortable" id="sortable">
@@ -559,6 +561,62 @@ $(document).ready(function() {
     <br>
     <!-- <input type="button" id ="deny" onclick="ToggleEditable(this);" value="Deny to edit!"> -->
 
+	<div id="remotecon">
+	<form method="POST" action="/web/member/filewriter.action">
+	<textarea style="display:none;" name="whatda" id="whatda" cols="30" rows="10">	
+	</textarea>
+	<input type="hidden" name="prFileName" value="works.144.4.구리구리병아리">
+	<input type="hidden" name="prSeq" value="144">
+	<input type="submit" value="저장하기" onclick="save();">
+	<input type="button" class="myButton" value="export" download="" href="#">
+
+	<span>*이미지 사이즈*</span>
+	<input type="button" value="이미지추가" id="btnImg">
+	<div id="imgAll"></div>
+	
+	</form>
+	</div>
+
+
+		
+		<!-- footer -->
+
+		
+
+	
+	
+		
+		<!-- footer -->
+
+		
+
+	
+	
+		
+		<!-- footer -->
+
+		
+
+	
+	
+		
+		<!-- footer -->
+
+		
+
+	
+	
+		
+		<!-- footer -->
+
+		
+
+	
+	
+		
+		<!-- footer -->
+
+		
 
 	
 	

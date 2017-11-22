@@ -206,7 +206,7 @@
 
 	<hr />	
 
-	<div id="otherswork">
+	<div id="otherswork" style="display:none;">
 		<p>다른사람들의 프로젝트 둘러보기</p>
 		<div id="worklist">
 		<div class="othersp">

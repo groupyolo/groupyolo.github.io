@@ -349,7 +349,7 @@
 		height:100px;
 		position:fixed;
 		top: 100px;
-		left:20px;
+		right:20px;
 		text-align: center;
 		font-weight: bold;
 		
@@ -364,7 +364,7 @@ $(document).ready(function() {
 	
 	$(".portlet").resizable(	);
 	$(".portlet").droppable( );
-	var num=1;
+	
 	
 });
 	
@@ -414,7 +414,7 @@ $(document).ready(function() {
 	
 	
 </script>
-<script type="text/javascript" src="/js/imgtemp.js"></script>
+<script type="text/javascript" src="/web/js/imgtemp.js"></script>
 
 	<div class="column">
  
@@ -623,30 +623,7 @@ $(document).ready(function() {
 	<input type="button"class="btn" style="width:100%;"value="이미지추가" id="btnImg">
 	<div id="imgAll"></div>
 
-	
+
 	</form>
-	
-	<script>
-	$("#btnImg").click(function() {
-		var div = "<div class='portlet ui-resizable ui-droppable ui-widget ui-widget-content ui-helper-clearfix ui-corner-all droptab'>" +
-							"<div class='portlet-header ui-widget-header ui-corner-all ui-sortable-handle'>" +
-							"<span class='ui-icon ui-icon-minusthick portlet-toggle'></span>" +
-							"</div>" +
-							
-							"<div class='portlet-content'>" +
-								"<div class='adImg '>" +
-									"<input type='file' class='imgInp' id='imgInp"+num+"'/>" +
-										"<div class='imgtemp'>" +
-										"<img src='#' alt='img' id='imgtag"+num+"' onclick='imgResize(imgtag"+num+")' />" +
-										"</div>" +
-								"</div>" +
-							"</div>" +
-						"</div>";
-		$("#sortable").append(div);
-		num++;
-	});		
-	
-	</script>
-	
 	</div>
 

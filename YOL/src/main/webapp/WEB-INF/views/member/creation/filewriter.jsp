@@ -8,7 +8,8 @@ String prSeq = request.getParameter("prSeq");
 	<c:if test="${result==1}">
 		<script>
 			alert("저장이 완료되었습니다.");
-			history.back();
+			location.href="http://localhost:8081/web/member/manage.action?prSeq=<%=prSeq%>";
+					
 		</script>
 	</c:if>
 	<c:if test="${result==0}">

@@ -123,6 +123,21 @@
 		cursor:pointer;
 	}
 	
+		
+	#remotecon{
+		border:0px solid black;
+		width:100px;
+		height:100px;
+		position:fixed;
+		top: 100px;
+		right:20px;
+		text-align: center;
+		font-weight: bold;
+		
+	}
+	
+	
+	
 	</style>
 
 	
@@ -146,7 +161,7 @@
 						<li onclick="location.href='${pageContext.request.contextPath}/community/freeboard/boardlist.action';">자유게시판</li>
 					</ul>
 				</div>
-				<div id="fourthchild"><a href="${pageContext.request.contextPath }/member/faqview.action">고객지원</a>
+				<div id="fourthchild"><a href="${pageContext.request.contextPath }/main/faqview.action">고객지원</a>
 					<ul  id="comsub4" class="comsub">
 						<li onclick="location.href='${pageContext.request.contextPath}/member/faqview.action';">서포트센터</li>
 						<li onclick="location.href='${pageContext.request.contextPath}/member/inquirylist.action';">문의게시판</li>		
@@ -183,10 +198,7 @@
 					}
 				);
 					
-			
-			
-			
-			
+
 		</script>		
 			<!-- 채팅창 버튼 -->
 			<div class="chatmenu" style="margin-left: 30px;">
@@ -359,8 +371,5 @@
 			</div>		
 		</div> 
 	</div>
-
-	
-
 	
 	<div id="core">

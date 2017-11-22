@@ -8,9 +8,11 @@
 	}
 
 	#all {
-		width: 100%;
+		width: 1903px;;
 		background-color: #eee;
-		margin: 0px auto;
+		/* margin: 0px auto; */
+		margin-top: -30px;
+	 	margin-left:-452px;
 	}
 
 	#topBox {

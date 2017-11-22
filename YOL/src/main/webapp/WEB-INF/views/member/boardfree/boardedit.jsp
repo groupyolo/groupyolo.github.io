@@ -26,20 +26,23 @@
 					<input type="text" name="fbName" value="${vdto.fbName}" placeholder="글 제목을 입력하세요"  style="width:700px;" required/>
 				</div>
 				<div>
-					<textarea name="fbMain" id="fbMaineditor" cols="30" rows="10" style="width:100%; height:400px;" >
+					<textarea name="fbMain" id="fbMaineditor">
 						${vdto.fbMain}
 					</textarea>
 					<script>
 						$("#selectBox option:eq(1)").attr("selected", "selected");
-						CKEDITOR.replace( "fbMain");
+						CKEDITOR.replace( "fbMain", {
+						     height: 450	
+						});
+					   
 					</script>
 				</div>
 			</div>
 			<input type="hidden" name="fbSeq" value="${vdto.fbSeq}" />
 			<input type="hidden" name="mSeq" value="${loginDTO.mSeq}" />
 			<div id="fboardaddbtn" class="btncolor">
-				<input type="button" value="뒤로가기" onclick="history.back();" />
-				<input type="submit" value="저장하기"/>
+				<input type="button" class="btn" value="뒤로가기" onclick="history.back();" />
+				<input type="submit" class="btn" value="저장하기"/>
 			</div>		
 		</form>
 	</div>
