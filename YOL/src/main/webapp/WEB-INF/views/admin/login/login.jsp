@@ -45,7 +45,11 @@
 	<div id="box">
 	<form method="post" action="${pageContext.request.contextPath}/admin/loginOk.action">
 	<table id="tbl" class="table">
-
+	<tr>
+		<td>
+			<h2>관리자 로그인</h2>
+		</td>
+	</tr>
 	<tr>
 		<td>
 		<input type="email"	name="adminID" id="adminID" class="form-control" placeholder="이메일을 입력하세요." required>

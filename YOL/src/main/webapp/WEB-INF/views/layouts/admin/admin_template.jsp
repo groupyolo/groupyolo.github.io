@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>멤버들이 보는 화면 구성</title>
+<title>관리자모드 - YOL.COM</title>
 
 </head>
 <body>

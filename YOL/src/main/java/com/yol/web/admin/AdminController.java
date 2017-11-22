@@ -89,10 +89,11 @@ public class AdminController {
 		List<InquiryboardDTO> iblist = service.iblist(inquiryseq);
 		
 		req.setAttribute("iblist", iblist);
+		req.setAttribute("inquiryseq",inquiryseq);
 		
-		
-
 		return "admin.inquiry.inquiryView";
+		
+		
 	}//noticeBoardView
 	
 	@RequestMapping(method={RequestMethod.GET}, value="/admin/inquiryadd.action")
@@ -156,10 +157,12 @@ public class AdminController {
 		
 		int result = service.readd(dto);
 
-		int result1 = service.readd1(inquiryseq);
+		//int result1 = service.readd1(inquiryseq);
 		
-	
+		req.setAttribute("result", result);
+		
 		return "admin.inquiry.inquiryBoardOk";
+		
 	}//inquiryBoardOk
 	
 	@RequestMapping(method={RequestMethod.GET}, value="/admin/inquiryBoardDel.action")

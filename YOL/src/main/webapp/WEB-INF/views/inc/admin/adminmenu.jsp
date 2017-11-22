@@ -13,11 +13,16 @@
 	<c:if test="${AdminDTO != null}">
 			<div class="topmenutext" align="center">
 				<div onclick="location.href='/web/admin/adminMember.action';">회원관리</div>
+				<div onclick="location.href='/web/chat/list.action';">채팅문의</div>
 				<div onclick="location.href='/web/admin/noticeBoard.action';">공지사항</div>
 				<div onclick="location.href='/web/admin/inquiry.action';">문의사항</div>
 				<div onclick="location.href='/web/admin/faq.action';">FAQ</div>
 			</div>
-		</c:if>
-			<div class="smallmenu" onclick="location.href='/web/main/login.action';"><span class="ui-icon-lightbulb ui-icon-arrowthick-1-n"></span><span>로그인</span></div>
+	
+			<div class="smallmenu" onclick="location.href='/web/main/login.action';"><i class="fa fa-bell" aria-hidden="true"></i>
+			<span class="ui-icon-lightbulb ui-icon-arrowthick-1-n"></span><span>관리자모드</span></div>
+	</c:if>
+	
 		</div> 
+	
 	</div>
