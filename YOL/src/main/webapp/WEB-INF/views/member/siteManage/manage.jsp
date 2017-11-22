@@ -75,11 +75,24 @@
 	});
 	function site(e) {
 		var n =e.value;
-		location.href = "/web/member/manage.action?prSeq=" + n;
+		location.href = "${pageContext.request.contextPath}/member/manage.action?prSeq=" + n;
 	}
 	
 	function sitedel() {
-		alert("삭제");
+		var seq;
+			<c:forEach items="${jlist}" var="jdto">
+				if (${jdto.grade} = '팀장') {
+					seq = ${jdto.mSeq};
+				}
+			</c:forEach>
+	
+		if (confirm("정말 삭제하시겠습니까?")) {
+			if (seq ==  ${loginDTO.mSeq}) {
+				location.href='${pageContext.request.contextPath}/member/prdelok.action?prSeq=${pdto.prSeq }';
+			}	else {
+				alert("권한이 없습니다.");
+			}		
+		}
 		
 	}
 </script>

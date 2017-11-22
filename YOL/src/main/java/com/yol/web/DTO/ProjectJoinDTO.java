@@ -9,6 +9,7 @@ public class ProjectJoinDTO {
 	private String mNickName;
 	private String mEmail;
 	private String grade;
+	
 	public String getPrSeq() {
 		return prSeq;
 	}

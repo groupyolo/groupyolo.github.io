@@ -133,6 +133,16 @@ public class SiteManageController {
 		return "member.siteManage.list";
 	}
 	
+	@RequestMapping (method= {RequestMethod.GET}, value="/member/prdelok.action" )
+	private String prdelok(HttpServletRequest req, String prSeq) {
+			
+			int result = service.prdelok(prSeq);
+		
+			req.setAttribute("result", result);
+			return "member.siteManage.prdelok";
+		
+		}
+	
 	@RequestMapping (method= {RequestMethod.GET}, value="/member/pbadd.action" )
 	private String add(HttpServletRequest req, String prSeq) {
 		
@@ -207,9 +217,6 @@ public class SiteManageController {
 	
 	@RequestMapping (method= {RequestMethod.GET}, value="/member/pbdelok.action" )
 	private String delok(HttpServletRequest req, String prSeq, String pbSeq ) {
-
-		System.out.println(pbSeq);
-		
 		// 게시글 삭제하기 
 		int result = service.delok(pbSeq);
 		
