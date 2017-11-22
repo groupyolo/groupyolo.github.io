@@ -171,9 +171,6 @@
 	<script>
 	var bwidth = $("body").width();
 	$("#mainCore").width(bwidth);
-	//$("#mainCore").css("top",'0');
-	console.log(mainCore.position().top());
-	//$("#mainCore").left($(window).left());
 	
 	$(".faqContent").hide();
 	

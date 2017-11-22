@@ -149,20 +149,20 @@
 				<div><a href="${pageContext.request.contextPath }/member/myinfo.action">나의정보</a>
 				</div>
 				<div id="secondchild"><a href="${pageContext.request.contextPath }/member/mysites.action">내사이트</a>
-					<ul class="comsub">
+					<ul  id="comsub2" class="comsub">
 						<li onclick="location.href='${pageContext.request.contextPath}/member/mysites.action';">내사이트</li>
 						<li onclick="location.href='${pageContext.request.contextPath}/member/teamMaster.action?mSeq=${loginDTO.mSeq}';">팀마스터</li>
 					</ul>
 				</div>
 				<div id="thirdchild"><a href="${pageContext.request.contextPath }/member/community.action">커뮤니티</a>
-					<ul id="comsub" class="comsub">
+					<ul id="comsub3" class="comsub">
 						<li onclick="location.href='${pageContext.request.contextPath}/member/communityBoard.action';">모집게시판</li>
 						<li onclick="location.href='${pageContext.request.contextPath}/question/list.action';">질문게시판</li>
 						<li onclick="location.href='${pageContext.request.contextPath}/community/freeboard/boardlist.action';">자유게시판</li>
 					</ul>
 				</div>
 				<div id="fourthchild"><a href="${pageContext.request.contextPath }/main/faqview.action">고객지원</a>
-					<ul class="comsub">
+					<ul  id="comsub4" class="comsub">
 						<li onclick="location.href='${pageContext.request.contextPath}/member/faqview.action';">서포트센터</li>
 						<li onclick="location.href='${pageContext.request.contextPath}/member/inquirylist.action';">문의게시판</li>		
 					</ul>
@@ -171,15 +171,34 @@
 			
 		<script>
 		
-			$(".topmenutext").hover(
+			$(".topmenutext #thirdchild").hover(
 				function () {
-					    $(".comsub").show();
+					    $("#comsub3").show();
 				}, 
 				function () {
-					    $(".comsub").hide();
+					    $("#comsub3").hide();
 				}
 			);
-				
+			
+			$(".topmenutext #secondchild").hover(
+					function () {
+						    $("#comsub2").show();
+					}, 
+					function () {
+						    $("#comsub2").hide();
+					}
+				);
+					
+			$(".topmenutext #fourthchild").hover(
+					function () {
+						    $("#comsub4").show();
+					}, 
+					function () {
+						    $("#comsub4").hide();
+					}
+				);
+					
+
 		</script>		
 			<!-- 채팅창 버튼 -->
 			<div class="chatmenu" style="margin-left: 30px;">

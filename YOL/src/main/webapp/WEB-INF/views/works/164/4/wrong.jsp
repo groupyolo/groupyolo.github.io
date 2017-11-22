@@ -349,7 +349,7 @@
 		height:100px;
 		position:fixed;
 		top: 100px;
-		left:20px;
+		right:20px;
 		text-align: center;
 		font-weight: bold;
 		
@@ -364,7 +364,7 @@ $(document).ready(function() {
 	
 	$(".portlet").resizable(	);
 	$(".portlet").droppable( );
-	var num=1;
+	
 	
 });
 	
@@ -414,7 +414,7 @@ $(document).ready(function() {
 	
 	
 </script>
-<script type="text/javascript" src="/js/imgtemp.js"></script>
+
 
 	<div class="column">
  
@@ -611,42 +611,4 @@ $(document).ready(function() {
     <!-- <div id="myDiv" contenteditable="true">Edit this text!</div> -->
     <br />
     <!-- <input type="button" id ="deny" onclick="ToggleEditable(this);" value="Deny to edit!"> -->
-
-	<div id="remotecon">
-	<form method="POST" action="/web/member/filewriter.action">
-	<textarea style="display:none;" name="whatda" id="whatda" cols="30" rows="10">	
-	</textarea>
-	<input type="hidden"  name="prFileName" value="${mapping }">
-	<input type="hidden" name="prSeq" value="${prSeq }">
-	<input type="submit" class="btn" style="width:100%;" value="저장하기" onclick="save();">
-	<span style="width:100%;"><a id="export" class="btn" style="border:1px soild ligthgrey;"download="" href="#">내려받기</a></span>
-	<input type="button"class="btn" style="width:100%;"value="이미지추가" id="btnImg">
-	<div id="imgAll"></div>
-
-	
-	</form>
-	
-	<script>
-	$("#btnImg").click(function() {
-		var div = "<div class='portlet ui-resizable ui-droppable ui-widget ui-widget-content ui-helper-clearfix ui-corner-all droptab'>" +
-							"<div class='portlet-header ui-widget-header ui-corner-all ui-sortable-handle'>" +
-							"<span class='ui-icon ui-icon-minusthick portlet-toggle'></span>" +
-							"</div>" +
-							
-							"<div class='portlet-content'>" +
-								"<div class='adImg '>" +
-									"<input type='file' class='imgInp' id='imgInp"+num+"'/>" +
-										"<div class='imgtemp'>" +
-										"<img src='#' alt='img' id='imgtag"+num+"' onclick='imgResize(imgtag"+num+")' />" +
-										"</div>" +
-								"</div>" +
-							"</div>" +
-						"</div>";
-		$("#sortable").append(div);
-		num++;
-	});		
-	
-	</script>
-	
-	</div>
 

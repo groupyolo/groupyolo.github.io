@@ -29,10 +29,17 @@
  	margin-bottom:10px;
  }
  #records{
-
+	color: Dimgray;
  	text-align: right;
  	padding:20px;
+ 	font-size: 1.1em;
  }
+
+#records span{
+	font-size: 1.2em;
+	color: #FF6200;
+}
+
 
 </style>
 
@@ -40,6 +47,9 @@
 <script type="text/javascript">
       google.charts.load("current", {packages:["calendar"]});
       google.charts.setOnLoadCallback(drawChart);
+
+    var holecnt=0;
+    
 
    function drawChart() {
        var dataTable = new google.visualization.DataTable();
@@ -86,18 +96,28 @@
 		
 	</div>
 	
-	<div id="sick" style=" display:inline-block; float:right; width:700px; height:300px; border-bottom:1px solid lightgrey;">
+	<div id="sick" style=" display:inline-block; float:right; width:700px; height:400px; border-bottom:1px solid lightgrey;">
 		<h2>${loginDTO.mNickName } 님과 함께한 YOL의 기록</h2>
 		<div id="records">
-		<p>지금까지 3번의 프로젝트 생성과</p><br />
-		<p>4번의 프로젝트 참여,</p><br />
-		<p>27번의 자유게시판 글쓰기,</p><br />
-		<p>지금까지 3번의 프로젝트 생성과</p><br />
+		<p>지금까지 <span id="logcnt"></span>번의 로그인,</p>
+		<p><span>0 </span>번의 프로젝트 생성,</p><br />
+		<p><span>0 </span>번의 프로젝트 참여,</p><br />
+		<p><span>0 </span>번의 자유게시판 글쓰기,</p><br />
+		<p><span>0 </span>번의 질문 게시판 글쓰기</p><br />
 		<p>하셨습니다.</p>
 		</div>
 	</div>
 	
+	<script>
+    <c:forEach items="${clist}" var="dto">
+	holecnt += ${dto.cnt};
+	</c:forEach>
+	console.log(holecnt);
 	
+	$("#logcnt").text(holecnt);
+
+	
+	</script>
 	<div id="calendar_basic"></div>
 	
 	

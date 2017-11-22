@@ -413,7 +413,7 @@ $(document).ready(function() {
 	
 </script>
 <link rel="stylesheet" href="/web/css/imgtemp.css">
-<script type="text/javascript" src="/web/js/imgtemp.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/imgtemp.js"></script>
 
 
 	<div class="column ui-sortable" id="sortable">
@@ -558,20 +558,6 @@ $(document).ready(function() {
     <!-- <div id="myDiv" contenteditable="true">Edit this text!</div> -->
     <br>
     <!-- <input type="button" id ="deny" onclick="ToggleEditable(this);" value="Deny to edit!"> -->
-
-	<div id="remotecon">
-	<form method="POST" action="/web/member/filewriter.action">
-	<textarea style="display:none;" name="whatda" id="whatda" cols="30" rows="10">	
-	</textarea>
-	<input type="hidden"  name="prFileName" value="works.144.4.구리구리병아리">
-	<input type="hidden" name="prSeq" value="144">
-	<input type="submit" class="btn" style="width:100%;" value="저장하기" onclick="save();">
-	<span style="width:100%;"><a id="export" class="btn" style="border:1px soild ligthgrey;"download="" href="#">내려받기</a></span>
-	<input type="button"class="btn" style="width:100%;"value="이미지추가" id="btnImg">
-	<div id="imgAll"></div>
-	
-	</form>
-	</div>
 
 
 	

@@ -349,7 +349,7 @@
 		height:100px;
 		position:fixed;
 		top: 100px;
-		left:20px;
+		right:20px;
 		text-align: center;
 		font-weight: bold;
 		
@@ -364,7 +364,7 @@ $(document).ready(function() {
 	
 	$(".portlet").resizable(	);
 	$(".portlet").droppable( );
-	var num=1;
+	
 	
 });
 	
