@@ -4,6 +4,8 @@
 	.topmenutext div{
 		cursor:pointer;
 	}
+	
+	#menutop { color:white; }
 </style>
 	
 
