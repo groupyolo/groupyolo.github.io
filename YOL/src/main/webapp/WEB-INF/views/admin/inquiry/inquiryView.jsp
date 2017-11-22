@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <style>
-	.container { margin-bottom:30px; }
+	.container { margin-bottom:30px; width:650px; }
 	#inquiryreply th {
 		width:178px;
 	}
@@ -12,11 +12,11 @@
 	}	
 </style>
 
-	<h1  align="center">문의 게시판</h1>
+	<h1 align="center">문의 게시판</h1>
 	
 	<div class="container">
-	<div align="center">
-	<table class="table table-boader" id="inquiryView" style="width:600px;">
+	<div align="center" >
+	<table class="table table-boader" id="inquiryView" style="margin:0 auto;">
 	<c:forEach items="${ivlist}" var="ivdto">
 		<tr>
 			<th>번호</th>

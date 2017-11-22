@@ -42,7 +42,7 @@
 					
 				</table>
 			</div>
-			
+			<hr style="width:600px;"/>
 			<input type="button" value="취소하기" class="btn" onclick="history.back();"/>
 			<input type="submit" value="등록하기" class="btn" />
 			</form>

@@ -2,11 +2,11 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <style>
-	.container { margin-bottom:30px; }
+	.container { margin-bottom:30px; width:850px;}
 </style>
 	<div class="container">
 	<h1 align="center">문의 게시판</h1>
-		<table class="table table-boarder" id="inquiry">
+		<table class="table table-boarder" id="inquiry" style="margin:0 auto;">
 
 			<colgroup>
 				<col width="7%">	<!-- 글 번호 -->
@@ -33,6 +33,6 @@
 			</c:forEach>
 
 		</table>
+		<input class="btn btn-normal pull-right" style="margin-top:20px;" type="button" value="글쓰기" onclick="location.href='/web/admin/inquiryadd.action';">
 		
-		<input class="btn btn-normal pull-right" class="btn" type="button" value="글쓰기" onclick="location.href='/web/admin/inquiryadd.action';">
 	</div>

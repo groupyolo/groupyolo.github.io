@@ -3,7 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 
 	<style>
-	/* #mainCore { position: relative; } /* position: absolute; top:50px; left: 0; width: 100%; */
+	 #mainCore { 
+	 	margin-top: -30px;
+	 	margin-left:-452px;/* position: relative;  */} /* position: absolute; top:50px; left: 0; width: 100%; */
 	#box { position:static; } */
 	
 	.faqTitle{
@@ -50,7 +52,7 @@
 	#searchImage{
 		
 		background-image: url("${pageContext.request.contextPath }/images/search.png");
-		/* width:1000px;*/
+		width:100%;
 		height:400px;
 		background-size:cover;
 		background-repeat:no-repeat;
